@@ -30,10 +30,11 @@ a { color: #0f6cbf; }
   margin: 0 auto;
   padding: 1rem 1.25rem 3rem;
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 220px minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
+#region-main { min-width: 0; }
 #page-header h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.35rem; }
 #page-header .page-context-header { color: #6a737b; margin: 0 0 1rem; }
 #mod_quiz_navblock {
@@ -69,7 +70,8 @@ a { color: #0f6cbf; }
   border-radius: 0 0 2px 2px;
 }
 .quizname { margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #dee2e6; font-size: 1.15rem; }
-.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; overflow: hidden; }
+.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; }
+.que::after { content: ""; display: table; clear: both; }
 .que .info {
   float: left;
   width: 7em;
@@ -82,7 +84,7 @@ a { color: #0f6cbf; }
 .que h3.no { margin: 0; font-size: 0.8em; line-height: 1; }
 .que span.qno { font-size: 1.5em; font-weight: bold; }
 .que .info > div { font-size: 0.8em; margin-top: 0.7em; }
-.que .content { margin: 0 0 0 8.5em; }
+.que .content { margin: 0 0 0 8.5em; min-width: 0; }
 .que .formulation, .que .comment {
   position: relative;
   padding: 0.75rem 1.25rem;
@@ -125,10 +127,14 @@ a { color: #0f6cbf; }
   height: 1px;
   overflow: hidden;
 }
-.pics { margin: 0 0 1em; overflow: visible; }
-table.qimgs { border: 0; border-collapse: collapse; margin: 0; width: auto; }
+.pics { margin: 0 0 1em; max-width: 100%; }
+table.qimgs { border: 0; border-collapse: collapse; margin: 0; max-width: 100%; }
+table.qimgs.cols-1 { width: auto; }
+table.qimgs.cols-2,
+table.qimgs.cols-3,
+table.qimgs.cols-4 { width: 100%; table-layout: fixed; }
 table.qimgs td { padding: 4px; vertical-align: top; }
-.qimg { display: block; width: auto; height: auto; max-width: none; border: 0; background: #fff; }
+table.qimgs img { display: block; width: 100%; height: auto; }
 .audios { margin: 0 0 1em; }
 .alabel { font-size: 0.85em; color: #6a737b; }
 audio { width: 100%; max-width: 420px; }
@@ -167,7 +173,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Подберите<br>пропущенное слово. На рисунке изображен главный (1) Олимпийского движения.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/045dc184968f003b.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/045dc184968f003b.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>талисман</option><option>эмблема</option><option>символ</option><option>замысел</option><option>артефакт</option></select></p></div>
     </div>
@@ -224,7 +230,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите соответствие беговой<br>дисциплины и изображения.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/11a9aab0038896fc.png" alt=""></td><td><img class="qimg" src="../_картинки/f5bfa5436b5f456c.png" alt=""></td></tr><tr><td><img class="qimg" src="../_картинки/bd823e6231d57527.png" alt=""></td><td><img class="qimg" src="../_картинки/8661df89000cfb0e.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-2"><tbody><tr><td><img src="../_картинки/11a9aab0038896fc.png" alt=""></td><td><img src="../_картинки/f5bfa5436b5f456c.png" alt=""></td></tr><tr><td><img src="../_картинки/bd823e6231d57527.png" alt=""></td><td><img src="../_картинки/8661df89000cfb0e.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: Гладкий бег; Барьерный бег; Эстафетный бег; Бег с препятствиями</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr></table></div>
     </div>
@@ -490,7 +496,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите соответствие. Знак ГТО и количество успешно выполненных тестов<br>для получения этого знака.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/86bb896f95fd300a.png" alt=""></td><td><img class="qimg" src="../_картинки/d95ecd27ed5c884f.png" alt=""></td><td><img class="qimg" src="../_картинки/0c5c64724006ef0c.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-3"><tbody><tr><td><img src="../_картинки/86bb896f95fd300a.png" alt=""></td><td><img src="../_картинки/d95ecd27ed5c884f.png" alt=""></td><td><img src="../_картинки/0c5c64724006ef0c.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: 5 обязательных и 4 по выбору; 4 обязательных и 4 по выбору; 4 обязательных и 1 по выбору; 4 обязательных и 2 по выбору; 3 обязательных и 5 по выбору</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>5 обязательных и 4 по выбору</option><option>4 обязательных и 4 по выбору</option><option>4 обязательных и 1 по выбору</option><option>4 обязательных и 2 по выбору</option><option>3 обязательных и 5 по выбору</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>5 обязательных и 4 по выбору</option><option>4 обязательных и 4 по выбору</option><option>4 обязательных и 1 по выбору</option><option>4 обязательных и 2 по выбору</option><option>3 обязательных и 5 по выбору</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>5 обязательных и 4 по выбору</option><option>4 обязательных и 4 по выбору</option><option>4 обязательных и 1 по выбору</option><option>4 обязательных и 2 по выбору</option><option>3 обязательных и 5 по выбору</option></select></td></tr></table></div>
     </div>
@@ -509,7 +515,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите<br>соответствие этап бега на 1000 м. и интенсивность, с которой рекомендуется<br>пробегать этот этап. На дистанции 1000 м первые 250 м пробегают с<br>интенсивностью (1) от максимальной скорости, вторые 250 м — с интенсивностью<br>(2), затем вновь с интенсивностью (3) и последние 250 м — с интенсивностью (4).</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/2cabe6ed0233912d.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/2cabe6ed0233912d.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: 30%; 40%</div><table class="answer match"><tr class="r0"><td class="text">1</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr><tr class="r1"><td class="text">4</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr><tr class="r0"><td class="text">3</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr><tr class="r1"><td class="text">2</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr></table></div>
     </div>
@@ -718,7 +724,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите<br>соответствие. Акробатические связки и изображение.1. Из стойки на лопатках перекат вперёд в упор присев.2. Из положения упор присев два кувырка вперёд в упор присев.3. Из положения упор присев перекат назад в стойку на лопатках.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/f828d53179545393.png" alt=""></td><td><img class="qimg" src="../_картинки/845ea8216d265830.png" alt=""></td><td><img class="qimg" src="../_картинки/f7afd700e3694702.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-3"><tbody><tr><td><img src="../_картинки/f828d53179545393.png" alt=""></td><td><img src="../_картинки/845ea8216d265830.png" alt=""></td><td><img src="../_картинки/f7afd700e3694702.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: 1; 3; 2</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>3</option><option>2</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>3</option><option>2</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>3</option><option>2</option></select></td></tr></table></div>
     </div>
@@ -737,7 +743,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите<br>соответствие. Акробатические связки и изображение.1. В стойке на лопатках развести и свести ноги.2. Из упора присев сделать кувырок назад в упор присев, о. с.3. Из упора лёжа толчком двумя ногами перейти в упор присев.4. Из стойки на лопатках сгруппироваться и сделать переворот назад через голову в упор присев.5. Из упора присев сделать перекат назад в стойку на лопатках</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/f3807181c9f30ed8.png" alt=""></td><td><img class="qimg" src="../_картинки/1b3e86fc5f1405b5.png" alt=""></td><td><img class="qimg" src="../_картинки/cc51345dbfd1212f.png" alt=""></td><td><img class="qimg" src="../_картинки/859fafa5f145acbc.png" alt=""></td></tr><tr><td><img class="qimg" src="../_картинки/fb59b0186ce7d53b.png" alt=""></td><td><img class="qimg" src="../_картинки/57b09bcb1e7eb74e.png" alt=""></td><td><img class="qimg" src="../_картинки/9f93fc486ef7fcab.png" alt=""></td><td><img class="qimg" src="../_картинки/c084b7f184f9e943.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-4"><tbody><tr><td><img src="../_картинки/f3807181c9f30ed8.png" alt=""></td><td><img src="../_картинки/1b3e86fc5f1405b5.png" alt=""></td><td><img src="../_картинки/cc51345dbfd1212f.png" alt=""></td><td><img src="../_картинки/859fafa5f145acbc.png" alt=""></td></tr><tr><td><img src="../_картинки/fb59b0186ce7d53b.png" alt=""></td><td><img src="../_картинки/57b09bcb1e7eb74e.png" alt=""></td><td><img src="../_картинки/9f93fc486ef7fcab.png" alt=""></td><td><img src="../_картинки/c084b7f184f9e943.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: 1; 5; 3; 4; 2</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr></table></div>
     </div>
@@ -870,7 +876,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Учащиеся на рисунке<br>выполняют:Ответ дайте во множественном числе, в именительном падеже.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/c68a7337699747b1.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/c68a7337699747b1.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -1041,7 +1047,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">К какому разделу<br>дневника по физической культуре относится представленный образец оформления?</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/ec6e5a8655d179c4.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/ec6e5a8655d179c4.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Наблюдение за состоянием здоровья</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Наблюдение за физическим развитием.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Наблюдение за физической подготовленностью</label></div></div></div>
     </div>
@@ -1117,7 +1123,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Какое гимнастическое упражнение выполняет ученик на рисунке?</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/c28242c601717f52.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/c28242c601717f52.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>

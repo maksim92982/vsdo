@@ -30,10 +30,11 @@ a { color: #0f6cbf; }
   margin: 0 auto;
   padding: 1rem 1.25rem 3rem;
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 220px minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
+#region-main { min-width: 0; }
 #page-header h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.35rem; }
 #page-header .page-context-header { color: #6a737b; margin: 0 0 1rem; }
 #mod_quiz_navblock {
@@ -69,7 +70,8 @@ a { color: #0f6cbf; }
   border-radius: 0 0 2px 2px;
 }
 .quizname { margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #dee2e6; font-size: 1.15rem; }
-.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; overflow: hidden; }
+.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; }
+.que::after { content: ""; display: table; clear: both; }
 .que .info {
   float: left;
   width: 7em;
@@ -82,7 +84,7 @@ a { color: #0f6cbf; }
 .que h3.no { margin: 0; font-size: 0.8em; line-height: 1; }
 .que span.qno { font-size: 1.5em; font-weight: bold; }
 .que .info > div { font-size: 0.8em; margin-top: 0.7em; }
-.que .content { margin: 0 0 0 8.5em; }
+.que .content { margin: 0 0 0 8.5em; min-width: 0; }
 .que .formulation, .que .comment {
   position: relative;
   padding: 0.75rem 1.25rem;
@@ -125,10 +127,14 @@ a { color: #0f6cbf; }
   height: 1px;
   overflow: hidden;
 }
-.pics { margin: 0 0 1em; overflow: visible; }
-table.qimgs { border: 0; border-collapse: collapse; margin: 0; width: auto; }
+.pics { margin: 0 0 1em; max-width: 100%; }
+table.qimgs { border: 0; border-collapse: collapse; margin: 0; max-width: 100%; }
+table.qimgs.cols-1 { width: auto; }
+table.qimgs.cols-2,
+table.qimgs.cols-3,
+table.qimgs.cols-4 { width: 100%; table-layout: fixed; }
 table.qimgs td { padding: 4px; vertical-align: top; }
-.qimg { display: block; width: auto; height: auto; max-width: none; border: 0; background: #fff; }
+table.qimgs img { display: block; width: 100%; height: auto; }
 .audios { margin: 0 0 1em; }
 .alabel { font-size: 0.85em; color: #6a737b; }
 audio { width: 100%; max-width: 420px; }
@@ -186,7 +192,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Внимательно рассмотрите карту. Среди перечисленных стран отметь территории , которые завоевал Карл Великий после 768 года?</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/94730027923c8744.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/94730027923c8744.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Гасконь</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Бургундия</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>о. Сардиния</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Испанская марка</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Королевство Италия</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">f. </span><label>Бретань</label></div></div></div>
     </div>
@@ -319,7 +325,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Внимательно рассмотри иллюстрацию.Назови органы управления, которые сохранились в Византии со времен античного Рима.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/b315fa37d8005e0e.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/b315fa37d8005e0e.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Император (василевс)</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>канцелярия внешних сношений</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Императорский дворец</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Сенат</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Тайный совет (консисторий)</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">f. </span><label>военная канцелярия</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">g. </span><label>префекты, викарии, наместники</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">h. </span><label>канцелярия императорских имуществ</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">i. </span><label>налоговая канцелярия</label></div></div></div>
     </div>
@@ -357,7 +363,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Внимательно рассмотри иллюстарцию. Под какой цифрой изображена соседская община? Ответ запиши только цифрой, без использования буквЮ слов и наименований.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/a547072a2b771232.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/a547072a2b771232.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -490,7 +496,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Как называется способ обработки земли у средневековых германцев, при котором под посевы используется только половина участка, а другая половина находится под паром, с ежегодным их чередованием.Ответ запиши одним словом в именительно падеже единственного числа, будь очень внимателен, не допусти ошибку при написании этого слова.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/c377c32d7a13a4f7.jpg" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/c377c32d7a13a4f7.jpg" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -509,7 +515,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Как называется новый способ обработки земли, которую использовали крестьяне с XI века? Эта система обработки позволила значительно повысить урожайность.Ответ запиши одним словом в именительно падеже единственного числа. Будь внимателен, не допусти ошибки при записи этого слова.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/0de3ce97b5c0df81.jpg" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/0de3ce97b5c0df81.jpg" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -699,7 +705,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">- 07Рассмотрите карту и выполните задания.Какие государства обозначены цифрами?</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/5f6611c7441ed240.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/5f6611c7441ed240.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: Франция; Священная Римская империя; Германия; Чехия; Польша; Англия</div><table class="answer match"><tr class="r0"><td class="text">1</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Франция</option><option>Священная Римская империя</option><option>Германия</option><option>Чехия</option><option>Польша</option><option>Англия</option></select></td></tr><tr class="r1"><td class="text">4</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Франция</option><option>Священная Римская империя</option><option>Германия</option><option>Чехия</option><option>Польша</option><option>Англия</option></select></td></tr><tr class="r0"><td class="text">2</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Франция</option><option>Священная Римская империя</option><option>Германия</option><option>Чехия</option><option>Польша</option><option>Англия</option></select></td></tr><tr class="r1"><td class="text">3</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Франция</option><option>Священная Римская империя</option><option>Германия</option><option>Чехия</option><option>Польша</option><option>Англия</option></select></td></tr></table></div>
     </div>
@@ -718,7 +724,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Рассмотрите иллюстрации и выполните задание.Определите архитектурный стиль каждого здания: А) романский; Б) готический.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/de5509307ba0a089.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/de5509307ba0a089.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: романский; готический</div><table class="answer match"><tr class="r0"><td class="text">3</td><td><select class="custom-select" disabled><option>Выберите...</option><option>романский</option><option>готический</option></select></td></tr><tr class="r1"><td class="text">2</td><td><select class="custom-select" disabled><option>Выберите...</option><option>романский</option><option>готический</option></select></td></tr><tr class="r0"><td class="text">1</td><td><select class="custom-select" disabled><option>Выберите...</option><option>романский</option><option>готический</option></select></td></tr><tr class="r1"><td class="text">4</td><td><select class="custom-select" disabled><option>Выберите...</option><option>романский</option><option>готический</option></select></td></tr></table></div>
     </div>
@@ -737,7 +743,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Рассмотри иллюстрацию. Из чего состояло вооружение монгольского всадника?</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/168a50c8b17184ca.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/168a50c8b17184ca.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>сабля</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>арбалет</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>длинное копьё</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>палица</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>лук и стрелы</label></div></div></div>
     </div>
@@ -775,7 +781,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Внимательно изучи карту. С кем китайцы вели морскую и сухопутную торговлю?</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/c4197d7c63b6b99e.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/c4197d7c63b6b99e.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Вьетнам</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Арабский халифат</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Индия</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Англия</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Франция</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">f. </span><label>Япония</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">g. </span><label>Корея</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">h. </span><label>Тибет</label></div></div></div>
     </div>
@@ -794,7 +800,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Внимательно рассмотри карту. Назови народы, которые населяли Африку в средние века.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/706fdee164c816cc.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/706fdee164c816cc.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>ацтеки</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>арабы</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>готы</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>суахили</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>туареги</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">f. </span><label>инки</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">g. </span><label>берберы</label></div></div></div>
     </div>
@@ -889,7 +895,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Как в средневековой Японии называли профессиональных воинов?Запиши ответ одним словом в именительном падеже единственного числа.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/a413118eea6acbf3.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/a413118eea6acbf3.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -965,7 +971,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Рассмотрите карту и выполните задание. Под какими цифрами указаны следующие страны:</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/f26f614d72bd07bc.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/f26f614d72bd07bc.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: 6; 4; 2; 8; 7; 3; 5; 1; 9</div><table class="answer match"><tr class="r0"><td class="text">Венгрия</td><td><select class="custom-select" disabled><option>Выберите...</option><option>6</option><option>4</option><option>2</option><option>8</option><option>7</option><option>3</option><option>5</option><option>1</option><option>9</option></select></td></tr><tr class="r1"><td class="text">Великое княжество Литовское и Польша</td><td><select class="custom-select" disabled><option>Выберите...</option><option>6</option><option>4</option><option>2</option><option>8</option><option>7</option><option>3</option><option>5</option><option>1</option><option>9</option></select></td></tr><tr class="r0"><td class="text">Османская империя</td><td><select class="custom-select" disabled><option>Выберите...</option><option>6</option><option>4</option><option>2</option><option>8</option><option>7</option><option>3</option><option>5</option><option>1</option><option>9</option></select></td></tr><tr class="r1"><td class="text">Русское государство</td><td><select class="custom-select" disabled><option>Выберите...</option><option>6</option><option>4</option><option>2</option><option>8</option><option>7</option><option>3</option><option>5</option><option>1</option><option>9</option></select></td></tr><tr class="r0"><td class="text">Англия</td><td><select class="custom-select" disabled><option>Выберите...</option><option>6</option><option>4</option><option>2</option><option>8</option><option>7</option><option>3</option><option>5</option><option>1</option><option>9</option></select></td></tr><tr class="r1"><td class="text">Франция</td><td><select class="custom-select" disabled><option>Выберите...</option><option>6</option><option>4</option><option>2</option><option>8</option><option>7</option><option>3</option><option>5</option><option>1</option><option>9</option></select></td></tr><tr class="r0"><td class="text">Испания и Португалия</td><td><select class="custom-select" disabled><option>Выберите...</option><option>6</option><option>4</option><option>2</option><option>8</option><option>7</option><option>3</option><option>5</option><option>1</option><option>9</option></select></td></tr><tr class="r1"><td class="text">Священная Римская империя</td><td><select class="custom-select" disabled><option>Выберите...</option><option>6</option><option>4</option><option>2</option><option>8</option><option>7</option><option>3</option><option>5</option><option>1</option><option>9</option></select></td></tr><tr class="r0"><td class="text">Швеция и Норвегия</td><td><select class="custom-select" disabled><option>Выберите...</option><option>6</option><option>4</option><option>2</option><option>8</option><option>7</option><option>3</option><option>5</option><option>1</option><option>9</option></select></td></tr></table></div>
     </div>
@@ -1117,7 +1123,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Внимательно рассмотри карту.Какие территории оказались под властью английского короля в 1360 г.?</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/2473bc31202eaf3e.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/2473bc31202eaf3e.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Гиень</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Гасконь</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Фландрия</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Нормандия</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Пуату</label></div></div></div>
     </div>
@@ -1136,7 +1142,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Внимательно рассмотри карту.Перечислите государства, территории которых вошли в состав Османской империи в середине XIV — середине XV в.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/7972ac24169fe0da.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/7972ac24169fe0da.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Румелия</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>княжество Молдова</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Анатолия</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Крымское ханство</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Болгария</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">f. </span><label>Эпир</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">g. </span><label>Сербия</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">h. </span><label>Фракия</label></div></div></div>
     </div>
@@ -1174,7 +1180,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Прочитайте текст, рассмотрите иллюстрации и выполните задание."Уже при жизни... народ создавал легенды о нём, и это показывает, какое глубокое впечатление производила на современников его поэма. Но современники восторгались в ней совсем не тем, чем восторгаемся мы. Они ценили в ней две вещи. Для одних «Божественная комедия» была действительно божественной книгой, и они находили в ней то живое личное отношение к Божеству, которого искали в мистических учениях ересей и во францисканской религии любви. Для других, более образованных, он...... был прежде всего учёный, вместивший в себя огромное количество всевозможных моральных, естественно-научных, астрологических, философских и богословских знаний".Определите, о ком пишет историк А. К. Дживелегов.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/990e643944ca7b0e.png" alt=""></td><td><img class="qimg" src="../_картинки/edcf415d1b7b6989.png" alt=""></td><td><img class="qimg" src="../_картинки/5fe8f4aebbbd1a69.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-3"><tbody><tr><td><img src="../_картинки/990e643944ca7b0e.png" alt=""></td><td><img src="../_картинки/edcf415d1b7b6989.png" alt=""></td><td><img src="../_картинки/5fe8f4aebbbd1a69.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label></label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label></label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label></label></div></div></div>
     </div>
@@ -1364,7 +1370,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Рассмотрите иллюстрацию. Какие модели государственного управления они символизируют? В каких землях утвердились эти модели?</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/fb3079be0375dd61.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/fb3079be0375dd61.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: символизирует сильную княжескую власть. Эта система характерна для Новгородской земли.; символизирует вечевую республику. Она утвердилась в Новгородской земле.; символизирует сильную власть бояр. Данная модель утвердилась в Галицко-Волынской земле.; символизирует сильную княжескую власть. Эта система характерна для Владимиро-Суздальской земли.</div><table class="answer match"><tr class="r0"><td class="text">В</td><td><select class="custom-select" disabled><option>Выберите...</option><option>символизирует сильную княжескую власть. Эта система характерна для Новгородской земли.</option><option>символизирует вечевую республику. Она утвердилась в Новгородской земле.</option><option>символизирует сильную власть бояр. Данная модель утвердилась в Галицко-Волынской земле.</option><option>символизирует сильную княжескую власть. Эта система характерна для Владимиро-Суздальской земли.</option></select></td></tr><tr class="r1"><td class="text">Б</td><td><select class="custom-select" disabled><option>Выберите...</option><option>символизирует сильную княжескую власть. Эта система характерна для Новгородской земли.</option><option>символизирует вечевую республику. Она утвердилась в Новгородской земле.</option><option>символизирует сильную власть бояр. Данная модель утвердилась в Галицко-Волынской земле.</option><option>символизирует сильную княжескую власть. Эта система характерна для Владимиро-Суздальской земли.</option></select></td></tr><tr class="r0"><td class="text">А</td><td><select class="custom-select" disabled><option>Выберите...</option><option>символизирует сильную княжескую власть. Эта система характерна для Новгородской земли.</option><option>символизирует вечевую республику. Она утвердилась в Новгородской земле.</option><option>символизирует сильную власть бояр. Данная модель утвердилась в Галицко-Волынской земле.</option><option>символизирует сильную княжескую власть. Эта система характерна для Владимиро-Суздальской земли.</option></select></td></tr></table></div>
     </div>
@@ -1459,7 +1465,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Внимательно рассмотри карту и ответь на вопрос.Территории каких союзов племен обозначены на карте буквами?</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/547d3ffad8c8fc26.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/547d3ffad8c8fc26.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: дреговичи; половчане; словене; древляне; поляне; вятичи</div><table class="answer match"><tr class="r0"><td class="text">Е</td><td><select class="custom-select" disabled><option>Выберите...</option><option>дреговичи</option><option>половчане</option><option>словене</option><option>древляне</option><option>поляне</option><option>вятичи</option></select></td></tr><tr class="r1"><td class="text">Б</td><td><select class="custom-select" disabled><option>Выберите...</option><option>дреговичи</option><option>половчане</option><option>словене</option><option>древляне</option><option>поляне</option><option>вятичи</option></select></td></tr><tr class="r0"><td class="text">Г</td><td><select class="custom-select" disabled><option>Выберите...</option><option>дреговичи</option><option>половчане</option><option>словене</option><option>древляне</option><option>поляне</option><option>вятичи</option></select></td></tr><tr class="r1"><td class="text">А</td><td><select class="custom-select" disabled><option>Выберите...</option><option>дреговичи</option><option>половчане</option><option>словене</option><option>древляне</option><option>поляне</option><option>вятичи</option></select></td></tr><tr class="r0"><td class="text">В</td><td><select class="custom-select" disabled><option>Выберите...</option><option>дреговичи</option><option>половчане</option><option>словене</option><option>древляне</option><option>поляне</option><option>вятичи</option></select></td></tr><tr class="r1"><td class="text">Д</td><td><select class="custom-select" disabled><option>Выберите...</option><option>дреговичи</option><option>половчане</option><option>словене</option><option>древляне</option><option>поляне</option><option>вятичи</option></select></td></tr></table></div>
     </div>

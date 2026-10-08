@@ -30,10 +30,11 @@ a { color: #0f6cbf; }
   margin: 0 auto;
   padding: 1rem 1.25rem 3rem;
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 220px minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
+#region-main { min-width: 0; }
 #page-header h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.35rem; }
 #page-header .page-context-header { color: #6a737b; margin: 0 0 1rem; }
 #mod_quiz_navblock {
@@ -69,7 +70,8 @@ a { color: #0f6cbf; }
   border-radius: 0 0 2px 2px;
 }
 .quizname { margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #dee2e6; font-size: 1.15rem; }
-.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; overflow: hidden; }
+.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; }
+.que::after { content: ""; display: table; clear: both; }
 .que .info {
   float: left;
   width: 7em;
@@ -82,7 +84,7 @@ a { color: #0f6cbf; }
 .que h3.no { margin: 0; font-size: 0.8em; line-height: 1; }
 .que span.qno { font-size: 1.5em; font-weight: bold; }
 .que .info > div { font-size: 0.8em; margin-top: 0.7em; }
-.que .content { margin: 0 0 0 8.5em; }
+.que .content { margin: 0 0 0 8.5em; min-width: 0; }
 .que .formulation, .que .comment {
   position: relative;
   padding: 0.75rem 1.25rem;
@@ -125,10 +127,14 @@ a { color: #0f6cbf; }
   height: 1px;
   overflow: hidden;
 }
-.pics { margin: 0 0 1em; overflow: visible; }
-table.qimgs { border: 0; border-collapse: collapse; margin: 0; width: auto; }
+.pics { margin: 0 0 1em; max-width: 100%; }
+table.qimgs { border: 0; border-collapse: collapse; margin: 0; max-width: 100%; }
+table.qimgs.cols-1 { width: auto; }
+table.qimgs.cols-2,
+table.qimgs.cols-3,
+table.qimgs.cols-4 { width: 100%; table-layout: fixed; }
 table.qimgs td { padding: 4px; vertical-align: top; }
-.qimg { display: block; width: auto; height: auto; max-width: none; border: 0; background: #fff; }
+table.qimgs img { display: block; width: 100%; height: auto; }
 .audios { margin: 0 0 1em; }
 .alabel { font-size: 0.85em; color: #6a737b; }
 audio { width: 100%; max-width: 420px; }
@@ -433,7 +439,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Составь числовое<br>выражение по схеме и найди его значение.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/1393a6fc21196202.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/1393a6fc21196202.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -452,7 +458,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Отмеченная на координатной прямой точка соответствует<br>одному из чисел, записанных ниже. Какому числу соответствует точка?</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/574c5b391e88d111.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/574c5b391e88d111.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>13/19</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>2/19</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>5/19</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>4/19</label></div></div></div>
     </div>
@@ -623,7 +629,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">От точки А к точке В проведена ломаная по сторонам прямоугольников. Найдите<br>длину этой ломаной.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/23bdcbbf15a90239.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/23bdcbbf15a90239.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -642,7 +648,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Учёный кот обошёл вокруг дуба и вернулся в исходную точку. На рисунке<br>показан путь кота вокруг дуба. Сторона квадратной клетки равна 1 м. Найдите<br>длину пути учёного кота. Ответ дайте в метрах.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/343607c442eadd58.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/343607c442eadd58.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -661,7 +667,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Найдите периметр многоугольника, изображенного на<br>рисунке, если его стороны равны по 4 см. В ответе запишите<br>только число.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/4704c7a207f98ed6.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/4704c7a207f98ed6.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -680,7 +686,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">На клетчатой бумаге с размером клетки 1 см х 1 см<br>изображены отрезки АВ и СК. Найди расстояние между серединами отрезков. Ответ<br>запиши в сантиметрах.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/f01f64721edd5c5b.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/f01f64721edd5c5b.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -699,7 +705,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">На фотографии представлен спортивный комплекс, у которого расстояние между<br>соседними параллельными ступенями равно 25 см. Расстояние от пола до первой<br>ступени 30 см, от последней ступени до потолка 70 см. Папа Пети хочет<br>установить такой спортивный комплекс в квартире. В магазине имеются спортивные<br>комплексы на 6 ступеней, на 7 ступеней, на 8 ступеней. Какой комплекс выберет<br>папа Пети, если высота потолков в квартире 250 см? В ответ запиши количество<br>ступеней выбранного спортивного комплекса.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/90764904f5b82c89.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/90764904f5b82c89.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -851,7 +857,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Выполнить<br>действия:В ответе запишите сумму полученных значений<br>десятичной дробью.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/6499ab67d9aea86a.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/6499ab67d9aea86a.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -889,7 +895,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Найдите значение выражения Ответ запишите в виде десятичной дроби.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/869f6054962bbdd4.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/869f6054962bbdd4.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -908,7 +914,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите порядок действий и выполните вы­числения:В ответе запишите только число десятичной дробью,<br>например 2,3</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/0ba742f67acc7fa2.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/0ba742f67acc7fa2.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -1041,7 +1047,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Поставьте в соответствие фигуре её свойство.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/9d89d3bc40bea09c.png" alt=""></td><td><img class="qimg" src="../_картинки/13d5a38469f46d51.png" alt=""></td></tr><tr><td><img class="qimg" src="../_картинки/1eddba4f2fc01fa8.png" alt=""></td><td><img class="qimg" src="../_картинки/33f462f46b696fb5.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-2"><tbody><tr><td><img src="../_картинки/9d89d3bc40bea09c.png" alt=""></td><td><img src="../_картинки/13d5a38469f46d51.png" alt=""></td></tr><tr><td><img src="../_картинки/1eddba4f2fc01fa8.png" alt=""></td><td><img src="../_картинки/33f462f46b696fb5.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: Фигура имеет центр симметрии и не имеет осей симметрии; Фигура имеет единственную ось симметрии; Фигура имеет две оси и центр симметрии; Фигура не имеет ни оси, ни центра симметрии</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Фигура имеет центр симметрии и не имеет осей симметрии</option><option>Фигура имеет единственную ось симметрии</option><option>Фигура имеет две оси и центр симметрии</option><option>Фигура не имеет ни оси, ни центра симметрии</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Фигура имеет центр симметрии и не имеет осей симметрии</option><option>Фигура имеет единственную ось симметрии</option><option>Фигура имеет две оси и центр симметрии</option><option>Фигура не имеет ни оси, ни центра симметрии</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Фигура имеет центр симметрии и не имеет осей симметрии</option><option>Фигура имеет единственную ось симметрии</option><option>Фигура имеет две оси и центр симметрии</option><option>Фигура не имеет ни оси, ни центра симметрии</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Фигура имеет центр симметрии и не имеет осей симметрии</option><option>Фигура имеет единственную ось симметрии</option><option>Фигура имеет две оси и центр симметрии</option><option>Фигура не имеет ни оси, ни центра симметрии</option></select></td></tr></table></div>
     </div>
@@ -1060,7 +1066,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Выбери такие элементы, чтобы картинка стала симметричной относительно вертикальной оси</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/19dd5005913f7a8d.png" alt=""></td><td><img class="qimg" src="../_картинки/f8fa1e4e7313950f.png" alt=""></td><td><img class="qimg" src="../_картинки/26d2bba33e18f3a0.png" alt=""></td></tr><tr><td><img class="qimg" src="../_картинки/230260a4eda3672c.png" alt=""></td><td><img class="qimg" src="../_картинки/94f7f83b71c454f2.png" alt=""></td><td><img class="qimg" src="../_картинки/40bd3db4f4e26cfd.png" alt=""></td></tr><tr><td><img class="qimg" src="../_картинки/131925401ed3678e.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-3"><tbody><tr><td><img src="../_картинки/19dd5005913f7a8d.png" alt=""></td><td><img src="../_картинки/f8fa1e4e7313950f.png" alt=""></td><td><img src="../_картинки/26d2bba33e18f3a0.png" alt=""></td></tr><tr><td><img src="../_картинки/230260a4eda3672c.png" alt=""></td><td><img src="../_картинки/94f7f83b71c454f2.png" alt=""></td><td><img src="../_картинки/40bd3db4f4e26cfd.png" alt=""></td></tr><tr><td><img src="../_картинки/131925401ed3678e.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label></label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label></label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label></label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label></label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label></label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">f. </span><label></label></div></div></div>
     </div>
@@ -1079,7 +1085,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Точка О — центр симметрии<br>шестиугольника ABCDKM. Ука­жите сторону, симметричную сто­роне KD относительно точки О.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/888d46b75a8931f9.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/888d46b75a8931f9.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>BC</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>AB</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>AM</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>CD</label></div></div></div>
     </div>
@@ -1098,7 +1104,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">На<br>прямой n последовательно расположены<br>точки A, B, C, D, E, F, G таким<br>образом,<br>что AB = BC = DE = FG = 2 см, CD = EF = 1 см.<br>Через точку D проведена прямая k, перпендикулярная<br>прямой n. Найдите точки, симметричные относительно прямой k.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/01ed0a4e634de172.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-1"><tbody><tr><td><img src="../_картинки/01ed0a4e634de172.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>C и F</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>A и E</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>B и F</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>B и G</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label>C и E</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">f. </span><label>A и G</label></div></div></div>
     </div>
@@ -1117,7 +1123,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Укажите фигуры, имеющие центр симметрии.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/820dd7319b7d22f9.png" alt=""></td><td><img class="qimg" src="../_картинки/8b68e699258296c5.png" alt=""></td><td><img class="qimg" src="../_картинки/9a1211369cd5e108.png" alt=""></td></tr><tr><td><img class="qimg" src="../_картинки/922c2efd8cc9869c.png" alt=""></td><td><img class="qimg" src="../_картинки/4acc29435eabebe9.png" alt=""></td><td><img class="qimg" src="../_картинки/5d9ad54e0964e551.png" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-3"><tbody><tr><td><img src="../_картинки/820dd7319b7d22f9.png" alt=""></td><td><img src="../_картинки/8b68e699258296c5.png" alt=""></td><td><img src="../_картинки/9a1211369cd5e108.png" alt=""></td></tr><tr><td><img src="../_картинки/922c2efd8cc9869c.png" alt=""></td><td><img src="../_картинки/4acc29435eabebe9.png" alt=""></td><td><img src="../_картинки/5d9ad54e0964e551.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label></label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label></label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label></label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label></label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label></label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">f. </span><label></label></div></div></div>
     </div>

@@ -30,10 +30,11 @@ a { color: #0f6cbf; }
   margin: 0 auto;
   padding: 1rem 1.25rem 3rem;
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 220px minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
+#region-main { min-width: 0; }
 #page-header h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.35rem; }
 #page-header .page-context-header { color: #6a737b; margin: 0 0 1rem; }
 #mod_quiz_navblock {
@@ -69,7 +70,8 @@ a { color: #0f6cbf; }
   border-radius: 0 0 2px 2px;
 }
 .quizname { margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #dee2e6; font-size: 1.15rem; }
-.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; overflow: hidden; }
+.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; }
+.que::after { content: ""; display: table; clear: both; }
 .que .info {
   float: left;
   width: 7em;
@@ -82,7 +84,7 @@ a { color: #0f6cbf; }
 .que h3.no { margin: 0; font-size: 0.8em; line-height: 1; }
 .que span.qno { font-size: 1.5em; font-weight: bold; }
 .que .info > div { font-size: 0.8em; margin-top: 0.7em; }
-.que .content { margin: 0 0 0 8.5em; }
+.que .content { margin: 0 0 0 8.5em; min-width: 0; }
 .que .formulation, .que .comment {
   position: relative;
   padding: 0.75rem 1.25rem;
@@ -125,10 +127,14 @@ a { color: #0f6cbf; }
   height: 1px;
   overflow: hidden;
 }
-.pics { margin: 0 0 1em; overflow: visible; }
-table.qimgs { border: 0; border-collapse: collapse; margin: 0; width: auto; }
+.pics { margin: 0 0 1em; max-width: 100%; }
+table.qimgs { border: 0; border-collapse: collapse; margin: 0; max-width: 100%; }
+table.qimgs.cols-1 { width: auto; }
+table.qimgs.cols-2,
+table.qimgs.cols-3,
+table.qimgs.cols-4 { width: 100%; table-layout: fixed; }
 table.qimgs td { padding: 4px; vertical-align: top; }
-.qimg { display: block; width: auto; height: auto; max-width: none; border: 0; background: #fff; }
+table.qimgs img { display: block; width: 100%; height: auto; }
 .audios { margin: 0 0 1em; }
 .alabel { font-size: 0.85em; color: #6a737b; }
 audio { width: 100%; max-width: 420px; }
@@ -528,7 +534,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Вас приветствуют великие русские композиторы. Определите их фамилии.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/5d9c5e3b0a88e0de.jpg" alt=""></td><td><img class="qimg" src="../_картинки/b9e74f7708cb96af.jpg" alt=""></td><td><img class="qimg" src="../_картинки/379943e9aefbbea5.jpg" alt=""></td></tr><tr><td><img class="qimg" src="../_картинки/5621d581f294f24c.jpg" alt=""></td><td><img class="qimg" src="../_картинки/bb0f6547a3aba8ee.jpg" alt=""></td><td><img class="qimg" src="../_картинки/240de0daf3ddbe58.jpg" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-3"><tbody><tr><td><img src="../_картинки/5d9c5e3b0a88e0de.jpg" alt=""></td><td><img src="../_картинки/b9e74f7708cb96af.jpg" alt=""></td><td><img src="../_картинки/379943e9aefbbea5.jpg" alt=""></td></tr><tr><td><img src="../_картинки/5621d581f294f24c.jpg" alt=""></td><td><img src="../_картинки/bb0f6547a3aba8ee.jpg" alt=""></td><td><img src="../_картинки/240de0daf3ddbe58.jpg" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: С.Рахманинов; М.Мусоргский; П.И.Чайковский; А.Е.Варламов; М.И.Глинка; Н.А.Римский - Корсаков</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr></table></div>
     </div>
@@ -813,7 +819,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Вас приветствую зарубежные композиторы . Определи их фамилии.</div>
-      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/dfbf24e9ed951855.jpg" alt=""></td><td><img class="qimg" src="../_картинки/e18679ddd1d902eb.jpg" alt=""></td><td><img class="qimg" src="../_картинки/098351792acbcebb.jpg" alt=""></td></tr><tr><td><img class="qimg" src="../_картинки/fdd9a5757495631b.jpg" alt=""></td><td><img class="qimg" src="../_картинки/2dae21834d1c8950.jpg" alt=""></td></tr></tbody></table></div>
+      <div class="pics"><table class="qimgs cols-3"><tbody><tr><td><img src="../_картинки/dfbf24e9ed951855.jpg" alt=""></td><td><img src="../_картинки/e18679ddd1d902eb.jpg" alt=""></td><td><img src="../_картинки/098351792acbcebb.jpg" alt=""></td></tr><tr><td><img src="../_картинки/fdd9a5757495631b.jpg" alt=""></td><td><img src="../_картинки/2dae21834d1c8950.jpg" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: А.Вивальди; Ф.Шуберт; Л.В.Бетховен; Н.Паганини; И.С.Бах; Ф.Шопен; В.А.Моцарт</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Вивальди</option><option>Ф.Шуберт</option><option>Л.В.Бетховен</option><option>Н.Паганини</option><option>И.С.Бах</option><option>Ф.Шопен</option><option>В.А.Моцарт</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Вивальди</option><option>Ф.Шуберт</option><option>Л.В.Бетховен</option><option>Н.Паганини</option><option>И.С.Бах</option><option>Ф.Шопен</option><option>В.А.Моцарт</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Вивальди</option><option>Ф.Шуберт</option><option>Л.В.Бетховен</option><option>Н.Паганини</option><option>И.С.Бах</option><option>Ф.Шопен</option><option>В.А.Моцарт</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Вивальди</option><option>Ф.Шуберт</option><option>Л.В.Бетховен</option><option>Н.Паганини</option><option>И.С.Бах</option><option>Ф.Шопен</option><option>В.А.Моцарт</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Вивальди</option><option>Ф.Шуберт</option><option>Л.В.Бетховен</option><option>Н.Паганини</option><option>И.С.Бах</option><option>Ф.Шопен</option><option>В.А.Моцарт</option></select></td></tr></table></div>
     </div>
