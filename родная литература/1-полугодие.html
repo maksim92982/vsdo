@@ -125,8 +125,10 @@ a { color: #0f6cbf; }
   height: 1px;
   overflow: hidden;
 }
-.pics { margin: 0 0 1em; }
-.qimg { max-width: 100%; height: auto; border: 1px solid #cad0d7; background: #fff; }
+.pics { margin: 0 0 1em; overflow: visible; }
+table.qimgs { border: 0; border-collapse: collapse; margin: 0; width: auto; }
+table.qimgs td { padding: 4px; vertical-align: top; }
+.qimg { display: block; width: auto; height: auto; max-width: none; border: 0; background: #fff; }
 .audios { margin: 0 0 1em; }
 .alabel { font-size: 0.85em; color: #6a737b; }
 audio { width: 100%; max-width: 420px; }
@@ -240,7 +242,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Какому русскому писателю принадлежат эти строки<br>о богатырях Илье Муромце и Святогоре?<br>«Кинул<br>биться Илья – божья воля.<br>Едет<br>прочь вдоль широкого поля,<br>Утирает<br>слезу… Отняла<br>Русской<br>силы Земля половину:<br>Выезжай<br>на иную путину, <br>На<br>иные дела!»</div>
+      <div class="qtext">Какому русскому писателю принадлежат эти строки<br>о богатырях Илье Муромце и Святогоре?<br>«Кинул<br>биться Илья – божья воля.<br>Едет<br>прочь вдоль широкого поля,<br>Утирает<br>слезу… Отняла<br>Русской<br>силы Земля половину:<br>Выезжай<br>на иную путину,<br>На<br>иные дела!»</div>
       
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>А.Пушкин</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>А.Блок</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>И.Бунин</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Б.Пастернак</label></div></div></div>
@@ -563,7 +565,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Сюжеты каких сказок легли в основу произведения<br>Е. Шварца «Два брата»? <br>Выберите один или несколько ответов.</div>
+      <div class="qtext">Сюжеты каких сказок легли в основу произведения<br>Е. Шварца «Два брата»?<br>Выберите один или несколько ответов.</div>
       
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>«Морозко»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>«Проказы<br>старухи-зимы»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>«Снежная королева»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>«Двенадцать<br>месяцев»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>«Мороз<br>Иванович»</label></div></div></div>
@@ -848,7 +850,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Перед вами строки стихотворения П.А. Вяземского.<br>В них пропущено название русского праздника. Укажите это название (в<br>именительном падеже).<br>Разгулялись<br>город, сёла,<br>Загулялись<br>стар и млад, - <br>Всем<br>зима родная гостья, <br>Каждый<br>масленице рад.</div>
+      <div class="qtext">Перед вами строки стихотворения П.А. Вяземского.<br>В них пропущено название русского праздника. Укажите это название (в<br>именительном падеже).<br>Разгулялись<br>город, сёла,<br>Загулялись<br>стар и млад, -<br>Всем<br>зима родная гостья,<br>Каждый<br>масленице рад.</div>
       
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
@@ -1114,7 +1116,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Перед<br>вами фрагмент стихотворения «Русский язык» знаменитого русского писателя конца XIX –<br>начала XX вв. Укажите только фамилию этого писателя.<br>Подснежник наш всегда прорвёт свой снег. <br>В размах грозы сцепляются зарницы.<br>К Царь-Граду не ходил ли наш Олег?<br>Не<br>звал ли в полночь нас полёт Жар-птицы?</div>
+      <div class="qtext">Перед<br>вами фрагмент стихотворения «Русский язык» знаменитого русского писателя конца XIX –<br>начала XX вв. Укажите только фамилию этого писателя.<br>Подснежник наш всегда прорвёт свой снег.<br>В размах грозы сцепляются зарницы.<br>К Царь-Граду не ходил ли наш Олег?<br>Не<br>звал ли в полночь нас полёт Жар-птицы?</div>
       
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>

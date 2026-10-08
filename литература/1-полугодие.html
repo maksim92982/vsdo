@@ -125,8 +125,10 @@ a { color: #0f6cbf; }
   height: 1px;
   overflow: hidden;
 }
-.pics { margin: 0 0 1em; }
-.qimg { max-width: 100%; height: auto; border: 1px solid #cad0d7; background: #fff; }
+.pics { margin: 0 0 1em; overflow: visible; }
+table.qimgs { border: 0; border-collapse: collapse; margin: 0; width: auto; }
+table.qimgs td { padding: 4px; vertical-align: top; }
+.qimg { display: block; width: auto; height: auto; max-width: none; border: 0; background: #fff; }
 .audios { margin: 0 0 1em; }
 .alabel { font-size: 0.85em; color: #6a737b; }
 audio { width: 100%; max-width: 420px; }
@@ -165,7 +167,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Рассмотрите репродукцию картины. Дополните текст словами.Одна из самых знаменитых картин, изображающих<br>богатырей, написана Виктором (1) . Эта картина так и называется —<br>«Богатыри», хотя чаще её называют (2) , — так едины они втроём, такие<br>непохожие, но неотделимые друг от друга, — суровый и спокойный (3) ,<br>готовый броситься в бой (4) и (5) , готовый не только воевать,<br>но и спеть.<br>Художник работал над картиной (6) —<br>от момента замысла, когда был сделан первый набросок, до завершения картины.</div>
-      <div class="pics"><img class="qimg" src="../_картинки/5db7a5cd00a21947.png" alt="рисунок из теста"></div>
+      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/5db7a5cd00a21947.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>Билибиным</option><option>Васнецовым</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>Богатырская застава</option><option>Три богатыря</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>Илья Муромец</option><option>Алёша Попович</option><option>Добрыня Никитич</option></select></p><p>(4) <select class="custom-select" disabled><option>Выберите...</option><option>Илья Муромец</option><option>Алёша Попович</option><option>Добрыня Никитич</option></select></p><p>(5) <select class="custom-select" disabled><option>Выберите...</option><option>Илья Муромец</option><option>Алёша Попович</option><option>Добрыня Никитич</option></select></p><p>(6) <select class="custom-select" disabled><option>Выберите...</option><option>месяц</option><option>три года</option><option>двадцать лет</option></select></p></div>
     </div>
@@ -430,7 +432,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Назовите героев литературных портретов немецкого эпоса «Песнь о Нибелунгах»?<br><br>Жила в земле<br>бургундов девица юных лет.<br>Знатней ее и краше еще не видел свет.<br>…и так была мила,<br>Что многих красота ее на гибель обрекла.<br>Любить ее всем сердцем охотно б каждый стал.<br>Кто раз ее увидел, тот лишь о ней мечтал.<br>Наделена высокой и чистою душой,<br>Примером быть она могла для женщины любой<br><br>(1) <br><br>Еще юнцом безусым<br>был королевич смелый,<br>А уж везде и всюду хвала ему гремела.<br>Был так высок он духом и так пригож лицом,<br>Что не одной красавице пришлось вздыхать о<br>нем.<br>Отменно воспитали родители его,<br>Хоть был природой щедро он взыскан без того.<br>Поэтому по праву воитель молодой<br>Считался украшением страны своей родной.<br>&lt;…&gt;Себя он сразу выдает и статью, и<br>лицом.<br><br>(2) <br><br>Царила королева на<br>острове морском.<br>Была она прекрасна и телом, и лицом,<br>Но женщины сильнее не видел мир досель.<br>Она могла, метнув копьё, насквозь пробить им<br>цель<br>И, бросив тяжкий камень, прыжком его догнать.<br>В трех состязаниях с нею был верх обязан взять<br>Любой, кто королеве посвататься решался,<br>Но, проиграв хотя б одно, он головы лишался.<br>&lt;…&gt; С осанкой горделивой стоит она одна<br>В одежде белоснежной…<br><br>(3)</div>
+      <div class="qtext">Назовите героев литературных портретов немецкого эпоса «Песнь о Нибелунгах»?<br><br>Жила в земле<br>бургундов девица юных лет.<br>Знатней ее и краше еще не видел свет.<br>…и так была мила,<br>Что многих красота ее на гибель обрекла.<br>Любить ее всем сердцем охотно б каждый стал.<br>Кто раз ее увидел, тот лишь о ней мечтал.<br>Наделена высокой и чистою душой,<br>Примером быть она могла для женщины любой<br><br>(1)<br><br>Еще юнцом безусым<br>был королевич смелый,<br>А уж везде и всюду хвала ему гремела.<br>Был так высок он духом и так пригож лицом,<br>Что не одной красавице пришлось вздыхать о<br>нем.<br>Отменно воспитали родители его,<br>Хоть был природой щедро он взыскан без того.<br>Поэтому по праву воитель молодой<br>Считался украшением страны своей родной.<br>&lt;…&gt;Себя он сразу выдает и статью, и<br>лицом.<br><br>(2)<br><br>Царила королева на<br>острове морском.<br>Была она прекрасна и телом, и лицом,<br>Но женщины сильнее не видел мир досель.<br>Она могла, метнув копьё, насквозь пробить им<br>цель<br>И, бросив тяжкий камень, прыжком его догнать.<br>В трех состязаниях с нею был верх обязан взять<br>Любой, кто королеве посвататься решался,<br>Но, проиграв хотя б одно, он головы лишался.<br>&lt;…&gt; С осанкой горделивой стоит она одна<br>В одежде белоснежной…<br><br>(3)</div>
       
       
       <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>Брюнхильда</option><option>Кримхильда</option><option>Зигфрид</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>Брюнхильда</option><option>Кримхильда</option><option>Зигфрид</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>Брюнхильда</option><option>Кримхильда</option><option>Зигфрид</option></select></p></div>

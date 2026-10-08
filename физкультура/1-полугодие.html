@@ -125,8 +125,10 @@ a { color: #0f6cbf; }
   height: 1px;
   overflow: hidden;
 }
-.pics { margin: 0 0 1em; }
-.qimg { max-width: 100%; height: auto; border: 1px solid #cad0d7; background: #fff; }
+.pics { margin: 0 0 1em; overflow: visible; }
+table.qimgs { border: 0; border-collapse: collapse; margin: 0; width: auto; }
+table.qimgs td { padding: 4px; vertical-align: top; }
+.qimg { display: block; width: auto; height: auto; max-width: none; border: 0; background: #fff; }
 .audios { margin: 0 0 1em; }
 .alabel { font-size: 0.85em; color: #6a737b; }
 audio { width: 100%; max-width: 420px; }
@@ -165,7 +167,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Подберите<br>пропущенное слово. На рисунке изображен главный (1) Олимпийского движения.</div>
-      <div class="pics"><img class="qimg" src="../_картинки/045dc184968f003b.png" alt="рисунок из теста"></div>
+      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/045dc184968f003b.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>талисман</option><option>эмблема</option><option>символ</option><option>замысел</option><option>артефакт</option></select></p></div>
     </div>
@@ -183,7 +185,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Выберите пропущенные<br>слова и запишите их под соответствующей цифрой. <br>Если дистанция проходит поперёк вспаханных <br>борозд, ногу следует <br>ставить (1) , чтобы <br>не споткнуться. Если же <br>дистанция проходит вдоль <br>борозд, то ноги <br>ставятся (2) .</div>
+      <div class="qtext">Выберите пропущенные<br>слова и запишите их под соответствующей цифрой.<br>Если дистанция проходит поперёк вспаханных<br>борозд, ногу следует<br>ставить (1) , чтобы<br>не споткнуться. Если же<br>дистанция проходит вдоль<br>борозд, то ноги<br>ставятся (2) .</div>
       
       
       <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>в глубине между бороздами</option><option>на верхний выступ борозды</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>в глубине между бороздами</option><option>на верхний выступ борозды</option></select></p></div>
@@ -202,7 +204,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Выберите пропущенные<br>слова и запишите их под соответствующей цифрой. <br>При беге по <br>каменистому грунту необходимо <br>укоротить шаг, ноги ставить <br>осторожней (1) .<br>При беге по <br>болотистой местности и <br>высокой траве беговые <br>шаги должны быть <br>короткими и частыми. <br>Ногу надо ставить (2) .</div>
+      <div class="qtext">Выберите пропущенные<br>слова и запишите их под соответствующей цифрой.<br>При беге по<br>каменистому грунту необходимо<br>укоротить шаг, ноги ставить<br>осторожней (1) .<br>При беге по<br>болотистой местности и<br>высокой траве беговые<br>шаги должны быть<br>короткими и частыми.<br>Ногу надо ставить (2) .</div>
       
       
       <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>на всю ступню</option><option>на переднюю часть стопы</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>на всю ступню</option><option>на переднюю часть стопы</option></select></p></div>
@@ -222,7 +224,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите соответствие беговой<br>дисциплины и изображения.</div>
-      <div class="pics"><img class="qimg" src="../_картинки/11a9aab0038896fc.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/f5bfa5436b5f456c.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/bd823e6231d57527.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/8661df89000cfb0e.png" alt="рисунок из теста"></div>
+      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/11a9aab0038896fc.png" alt=""></td><td><img class="qimg" src="../_картинки/f5bfa5436b5f456c.png" alt=""></td></tr><tr><td><img class="qimg" src="../_картинки/bd823e6231d57527.png" alt=""></td><td><img class="qimg" src="../_картинки/8661df89000cfb0e.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: Гладкий бег; Барьерный бег; Эстафетный бег; Бег с препятствиями</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr></table></div>
     </div>
@@ -316,7 +318,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">В каком городе прошёл<br>I Международный олимпийский <br>конгресс?</div>
+      <div class="qtext">В каком городе прошёл<br>I Международный олимпийский<br>конгресс?</div>
       
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>В Москве</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>В Париже</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>В Афинах</label></div></div></div>
@@ -468,7 +470,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Установите соответствие вид бега и особенности техники.<br>Туловище необходимо несколько <br>отклонить назад, а <br>длину шагов увеличить. (1) <br>Необходимо наклонить туловище вперёд, укоротить шаги <br>и увеличить их <br>частоту. (2)</div>
+      <div class="qtext">Установите соответствие вид бега и особенности техники.<br>Туловище необходимо несколько<br>отклонить назад, а<br>длину шагов увеличить. (1)<br>Необходимо наклонить туловище вперёд, укоротить шаги<br>и увеличить их<br>частоту. (2)</div>
       
       
       <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>Бег в гору</option><option>Спуск с горы</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>Бег в гору</option><option>Спуск с горы</option></select></p></div>
@@ -488,7 +490,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите соответствие. Знак ГТО и количество успешно выполненных тестов<br>для получения этого знака.</div>
-      <div class="pics"><img class="qimg" src="../_картинки/86bb896f95fd300a.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/d95ecd27ed5c884f.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/0c5c64724006ef0c.png" alt="рисунок из теста"></div>
+      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/86bb896f95fd300a.png" alt=""></td><td><img class="qimg" src="../_картинки/d95ecd27ed5c884f.png" alt=""></td><td><img class="qimg" src="../_картинки/0c5c64724006ef0c.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: 5 обязательных и 4 по выбору; 4 обязательных и 4 по выбору; 4 обязательных и 1 по выбору; 4 обязательных и 2 по выбору; 3 обязательных и 5 по выбору</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>5 обязательных и 4 по выбору</option><option>4 обязательных и 4 по выбору</option><option>4 обязательных и 1 по выбору</option><option>4 обязательных и 2 по выбору</option><option>3 обязательных и 5 по выбору</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>5 обязательных и 4 по выбору</option><option>4 обязательных и 4 по выбору</option><option>4 обязательных и 1 по выбору</option><option>4 обязательных и 2 по выбору</option><option>3 обязательных и 5 по выбору</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>5 обязательных и 4 по выбору</option><option>4 обязательных и 4 по выбору</option><option>4 обязательных и 1 по выбору</option><option>4 обязательных и 2 по выбору</option><option>3 обязательных и 5 по выбору</option></select></td></tr></table></div>
     </div>
@@ -507,13 +509,13 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите<br>соответствие этап бега на 1000 м. и интенсивность, с которой рекомендуется<br>пробегать этот этап. На дистанции 1000 м первые 250 м пробегают с<br>интенсивностью (1) от максимальной скорости, вторые 250 м — с интенсивностью<br>(2), затем вновь с интенсивностью (3) и последние 250 м — с интенсивностью (4).</div>
-      <div class="pics"><img class="qimg" src="../_картинки/2cabe6ed0233912d.png" alt="рисунок из теста"></div>
+      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/2cabe6ed0233912d.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: 30%; 40%</div><table class="answer match"><tr class="r0"><td class="text">1</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr><tr class="r1"><td class="text">4</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr><tr class="r0"><td class="text">3</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr><tr class="r1"><td class="text">2</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr></table></div>
     </div>
     <div class="comment">
       <div class="rightanswer"><div class="ans-line">1 — 40%</div><div class="ans-line">2 — 30%</div><div class="ans-line">3 — 40%</div><div class="ans-line">4 — 40%</div></div>
-      <p class="why">потому что 1 — это 40%; 2 — это 30%; 3 — это 40%; 4 — это 40%.</p>
+      <p class="why">потому что 1 — 40%; 2 — 30%; 3 — 40%; 4 — 40%.</p>
     </div>
   </div>
 </div>
@@ -696,7 +698,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Выберите только правильные ответы.<br>Гладкий равномерный бег на <br>длинные дистанции делится на<br>следующие фазы:</div>
+      <div class="qtext">Выберите только правильные ответы.<br>Гладкий равномерный бег на<br>длинные дистанции делится на<br>следующие фазы:</div>
       
       
       <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>Финиширование</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>Фальстарт</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>Бег по дистанции</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>Подготовка к старту</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label>Ускорение</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">f. </span><label>Старт</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">g. </span><label>Поддержание скорости</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">h. </span><label>Стартовый разбег</label></div></div></div>
@@ -716,7 +718,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите<br>соответствие. Акробатические связки и изображение.1. Из стойки на лопатках перекат вперёд в упор присев.2. Из положения упор присев два кувырка вперёд в упор присев.3. Из положения упор присев перекат назад в стойку на лопатках.</div>
-      <div class="pics"><img class="qimg" src="../_картинки/f828d53179545393.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/845ea8216d265830.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/f7afd700e3694702.png" alt="рисунок из теста"></div>
+      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/f828d53179545393.png" alt=""></td><td><img class="qimg" src="../_картинки/845ea8216d265830.png" alt=""></td><td><img class="qimg" src="../_картинки/f7afd700e3694702.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: 1; 3; 2</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>3</option><option>2</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>3</option><option>2</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>3</option><option>2</option></select></td></tr></table></div>
     </div>
@@ -735,7 +737,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Установите<br>соответствие. Акробатические связки и изображение.1. В стойке на лопатках развести и свести ноги.2. Из упора присев сделать кувырок назад в упор присев, о. с.3. Из упора лёжа толчком двумя ногами перейти в упор присев.4. Из стойки на лопатках сгруппироваться и сделать переворот назад через голову в упор присев.5. Из упора присев сделать перекат назад в стойку на лопатках</div>
-      <div class="pics"><img class="qimg" src="../_картинки/f3807181c9f30ed8.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/1b3e86fc5f1405b5.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/cc51345dbfd1212f.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/859fafa5f145acbc.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/fb59b0186ce7d53b.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/57b09bcb1e7eb74e.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/9f93fc486ef7fcab.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/c084b7f184f9e943.png" alt="рисунок из теста"></div>
+      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/f3807181c9f30ed8.png" alt=""></td><td><img class="qimg" src="../_картинки/1b3e86fc5f1405b5.png" alt=""></td><td><img class="qimg" src="../_картинки/cc51345dbfd1212f.png" alt=""></td><td><img class="qimg" src="../_картинки/859fafa5f145acbc.png" alt=""></td></tr><tr><td><img class="qimg" src="../_картинки/fb59b0186ce7d53b.png" alt=""></td><td><img class="qimg" src="../_картинки/57b09bcb1e7eb74e.png" alt=""></td><td><img class="qimg" src="../_картинки/9f93fc486ef7fcab.png" alt=""></td><td><img class="qimg" src="../_картинки/c084b7f184f9e943.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Варианты: 1; 5; 3; 4; 2</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr></table></div>
     </div>
@@ -753,7 +755,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Как часто<br>следует заполнять раздел дневника по физической культуре «Физическая<br>подготовленность»? <br>Выберите<br>правильный ответ.</div>
+      <div class="qtext">Как часто<br>следует заполнять раздел дневника по физической культуре «Физическая<br>подготовленность»?<br>Выберите<br>правильный ответ.</div>
       
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>каждую неделю</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>каждую четверть (триместр)</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>каждый месяц</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>в конце учебного года</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>1 раз в полгода</label></div></div></div>
@@ -868,7 +870,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Учащиеся на рисунке<br>выполняют:Ответ дайте во множественном числе, в именительном падеже.</div>
-      <div class="pics"><img class="qimg" src="../_картинки/c68a7337699747b1.png" alt="рисунок из теста"></div>
+      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/c68a7337699747b1.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
@@ -943,7 +945,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Выберите и запишите пропущенное слово. <br>Координация движений – это качество, позволяющее быстро, без<br>ошибок и лишних (1) напряжений осваивать и выполнять сложные двигательные<br>действия.</div>
+      <div class="qtext">Выберите и запишите пропущенное слово.<br>Координация движений – это качество, позволяющее быстро, без<br>ошибок и лишних (1) напряжений осваивать и выполнять сложные двигательные<br>действия.</div>
       
       
       <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>эмоциональных</option><option>психических</option><option>нервных</option><option>психологических</option><option>мышечных</option></select></p></div>
@@ -1039,7 +1041,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">К какому разделу<br>дневника по физической культуре относится представленный образец оформления?</div>
-      <div class="pics"><img class="qimg" src="../_картинки/ec6e5a8655d179c4.png" alt="рисунок из теста"></div>
+      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/ec6e5a8655d179c4.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Наблюдение за состоянием здоровья</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Наблюдение за физическим развитием.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Наблюдение за физической подготовленностью</label></div></div></div>
     </div>
@@ -1076,7 +1078,7 @@ audio { width: 100%; max-width: 420px; }
   </div>
   <div class="content">
     <div class="formulation">
-      <div class="qtext">Установите порядок действий для выполнения техники лазанья <br>по канату в три приёма</div>
+      <div class="qtext">Установите порядок действий для выполнения техники лазанья<br>по канату в три приёма</div>
       
       
       <div class="ablock"><div class="prompt">Расставьте в правильном порядке:</div><ul class="answer"><li>И. п. — вис стоя.</li><li>Сгибая ноги, подтянуть колени к груди и захватить канат подъёмами ног и коленями скрестно.</li><li>Удерживаясь на канате захватом ног и левой прямой рукой, перехватить канат правой рукой возле левой руки.</li><li>Удерживаясь на канате захватом ног и правой прямой рукой, перехватить канат левой рукой как можно выше.</li><li>Разгибая ноги, подтянуться на руках.</li></ul></div>
@@ -1115,7 +1117,7 @@ audio { width: 100%; max-width: 420px; }
   <div class="content">
     <div class="formulation">
       <div class="qtext">Какое гимнастическое упражнение выполняет ученик на рисунке?</div>
-      <div class="pics"><img class="qimg" src="../_картинки/c28242c601717f52.png" alt="рисунок из теста"></div>
+      <div class="pics"><table class="qimgs"><tbody><tr><td><img class="qimg" src="../_картинки/c28242c601717f52.png" alt=""></td></tr></tbody></table></div>
       
       <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
     </div>
