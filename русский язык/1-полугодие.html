@@ -1,715 +1,1112 @@
 <!doctype html>
 <html lang="ru">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>6 класс · русский язык · 1 полугодие</title>
+<title>русский язык · Тест</title>
 <style>
-:root { --bg:#0f2744; --card:#fff; --ink:#1a2332; --muted:#5b6573; --acc:#1e6bb8; --ok:#0d7a4f; }
 * { box-sizing: border-box; }
-html, body { margin:0; background:#dfe7f0; color:var(--ink); font-family: "Segoe UI", Arial, sans-serif; }
-.wrap { max-width: 980px; margin: 0 auto; padding: 16px; }
-h1 { font-size: 28px; margin: 12px 0 8px; }
-.sub { color: var(--muted); margin-bottom: 18px; }
-.nav { position: sticky; top: 0; z-index: 5; background: #dfe7f0; padding: 8px 0; display:flex; gap:8px; align-items:center; }
-button { background: var(--acc); color:#fff; border:0; padding:8px 14px; border-radius:8px; cursor:pointer; font-size:15px; }
-.slide { background: var(--card); border-radius: 16px; padding: 28px 32px; margin: 16px 0; box-shadow: 0 8px 24px rgba(15,39,68,.12); min-height: 70vh; }
-.top { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-h2, h3 { margin: 14px 0 8px; }
-.q { font-size: 20px; line-height: 1.45; }
-.opts { margin: 12px 0; background:#f4f7fb; padding:12px 16px; border-radius:10px; }
-.memo { line-height: 1.5; }
-.ans { background:#e8f6ee; border-left: 6px solid var(--ok); padding: 12px 16px; border-radius: 8px; font-size: 18px; }
-.ans-line { margin: 6px 0; }
-.muted { color: var(--muted); background: #fff6e8; border:0; padding:8px; }
-.toc a { display:block; margin: 4px 0; color: var(--acc); }
-.themebar { color:#fff; padding:8px 12px; border-radius:10px; font-size:15px; margin-bottom:10px; }
-.pics { display:flex; flex-wrap:wrap; gap:12px; margin:14px 0; align-items:flex-start; }
-.qimg { max-width:100%; height:auto; border:1px solid #d5dee8; border-radius:10px; background:#fff; }
-.audios { margin: 14px 0; }
-.audio { margin: 10px 0 14px; }
-.alabel { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
-audio { width: 100%; }
-.ans.cant { background:#fff3e0; border-left-color:#c45c26; }
+html, body {
+  margin: 0;
+  background: #fff;
+  color: #1d2125;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+a { color: #0f6cbf; }
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.6rem 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.navbar .brand { color: #0f6cbf; font-weight: 600; text-decoration: none; font-size: 1.1rem; }
+.navbar .crumb { color: #6a737b; font-size: 0.9rem; }
+#page {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+#page-header h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.35rem; }
+#page-header .page-context-header { color: #6a737b; margin: 0 0 1rem; }
+#mod_quiz_navblock {
+  position: sticky;
+  top: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: #fff;
+}
+#mod_quiz_navblock h5 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+.qnbutton {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+  background: #fff;
+  height: 40px;
+  width: 30px;
+  border-radius: 3px;
+  margin: 0 6px 6px 0;
+  border: 1px solid #cad0d7;
+  text-align: center;
+  color: #1d2125;
+  position: relative;
+  vertical-align: top;
+}
+.qnbutton .thispageholder { display: block; height: 20px; padding-top: 2px; }
+.qnbutton .trafficlight {
+  display: block;
+  height: 18px;
+  background: #6a737b;
+  border-radius: 0 0 2px 2px;
+}
+.quizname { margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #dee2e6; font-size: 1.15rem; }
+.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; overflow: hidden; }
+.que .info {
+  float: left;
+  width: 7em;
+  padding: 0.5em;
+  margin-bottom: 1.8em;
+  background-color: #f8f9fa;
+  border: 1px solid #cad0d7;
+  border-radius: 2px;
+}
+.que h3.no { margin: 0; font-size: 0.8em; line-height: 1; }
+.que span.qno { font-size: 1.5em; font-weight: bold; }
+.que .info > div { font-size: 0.8em; margin-top: 0.7em; }
+.que .content { margin: 0 0 0 8.5em; }
+.que .formulation, .que .comment {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 0 solid transparent;
+  border-radius: 0.5rem;
+}
+.que .formulation {
+  color: #001a1e;
+  background-color: #e7f3f5;
+  border-color: #b8dce2;
+}
+.que .comment {
+  color: #1c3f1a;
+  background-color: #d7e4d6;
+  border-color: #c6dac6;
+}
+.que .ablock { margin: 0.7em 0 0.3em 0; }
+.que .qtext { margin-bottom: 1.5em; }
+.que .prompt { font-weight: 600; margin: 0 0 0.4em; }
+.que .answer .r0, .que .answer .r1 { padding: 0.2em 0.15em; }
+.que .answer input { margin-right: 0.35em; vertical-align: middle; }
+.que label { display: inline; }
+.que table.answer { width: 100%; border-collapse: collapse; }
+.que table.answer td { padding: 0.35em 0.5em; vertical-align: middle; }
+.que table.answer tr.r0 { background: rgba(255,255,255,0.45); }
+.custom-select {
+  display: inline-block;
+  padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #8f959e;
+  border-radius: 0.25rem;
+  background: #fff;
+  max-width: 100%;
+}
+.accesshide {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.pics { margin: 0 0 1em; }
+.qimg { max-width: 100%; height: auto; border: 1px solid #cad0d7; background: #fff; }
+.audios { margin: 0 0 1em; }
+.alabel { font-size: 0.85em; color: #6a737b; }
+audio { width: 100%; max-width: 420px; }
+.rightanswer { font-weight: 600; margin: 0 0 0.4em; }
+.ans-line { margin: 0.15em 0; font-weight: 600; }
+.why { margin: 0; font-weight: 400; }
+@media (max-width: 800px) {
+  #page { grid-template-columns: 1fr; }
+  .que .info { float: none; width: auto; margin-bottom: 0.6em; }
+  .que .content { margin: 0; }
+}
 </style>
-<body>
-<div class="wrap">
-  <h1>✍ 6 класс. русский язык. 1 полугодие</h1>
-  <p class="sub">Вопросы из текущих тестов 1–4. Если в задании была карта, схема или фото — они показаны здесь, как в тесте. Клавиши ← → листают слайды.</p>
-  <div class="nav">
-    <button id="prev">← Назад</button>
-    <button id="next">Вперёд →</button>
-    <button id="all">Показать все</button>
-    <span id="pos"></span>
+</head>
+<body class="path-mod-quiz">
+<nav class="navbar">
+  <a class="brand" href="../index.html">ЦОДИВ</a>
+  <span class="crumb">6 класс / русский язык / 1 полугодие</span>
+</nav>
+<div id="page">
+  <aside id="mod_quiz_navblock">
+    <h5>Навигация по тесту</h5>
+    <div class="allquestionsononepage"><div><strong>Тест 1 Русский язык</strong></div><a class="qnbutton answersaved" href="#q-1"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-2"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-3"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-4"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-5"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-6"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-7"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-8"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-9"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-10"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-11"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-12"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-13"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-14"><span class="thispageholder">14</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-15"><span class="thispageholder">15</span><span class="trafficlight"></span></a><div><strong>Тест 2 Русский язык</strong></div><a class="qnbutton answersaved" href="#q-16"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-17"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-18"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-19"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-20"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-21"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-22"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-23"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-24"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-25"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-26"><span class="thispageholder">11</span><span class="trafficlight"></span></a><div><strong>Тест 3 Русский язык</strong></div><a class="qnbutton answersaved" href="#q-27"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-28"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-29"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-30"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-31"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-32"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-33"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-34"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-35"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-36"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-37"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-38"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-39"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-40"><span class="thispageholder">14</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-41"><span class="thispageholder">15</span><span class="trafficlight"></span></a><div><strong>Тест 4 Русский язык</strong></div><a class="qnbutton answersaved" href="#q-42"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-43"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-44"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-45"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-46"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-47"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-48"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-49"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-50"><span class="thispageholder">9</span><span class="trafficlight"></span></a></div>
+  </aside>
+  <div id="region-main">
+    <div id="page-header">
+      <h1>русский язык</h1>
+      <p class="page-context-header">Пройти тест · все вопросы на одной странице</p>
+    </div>
+    <h3 class="quizname">Тест 1 Русский язык</h3>
+<div class="que match deferredfeedback" id="q-1">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
   </div>
-  <div class="toc"><a href="#q-1">Тест 1 Русский язык (15)</a><a href="#q-16">Тест 2 Русский язык (11)</a><a href="#q-27">Тест 3 Русский язык (15)</a><a href="#q-42">Тест 4 Русский язык (9)</a></div>
-  <div id="q-1"></div>
-<section class="slide" data-i="1">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 1 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Соотнесите схему рассуждения с элементами на тему «Почему необходимо хорошо знать родной язык?»</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Во-первых, потому что он необходим для общения, для обменамыслями, чувствами, для передачи знаний, опыта.</li><li>Поэтому изучать родной язык надо серьёзно.</li><li>Родной язык надо хорошо знать</li><li>Во-вторых, язык помогает организовать дружную, успешную работу.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Соотнесите схему рассуждения с элементами на тему «Почему необходимо хорошо знать родной язык?» Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Во-первых, потому что он необходим для общения, для обменамыслями, чувствами, для передачи знаний, опыта. — Аргумент 1; Поэтому изучать родной язык надо серьёзно. — Вывод; Родной язык надо хорошо знать — Тезис; Во-вторых, язык помогает орга…</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Во-первых, потому что он необходим для общения, для обменамыслями, чувствами, для передачи знаний, опыта. — Аргумент 1</div><div class="ans-line">Поэтому изучать родной язык надо серьёзно. — Вывод</div><div class="ans-line">Родной язык надо хорошо знать — Тезис</div><div class="ans-line">Во-вторых, язык помогает организовать дружную, успешную работу. — Аргумент 2</div></div>
-</section><div id="q-2"></div>
-<section class="slide" data-i="2">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 2 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Соотнеси основные разновидности норм литературного языка.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Нормы произношения и ударения</li><li>Нормы построения словосочетаний и предложений</li><li>Нормы постановки знаков препинания</li><li>Нормы словоупотребления</li><li>Нормы формоизменения</li><li>Нормы правописания</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Соотнеси основные разновидности норм литературного языка. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Нормы произношения и ударения — орфоэпические; Нормы построения словосочетаний и предложений — синтаксические; Нормы постановки знаков препинания — пунктуационные; Нормы словоупотребления — лексические; Нормы формоизменения — морфологически…</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Нормы произношения и ударения — орфоэпические</div><div class="ans-line">Нормы построения словосочетаний и предложений — синтаксические</div><div class="ans-line">Нормы постановки знаков препинания — пунктуационные</div><div class="ans-line">Нормы словоупотребления — лексические</div><div class="ans-line">Нормы формоизменения — морфологические</div><div class="ans-line">Нормы правописания — орфографические</div></div>
-</section><div id="q-3"></div>
-<section class="slide" data-i="3">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 3 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Укажите слово, в котором на месте пропуска нужно писать букву о.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. заг..реть</li><li>b. оз..рённый</li><li>c. з..рница</li><li>d. з..ря</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Укажите слово, в котором на месте пропуска нужно писать букву о. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: a. заг..реть</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">a. заг..реть</div></div>
-</section><div id="q-4"></div>
-<section class="slide" data-i="4">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 4 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Укажите ряд, в котором на месте пропуска во всех словах пишется одна и та же буква.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>..делать, ..дать, по..гореть</li><li>ра..гадать, ..делать, ра..дать</li><li>пр..вратить, пр..миленький, пр..кратить</li><li>без..нтересный, сверх..нтересный, под..грать</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Укажите ряд, в котором на месте пропуска во всех словах пишется одна и та же буква. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: пр..вратить, пр..миленький, пр..кратить</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">пр..вратить, пр..миленький, пр..кратить</div></div>
-</section><div id="q-5"></div>
-<section class="slide" data-i="5">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 5 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В каком ряду все слова имеют чередующуюся безударную гласную в корне слова?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. пробивался, удивиться</li><li>b. перемигивались, испекутся</li><li>c. загораживать, носились</li><li>d. вырастить, собирать</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В каком ряду все слова имеют чередующуюся безударную гласную в корне слова? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: d. вырастить, собирать</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">d. вырастить, собирать</div></div>
-</section><div id="q-6"></div>
-<section class="slide" data-i="6">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 6 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В каком слове пишется буква и?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. раст..рание</li><li>b. зам..реть</li><li>c. ст..литься</li><li>d. отт..реть</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В каком слове пишется буква и? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: a. раст..рание</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">a. раст..рание</div></div>
-</section><div id="q-7"></div>
-<section class="slide" data-i="7">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 7 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Найдите слово с чередующейся безударной гласной в корне.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. предг..рье</li><li>b. г..рсточка</li><li>c. подг..ревший</li><li>d. г..ревать</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Найдите слово с чередующейся безударной гласной в корне. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. подг..ревший</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. подг..ревший</div></div>
-</section><div id="q-8"></div>
-<section class="slide" data-i="8">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 8 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Отметьте вариант, в котором во всех словах на месте пропусков пишется буква ь.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. наден..те, разжеч..</li><li>b. смеркат..ся, бетон..щик</li><li>c. монтаж.., осветиш..</li><li>d. назнач.., неуклюж..</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Отметьте вариант, в котором во всех словах на месте пропусков пишется буква ь. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: a. наден..те, разжеч..</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">a. наден..те, разжеч..</div></div>
-</section><div id="q-9"></div>
-<section class="slide" data-i="9">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 9 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В каком варианте ответа Не со всеми словами пишется раздельно?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. (Не)вежда тот, кто (не)желает быть умным.</li><li>b. Он еще (не)рассказал мне свою вовсе (не)веселую историю.</li><li>c. Его (не)уважительный и резкий ответ привел к (не)обратимым последствиям.</li><li>d. (Не)большой, но уютный наш дом еще (не)построен.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В каком варианте ответа Не со всеми словами пишется раздельно? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. Его (не)уважительный и резкий ответ привел к (не)обратимым последствиям. — здесь НЕ пишется слитно, то есть не со всеми словами раздельно</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. Его (не)уважительный и резкий ответ привел к (не)обратимым последствиям. — здесь НЕ пишется слитно, то есть не со всеми словами раздельно</div></div>
-</section><div id="q-10"></div>
-<section class="slide" data-i="10">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 10 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Определите, в каком ряду все слова являются однокоренными.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. мучить, мучной, мучнистый</li><li>b. телёнок, тело, нательный</li><li>c. ноша, приношение, ношеный</li><li>d. горе, горевать, горный</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Определите, в каком ряду все слова являются однокоренными. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. ноша, приношение, ношеный</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. ноша, приношение, ношеный</div></div>
-</section><div id="q-11"></div>
-<section class="slide" data-i="11">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 11 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Прочитайте текст и выполните задание.(1)Человек приобретает себя и утверждает делом. (2)Поэтому выбор дела -- это выбор судьбы. (З)Путь к величию человека лежит в высочайшем его призвании, которое выражается в одном: работать, работать, работать. (4)Ибо никто не сделает за тебя того, что должен сделать ты сам.(По Ю. Бондареву)Найдите в предложениях 1-3 слово, правописание приставки в котором определяется её значением - "присоединение"</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>призвание</li><li>приобретает</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Прочитайте текст и выполните задание.(1)Человек приобретает себя и утверждает делом. (2)Поэтому выбор дела -- это выбор судьбы. (З)Путь к величию человека лежит в высочайшем его призвании, которое выражается в одном: раб… Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: приобретает</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">приобретает</div></div>
-</section><div id="q-12"></div>
-<section class="slide" data-i="12">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 12 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Укажите слово, в котором пропущена буква и.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. воз..меть</li><li>b. без..мянный</li><li>c. меж..гровой</li><li>d. пред..нфарктный</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Укажите слово, в котором пропущена буква и. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. меж..гровой</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. меж..гровой</div></div>
-</section><div id="q-13"></div>
-<section class="slide" data-i="13">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 13 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Укажите ряд, в котором во всех словах на месте пропуска пишется одна и та же буква.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>использ..вать, танц..вать, совет..вать</li><li>собач..нка, кусоч..к, плюш..вый</li><li>киргиз..кий, черкес..кий, матрос..кий</li><li>песц..вый, ландыш..вый, сверч..к</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Укажите ряд, в котором во всех словах на месте пропуска пишется одна и та же буква. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: киргиз..кий, черкес..кий, матрос..кий</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">киргиз..кий, черкес..кий, матрос..кий</div></div>
-</section><div id="q-14"></div>
-<section class="slide" data-i="14">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 14 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В какой строчке во всех словах пишется буква о?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>воротнич..к, денеч..к, пирож..к</li><li>кулач..к, горош..к, снеж..к</li><li>руч..нка, доч..нька, друж..к</li><li>чудач..к, пиджач..к, пятач..к</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В какой строчке во всех словах пишется буква о? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: чудач..к, пиджач..к, пятач..к</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">чудач..к, пиджач..к, пятач..к</div></div>
-</section><div id="q-15"></div>
-<section class="slide" data-i="15">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 1 Русский язык · вопрос 15 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Прочитайте предложения и выполните задание<br>1. Горы имеют большие перепады высот (более 200 метров).2. Различают горы с высокогорным среднегорным и низкогорным типами рельефа.3. Рельеф гор образуется в результате сложных деформаций земной коры.4. Горы – обширные участки земной поверхности, приподнятые над равнинами.<br>Укажите, в каком порядке должны следовать предложения, чтобы получился текст.(Запишите нужную последовательность цифр без пробелов, без запятых)</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Прочитайте предложения и выполните задание 1. Горы имеют большие перепады высот (более 200 метров).2. Различают горы с высокогорным среднегорным и низкогорным типами рельефа.3. Рельеф гор образуется в результате сложных … Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 4132</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">4132</div></div>
-</section><div id="q-16"></div>
-<section class="slide" data-i="16">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 1 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Прочитайте тексты. Определите вид речи: монолог или диалог. Соедините текст с соответствующим ему видом речи.1. (1) <br><br>- По-моему,<br>пчёлы что-то подозревают! <br>- Что<br>именно? <br>- Не знаю<br>я.<br>Но только, по-моему, они ведут себя<br>подозрительно. <br>- Может,<br>они думают, что ты хочешь утащить у них мёд?<br><br>2. (2) <br><br>Лейся,<br>лейся дождик, дождик!<br>Я хочу расти, расти! <br>Я не сахар!<br>Я не коржик! Не боюсь я сырости!<br><br>3. (3) <br><br>Я тоже хочу<br>проведать твою бабушку. Я по этой дороге пойду, а ты ступай по той.<br>Посмотрим, кто из нас раньше придёт.<br><br>4. (4) <br><br>- Кто<br>говорит?<br>- Слон. <br>- Откуда? <br>- От<br>верблюда.<br><br>5. (5) <br><br>- Какой<br>же это индюшонок? - сказала утка. - Ишь как славно гребёт лапками, как прямо<br>держится! Нет, это мой собственный сын! Да он вовсе и недурён, как посмотришь<br>на него хорошенько!<br><br>6. (6) <br><br>- Как тебя зовут?<br>- Малыш. Хотя<br>по-настоящему меня зовут Сванте Свантесон.<br>- А меня,<br>как это ни странно, зовут Карлсон.</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) монолог / диалог</li><li>(2) монолог / диалог</li><li>(3) монолог / диалог</li><li>(4) монолог / диалог</li><li>(5) монолог / диалог</li><li>(6) монолог / диалог</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Прочитайте тексты. Определите вид речи: монолог или диалог. Соедините текст с соответствующим ему видом речи.1. (1)  - По-моему, Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: диалог; монолог; монолог; диалог; монолог; диалог</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">диалог</div><div class="ans-line">монолог</div><div class="ans-line">монолог</div><div class="ans-line">диалог</div><div class="ans-line">монолог</div><div class="ans-line">диалог</div></div>
-</section><div id="q-17"></div>
-<section class="slide" data-i="17">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 2 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Расположите фрагменты текста в нужном порядке в соответствии с планом.1. (1) - Пришла Мишина мама после работы домой и руками всплеснула:2. (2) - — Как же это ты, Мишенька, сумел у велосипеда колесо отломать?— Оно, мама, само отломалось. — А почему у тебя, Мишенька, рубашка разорвана? — Она, мамочка, сама разорвалась.— А куда твой второй башмак делся? Где ты его потерял?— Он, мама, сам куда-то потерялся.3. (3) - — Как же это ты, Мишенька, сумел у велосипеда колесо отломать?— Оно, мама, само отломалось. — А почему у тебя, Мишенька, рубашка разорвана? — Она, мамочка, сама разорвалась.— А куда твой второй башмак делся? Где ты его потерял?— Он, мама, сам куда-то потерялся.Тогда Мишина мама сказала: — Какие они все нехорошие! Их, негодников, нужно проучить!— А как? — спросил Миша.— Очень просто, — ответила мама. — Если они научились сами ломаться, сами разрываться и сами теряться, пусть научатся сами чиниться, сами зашиваться, сами находиться. А мы с тобой, Миша, дома посидим и подождём, когда они это всё сделают.4. (4) - Сел Миша у сломанного велосипеда, в разорванной рубашке, без башмака, и крепко задумался. Видимо, было над чем задуматься этому мальчику.</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) Вещи сами испортились / Есть над чем подумать / Наказание для вещей / Мамино возвращение</li><li>(2) Вещи сами испортились / Есть над чем подумать / Наказание для вещей / Мамино возвращение</li><li>(3) Вещи сами испортились / Есть над чем подумать / Наказание для вещей / Мамино возвращение</li><li>(4) Вещи сами испортились / Есть над чем подумать / Наказание для вещей / Мамино возвращение</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Расположите фрагменты текста в нужном порядке в соответствии с планом.1. (1) - Пришла Мишина мама после работы домой и руками всплеснула:2. (2) - — Как же это ты, Мишенька, сумел у велосипеда колесо отломать?— Оно, мама,… Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Мамино возвращение; Вещи сами испортились; Наказание для вещей; Есть над чем подумать</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Мамино возвращение</div><div class="ans-line">Вещи сами испортились</div><div class="ans-line">Наказание для вещей</div><div class="ans-line">Есть над чем подумать</div></div>
-</section><div id="q-18"></div>
-<section class="slide" data-i="18">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 3 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Проанализируйте предложения с прямой речью. Соотнесите схемы с предложениями (Знаки препинания не расставлены!)</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Отец громко сказал Я не верю, чтобы Женька могла попасть в плохую компанию</li><li>Через полчаса я уеду сказал полковник Алексеев Ольге</li><li>Ольга воскликнула Я с тобой не разговариваю.</li><li>Давай я приму телеграмму ответил сосед</li><li>Кто примет телеграмму спросил сосед</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Проанализируйте предложения с прямой речью. Соотнесите схемы с предложениями (Знаки препинания не расставлены!) Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Отец громко сказал: «Я не верю…» — А: «П»; Через полчаса я уеду, — сказал полковник Алексеев Ольге. — «П», — а; Ольга воскликнула: «Я с тобой не разговариваю». — А: «П»; Давай я приму телеграмму, — ответил сосед. — «П», — а; Кто примет теле…</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Отец громко сказал: «Я не верю…» — А: «П»</div><div class="ans-line">Через полчаса я уеду, — сказал полковник Алексеев Ольге. — «П», — а</div><div class="ans-line">Ольга воскликнула: «Я с тобой не разговариваю». — А: «П»</div><div class="ans-line">Давай я приму телеграмму, — ответил сосед. — «П», — а</div><div class="ans-line">Кто примет телеграмму? — спросил сосед. — «П?» — а</div></div>
-</section><div id="q-19"></div>
-<section class="slide" data-i="19">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 4 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Соотнесите слова и словосочетания. Какие из них можно употребить в художественном описании комнаты, а какие – в деловом?</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Экспонаты размещены</li><li>Общая площадь</li><li>Свечи потрескивали</li><li>Особое значение</li><li>Масштаб</li><li>Логически завершённое</li><li>Ослепительный блеск зеркал</li><li>Мерцание</li><li>Солнечный зайчик</li><li>Зал № 3</li><li>Звон хрусталя</li><li>Скользить по паркету</li><li>посвящён</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Соотнесите слова и словосочетания. Какие из них можно употребить в художественном описании комнаты, а какие – в деловом? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Экспонаты размещены — Официально – деловое описание помещения; Общая площадь — Официально – деловое описание помещения; Свечи потрескивали — Художественное описание помещения; Особое значение — Официально – деловое описание помещения; Масшт…</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Экспонаты размещены — Официально – деловое описание помещения</div><div class="ans-line">Общая площадь — Официально – деловое описание помещения</div><div class="ans-line">Свечи потрескивали — Художественное описание помещения</div><div class="ans-line">Особое значение — Официально – деловое описание помещения</div><div class="ans-line">Масштаб — Официально – деловое описание помещения</div><div class="ans-line">Логически завершённое — Официально – деловое описание помещения</div><div class="ans-line">Ослепительный блеск зеркал — Художественное описание помещения</div><div class="ans-line">Мерцание — Художественное описание помещения</div><div class="ans-line">Солнечный зайчик — Художественное описание помещения</div><div class="ans-line">Зал № 3 — Официально – деловое описание помещения</div><div class="ans-line">Звон хрусталя — Художественное описание помещения</div><div class="ans-line">Скользить по паркету — Художественное описание помещения</div><div class="ans-line">посвящён — Официально – деловое описание помещения</div></div>
-</section><div id="q-20"></div>
-<section class="slide" data-i="20">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 5 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Рассортируйте слова и словосочетания. Какие из них можно употребить в художественном описании комнаты, а какие – в деловом?<br>1. Художественное описание помещения<br>2. Официально-деловое описание помещения</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Скользить по паркету</li><li>Ослепительный блеск зеркал</li><li>Масштаб</li><li>Общая площадь</li><li>Посвящён</li><li>Солнечный зайчик</li><li>Свечи потрескивали</li><li>Особое значение</li><li>Мерцание</li><li>Зал № 3</li><li>Звон хрусталя</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Рассортируйте слова и словосочетания. Какие из них можно употребить в художественном описании комнаты, а какие – в деловом? 1. Художественное описание помещения Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Скользить по паркету — 1; Ослепительный блеск зеркал — 1; Масштаб — 2; Общая площадь — 2; Посвящён — 2; Солнечный зайчик — 1; Свечи потрескивали — 1; Особое значение — 2; Мерцание — 1; Зал № 3 — 2; Звон хрусталя — 1</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Скользить по паркету — 1</div><div class="ans-line">Ослепительный блеск зеркал — 1</div><div class="ans-line">Масштаб — 2</div><div class="ans-line">Общая площадь — 2</div><div class="ans-line">Посвящён — 2</div><div class="ans-line">Солнечный зайчик — 1</div><div class="ans-line">Свечи потрескивали — 1</div><div class="ans-line">Особое значение — 2</div><div class="ans-line">Мерцание — 1</div><div class="ans-line">Зал № 3 — 2</div><div class="ans-line">Звон хрусталя — 1</div></div>
-</section><div id="q-21"></div>
-<section class="slide" data-i="21">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 6 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Соотнесите разговорные слова с общеупотребительными словами.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Проголосуйте за нас, плз!</li><li>За контрольную у меня тройбас.</li><li>Фотографии скинь на мыло.</li><li>Родичи уехали на дачу.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Соотнесите разговорные слова с общеупотребительными словами. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Проголосуйте за нас, плз! — пожалуйста; За контрольную у меня тройбас. — тройка; Фотографии скинь на мыло. — электронную почту; Родичи уехали на дачу. — Родители</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Проголосуйте за нас, плз! — пожалуйста</div><div class="ans-line">За контрольную у меня тройбас. — тройка</div><div class="ans-line">Фотографии скинь на мыло. — электронную почту</div><div class="ans-line">Родичи уехали на дачу. — Родители</div></div>
-</section><div id="q-22"></div>
-<section class="slide" data-i="22">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 7 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Подберите синонимы к диалектным словам.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Скрябка</li><li>утирка</li><li>Рукотёрник</li><li>Кочет</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Подберите синонимы к диалектным словам. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Скрябка — лопата; утирка — Носовой платок; Рукотёрник — Полотенце; Кочет — Петух</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Скрябка — лопата</div><div class="ans-line">утирка — Носовой платок</div><div class="ans-line">Рукотёрник — Полотенце</div><div class="ans-line">Кочет — Петух</div></div>
-</section><div id="q-23"></div>
-<section class="slide" data-i="23">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 8 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Найдите среди словосочетаний слова с прямым значением, эпитет, метафору.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Золотая осень</li><li>Нежный взгляд</li><li>Оловянный солдатик</li><li>Высокое дерево</li><li>Ароматный цветок</li><li>Хвост очереди</li><li>Тёплое отношение</li><li>Ослепительный снег</li><li>Ненастная погода</li><li>Пламя снега</li><li>Зеркало льда</li><li>Пушистые ветки</li><li>Ковёр снега</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Найдите среди словосочетаний слова с прямым значением, эпитет, метафору. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: прямое значение: оловянный солдатик, высокое дерево, ароматный цветок; эпитет: золотая осень, нежный взгляд, ослепительный снег, тёплое отношение; метафора: хвост очереди (и «золотая осень» если в ключе как метафора)</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">прямое значение: оловянный солдатик, высокое дерево, ароматный цветок</div><div class="ans-line">эпитет: золотая осень, нежный взгляд, ослепительный снег, тёплое отношение</div><div class="ans-line">метафора: хвост очереди (и «золотая осень» если в ключе как метафора)</div></div>
-</section><div id="q-24"></div>
-<section class="slide" data-i="24">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 9 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Определите правильную характеристику<br>текста.<br>На дворе стоит серое, слезливое утро. Дождевые капли барабанят в окна.<br>Ветер плачет в трубах и воет, как собака, потерявшая хозяина (по А. Чехову).</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Тип<br>речи – описание, стиль – разговорный.</li><li>Тип речи – повествование с элементами описания, стиль художественный.</li><li>Тип<br>речи – рассуждение, стиль – публицистический.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Определите правильную характеристику текста. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Тип речи – повествование с элементами описания, стиль художественный.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Тип речи – повествование с элементами описания, стиль художественный.</div></div>
-</section><div id="q-25"></div>
-<section class="slide" data-i="25">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 10 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Восстановите текст заявления в нужной последовательности.</div>
-  
-  
-  <div class="opts"><b>Элементы для порядка:</b><ul><li>Директору школы №1 <br>г. Санкт – Петербурга <br>Петрову А.В.<br>Ивановой В.Б.</li><li>Заявление</li><li>Прошу зачислить меня в туристический клуб школы</li><li>Иванова В.Б.</li><li>28.08.2022</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Восстановите текст заявления в нужной последовательности. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: адресат (кому) → от кого → заголовок ЗАЯВЛЕНИЕ → текст просьбы → дата и подпись</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">адресат (кому) → от кого → заголовок ЗАЯВЛЕНИЕ → текст просьбы → дата и подпись</div></div>
-</section><div id="q-26"></div>
-<section class="slide" data-i="26">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 2 Русский язык · вопрос 11 из 11</div>
-  <h2>Вопрос</h2>
-  <div class="q">Прочитайте текст. Расположите пункты сложного плана в нужном<br>порядке.<br>Из одного и того же куска железа и в<br>одной и той же мастерской были сделаны два плуга. Один из них попал в руки<br>земледельца и немедленно пошёл в работу, а другой долго и совершенно бесполезно<br>провалялся в лавке купца.<br> Случилось через несколько времени, что оба<br>земляка опять встретились. Плуг, бывший у земледельца, блестел, как серебро, и<br>был даже ещё лучше, чем в то время, когда он только что вышел из мастерской;<br>плуг же, пролежавший без всякого дела в лавке, потемнел и покрылся ржавчиной.<br> — Скажи, пожалуйста, отчего ты так блестишь? —<br>спросил заржавевший плуг у своего старого знакомца.<br> — От труда, мой милый, — отвечал тот, — а если<br>ты заржавел и сделался хуже, чем был, то потому, что всё это время ты пролежал<br>на боку, ничего не делая.</div>
-  
-  
-  <div class="opts"><b>Элементы для порядка:</b><ul><li>Встреча двух плугов.</li><li>Две разные дороги.</li><li>Два плуга из одной мастерской.</li><li>Если ржавеешь – это от безделья.</li><li>Почему сияет плуг земледельца?</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Прочитайте текст. Расположите пункты сложного плана в нужном порядке. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: два плуга из одного железа → один в работе у земледельца → другой без дела → встреча / разговор → вывод: польза в труде</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">два плуга из одного железа → один в работе у земледельца → другой без дела → встреча / разговор → вывод: польза в труде</div></div>
-</section><div id="q-27"></div>
-<section class="slide" data-i="27">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 1 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Распределите профессиональные слова.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>киянка</li><li>опара</li><li>верстак</li><li>аннотация</li><li>каталог</li><li>абонент</li><li>картотека</li><li>шпаклёвка</li><li>саморез</li><li>колун</li><li>буханка</li><li>ферментация</li><li>бриошь</li><li>помол</li><li>альманах</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Распределите профессиональные слова. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: киянка — Строительство; опара — Хлебопечение; верстак — Строительство; аннотация — Библиотечное дело; каталог — Библиотечное дело; абонент — Библиотечное дело; картотека — Библиотечное дело; шпаклёвка — Строительство; саморез — Строительств…</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">киянка — Строительство</div><div class="ans-line">опара — Хлебопечение</div><div class="ans-line">верстак — Строительство</div><div class="ans-line">аннотация — Библиотечное дело</div><div class="ans-line">каталог — Библиотечное дело</div><div class="ans-line">абонент — Библиотечное дело</div><div class="ans-line">картотека — Библиотечное дело</div><div class="ans-line">шпаклёвка — Строительство</div><div class="ans-line">саморез — Строительство</div><div class="ans-line">колун — Строительство</div><div class="ans-line">буханка — Хлебопечение</div><div class="ans-line">ферментация — Хлебопечение</div><div class="ans-line">бриошь — Хлебопечение</div><div class="ans-line">помол — Хлебопечение</div><div class="ans-line">альманах — Библиотечное дело</div></div>
-</section><div id="q-28"></div>
-<section class="slide" data-i="28">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 2 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Подберите к исконно русским словам заимствованные синонимы.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Полный</li><li>Перерыв</li><li>Личный</li><li>Грубый</li><li>Победитель</li><li>Нелепость</li><li>Войско</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Подберите к исконно русским словам заимствованные синонимы. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Полный — абсолютный; Перерыв — антракт; Личный — персональный; Грубый — вульгарный; Победитель — чемпион; Нелепость — абсурд; Войско — армия</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Полный — абсолютный</div><div class="ans-line">Перерыв — антракт</div><div class="ans-line">Личный — персональный</div><div class="ans-line">Грубый — вульгарный</div><div class="ans-line">Победитель — чемпион</div><div class="ans-line">Нелепость — абсурд</div><div class="ans-line">Войско — армия</div></div>
-</section><div id="q-29"></div>
-<section class="slide" data-i="29">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 3 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Подберите синонимы к устаревшим словам. Для выполнения задания воспользуйтесь словарём.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>благость</li><li>чело</li><li>яства</li><li>вёдро</li><li>балакать</li><li>льзя</li><li>лобзати</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Подберите синонимы к устаревшим словам. Для выполнения задания воспользуйтесь словарём. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: благость — доброта; чело — лоб; яства — еда; вёдро — ясная, тихая погода; балакать — говорить; льзя — можно; лобзати — целовать</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">благость — доброта</div><div class="ans-line">чело — лоб</div><div class="ans-line">яства — еда</div><div class="ans-line">вёдро — ясная, тихая погода</div><div class="ans-line">балакать — говорить</div><div class="ans-line">льзя — можно</div><div class="ans-line">лобзати — целовать</div></div>
-</section><div id="q-30"></div>
-<section class="slide" data-i="30">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 4 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сопоставьте слова: архаизмы и историзмы. Для выполнения задания воспользуйтесь словарём.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>кокошник</li><li>кольчуга</li><li>чело</li><li>очи</li><li>дружество</li><li>алтын</li><li>забрало</li><li>ланиты</li><li>шушун</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сопоставьте слова: архаизмы и историзмы. Для выполнения задания воспользуйтесь словарём. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: кокошник — историзмы; кольчуга — историзмы; чело — архаизмы; очи — архаизмы; дружество — архаизмы; алтын — историзмы; забрало — историзмы; ланиты — архаизмы; шушун — историзмы</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">кокошник — историзмы</div><div class="ans-line">кольчуга — историзмы</div><div class="ans-line">чело — архаизмы</div><div class="ans-line">очи — архаизмы</div><div class="ans-line">дружество — архаизмы</div><div class="ans-line">алтын — историзмы</div><div class="ans-line">забрало — историзмы</div><div class="ans-line">ланиты — архаизмы</div><div class="ans-line">шушун — историзмы</div></div>
-</section><div id="q-31"></div>
-<section class="slide" data-i="31">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 5 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Распределите слова на две группы.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>башковитый</li><li>умный</li><li>шея</li><li>здоровущий</li><li>дерзновенный</li><li>малыш</li><li>перчатка</li><li>размазня</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Распределите слова на две группы. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: башковитый — Стилистические окрашенные; умный — Стилистически нейтральные; шея — Стилистически нейтральные; здоровущий — Стилистические окрашенные; дерзновенный — Стилистические окрашенные; малыш — Стилистически нейтральные; перчатка — Стил…</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">башковитый — Стилистические окрашенные</div><div class="ans-line">умный — Стилистически нейтральные</div><div class="ans-line">шея — Стилистически нейтральные</div><div class="ans-line">здоровущий — Стилистические окрашенные</div><div class="ans-line">дерзновенный — Стилистические окрашенные</div><div class="ans-line">малыш — Стилистически нейтральные</div><div class="ans-line">перчатка — Стилистически нейтральные</div><div class="ans-line">размазня — Стилистические окрашенные</div></div>
-</section><div id="q-32"></div>
-<section class="slide" data-i="32">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 6 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Пользуясь словарём, подберите к фразеологизмам фразеологизмы-антонимы.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>профессор кислых щей</li><li>рукой подать</li><li>на вес золота</li><li>потерпеть фиаско</li><li>семи пядей во лбу</li><li>засучив рукава</li><li>в час по чайной ложке</li><li>песок сыплется</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Пользуясь словарём, подберите к фразеологизмам фразеологизмы-антонимы. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: профессор кислых щей — мастер на все руки; рукой подать — у чёрта на куличках; на вес золота — грош цена; потерпеть фиаско — одержать победу; семи пядей во лбу — Без царя в голове; засучив рукава — спустя рукава; в час по чайной ложке — на …</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">профессор кислых щей — мастер на все руки</div><div class="ans-line">рукой подать — у чёрта на куличках</div><div class="ans-line">на вес золота — грош цена</div><div class="ans-line">потерпеть фиаско — одержать победу</div><div class="ans-line">семи пядей во лбу — Без царя в голове</div><div class="ans-line">засучив рукава — спустя рукава</div><div class="ans-line">в час по чайной ложке — на всех парах</div><div class="ans-line">песок сыплется — Здоров как бык</div></div>
-</section><div id="q-33"></div>
-<section class="slide" data-i="33">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 7 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Укажите предложение, в котором используется фразеологизм.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Начинаем шагать с левой ноги.</li><li>У меня от холода зуб на зуб не попадал.</li><li>Машина встала поперёк дороги.</li><li>На болоте легко потерять почву под ногами.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Укажите предложение, в котором используется фразеологизм. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: У меня от холода зуб на зуб не попадал.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">У меня от холода зуб на зуб не попадал.</div></div>
-</section><div id="q-34"></div>
-<section class="slide" data-i="34">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 8 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Укажите схему, соответствующую строению слова ракетоноситель</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>корень, корень, суффикс, окончание</li><li>корень, корень, суффикс, суффикс</li><li>корень, корень, суффикс, суффикс, окончание</li><li>приставка, корень, суффикс, суффикс, окончание</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Укажите схему, соответствующую строению слова ракетоноситель Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: корень, корень, суффикс, суффикс, окончание (ракет-о-нос-и-тель-□)</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">корень, корень, суффикс, суффикс, окончание (ракет-о-нос-и-тель-□)</div></div>
-</section><div id="q-35"></div>
-<section class="slide" data-i="35">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 9 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В каком слове все согласные звуки твёрдые?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>паркет</li><li>костюм</li><li>шоссе</li><li>мачта</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В каком слове все согласные звуки твёрдые? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: шоссе</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">шоссе</div></div>
-</section><div id="q-36"></div>
-<section class="slide" data-i="36">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 10 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Укажите слово, строение которого соответствует схеме: приставка, корень, суффикс, окончание.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>косилка</li><li>удивительный</li><li>школьный</li><li>перелесок</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Укажите слово, строение которого соответствует схеме: приставка, корень, суффикс, окончание. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: перелесок</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">перелесок</div></div>
-</section><div id="q-37"></div>
-<section class="slide" data-i="37">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 11 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В каком слове пишется непроизносимая согласная буква?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>древес..ный</li><li>телес..ный</li><li>извес..ный</li><li>словес..ный</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В каком слове пишется непроизносимая согласная буква? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: извес..ный</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">извес..ный</div></div>
-</section><div id="q-38"></div>
-<section class="slide" data-i="38">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 12 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Определите, в каком ряду все слова являются однокоренными.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. долина, доля, обездолеть</li><li>b. пара, парный, напарник</li><li>c. ранить, ранний, рано</li><li>d. духи, духовность, духовный</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Определите, в каком ряду все слова являются однокоренными. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. пара, парный, напарник</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. пара, парный, напарник</div></div>
-</section><div id="q-39"></div>
-<section class="slide" data-i="39">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 13 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Определите способы образования слова взрыв.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. суффиксальный</li><li>b. приставочный</li><li>c. бессуффиксный</li><li>d. переход из одной части речи в другую</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Определите способы образования слова взрыв. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. бессуффиксный</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. бессуффиксный</div></div>
-</section><div id="q-40"></div>
-<section class="slide" data-i="40">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 14 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Восстановите промежуточное звено в словообразовательной цепочке старый &gt; ... &gt;старинный.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. старость</li><li>b. старина</li><li>c. стареть</li><li>d. старинно</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Восстановите промежуточное звено в словообразовательной цепочке старый &gt; ... &gt;старинный. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. старина</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. старина</div></div>
-</section><div id="q-41"></div>
-<section class="slide" data-i="41">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 3 Русский язык · вопрос 15 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Прочитайте предложения и выполните задание<br>1. Горы имеют большие перепады высот (более 200 метров).2. Различают горы с высокогорным среднегорным и низкогорным типами рельефа.3. Рельеф гор образуется в результате сложных деформаций земной коры.4. Горы – обширные участки земной поверхности, приподнятые над равнинами.<br>Из предложений 1-3 выпишите слово, соответствующее схеме: корень, суффикс, окончание, суффикс</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Прочитайте предложения и выполните задание 1. Горы имеют большие перепады высот (более 200 метров).2. Различают горы с высокогорным среднегорным и низкогорным типами рельефа.3. Рельеф гор образуется в результате сложных … Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: образуется</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">образуется</div></div>
-</section><div id="q-42"></div>
-<section class="slide" data-i="42">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 4 Русский язык · вопрос 1 из 9</div>
-  <h2>Вопрос</h2>
-  <div class="q">Вставьте нужные термины на местах пропусков в тексте. <br>В русском языке для<br>обозначения знания или науки о каком-либо предмете или явлении используют<br>греческий корень (1) ,<br>например, «мифология», «геология», «археология» и другие. Но как же назвать<br>науку, в которой изучают значение слова? Для этого у нас есть заимствованное из<br>греческого слово (2) ,<br>которое обозначает (3) . Так у нас получилось слово «этимология», обозначающее раздел (4) , занимающийся изучением<br>(5) слов.</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) происхождения / lógos / étymon / языкознания / «истинный, верный»</li><li>(2) происхождения / lógos / étymon / языкознания / «истинный, верный»</li><li>(3) происхождения / lógos / étymon / языкознания / «истинный, верный»</li><li>(4) происхождения / lógos / étymon / языкознания / «истинный, верный»</li><li>(5) происхождения / lógos / étymon / языкознания / «истинный, верный»</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Вставьте нужные термины на местах пропусков в тексте.  В русском языке для Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: (1) lógos; (2) языкознания; (3) étymon; (4) «истинный, верный»; (5) происхождения</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">(1) lógos</div><div class="ans-line">(2) языкознания</div><div class="ans-line">(3) étymon</div><div class="ans-line">(4) «истинный, верный»</div><div class="ans-line">(5) происхождения</div></div>
-</section><div id="q-43"></div>
-<section class="slide" data-i="43">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 4 Русский язык · вопрос 2 из 9</div>
-  <h2>Вопрос</h2>
-  <div class="q">Определите, к какому способу словообразования относятся слова: суффиксальный и приставочный.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>речной</li><li>морской</li><li>доброта</li><li>гитарист</li><li>каменщик</li><li>подруга</li><li>подумать</li></ul><p>Варианты ответов: суффиксальный, приставочный</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Определите, к какому способу словообразования относятся слова: суффиксальный и приставочный. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: суффиксальный: речной, морской, доброта, гитарист, каменщик; приставочный: подруга, подумать</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">суффиксальный: речной, морской, доброта, гитарист, каменщик</div><div class="ans-line">приставочный: подруга, подумать</div></div>
-</section><div id="q-44"></div>
-<section class="slide" data-i="44">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 4 Русский язык · вопрос 3 из 9</div>
-  <h2>Вопрос</h2>
-  <div class="q">Определите, к какому способу словообразования относятся слова.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>скоросшиватель</li><li>юбчонка</li><li>железнодорожный</li><li>подводник</li><li>прочитаешь</li><li>переход</li></ul><p>Варианты ответов: Приставочно-суффиксальный, суффиксальный, приставочный, сложение, бессуффиксный</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Определите, к какому способу словообразования относятся слова. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: сложение: скоросшиватель, железнодорожный, переход; суффиксальный: юбчонка; приставочно-суффиксальный: подводник; прочитаешь — не новый способ, это форма глагола</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">сложение: скоросшиватель, железнодорожный, переход</div><div class="ans-line">суффиксальный: юбчонка</div><div class="ans-line">приставочно-суффиксальный: подводник</div><div class="ans-line">прочитаешь — не новый способ, это форма глагола</div></div>
-</section><div id="q-45"></div>
-<section class="slide" data-i="45">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 4 Русский язык · вопрос 4 из 9</div>
-  <h2>Вопрос</h2>
-  <div class="q">Укажите значение первого корня в сложном слове с заимствованным корнем. При необходимости воспользуйтесь словарём иностранных слов.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Вентилятор</li><li>Портмоне</li><li>Акваланг</li><li>Фонтан</li><li>Маникюр</li></ul><p>Варианты ответов: рука, веяльщик, источник, вода, носить</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Укажите значение первого корня в сложном слове с заимствованным корнем. При необходимости воспользуйтесь словарём иностранных слов. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Вентилятор — ветер / дуть; Портмоне — носить; Акваланг — вода; Фонтан — источник / лить; Маникюр — рука</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Вентилятор — ветер / дуть</div><div class="ans-line">Портмоне — носить</div><div class="ans-line">Акваланг — вода</div><div class="ans-line">Фонтан — источник / лить</div><div class="ans-line">Маникюр — рука</div></div>
-</section><div id="q-46"></div>
-<section class="slide" data-i="46">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 4 Русский язык · вопрос 5 из 9</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите соответствие между словом с чередованием гласной в корне и словом с безударной проверяемой гласной в корнях.1. Безударная проверяемая гласная в корне2. Правописание корня -кас- — -кос- с чередованием а//о</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>касательная</li><li>кособокость</li><li>косолапый</li><li>соприкасаться</li><li>неукоснительно</li><li>косой</li><li>коснуться</li><li>сенокосилка</li><li>прикосновение</li><li>косуха</li></ul><p>Варианты ответов: 1, 2</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие между словом с чередованием гласной в корне и словом с безударной проверяемой гласной в корнях.1. Безударная проверяемая гласная в корне2. Правописание корня -кас- — -кос- с чередованием а//о Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: чередование -кас-/-кос-: касательная, соприкасаться, коснуться; проверяемая гласная: кособокость, косолапый, косой, сенокосилка, неукоснительно (если в ключе — чередование, поставь кос-)</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">чередование -кас-/-кос-: касательная, соприкасаться, коснуться</div><div class="ans-line">проверяемая гласная: кособокость, косолапый, косой, сенокосилка, неукоснительно (если в ключе — чередование, поставь кос-)</div></div>
-</section><div id="q-47"></div>
-<section class="slide" data-i="47">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 4 Русский язык · вопрос 6 из 9</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выделите ряд, в котором от всех существительных можно образовать прилагательные с суффиксом -ян-?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Крупа, дрова, лёд, овёс</li><li>Изба, глина, печь, путь</li><li>Кость, ветер, пар, время</li><li>Волос, нефть, клад, чай</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выделите ряд, в котором от всех существительных можно образовать прилагательные с суффиксом -ян-? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Крупа, дрова, лёд, овёс</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Крупа, дрова, лёд, овёс</div></div>
-</section><div id="q-48"></div>
-<section class="slide" data-i="48">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 4 Русский язык · вопрос 7 из 9</div>
-  <h2>Вопрос</h2>
-  <div class="q">Найдите слово, значение приставок в котором объяснено неправильно.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Пр.сытиться<br>– к значению - пере</li><li>Пр.бавить<br>– присоединение</li><li>Пр.скакать<br>- приближение</li><li>Пр.красный<br>– очень</li><li>Пр.писать<br>- присоединение</li><li>Пре.увеличить<br>– неполнота действия</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Найдите слово, значение приставок в котором объяснено неправильно. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Пре.увеличить – неполнота действия</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Пре.увеличить – неполнота действия</div></div>
-</section><div id="q-49"></div>
-<section class="slide" data-i="49">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 4 Русский язык · вопрос 8 из 9</div>
-  <h2>Вопрос</h2>
-  <div class="q">Укажите ряд, в котором во всех словах на месте пропуска пишется одна и та же буква.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>в землянк.., у землянк.., около землянк..</li><li>в весенн..м лесу, весенн..м днем, клейк..м листком</li><li>в ущель.., по алле.., к лошад..</li><li>ты чита..шь, он пиш..т, собака ла..т</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Укажите ряд, в котором во всех словах на месте пропуска пишется одна и та же буква. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: ты чита..шь, он пиш..т, собака ла..т</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">ты чита..шь, он пиш..т, собака ла..т</div></div>
-</section><div id="q-50"></div>
-<section class="slide" data-i="50">
-  <div class="themebar" style="background:#b03a3a">✍ Схемы слов и речи</div>
-  <div class="top">русский язык · Тест 4 Русский язык · вопрос 9 из 9</div>
-  <h2>Вопрос</h2>
-  <div class="q">Найдите слово, в котором на месте пропуска пишется буква а.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. возг..рание</li><li>b. к..сательная</li><li>c. прик..снуться</li><li>d. соприк..сновение</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Найдите слово, в котором на месте пропуска пишется буква а. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. к..сательная</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. к..сательная</div></div>
-</section>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Соотнесите схему рассуждения с элементами на тему «Почему необходимо хорошо знать родной язык?»</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">Во-первых, потому что он необходим для общения, для обменамыслями, чувствами, для передачи знаний, опыта.</td><td></td></tr><tr class="r1"><td class="text">Поэтому изучать родной язык надо серьёзно.</td><td></td></tr><tr class="r0"><td class="text">Родной язык надо хорошо знать</td><td></td></tr><tr class="r1"><td class="text">Во-вторых, язык помогает организовать дружную, успешную работу.</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Во-первых, потому что он необходим для общения, для обменамыслями, чувствами, для передачи знаний, опыта. — Аргумент 1</div><div class="ans-line">Поэтому изучать родной язык надо серьёзно. — Вывод</div><div class="ans-line">Родной язык надо хорошо знать — Тезис</div><div class="ans-line">Во-вторых, язык помогает организовать дружную, успешную работу. — Аргумент 2</div></div>
+      <p class="why">потому что Во-первых, потому что он необходим для общения, для обменамыслями, чувствами, для передачи знаний, опыта. — это Аргумент 1; Поэтому изучать родной язык надо серьёзно. — это Вывод; Родной язык надо хорошо знать — это Тезис; Во-вторых, язык помогает организовать дружную, успешную работу. — это Аргумент 2.</p>
+    </div>
+  </div>
 </div>
-<script>
-const slides = [...document.querySelectorAll('.slide')];
-let i = 0;
-const show = (n) => {
-  i = Math.max(0, Math.min(slides.length-1, n));
-  slides.forEach((s, k) => s.style.display = k===i ? 'block' : 'none');
-  document.getElementById('pos').textContent = (i+1) + ' / ' + slides.length;
-  slides[i].scrollIntoView({block:'start'});
-};
-document.getElementById('prev').onclick = () => show(i-1);
-document.getElementById('next').onclick = () => show(i+1);
-document.getElementById('all').onclick = () => slides.forEach(s => s.style.display='block');
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight' || e.key === 'PageDown') show(i+1);
-  if (e.key === 'ArrowLeft' || e.key === 'PageUp') show(i-1);
-});
-show(0);
-</script>
-</body></html>
+<div class="que match deferredfeedback" id="q-2">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Соотнеси основные разновидности норм литературного языка.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">Нормы произношения и ударения</td><td></td></tr><tr class="r1"><td class="text">Нормы построения словосочетаний и предложений</td><td></td></tr><tr class="r0"><td class="text">Нормы постановки знаков препинания</td><td></td></tr><tr class="r1"><td class="text">Нормы словоупотребления</td><td></td></tr><tr class="r0"><td class="text">Нормы формоизменения</td><td></td></tr><tr class="r1"><td class="text">Нормы правописания</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Нормы произношения и ударения — орфоэпические</div><div class="ans-line">Нормы построения словосочетаний и предложений — синтаксические</div><div class="ans-line">Нормы постановки знаков препинания — пунктуационные</div><div class="ans-line">Нормы словоупотребления — лексические</div><div class="ans-line">Нормы формоизменения — морфологические</div><div class="ans-line">Нормы правописания — орфографические</div></div>
+      <p class="why">потому что Нормы произношения и ударения — это орфоэпические; Нормы построения словосочетаний и предложений — это синтаксические; Нормы постановки знаков препинания — это пунктуационные; Нормы словоупотребления — это лексические; Нормы формоизменения — это морфологические; Нормы правописания — это орфографические.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-3">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Укажите слово, в котором на месте пропуска нужно писать букву о.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. заг..реть</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. оз..рённый</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. з..рница</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. з..ря</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">a. заг..реть</div></div>
+      <p class="why">потому что слово, в котором на месте пропуска нужно писать букву о = a. заг..реть.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-4">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Укажите ряд, в котором на месте пропуска во всех словах пишется одна и та же буква.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>..делать, ..дать, по..гореть</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>ра..гадать, ..делать, ра..дать</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>пр..вратить, пр..миленький, пр..кратить</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>без..нтересный, сверх..нтересный, под..грать</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">пр..вратить, пр..миленький, пр..кратить</div></div>
+      <p class="why">потому что ряд, в котором на месте пропуска во всех словах пишется одна и та же буква = пр..вратить, пр..миленький, пр..кратить.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-5">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В каком ряду все слова имеют чередующуюся безударную гласную в корне слова?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. пробивался, удивиться</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. перемигивались, испекутся</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. загораживать, носились</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. вырастить, собирать</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">d. вырастить, собирать</div></div>
+      <p class="why">потому что В каком ряду все слова имеют чередующуюся безударную гласную в корне слова = d. вырастить, собирать.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-6">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В каком слове пишется буква и?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. раст..рание</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. зам..реть</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. ст..литься</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. отт..реть</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">a. раст..рание</div></div>
+      <p class="why">потому что В каком слове пишется буква и = a. раст..рание.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-7">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Найдите слово с чередующейся безударной гласной в корне.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. предг..рье</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. г..рсточка</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. подг..ревший</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. г..ревать</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. подг..ревший</div></div>
+      <p class="why">потому что слово с чередующейся безударной гласной в корне = c. подг..ревший.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-8">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Отметьте вариант, в котором во всех словах на месте пропусков пишется буква ь.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. наден..те, разжеч..</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. смеркат..ся, бетон..щик</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. монтаж.., осветиш..</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. назнач.., неуклюж..</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">a. наден..те, разжеч..</div></div>
+      <p class="why">потому что Отметьте вариант, в котором во всех словах на месте пропусков пишется буква ь = a. наден..те, разжеч..</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-9">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В каком варианте ответа Не со всеми словами пишется раздельно?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. (Не)вежда тот, кто (не)желает быть умным.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Он еще (не)рассказал мне свою вовсе (не)веселую историю.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Его (не)уважительный и резкий ответ привел к (не)обратимым последствиям.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. (Не)большой, но уютный наш дом еще (не)построен.</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. Его (не)уважительный и резкий ответ привел к (не)обратимым последствиям. — здесь НЕ пишется слитно, то есть не со всеми словами раздельно</div></div>
+      <p class="why">потому что c. Его (не)уважительный и резкий ответ привел к (не)обратимым последствиям. — здесь НЕ пишется слитно, то есть не со всеми словами раздельно.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-10">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Определите, в каком ряду все слова являются однокоренными.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. мучить, мучной, мучнистый</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. телёнок, тело, нательный</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. ноша, приношение, ношеный</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. горе, горевать, горный</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. ноша, приношение, ношеный</div></div>
+      <p class="why">потому что Определите, в каком ряду все слова являются однокоренными = c. ноша, приношение, ношеный.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-11">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Прочитайте текст и выполните задание.(1)Человек приобретает себя и утверждает делом. (2)Поэтому выбор дела -- это выбор судьбы. (З)Путь к величию человека лежит в высочайшем его призвании, которое выражается в одном: работать, работать, работать. (4)Ибо никто не сделает за тебя того, что должен сделать ты сам.(По Ю. Бондареву)Найдите в предложениях 1-3 слово, правописание приставки в котором определяется её значением - "присоединение"</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>призвание</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>приобретает</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">приобретает</div></div>
+      <p class="why">потому что приобретает.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-12">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Укажите слово, в котором пропущена буква и.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. воз..меть</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. без..мянный</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. меж..гровой</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. пред..нфарктный</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. меж..гровой</div></div>
+      <p class="why">потому что слово, в котором пропущена буква и = c. меж..гровой.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-13">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Укажите ряд, в котором во всех словах на месте пропуска пишется одна и та же буква.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>использ..вать, танц..вать, совет..вать</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>собач..нка, кусоч..к, плюш..вый</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>киргиз..кий, черкес..кий, матрос..кий</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>песц..вый, ландыш..вый, сверч..к</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">киргиз..кий, черкес..кий, матрос..кий</div></div>
+      <p class="why">потому что ряд, в котором во всех словах на месте пропуска пишется одна и та же буква = киргиз..кий, черкес..кий, матрос..кий.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-14">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В какой строчке во всех словах пишется буква о?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>воротнич..к, денеч..к, пирож..к</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>кулач..к, горош..к, снеж..к</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>руч..нка, доч..нька, друж..к</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>чудач..к, пиджач..к, пятач..к</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">чудач..к, пиджач..к, пятач..к</div></div>
+      <p class="why">потому что В какой строчке во всех словах пишется буква о = чудач..к, пиджач..к, пятач..к.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-15">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">15</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Прочитайте предложения и выполните задание<br>1. Горы имеют большие перепады высот (более 200 метров).2. Различают горы с высокогорным среднегорным и низкогорным типами рельефа.3. Рельеф гор образуется в результате сложных деформаций земной коры.4. Горы – обширные участки земной поверхности, приподнятые над равнинами.<br>Укажите, в каком порядке должны следовать предложения, чтобы получился текст.(Запишите нужную последовательность цифр без пробелов, без запятых)</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">4132</div></div>
+      <p class="why">потому что 4132.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 2 Русский язык</h3>
+<div class="que gapselect deferredfeedback" id="q-16">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Прочитайте тексты. Определите вид речи: монолог или диалог. Соедините текст с соответствующим ему видом речи.1. (1) <br><br>- По-моему,<br>пчёлы что-то подозревают! <br>- Что<br>именно? <br>- Не знаю<br>я.<br>Но только, по-моему, они ведут себя<br>подозрительно. <br>- Может,<br>они думают, что ты хочешь утащить у них мёд?<br><br>2. (2) <br><br>Лейся,<br>лейся дождик, дождик!<br>Я хочу расти, расти! <br>Я не сахар!<br>Я не коржик! Не боюсь я сырости!<br><br>3. (3) <br><br>Я тоже хочу<br>проведать твою бабушку. Я по этой дороге пойду, а ты ступай по той.<br>Посмотрим, кто из нас раньше придёт.<br><br>4. (4) <br><br>- Кто<br>говорит?<br>- Слон. <br>- Откуда? <br>- От<br>верблюда.<br><br>5. (5) <br><br>- Какой<br>же это индюшонок? - сказала утка. - Ишь как славно гребёт лапками, как прямо<br>держится! Нет, это мой собственный сын! Да он вовсе и недурён, как посмотришь<br>на него хорошенько!<br><br>6. (6) <br><br>- Как тебя зовут?<br>- Малыш. Хотя<br>по-настоящему меня зовут Сванте Свантесон.<br>- А меня,<br>как это ни странно, зовут Карлсон.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>монолог</option><option>диалог</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>монолог</option><option>диалог</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>монолог</option><option>диалог</option></select></p><p>(4) <select class="custom-select" disabled><option>Выберите...</option><option>монолог</option><option>диалог</option></select></p><p>(5) <select class="custom-select" disabled><option>Выберите...</option><option>монолог</option><option>диалог</option></select></p><p>(6) <select class="custom-select" disabled><option>Выберите...</option><option>монолог</option><option>диалог</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">диалог</div><div class="ans-line">монолог</div><div class="ans-line">монолог</div><div class="ans-line">диалог</div><div class="ans-line">монолог</div><div class="ans-line">диалог</div></div>
+      <p class="why">потому что в пропуски ставится: диалог; монолог; монолог; диалог; монолог; диалог.</p>
+    </div>
+  </div>
+</div>
+<div class="que gapselect deferredfeedback" id="q-17">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Расположите фрагменты текста в нужном порядке в соответствии с планом.1. (1) - Пришла Мишина мама после работы домой и руками всплеснула:2. (2) - — Как же это ты, Мишенька, сумел у велосипеда колесо отломать?— Оно, мама, само отломалось. — А почему у тебя, Мишенька, рубашка разорвана? — Она, мамочка, сама разорвалась.— А куда твой второй башмак делся? Где ты его потерял?— Он, мама, сам куда-то потерялся.3. (3) - — Как же это ты, Мишенька, сумел у велосипеда колесо отломать?— Оно, мама, само отломалось. — А почему у тебя, Мишенька, рубашка разорвана? — Она, мамочка, сама разорвалась.— А куда твой второй башмак делся? Где ты его потерял?— Он, мама, сам куда-то потерялся.Тогда Мишина мама сказала: — Какие они все нехорошие! Их, негодников, нужно проучить!— А как? — спросил Миша.— Очень просто, — ответила мама. — Если они научились сами ломаться, сами разрываться и сами теряться, пусть научатся сами чиниться, сами зашиваться, сами находиться. А мы с тобой, Миша, дома посидим и подождём, когда они это всё сделают.4. (4) - Сел Миша у сломанного велосипеда, в разорванной рубашке, без башмака, и крепко задумался. Видимо, было над чем задуматься этому мальчику.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>Вещи сами испортились</option><option>Есть над чем подумать</option><option>Наказание для вещей</option><option>Мамино возвращение</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>Вещи сами испортились</option><option>Есть над чем подумать</option><option>Наказание для вещей</option><option>Мамино возвращение</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>Вещи сами испортились</option><option>Есть над чем подумать</option><option>Наказание для вещей</option><option>Мамино возвращение</option></select></p><p>(4) <select class="custom-select" disabled><option>Выберите...</option><option>Вещи сами испортились</option><option>Есть над чем подумать</option><option>Наказание для вещей</option><option>Мамино возвращение</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Мамино возвращение</div><div class="ans-line">Вещи сами испортились</div><div class="ans-line">Наказание для вещей</div><div class="ans-line">Есть над чем подумать</div></div>
+      <p class="why">потому что в пропуски ставится: Мамино возвращение; Вещи сами испортились; Наказание для вещей; Есть над чем подумать.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-18">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Проанализируйте предложения с прямой речью. Соотнесите схемы с предложениями (Знаки препинания не расставлены!)</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">Отец громко сказал Я не верю, чтобы Женька могла попасть в плохую компанию</td><td></td></tr><tr class="r1"><td class="text">Через полчаса я уеду сказал полковник Алексеев Ольге</td><td></td></tr><tr class="r0"><td class="text">Ольга воскликнула Я с тобой не разговариваю.</td><td></td></tr><tr class="r1"><td class="text">Давай я приму телеграмму ответил сосед</td><td></td></tr><tr class="r0"><td class="text">Кто примет телеграмму спросил сосед</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Отец громко сказал: «Я не верю…» — А: «П»</div><div class="ans-line">Через полчаса я уеду, — сказал полковник Алексеев Ольге. — «П», — а</div><div class="ans-line">Ольга воскликнула: «Я с тобой не разговариваю». — А: «П»</div><div class="ans-line">Давай я приму телеграмму, — ответил сосед. — «П», — а</div><div class="ans-line">Кто примет телеграмму? — спросил сосед. — «П?» — а</div></div>
+      <p class="why">потому что Отец громко сказал: «Я не верю…» — это А: «П»; Через полчаса я уеду, — это сказал полковник Алексеев Ольге. — «П», — а; Ольга воскликнула: «Я с тобой не разговариваю». — это А: «П»; Давай я приму телеграмму, — это ответил сосед. — «П», — а; Кто примет телеграмму? — это спросил сосед. — «П?» — а.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-19">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Соотнесите слова и словосочетания. Какие из них можно употребить в художественном описании комнаты, а какие – в деловом?</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">Экспонаты размещены</td><td></td></tr><tr class="r1"><td class="text">Общая площадь</td><td></td></tr><tr class="r0"><td class="text">Свечи потрескивали</td><td></td></tr><tr class="r1"><td class="text">Особое значение</td><td></td></tr><tr class="r0"><td class="text">Масштаб</td><td></td></tr><tr class="r1"><td class="text">Логически завершённое</td><td></td></tr><tr class="r0"><td class="text">Ослепительный блеск зеркал</td><td></td></tr><tr class="r1"><td class="text">Мерцание</td><td></td></tr><tr class="r0"><td class="text">Солнечный зайчик</td><td></td></tr><tr class="r1"><td class="text">Зал № 3</td><td></td></tr><tr class="r0"><td class="text">Звон хрусталя</td><td></td></tr><tr class="r1"><td class="text">Скользить по паркету</td><td></td></tr><tr class="r0"><td class="text">посвящён</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Экспонаты размещены — Официально – деловое описание помещения</div><div class="ans-line">Общая площадь — Официально – деловое описание помещения</div><div class="ans-line">Свечи потрескивали — Художественное описание помещения</div><div class="ans-line">Особое значение — Официально – деловое описание помещения</div><div class="ans-line">Масштаб — Официально – деловое описание помещения</div><div class="ans-line">Логически завершённое — Официально – деловое описание помещения</div><div class="ans-line">Ослепительный блеск зеркал — Художественное описание помещения</div><div class="ans-line">Мерцание — Художественное описание помещения</div><div class="ans-line">Солнечный зайчик — Художественное описание помещения</div><div class="ans-line">Зал № 3 — Официально – деловое описание помещения</div><div class="ans-line">Звон хрусталя — Художественное описание помещения</div><div class="ans-line">Скользить по паркету — Художественное описание помещения</div><div class="ans-line">посвящён — Официально – деловое описание помещения</div></div>
+      <p class="why">потому что Экспонаты размещены — это Официально – деловое описание помещения; Общая площадь — это Официально – деловое описание помещения; Свечи потрескивали — это Художественное описание помещения; Особое значение — это Официально – деловое описание помещения; Масштаб — это Официально – деловое описание помещения; Логически завершённое — это Официально – деловое описание помещения; Ослепительный блеск зеркал — это Художественное описание помещения; Мерцание — это Художественное описание помещения; Солнечный зайчик — это Художественное описание помещения; Зал № 3 — это Официально – деловое описание помещения; Звон хрусталя — это Художественное описание помещения; Скользить по паркету — это Художественное описание помещения; посвящён — это Официально – деловое описание помещения.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-20">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Рассортируйте слова и словосочетания. Какие из них можно употребить в художественном описании комнаты, а какие – в деловом?<br>1. Художественное описание помещения<br>2. Официально-деловое описание помещения</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">Скользить по паркету</td><td></td></tr><tr class="r1"><td class="text">Ослепительный блеск зеркал</td><td></td></tr><tr class="r0"><td class="text">Масштаб</td><td></td></tr><tr class="r1"><td class="text">Общая площадь</td><td></td></tr><tr class="r0"><td class="text">Посвящён</td><td></td></tr><tr class="r1"><td class="text">Солнечный зайчик</td><td></td></tr><tr class="r0"><td class="text">Свечи потрескивали</td><td></td></tr><tr class="r1"><td class="text">Особое значение</td><td></td></tr><tr class="r0"><td class="text">Мерцание</td><td></td></tr><tr class="r1"><td class="text">Зал № 3</td><td></td></tr><tr class="r0"><td class="text">Звон хрусталя</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Скользить по паркету — 1</div><div class="ans-line">Ослепительный блеск зеркал — 1</div><div class="ans-line">Масштаб — 2</div><div class="ans-line">Общая площадь — 2</div><div class="ans-line">Посвящён — 2</div><div class="ans-line">Солнечный зайчик — 1</div><div class="ans-line">Свечи потрескивали — 1</div><div class="ans-line">Особое значение — 2</div><div class="ans-line">Мерцание — 1</div><div class="ans-line">Зал № 3 — 2</div><div class="ans-line">Звон хрусталя — 1</div></div>
+      <p class="why">потому что Скользить по паркету — это 1; Ослепительный блеск зеркал — это 1; Масштаб — это 2; Общая площадь — это 2; Посвящён — это 2; Солнечный зайчик — это 1; Свечи потрескивали — это 1; Особое значение — это 2; Мерцание — это 1; Зал № 3 — это 2; Звон хрусталя — это 1.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-21">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Соотнесите разговорные слова с общеупотребительными словами.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">Проголосуйте за нас, плз!</td><td></td></tr><tr class="r1"><td class="text">За контрольную у меня тройбас.</td><td></td></tr><tr class="r0"><td class="text">Фотографии скинь на мыло.</td><td></td></tr><tr class="r1"><td class="text">Родичи уехали на дачу.</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Проголосуйте за нас, плз! — пожалуйста</div><div class="ans-line">За контрольную у меня тройбас. — тройка</div><div class="ans-line">Фотографии скинь на мыло. — электронную почту</div><div class="ans-line">Родичи уехали на дачу. — Родители</div></div>
+      <p class="why">потому что Проголосуйте за нас, плз! — это пожалуйста; За контрольную у меня тройбас. — это тройка; Фотографии скинь на мыло. — это электронную почту; Родичи уехали на дачу. — это Родители.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-22">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Подберите синонимы к диалектным словам.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">Скрябка</td><td></td></tr><tr class="r1"><td class="text">утирка</td><td></td></tr><tr class="r0"><td class="text">Рукотёрник</td><td></td></tr><tr class="r1"><td class="text">Кочет</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Скрябка — лопата</div><div class="ans-line">утирка — Носовой платок</div><div class="ans-line">Рукотёрник — Полотенце</div><div class="ans-line">Кочет — Петух</div></div>
+      <p class="why">потому что Скрябка — это лопата; утирка — это Носовой платок; Рукотёрник — это Полотенце; Кочет — это Петух.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-23">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Найдите среди словосочетаний слова с прямым значением, эпитет, метафору.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">Золотая осень</td><td></td></tr><tr class="r1"><td class="text">Нежный взгляд</td><td></td></tr><tr class="r0"><td class="text">Оловянный солдатик</td><td></td></tr><tr class="r1"><td class="text">Высокое дерево</td><td></td></tr><tr class="r0"><td class="text">Ароматный цветок</td><td></td></tr><tr class="r1"><td class="text">Хвост очереди</td><td></td></tr><tr class="r0"><td class="text">Тёплое отношение</td><td></td></tr><tr class="r1"><td class="text">Ослепительный снег</td><td></td></tr><tr class="r0"><td class="text">Ненастная погода</td><td></td></tr><tr class="r1"><td class="text">Пламя снега</td><td></td></tr><tr class="r0"><td class="text">Зеркало льда</td><td></td></tr><tr class="r1"><td class="text">Пушистые ветки</td><td></td></tr><tr class="r0"><td class="text">Ковёр снега</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">прямое значение: оловянный солдатик, высокое дерево, ароматный цветок</div><div class="ans-line">эпитет: золотая осень, нежный взгляд, ослепительный снег, тёплое отношение</div><div class="ans-line">метафора: хвост очереди (и «золотая осень» если в ключе как метафора)</div></div>
+      <p class="why">потому что прямое значение: оловянный солдатик, высокое дерево, ароматный цветок; эпитет: золотая осень, нежный взгляд, ослепительный снег, тёплое отношение; метафора: хвост очереди (и «золотая осень» если в ключе как метафора).</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-24">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Определите правильную характеристику<br>текста.<br>На дворе стоит серое, слезливое утро. Дождевые капли барабанят в окна.<br>Ветер плачет в трубах и воет, как собака, потерявшая хозяина (по А. Чехову).</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Тип<br>речи – описание, стиль – разговорный.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Тип речи – повествование с элементами описания, стиль художественный.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Тип<br>речи – рассуждение, стиль – публицистический.</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Тип речи – повествование с элементами описания, стиль художественный.</div></div>
+      <p class="why">потому что Тип речи – повествование с элементами описания, стиль художественный.</p>
+    </div>
+  </div>
+</div>
+<div class="que ordering deferredfeedback" id="q-25">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Восстановите текст заявления в нужной последовательности.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Расставьте в правильном порядке:</div><ul class="answer"><li>Директору школы №1 <br>г. Санкт – Петербурга <br>Петрову А.В.<br>Ивановой В.Б.</li><li>Заявление</li><li>Прошу зачислить меня в туристический клуб школы</li><li>Иванова В.Б.</li><li>28.08.2022</li></ul></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">адресат (кому) → от кого → заголовок ЗАЯВЛЕНИЕ → текст просьбы → дата и подпись</div></div>
+      <p class="why">потому что порядок такой: адресат (кому) → от кого → заголовок ЗАЯВЛЕНИЕ → текст просьбы → дата и подпись.</p>
+    </div>
+  </div>
+</div>
+<div class="que ordering deferredfeedback" id="q-26">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Прочитайте текст. Расположите пункты сложного плана в нужном<br>порядке.<br>Из одного и того же куска железа и в<br>одной и той же мастерской были сделаны два плуга. Один из них попал в руки<br>земледельца и немедленно пошёл в работу, а другой долго и совершенно бесполезно<br>провалялся в лавке купца.<br> Случилось через несколько времени, что оба<br>земляка опять встретились. Плуг, бывший у земледельца, блестел, как серебро, и<br>был даже ещё лучше, чем в то время, когда он только что вышел из мастерской;<br>плуг же, пролежавший без всякого дела в лавке, потемнел и покрылся ржавчиной.<br> — Скажи, пожалуйста, отчего ты так блестишь? —<br>спросил заржавевший плуг у своего старого знакомца.<br> — От труда, мой милый, — отвечал тот, — а если<br>ты заржавел и сделался хуже, чем был, то потому, что всё это время ты пролежал<br>на боку, ничего не делая.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Расставьте в правильном порядке:</div><ul class="answer"><li>Встреча двух плугов.</li><li>Две разные дороги.</li><li>Два плуга из одной мастерской.</li><li>Если ржавеешь – это от безделья.</li><li>Почему сияет плуг земледельца?</li></ul></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">два плуга из одного железа → один в работе у земледельца → другой без дела → встреча / разговор → вывод: польза в труде</div></div>
+      <p class="why">потому что порядок такой: два плуга из одного железа → один в работе у земледельца → другой без дела → встреча / разговор → вывод: польза в труде.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 3 Русский язык</h3>
+<div class="que match deferredfeedback" id="q-27">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Распределите профессиональные слова.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">киянка</td><td></td></tr><tr class="r1"><td class="text">опара</td><td></td></tr><tr class="r0"><td class="text">верстак</td><td></td></tr><tr class="r1"><td class="text">аннотация</td><td></td></tr><tr class="r0"><td class="text">каталог</td><td></td></tr><tr class="r1"><td class="text">абонент</td><td></td></tr><tr class="r0"><td class="text">картотека</td><td></td></tr><tr class="r1"><td class="text">шпаклёвка</td><td></td></tr><tr class="r0"><td class="text">саморез</td><td></td></tr><tr class="r1"><td class="text">колун</td><td></td></tr><tr class="r0"><td class="text">буханка</td><td></td></tr><tr class="r1"><td class="text">ферментация</td><td></td></tr><tr class="r0"><td class="text">бриошь</td><td></td></tr><tr class="r1"><td class="text">помол</td><td></td></tr><tr class="r0"><td class="text">альманах</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">киянка — Строительство</div><div class="ans-line">опара — Хлебопечение</div><div class="ans-line">верстак — Строительство</div><div class="ans-line">аннотация — Библиотечное дело</div><div class="ans-line">каталог — Библиотечное дело</div><div class="ans-line">абонент — Библиотечное дело</div><div class="ans-line">картотека — Библиотечное дело</div><div class="ans-line">шпаклёвка — Строительство</div><div class="ans-line">саморез — Строительство</div><div class="ans-line">колун — Строительство</div><div class="ans-line">буханка — Хлебопечение</div><div class="ans-line">ферментация — Хлебопечение</div><div class="ans-line">бриошь — Хлебопечение</div><div class="ans-line">помол — Хлебопечение</div><div class="ans-line">альманах — Библиотечное дело</div></div>
+      <p class="why">потому что киянка — это Строительство; опара — это Хлебопечение; верстак — это Строительство; аннотация — это Библиотечное дело; каталог — это Библиотечное дело; абонент — это Библиотечное дело; картотека — это Библиотечное дело; шпаклёвка — это Строительство; саморез — это Строительство; колун — это Строительство; буханка — это Хлебопечение; ферментация — это Хлебопечение; бриошь — это Хлебопечение; помол — это Хлебопечение; альманах — это Библиотечное дело.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-28">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Подберите к исконно русским словам заимствованные синонимы.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">Полный</td><td></td></tr><tr class="r1"><td class="text">Перерыв</td><td></td></tr><tr class="r0"><td class="text">Личный</td><td></td></tr><tr class="r1"><td class="text">Грубый</td><td></td></tr><tr class="r0"><td class="text">Победитель</td><td></td></tr><tr class="r1"><td class="text">Нелепость</td><td></td></tr><tr class="r0"><td class="text">Войско</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Полный — абсолютный</div><div class="ans-line">Перерыв — антракт</div><div class="ans-line">Личный — персональный</div><div class="ans-line">Грубый — вульгарный</div><div class="ans-line">Победитель — чемпион</div><div class="ans-line">Нелепость — абсурд</div><div class="ans-line">Войско — армия</div></div>
+      <p class="why">потому что Полный — это абсолютный; Перерыв — это антракт; Личный — это персональный; Грубый — это вульгарный; Победитель — это чемпион; Нелепость — это абсурд; Войско — это армия.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-29">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Подберите синонимы к устаревшим словам. Для выполнения задания воспользуйтесь словарём.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">благость</td><td></td></tr><tr class="r1"><td class="text">чело</td><td></td></tr><tr class="r0"><td class="text">яства</td><td></td></tr><tr class="r1"><td class="text">вёдро</td><td></td></tr><tr class="r0"><td class="text">балакать</td><td></td></tr><tr class="r1"><td class="text">льзя</td><td></td></tr><tr class="r0"><td class="text">лобзати</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">благость — доброта</div><div class="ans-line">чело — лоб</div><div class="ans-line">яства — еда</div><div class="ans-line">вёдро — ясная, тихая погода</div><div class="ans-line">балакать — говорить</div><div class="ans-line">льзя — можно</div><div class="ans-line">лобзати — целовать</div></div>
+      <p class="why">потому что благость — это доброта; чело — это лоб; яства — это еда; вёдро — это ясная, тихая погода; балакать — это говорить; льзя — это можно; лобзати — это целовать.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-30">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сопоставьте слова: архаизмы и историзмы. Для выполнения задания воспользуйтесь словарём.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">кокошник</td><td></td></tr><tr class="r1"><td class="text">кольчуга</td><td></td></tr><tr class="r0"><td class="text">чело</td><td></td></tr><tr class="r1"><td class="text">очи</td><td></td></tr><tr class="r0"><td class="text">дружество</td><td></td></tr><tr class="r1"><td class="text">алтын</td><td></td></tr><tr class="r0"><td class="text">забрало</td><td></td></tr><tr class="r1"><td class="text">ланиты</td><td></td></tr><tr class="r0"><td class="text">шушун</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">кокошник — историзмы</div><div class="ans-line">кольчуга — историзмы</div><div class="ans-line">чело — архаизмы</div><div class="ans-line">очи — архаизмы</div><div class="ans-line">дружество — архаизмы</div><div class="ans-line">алтын — историзмы</div><div class="ans-line">забрало — историзмы</div><div class="ans-line">ланиты — архаизмы</div><div class="ans-line">шушун — историзмы</div></div>
+      <p class="why">потому что кокошник — это историзмы; кольчуга — это историзмы; чело — это архаизмы; очи — это архаизмы; дружество — это архаизмы; алтын — это историзмы; забрало — это историзмы; ланиты — это архаизмы; шушун — это историзмы.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-31">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Распределите слова на две группы.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">башковитый</td><td></td></tr><tr class="r1"><td class="text">умный</td><td></td></tr><tr class="r0"><td class="text">шея</td><td></td></tr><tr class="r1"><td class="text">здоровущий</td><td></td></tr><tr class="r0"><td class="text">дерзновенный</td><td></td></tr><tr class="r1"><td class="text">малыш</td><td></td></tr><tr class="r0"><td class="text">перчатка</td><td></td></tr><tr class="r1"><td class="text">размазня</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">башковитый — Стилистические окрашенные</div><div class="ans-line">умный — Стилистически нейтральные</div><div class="ans-line">шея — Стилистически нейтральные</div><div class="ans-line">здоровущий — Стилистические окрашенные</div><div class="ans-line">дерзновенный — Стилистические окрашенные</div><div class="ans-line">малыш — Стилистически нейтральные</div><div class="ans-line">перчатка — Стилистически нейтральные</div><div class="ans-line">размазня — Стилистические окрашенные</div></div>
+      <p class="why">потому что башковитый — это Стилистические окрашенные; умный — это Стилистически нейтральные; шея — это Стилистически нейтральные; здоровущий — это Стилистические окрашенные; дерзновенный — это Стилистические окрашенные; малыш — это Стилистически нейтральные; перчатка — это Стилистически нейтральные; размазня — это Стилистические окрашенные.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-32">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Пользуясь словарём, подберите к фразеологизмам фразеологизмы-антонимы.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">профессор кислых щей</td><td></td></tr><tr class="r1"><td class="text">рукой подать</td><td></td></tr><tr class="r0"><td class="text">на вес золота</td><td></td></tr><tr class="r1"><td class="text">потерпеть фиаско</td><td></td></tr><tr class="r0"><td class="text">семи пядей во лбу</td><td></td></tr><tr class="r1"><td class="text">засучив рукава</td><td></td></tr><tr class="r0"><td class="text">в час по чайной ложке</td><td></td></tr><tr class="r1"><td class="text">песок сыплется</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">профессор кислых щей — мастер на все руки</div><div class="ans-line">рукой подать — у чёрта на куличках</div><div class="ans-line">на вес золота — грош цена</div><div class="ans-line">потерпеть фиаско — одержать победу</div><div class="ans-line">семи пядей во лбу — Без царя в голове</div><div class="ans-line">засучив рукава — спустя рукава</div><div class="ans-line">в час по чайной ложке — на всех парах</div><div class="ans-line">песок сыплется — Здоров как бык</div></div>
+      <p class="why">потому что профессор кислых щей — это мастер на все руки; рукой подать — это у чёрта на куличках; на вес золота — это грош цена; потерпеть фиаско — это одержать победу; семи пядей во лбу — это Без царя в голове; засучив рукава — это спустя рукава; в час по чайной ложке — это на всех парах; песок сыплется — это Здоров как бык.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-33">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Укажите предложение, в котором используется фразеологизм.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Начинаем шагать с левой ноги.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>У меня от холода зуб на зуб не попадал.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Машина встала поперёк дороги.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>На болоте легко потерять почву под ногами.</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">У меня от холода зуб на зуб не попадал.</div></div>
+      <p class="why">потому что предложение, в котором используется фразеологизм = У меня от холода зуб на зуб не попадал.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-34">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Укажите схему, соответствующую строению слова ракетоноситель</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>корень, корень, суффикс, окончание</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>корень, корень, суффикс, суффикс</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>корень, корень, суффикс, суффикс, окончание</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>приставка, корень, суффикс, суффикс, окончание</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">корень, корень, суффикс, суффикс, окончание (ракет-о-нос-и-тель-□)</div></div>
+      <p class="why">потому что схему, соответствующую строению слова ракетоноситель = корень, корень, суффикс, суффикс, окончание (ракет-о-нос-и-тель-□).</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-35">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В каком слове все согласные звуки твёрдые?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>паркет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>костюм</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>шоссе</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>мачта</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">шоссе</div></div>
+      <p class="why">потому что В каком слове все согласные звуки твёрдые = шоссе.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-36">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Укажите слово, строение которого соответствует схеме: приставка, корень, суффикс, окончание.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>косилка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>удивительный</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>школьный</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>перелесок</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">перелесок</div></div>
+      <p class="why">потому что слово, строение которого соответствует схеме: приставка, корень, суффикс, окончание = перелесок.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-37">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В каком слове пишется непроизносимая согласная буква?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>древес..ный</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>телес..ный</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>извес..ный</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>словес..ный</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">извес..ный</div></div>
+      <p class="why">потому что В каком слове пишется непроизносимая согласная буква = извес..ный.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-38">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Определите, в каком ряду все слова являются однокоренными.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. долина, доля, обездолеть</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. пара, парный, напарник</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. ранить, ранний, рано</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. духи, духовность, духовный</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. пара, парный, напарник</div></div>
+      <p class="why">потому что Определите, в каком ряду все слова являются однокоренными = b. пара, парный, напарник.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-39">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Определите способы образования слова взрыв.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. суффиксальный</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. приставочный</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. бессуффиксный</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. переход из одной части речи в другую</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. бессуффиксный</div></div>
+      <p class="why">потому что способы образования слова взрыв = c. бессуффиксный.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-40">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Восстановите промежуточное звено в словообразовательной цепочке старый &gt; ... &gt;старинный.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. старость</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. старина</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. стареть</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. старинно</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. старина</div></div>
+      <p class="why">потому что Восстановите промежуточное звено в словообразовательной цепочке старый &gt; ... &gt;старинный = b. старина.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-41">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">15</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Прочитайте предложения и выполните задание<br>1. Горы имеют большие перепады высот (более 200 метров).2. Различают горы с высокогорным среднегорным и низкогорным типами рельефа.3. Рельеф гор образуется в результате сложных деформаций земной коры.4. Горы – обширные участки земной поверхности, приподнятые над равнинами.<br>Из предложений 1-3 выпишите слово, соответствующее схеме: корень, суффикс, окончание, суффикс</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">образуется</div></div>
+      <p class="why">потому что образуется.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 4 Русский язык</h3>
+<div class="que gapselect deferredfeedback" id="q-42">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Вставьте нужные термины на местах пропусков в тексте. <br>В русском языке для<br>обозначения знания или науки о каком-либо предмете или явлении используют<br>греческий корень (1) ,<br>например, «мифология», «геология», «археология» и другие. Но как же назвать<br>науку, в которой изучают значение слова? Для этого у нас есть заимствованное из<br>греческого слово (2) ,<br>которое обозначает (3) . Так у нас получилось слово «этимология», обозначающее раздел (4) , занимающийся изучением<br>(5) слов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>происхождения</option><option>lógos</option><option>étymon</option><option>языкознания</option><option>«истинный, верный»</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>происхождения</option><option>lógos</option><option>étymon</option><option>языкознания</option><option>«истинный, верный»</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>происхождения</option><option>lógos</option><option>étymon</option><option>языкознания</option><option>«истинный, верный»</option></select></p><p>(4) <select class="custom-select" disabled><option>Выберите...</option><option>происхождения</option><option>lógos</option><option>étymon</option><option>языкознания</option><option>«истинный, верный»</option></select></p><p>(5) <select class="custom-select" disabled><option>Выберите...</option><option>происхождения</option><option>lógos</option><option>étymon</option><option>языкознания</option><option>«истинный, верный»</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">(1) lógos</div><div class="ans-line">(2) языкознания</div><div class="ans-line">(3) étymon</div><div class="ans-line">(4) «истинный, верный»</div><div class="ans-line">(5) происхождения</div></div>
+      <p class="why">потому что в пропуски ставится: (1) lógos; (2) языкознания; (3) étymon; (4) «истинный, верный»; (5) происхождения.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-43">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Определите, к какому способу словообразования относятся слова: суффиксальный и приставочный.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: суффиксальный; приставочный</div><table class="answer match"><tr class="r0"><td class="text">речной</td><td><select class="custom-select" disabled><option>Выберите...</option><option>суффиксальный</option><option>приставочный</option></select></td></tr><tr class="r1"><td class="text">морской</td><td><select class="custom-select" disabled><option>Выберите...</option><option>суффиксальный</option><option>приставочный</option></select></td></tr><tr class="r0"><td class="text">доброта</td><td><select class="custom-select" disabled><option>Выберите...</option><option>суффиксальный</option><option>приставочный</option></select></td></tr><tr class="r1"><td class="text">гитарист</td><td><select class="custom-select" disabled><option>Выберите...</option><option>суффиксальный</option><option>приставочный</option></select></td></tr><tr class="r0"><td class="text">каменщик</td><td><select class="custom-select" disabled><option>Выберите...</option><option>суффиксальный</option><option>приставочный</option></select></td></tr><tr class="r1"><td class="text">подруга</td><td><select class="custom-select" disabled><option>Выберите...</option><option>суффиксальный</option><option>приставочный</option></select></td></tr><tr class="r0"><td class="text">подумать</td><td><select class="custom-select" disabled><option>Выберите...</option><option>суффиксальный</option><option>приставочный</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">суффиксальный: речной, морской, доброта, гитарист, каменщик</div><div class="ans-line">приставочный: подруга, подумать</div></div>
+      <p class="why">потому что суффиксальный: речной, морской, доброта, гитарист, каменщик; приставочный: подруга, подумать.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-44">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Определите, к какому способу словообразования относятся слова.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: Приставочно-суффиксальный; суффиксальный; приставочный; сложение; бессуффиксный</div><table class="answer match"><tr class="r0"><td class="text">скоросшиватель</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Приставочно-суффиксальный</option><option>суффиксальный</option><option>приставочный</option><option>сложение</option><option>бессуффиксный</option></select></td></tr><tr class="r1"><td class="text">юбчонка</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Приставочно-суффиксальный</option><option>суффиксальный</option><option>приставочный</option><option>сложение</option><option>бессуффиксный</option></select></td></tr><tr class="r0"><td class="text">железнодорожный</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Приставочно-суффиксальный</option><option>суффиксальный</option><option>приставочный</option><option>сложение</option><option>бессуффиксный</option></select></td></tr><tr class="r1"><td class="text">подводник</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Приставочно-суффиксальный</option><option>суффиксальный</option><option>приставочный</option><option>сложение</option><option>бессуффиксный</option></select></td></tr><tr class="r0"><td class="text">прочитаешь</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Приставочно-суффиксальный</option><option>суффиксальный</option><option>приставочный</option><option>сложение</option><option>бессуффиксный</option></select></td></tr><tr class="r1"><td class="text">переход</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Приставочно-суффиксальный</option><option>суффиксальный</option><option>приставочный</option><option>сложение</option><option>бессуффиксный</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">сложение: скоросшиватель, железнодорожный, переход</div><div class="ans-line">суффиксальный: юбчонка</div><div class="ans-line">приставочно-суффиксальный: подводник</div><div class="ans-line">прочитаешь — не новый способ, это форма глагола</div></div>
+      <p class="why">потому что сложение: скоросшиватель, железнодорожный, переход; суффиксальный: юбчонка; приставочно-суффиксальный: подводник; прочитаешь — это не новый способ, это форма глагола.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-45">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Укажите значение первого корня в сложном слове с заимствованным корнем. При необходимости воспользуйтесь словарём иностранных слов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: рука; веяльщик; источник; вода; носить</div><table class="answer match"><tr class="r0"><td class="text">Вентилятор</td><td><select class="custom-select" disabled><option>Выберите...</option><option>рука</option><option>веяльщик</option><option>источник</option><option>вода</option><option>носить</option></select></td></tr><tr class="r1"><td class="text">Портмоне</td><td><select class="custom-select" disabled><option>Выберите...</option><option>рука</option><option>веяльщик</option><option>источник</option><option>вода</option><option>носить</option></select></td></tr><tr class="r0"><td class="text">Акваланг</td><td><select class="custom-select" disabled><option>Выберите...</option><option>рука</option><option>веяльщик</option><option>источник</option><option>вода</option><option>носить</option></select></td></tr><tr class="r1"><td class="text">Фонтан</td><td><select class="custom-select" disabled><option>Выберите...</option><option>рука</option><option>веяльщик</option><option>источник</option><option>вода</option><option>носить</option></select></td></tr><tr class="r0"><td class="text">Маникюр</td><td><select class="custom-select" disabled><option>Выберите...</option><option>рука</option><option>веяльщик</option><option>источник</option><option>вода</option><option>носить</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Вентилятор — ветер / дуть</div><div class="ans-line">Портмоне — носить</div><div class="ans-line">Акваланг — вода</div><div class="ans-line">Фонтан — источник / лить</div><div class="ans-line">Маникюр — рука</div></div>
+      <p class="why">потому что Вентилятор — это ветер / дуть; Портмоне — это носить; Акваланг — это вода; Фонтан — это источник / лить; Маникюр — это рука.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-46">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите соответствие между словом с чередованием гласной в корне и словом с безударной проверяемой гласной в корнях.1. Безударная проверяемая гласная в корне2. Правописание корня -кас- — -кос- с чередованием а//о</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: 1; 2</div><table class="answer match"><tr class="r0"><td class="text">касательная</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>2</option></select></td></tr><tr class="r1"><td class="text">кособокость</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>2</option></select></td></tr><tr class="r0"><td class="text">косолапый</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>2</option></select></td></tr><tr class="r1"><td class="text">соприкасаться</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>2</option></select></td></tr><tr class="r0"><td class="text">неукоснительно</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>2</option></select></td></tr><tr class="r1"><td class="text">косой</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>2</option></select></td></tr><tr class="r0"><td class="text">коснуться</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>2</option></select></td></tr><tr class="r1"><td class="text">сенокосилка</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>2</option></select></td></tr><tr class="r0"><td class="text">прикосновение</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>2</option></select></td></tr><tr class="r1"><td class="text">косуха</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>2</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">чередование -кас-/-кос-: касательная, соприкасаться, коснуться</div><div class="ans-line">проверяемая гласная: кособокость, косолапый, косой, сенокосилка, неукоснительно (если в ключе — чередование, поставь кос-)</div></div>
+      <p class="why">потому что чередование -кас-/-кос-: касательная, соприкасаться, коснуться; проверяемая гласная: кособокость, косолапый, косой, сенокосилка, неукоснительно (если в ключе — это чередование, поставь кос-).</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-47">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выделите ряд, в котором от всех существительных можно образовать прилагательные с суффиксом -ян-?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Крупа, дрова, лёд, овёс</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Изба, глина, печь, путь</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Кость, ветер, пар, время</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Волос, нефть, клад, чай</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Крупа, дрова, лёд, овёс</div></div>
+      <p class="why">потому что Выделите ряд, в котором от всех существительных можно образовать прилагательные с суффиксом -ян- = Крупа, дрова, лёд, овёс.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-48">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Найдите слово, значение приставок в котором объяснено неправильно.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Пр.сытиться<br>– к значению - пере</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Пр.бавить<br>– присоединение</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Пр.скакать<br>- приближение</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Пр.красный<br>– очень</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Пр.писать<br>- присоединение</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">f. </span><label>Пре.увеличить<br>– неполнота действия</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Пре.увеличить – неполнота действия</div></div>
+      <p class="why">потому что слово, значение приставок в котором объяснено неправильно = Пре.увеличить – неполнота действия.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-49">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Укажите ряд, в котором во всех словах на месте пропуска пишется одна и та же буква.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>в землянк.., у землянк.., около землянк..</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>в весенн..м лесу, весенн..м днем, клейк..м листком</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>в ущель.., по алле.., к лошад..</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>ты чита..шь, он пиш..т, собака ла..т</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">ты чита..шь, он пиш..т, собака ла..т</div></div>
+      <p class="why">потому что ряд, в котором во всех словах на месте пропуска пишется одна и та же буква = ты чита..шь, он пиш..т, собака ла..т.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-50">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Найдите слово, в котором на месте пропуска пишется буква а.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. возг..рание</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. к..сательная</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. прик..снуться</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. соприк..сновение</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. к..сательная</div></div>
+      <p class="why">потому что слово, в котором на месте пропуска пишется буква а = b. к..сательная.</p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</body>
+</html>

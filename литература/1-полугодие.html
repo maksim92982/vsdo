@@ -1,832 +1,1283 @@
 <!doctype html>
 <html lang="ru">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>6 класс · литература · 1 полугодие</title>
+<title>литература · Тест</title>
 <style>
-:root { --bg:#0f2744; --card:#fff; --ink:#1a2332; --muted:#5b6573; --acc:#1e6bb8; --ok:#0d7a4f; }
 * { box-sizing: border-box; }
-html, body { margin:0; background:#dfe7f0; color:var(--ink); font-family: "Segoe UI", Arial, sans-serif; }
-.wrap { max-width: 980px; margin: 0 auto; padding: 16px; }
-h1 { font-size: 28px; margin: 12px 0 8px; }
-.sub { color: var(--muted); margin-bottom: 18px; }
-.nav { position: sticky; top: 0; z-index: 5; background: #dfe7f0; padding: 8px 0; display:flex; gap:8px; align-items:center; }
-button { background: var(--acc); color:#fff; border:0; padding:8px 14px; border-radius:8px; cursor:pointer; font-size:15px; }
-.slide { background: var(--card); border-radius: 16px; padding: 28px 32px; margin: 16px 0; box-shadow: 0 8px 24px rgba(15,39,68,.12); min-height: 70vh; }
-.top { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-h2, h3 { margin: 14px 0 8px; }
-.q { font-size: 20px; line-height: 1.45; }
-.opts { margin: 12px 0; background:#f4f7fb; padding:12px 16px; border-radius:10px; }
-.memo { line-height: 1.5; }
-.ans { background:#e8f6ee; border-left: 6px solid var(--ok); padding: 12px 16px; border-radius: 8px; font-size: 18px; }
-.ans-line { margin: 6px 0; }
-.muted { color: var(--muted); background: #fff6e8; border:0; padding:8px; }
-.toc a { display:block; margin: 4px 0; color: var(--acc); }
-.themebar { color:#fff; padding:8px 12px; border-radius:10px; font-size:15px; margin-bottom:10px; }
-.pics { display:flex; flex-wrap:wrap; gap:12px; margin:14px 0; align-items:flex-start; }
-.qimg { max-width:100%; height:auto; border:1px solid #d5dee8; border-radius:10px; background:#fff; }
-.audios { margin: 14px 0; }
-.audio { margin: 10px 0 14px; }
-.alabel { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
-audio { width: 100%; }
-.ans.cant { background:#fff3e0; border-left-color:#c45c26; }
+html, body {
+  margin: 0;
+  background: #fff;
+  color: #1d2125;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+a { color: #0f6cbf; }
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.6rem 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.navbar .brand { color: #0f6cbf; font-weight: 600; text-decoration: none; font-size: 1.1rem; }
+.navbar .crumb { color: #6a737b; font-size: 0.9rem; }
+#page {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+#page-header h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.35rem; }
+#page-header .page-context-header { color: #6a737b; margin: 0 0 1rem; }
+#mod_quiz_navblock {
+  position: sticky;
+  top: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: #fff;
+}
+#mod_quiz_navblock h5 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+.qnbutton {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+  background: #fff;
+  height: 40px;
+  width: 30px;
+  border-radius: 3px;
+  margin: 0 6px 6px 0;
+  border: 1px solid #cad0d7;
+  text-align: center;
+  color: #1d2125;
+  position: relative;
+  vertical-align: top;
+}
+.qnbutton .thispageholder { display: block; height: 20px; padding-top: 2px; }
+.qnbutton .trafficlight {
+  display: block;
+  height: 18px;
+  background: #6a737b;
+  border-radius: 0 0 2px 2px;
+}
+.quizname { margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #dee2e6; font-size: 1.15rem; }
+.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; overflow: hidden; }
+.que .info {
+  float: left;
+  width: 7em;
+  padding: 0.5em;
+  margin-bottom: 1.8em;
+  background-color: #f8f9fa;
+  border: 1px solid #cad0d7;
+  border-radius: 2px;
+}
+.que h3.no { margin: 0; font-size: 0.8em; line-height: 1; }
+.que span.qno { font-size: 1.5em; font-weight: bold; }
+.que .info > div { font-size: 0.8em; margin-top: 0.7em; }
+.que .content { margin: 0 0 0 8.5em; }
+.que .formulation, .que .comment {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 0 solid transparent;
+  border-radius: 0.5rem;
+}
+.que .formulation {
+  color: #001a1e;
+  background-color: #e7f3f5;
+  border-color: #b8dce2;
+}
+.que .comment {
+  color: #1c3f1a;
+  background-color: #d7e4d6;
+  border-color: #c6dac6;
+}
+.que .ablock { margin: 0.7em 0 0.3em 0; }
+.que .qtext { margin-bottom: 1.5em; }
+.que .prompt { font-weight: 600; margin: 0 0 0.4em; }
+.que .answer .r0, .que .answer .r1 { padding: 0.2em 0.15em; }
+.que .answer input { margin-right: 0.35em; vertical-align: middle; }
+.que label { display: inline; }
+.que table.answer { width: 100%; border-collapse: collapse; }
+.que table.answer td { padding: 0.35em 0.5em; vertical-align: middle; }
+.que table.answer tr.r0 { background: rgba(255,255,255,0.45); }
+.custom-select {
+  display: inline-block;
+  padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #8f959e;
+  border-radius: 0.25rem;
+  background: #fff;
+  max-width: 100%;
+}
+.accesshide {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.pics { margin: 0 0 1em; }
+.qimg { max-width: 100%; height: auto; border: 1px solid #cad0d7; background: #fff; }
+.audios { margin: 0 0 1em; }
+.alabel { font-size: 0.85em; color: #6a737b; }
+audio { width: 100%; max-width: 420px; }
+.rightanswer { font-weight: 600; margin: 0 0 0.4em; }
+.ans-line { margin: 0.15em 0; font-weight: 600; }
+.why { margin: 0; font-weight: 400; }
+@media (max-width: 800px) {
+  #page { grid-template-columns: 1fr; }
+  .que .info { float: none; width: auto; margin-bottom: 0.6em; }
+  .que .content { margin: 0; }
+}
 </style>
-<body>
-<div class="wrap">
-  <h1>📖 6 класс. литература. 1 полугодие</h1>
-  <p class="sub">Вопросы из текущих тестов 1–4. Если в задании была карта, схема или фото — они показаны здесь, как в тесте. Клавиши ← → листают слайды.</p>
-  <div class="nav">
-    <button id="prev">← Назад</button>
-    <button id="next">Вперёд →</button>
-    <button id="all">Показать все</button>
-    <span id="pos"></span>
+</head>
+<body class="path-mod-quiz">
+<nav class="navbar">
+  <a class="brand" href="../index.html">ЦОДИВ</a>
+  <span class="crumb">6 класс / литература / 1 полугодие</span>
+</nav>
+<div id="page">
+  <aside id="mod_quiz_navblock">
+    <h5>Навигация по тесту</h5>
+    <div class="allquestionsononepage"><div><strong>Тест 1 Литература</strong></div><a class="qnbutton answersaved" href="#q-1"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-2"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-3"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-4"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-5"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-6"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-7"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-8"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-9"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-10"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-11"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-12"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-13"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-14"><span class="thispageholder">14</span><span class="trafficlight"></span></a><div><strong>Тест 2 Литература</strong></div><a class="qnbutton answersaved" href="#q-15"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-16"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-17"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-18"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-19"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-20"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-21"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-22"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-23"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-24"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-25"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-26"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-27"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-28"><span class="thispageholder">14</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-29"><span class="thispageholder">15</span><span class="trafficlight"></span></a><div><strong>Тест 3 Литература</strong></div><a class="qnbutton answersaved" href="#q-30"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-31"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-32"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-33"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-34"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-35"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-36"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-37"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-38"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-39"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-40"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-41"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-42"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-43"><span class="thispageholder">14</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-44"><span class="thispageholder">15</span><span class="trafficlight"></span></a><div><strong>Тест 4 Литература</strong></div><a class="qnbutton answersaved" href="#q-45"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-46"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-47"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-48"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-49"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-50"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-51"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-52"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-53"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-54"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-55"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-56"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-57"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-58"><span class="thispageholder">14</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-59"><span class="thispageholder">15</span><span class="trafficlight"></span></a></div>
+  </aside>
+  <div id="region-main">
+    <div id="page-header">
+      <h1>литература</h1>
+      <p class="page-context-header">Пройти тест · все вопросы на одной странице</p>
+    </div>
+    <h3 class="quizname">Тест 1 Литература</h3>
+<div class="que gapselect deferredfeedback" id="q-1">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
   </div>
-  <div class="toc"><a href="#q-1">Тест 1 Литература (14)</a><a href="#q-15">Тест 2 Литература (15)</a><a href="#q-30">Тест 3 Литература (15)</a><a href="#q-45">Тест 4 Литература (15)</a></div>
-  <div id="q-1"></div>
-<section class="slide" data-i="1">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 1 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Рассмотрите репродукцию картины. Дополните текст словами.Одна из самых знаменитых картин, изображающих<br>богатырей, написана Виктором (1) . Эта картина так и называется —<br>«Богатыри», хотя чаще её называют (2) , — так едины они втроём, такие<br>непохожие, но неотделимые друг от друга, — суровый и спокойный (3) ,<br>готовый броситься в бой (4) и (5) , готовый не только воевать,<br>но и спеть.<br>Художник работал над картиной (6) —<br>от момента замысла, когда был сделан первый набросок, до завершения картины.</div>
-  <div class="pics"><img class="qimg" src="../_картинки/5db7a5cd00a21947.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) Билибиным / Васнецовым</li><li>(2) Богатырская застава / Три богатыря</li><li>(3) Илья Муромец / Алёша Попович / Добрыня Никитич</li><li>(4) Илья Муромец / Алёша Попович / Добрыня Никитич</li><li>(5) Илья Муромец / Алёша Попович / Добрыня Никитич</li><li>(6) месяц / три года / двадцать лет</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Рассмотрите репродукцию картины. Дополните текст словами.Одна из самых знаменитых картин, изображающих богатырей, написана Виктором (1) . Эта картина так и называется — Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: (1) Васнецовым; (2) Три богатыря; (3) Добрыня Никитич (слева, конь белый); (4) Илья Муромец (в центре); (5) Алёша Попович (справа); (6) двадцать лет (Илья «сидел сиднем»)</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">(1) Васнецовым</div><div class="ans-line">(2) Три богатыря</div><div class="ans-line">(3) Добрыня Никитич (слева, конь белый)</div><div class="ans-line">(4) Илья Муромец (в центре)</div><div class="ans-line">(5) Алёша Попович (справа)</div><div class="ans-line">(6) двадцать лет (Илья «сидел сиднем»)</div></div>
-</section><div id="q-2"></div>
-<section class="slide" data-i="2">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 2 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Соотнесите композицию поэмы «Песнь о Роланде» с действием поэмы.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Завязка</li><li>Кульминация</li><li>Развязка</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Соотнесите композицию поэмы «Песнь о Роланде» с действием поэмы. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Завязка — предательство Ганелона / арьергард в Ронсевале; Кульминация — гибель Роланда, бой в ущелье; Развязка — месть Карла, суд над Ганелоном</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Завязка — предательство Ганелона / арьергард в Ронсевале</div><div class="ans-line">Кульминация — гибель Роланда, бой в ущелье</div><div class="ans-line">Развязка — месть Карла, суд над Ганелоном</div></div>
-</section><div id="q-3"></div>
-<section class="slide" data-i="3">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 3 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Зачем, согласно исторической точке зрения, греки отправились в Малую Азию?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Чтобы захватить местное золото</li><li>Чтобы основать там колонии</li><li>Чтобы принести веру своих богов</li><li>Чтобы пополнить армию рабами</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Зачем, согласно исторической точке зрения, греки отправились в Малую Азию? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Чтобы основать там колонии</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Чтобы основать там колонии</div></div>
-</section><div id="q-4"></div>
-<section class="slide" data-i="4">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 4 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Когда пелись календарные - обрядовые песни?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>в будние дни в определённое время суток</li><li>в выходные дни в любое время суток</li><li>в определённые дни года, по праздникам</li><li>во время церковных праздников</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Когда пелись календарные - обрядовые песни? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: в определённые дни года, по праздникам</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">в определённые дни года, по праздникам</div></div>
-</section><div id="q-5"></div>
-<section class="slide" data-i="5">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 5 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называются песни, которыми закликали весну?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>колядки</li><li>троицкие</li><li>масленичные</li><li>веснянки</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называются песни, которыми закликали весну? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: веснянки</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">веснянки</div></div>
-</section><div id="q-6"></div>
-<section class="slide" data-i="6">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 6 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кто является виновником гибели Роланда из произведения «Песнь о Роланде» неподалеку от опасного ущелья?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Оливье</li><li>Турпен</li><li>Ганелон</li><li>Карл Великий</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кто является виновником гибели Роланда из произведения «Песнь о Роланде» неподалеку от опасного ущелья? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Ганелон</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Ганелон</div></div>
-</section><div id="q-7"></div>
-<section class="slide" data-i="7">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 7 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Фольклор – это:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>художественная литература</li><li>устное народное творчество</li><li>жанр устного народного творчества</li><li>жанр литературы</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Фольклор – это: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: устное народное творчество</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">устное народное творчество</div></div>
-</section><div id="q-8"></div>
-<section class="slide" data-i="8">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 8 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Жанр эпоса, опирающийся на народные предания и легенды; характерны сочетание точных зарисовок быта и нравов со сказочно-фантастическим миром фольклора - это...</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>сказка</li><li>рассказ</li><li>сказ</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Жанр эпоса, опирающийся на народные предания и легенды; характерны сочетание точных зарисовок быта и нравов со сказочно-фантастическим миром фольклора - это... Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: сказ</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">сказ</div></div>
-</section><div id="q-9"></div>
-<section class="slide" data-i="9">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 9 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">К какому виду жанра эпоса принадлежит произведение «Песнь о Роланде»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Сказка</li><li>Поэма</li><li>Повесть</li><li>Баллада</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: К какому виду жанра эпоса принадлежит произведение «Песнь о Роланде»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Поэма</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Поэма</div></div>
-</section><div id="q-10"></div>
-<section class="slide" data-i="10">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 10 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Определите верные утверждения.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Одиссей – главный герой поэмы «Одиссея», царь<br>острова Итака</li><li>Аполлон направил стрелу Париса в единственно<br>уязвимое место на теле Ахиллеса – сердце</li><li>«Эпос» по-гречески означает «повествование»</li><li>Верная жена Одиссея – Афродита</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Определите верные утверждения. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Одиссей – главный герой поэмы «Одиссея», царь острова Итака; «Эпос» по-гречески означает «повествование»</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Одиссей – главный герой поэмы «Одиссея», царь острова Итака</div><div class="ans-line">«Эпос» по-гречески означает «повествование»</div></div>
-</section><div id="q-11"></div>
-<section class="slide" data-i="11">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 11 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие крылатые выражения пришли к нам из творчества Гомера?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Сцилла и Харибда</li><li>Троянский конь</li><li>Тришкин кафтан</li><li>Демьянова уха</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие крылатые выражения пришли к нам из творчества Гомера? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Сцилла и Харибда; Троянский конь</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Сцилла и Харибда</div><div class="ans-line">Троянский конь</div></div>
-</section><div id="q-12"></div>
-<section class="slide" data-i="12">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 12 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Восстановите последовательность странствий Одиссея.</div>
-  
-  
-  <div class="opts"><b>Элементы для порядка:</b><ul><li>приют у Алкиноя, царя мореходов</li><li>между Сциллой и Харибдой</li><li>на острове циклопов</li><li>расправа с женихами Пенелопы</li><li>встреча с сиренами в море</li><li>возвращение на Итаку</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Восстановите последовательность странствий Одиссея. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: киконы → лотофаги → циклоп Полифем → Эол → лестригоны → Цирцея → Аид → сирены → Сцилла и Харибда → остров Гелиоса → Калипсо → феаки → Итака</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">киконы → лотофаги → циклоп Полифем → Эол → лестригоны → Цирцея → Аид → сирены → Сцилла и Харибда → остров Гелиоса → Калипсо → феаки → Итака</div></div>
-</section><div id="q-13"></div>
-<section class="slide" data-i="13">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 13 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Восстановите сюжет былины «Садко».</div>
-  
-  
-  <div class="opts"><b>Элементы для порядка:</b><ul><li>Садко не зовут играть на пиры.</li><li>Садко идёт играть на Ильмень-озеро, где ему показывается морской царь.</li><li>Садко бьётся об заклад с новгородскими купцами, что поймает в Ильмень-озере «рыбу-золоты перья».</li><li>Садко грузит тридцать кораблей и едет торговать за море.</li><li>На море разражается буря, корабли останавливаются.</li><li>Садко кидает в море бочки с золотом, серебром, жемчугом, в качестве дани морскому царю.</li><li>Садко является Микола Можайский. Микола Можайский учит Садко, как обхитрить морского царя.</li><li>Садко с гуслями спускают в море на дубовой доске.</li><li>Садко оказывается на морском дне, в палатах морского царя.</li><li>Садко играет на гуслях для морского царя, море волнуется, гибнут корабли.</li><li>Садко просыпается в Новгороде, на берегу реки Чернавы.</li><li>Садко начинает торговать разными товарами, богатеет.</li><li>Садко исполняет обет и строит церковь Миколе Можайскому</li><li>Садко выбирает себе невесту.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Восстановите сюжет былины «Садко». Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Садко не зовут на пир → гусли на берегу Ильменя → царь Морской → богатство, корабли → спор с Волховым → сеть, рыба-золотые перья → пир у Морского царя → Никола Можайский / Чернава → возвращение в Новгород</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Садко не зовут на пир → гусли на берегу Ильменя → царь Морской → богатство, корабли → спор с Волховым → сеть, рыба-золотые перья → пир у Морского царя → Никола Можайский / Чернава → возвращение в Новгород</div></div>
-</section><div id="q-14"></div>
-<section class="slide" data-i="14">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 1 Литература · вопрос 14 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Восстановите фрагмент былины «Илья Муромец и Соловей-разбойник».</div>
-  
-  
-  <div class="opts"><b>Элементы для порядка:</b><ul><li>Выезжал удаленький дородный добрый молодец.</li><li>Из того села да Карачарова</li><li>Ай к обеденке поспеть хотел он в стольный Киев-град</li><li>Он стоял заутреню во Муроме,</li><li>Из того ли то из города из Мурома,</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Восстановите фрагмент былины «Илья Муромец и Соловей-разбойник». Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Илья выезжает из Мурома → под Черниговом помощь → Соловей на дереве → стрела в глаз → везёт в Киев → Соловей свистит у князя → казнь Соловья</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Илья выезжает из Мурома → под Черниговом помощь → Соловей на дереве → стрела в глаз → везёт в Киев → Соловей свистит у князя → казнь Соловья</div></div>
-</section><div id="q-15"></div>
-<section class="slide" data-i="15">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 1 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назовите героев литературных портретов немецкого эпоса «Песнь о Нибелунгах»?<br><br>Жила в земле<br>бургундов девица юных лет.<br>Знатней ее и краше еще не видел свет.<br>…и так была мила,<br>Что многих красота ее на гибель обрекла.<br>Любить ее всем сердцем охотно б каждый стал.<br>Кто раз ее увидел, тот лишь о ней мечтал.<br>Наделена высокой и чистою душой,<br>Примером быть она могла для женщины любой<br><br>(1) <br><br>Еще юнцом безусым<br>был королевич смелый,<br>А уж везде и всюду хвала ему гремела.<br>Был так высок он духом и так пригож лицом,<br>Что не одной красавице пришлось вздыхать о<br>нем.<br>Отменно воспитали родители его,<br>Хоть был природой щедро он взыскан без того.<br>Поэтому по праву воитель молодой<br>Считался украшением страны своей родной.<br>&lt;…&gt;Себя он сразу выдает и статью, и<br>лицом.<br><br>(2) <br><br>Царила королева на<br>острове морском.<br>Была она прекрасна и телом, и лицом,<br>Но женщины сильнее не видел мир досель.<br>Она могла, метнув копьё, насквозь пробить им<br>цель<br>И, бросив тяжкий камень, прыжком его догнать.<br>В трех состязаниях с нею был верх обязан взять<br>Любой, кто королеве посвататься решался,<br>Но, проиграв хотя б одно, он головы лишался.<br>&lt;…&gt; С осанкой горделивой стоит она одна<br>В одежде белоснежной…<br><br>(3)</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) Брюнхильда / Кримхильда / Зигфрид</li><li>(2) Брюнхильда / Кримхильда / Зигфрид</li><li>(3) Брюнхильда / Кримхильда / Зигфрид</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назовите героев литературных портретов немецкого эпоса «Песнь о Нибелунгах»? Жила в земле Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: (1) Кримхильда; (2) Зигфрид; (3) Брюнхильда</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">(1) Кримхильда</div><div class="ans-line">(2) Зигфрид</div><div class="ans-line">(3) Брюнхильда</div></div>
-</section><div id="q-16"></div>
-<section class="slide" data-i="16">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 2 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Определите характерные черты главных героев баллады Ф. Шиллера «Кубок».</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>отчаянный</li><li>бесстрашный</li><li>жестокий</li><li>своенравный</li><li>равнодушный</li><li>молодой</li></ul><p>Варианты ответов: Паж, Царь</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Определите характерные черты главных героев баллады Ф. Шиллера «Кубок». Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: молодой — паж; бесстрашный / отчаянный — ныряльщик; жестокий / своенравный — царь; равнодушный — царевна (после гибели)</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">молодой — паж</div><div class="ans-line">бесстрашный / отчаянный — ныряльщик</div><div class="ans-line">жестокий / своенравный — царь</div><div class="ans-line">равнодушный — царевна (после гибели)</div></div>
-</section><div id="q-17"></div>
-<section class="slide" data-i="17">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 3 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Почему баллада Ф. Шиллера называется «Перчатка»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Потому что в средневековье было принято называть<br>литературные произведения неодушевленными предметами</li><li>Потому что Делорж, бросив перчатку красавице в лицо,<br>сказал ей о её жестокости и подлости</li><li>Падение перчатки – это завязка сюжета</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Почему баллада Ф. Шиллера называется «Перчатка»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Потому что Делорж, бросив перчатку красавице в лицо, сказал ей о её жестокости и подлости</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Потому что Делорж, бросив перчатку красавице в лицо, сказал ей о её жестокости и подлости</div></div>
-</section><div id="q-18"></div>
-<section class="slide" data-i="18">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 4 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите фразу, верно описывающую Зигфрида немецкого эпоса «Песнь о Нибелунгах»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Что бы ни делал витязь, был первым он везде</li><li>Что бы ни делал витязь, последним был везде</li><li>Что бы ни делал витязь, все шло не так</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите фразу, верно описывающую Зигфрида немецкого эпоса «Песнь о Нибелунгах»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Что бы ни делал витязь, был первым он везде</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Что бы ни делал витязь, был первым он везде</div></div>
-</section><div id="q-19"></div>
-<section class="slide" data-i="19">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 5 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Каков жанр произведения Ф. Шиллера «Перчатка»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Поэма</li><li>b. Баллада</li><li>c. Песня</li><li>d. Стихотворение</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Каков жанр произведения Ф. Шиллера «Перчатка»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. Баллада</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. Баллада</div></div>
-</section><div id="q-20"></div>
-<section class="slide" data-i="20">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 6 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сколько лет длился период древнерусской литературы?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>700 лет</li><li>100 лет</li><li>500 лет</li><li>300 лет</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сколько лет длился период древнерусской литературы? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 700 лет</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">700 лет</div></div>
-</section><div id="q-21"></div>
-<section class="slide" data-i="21">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 7 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назовите основные роды литературы:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>роман, поэма, комедия</li><li>эпос, повесть, драма</li><li>эпос, лирика, драма</li><li>эпос, лирика, трагедия</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назовите основные роды литературы: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: эпос, лирика, драма</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">эпос, лирика, драма</div></div>
-</section><div id="q-22"></div>
-<section class="slide" data-i="22">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 8 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как удалось спасти город и его жителей в «Сказании о Белгородском киселе»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>выплатой требуемой дани</li><li>победой в жестоком сражении</li><li>подошла подмога</li><li>смекалкой и хитростью</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как удалось спасти город и его жителей в «Сказании о Белгородском киселе»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: смекалкой и хитростью</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">смекалкой и хитростью</div></div>
-</section><div id="q-23"></div>
-<section class="slide" data-i="23">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 9 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите верное утверждение.Заглавие баллады «Вересковый мёд» символично. Почему для своего произведения автор выбрал именно это растение?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>это растение очень неприхотливо: растёт на песчаных пустошах, ему не страшны ни холод, ни снег; это напоминает о духовной стойкости пиктов – народа-хранителя тайны приготовления напитка из вереска</li><li>это растение обладает приятным вкусом и ароматом</li><li>автор стремился достоверно воссоздать колорит эпохи, поэтому выбрал это растение, которое растёт в горах Шотландии</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите верное утверждение.Заглавие баллады «Вересковый мёд» символично. Почему для своего произведения автор выбрал именно это растение? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: это растение очень неприхотливо: растёт на песчаных пустошах… духовная стойкость пиктов</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">это растение очень неприхотливо: растёт на песчаных пустошах… духовная стойкость пиктов</div></div>
-</section><div id="q-24"></div>
-<section class="slide" data-i="24">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 10 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите несколько утверждений, верно характеризующих жанр баллады.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Наличие присказки</li><li>Необычный пейзаж, который сопровождает основные<br>события</li><li>Сочетание реального и фантастического</li><li>Наличие морали в конце произведения</li><li>Присутствует мотив тайны</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите несколько утверждений, верно характеризующих жанр баллады. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Необычный пейзаж, который сопровождает основные события; Сочетание реального и фантастического; Присутствует мотив тайны</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Необычный пейзаж, который сопровождает основные события</div><div class="ans-line">Сочетание реального и фантастического</div><div class="ans-line">Присутствует мотив тайны</div></div>
-</section><div id="q-25"></div>
-<section class="slide" data-i="25">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 11 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие изобразительно-выразительные средства языка<br>использует В.<br>А. Жуковский в приведённых ниже строках из баллады "Кубок"?<br>И волны спирались, и пена кипела:<br>Как будто гроза,<br>наступая, ревела.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>сравнение</li><li>олицетворение</li><li>эпитет</li><li>аллегория</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие изобразительно-выразительные средства языка использует В. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: сравнение; олицетворение</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">сравнение</div><div class="ans-line">олицетворение</div></div>
-</section><div id="q-26"></div>
-<section class="slide" data-i="26">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 12 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Старик-медовар в балладе «Вересковый мёд» обладает непростым характером. Какие черты ему свойственны?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>презрение к смерти</li><li>несправедливость</li><li>общительность</li><li>трусость</li><li>мужественность</li><li>хитрость</li><li>верность долгу</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Старик-медовар в балладе «Вересковый мёд» обладает непростым характером. Какие черты ему свойственны? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: презрение к смерти; мужественность; хитрость; верность долгу</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">презрение к смерти</div><div class="ans-line">мужественность</div><div class="ans-line">хитрость</div><div class="ans-line">верность долгу</div></div>
-</section><div id="q-27"></div>
-<section class="slide" data-i="27">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 13 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назови стихотворный размер, которым написано стихотворение А.С.Пушкина "Зимняя дорога"Ответ запишите одним словом в именительном падеже.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назови стихотворный размер, которым написано стихотворение А.С.Пушкина "Зимняя дорога"Ответ запишите одним словом в именительном падеже. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: хорей</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">хорей</div></div>
-</section><div id="q-28"></div>
-<section class="slide" data-i="28">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 14 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется изобразительное средство, основанное на скрытом сравнении?«Разговор мальчиков угасал вместе с<br>огнями…»</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется изобразительное средство, основанное на скрытом сравнении?«Разговор мальчиков угасал вместе с огнями…» Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: метафора</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">метафора</div></div>
-</section><div id="q-29"></div>
-<section class="slide" data-i="29">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 2 Литература · вопрос 15 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется обмен репликами героев литературного произведе­ния?"— Вы свободны, — продолжал Дубровский, обращаясь к бледной княгине.— Нет, — отвечала она. — Поздно — я обвенчана, я жена князя Верейского".Ответ запишите одним словом в именительном падеже.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется обмен репликами героев литературного произведе­ния?"— Вы свободны, — продолжал Дубровский, обращаясь к бледной княгине.— Нет, — отвечала она. — Поздно — я обвенчана, я жена князя Верейского".Ответ запишите… Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: диалог</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">диалог</div></div>
-</section><div id="q-30"></div>
-<section class="slide" data-i="30">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 1 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Что символизируют собой листок в стихотворении М.Ю. Лермонтова «Листок»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>одинокая, скитальческая жизнь</li><li>смерть</li><li>неспособность к состраданию</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Что символизируют собой листок в стихотворении М.Ю. Лермонтова «Листок»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: одинокая, скитальческая жизнь</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">одинокая, скитальческая жизнь</div></div>
-</section><div id="q-31"></div>
-<section class="slide" data-i="31">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 2 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Найдите ошибку:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>жанр произведения Лермонтова «Три пальмы» - баллада;</li><li>стихотворение «Тучи» написано Лермонтовым в 1839 году перед первой ссылкой на Кавказ;</li><li>в стихотворении Лермонтова «Утес» образы-символы – золотая тучка и утес-великан – символизируют человеческие отношения, их непрочность.</li><li>тема стихотворения Лермонтова «Листок» - бесцельное существование, разрыв исторических связей и преждевременного созревания поколения Лермонтова;</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Найдите ошибку: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: стихотворение «Тучи» написано Лермонтовым в 1839 году перед первой ссылкой на Кавказ — ошибка: «Тучи» 1840, перед второй ссылкой</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">стихотворение «Тучи» написано Лермонтовым в 1839 году перед первой ссылкой на Кавказ — ошибка: «Тучи» 1840, перед второй ссылкой</div></div>
-</section><div id="q-32"></div>
-<section class="slide" data-i="32">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 3 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какое стихотворение написано хореем?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Однажды в студеную зимнюю поруЯ из лесу вышел. Был сильный мороз…(Н.А.Некрасов)</li><li>Ветер по морю гуляет И кораблик подгоняет…(А.С.Пушкин)</li><li>Скажи-ка, дядя! Ведь не даром<br>Москва, спаленная пожаром,<br>Французу отдана?<br>(М.Ю.Лермонтов)</li><li>Сижу за решеткой в темнице сырой.Вскормленный в неволе орел молодой…(А.С.Пушкин)</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какое стихотворение написано хореем? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Ветер по морю гуляет И кораблик подгоняет… (А.С.Пушкин) — хорей</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Ветер по морю гуляет И кораблик подгоняет… (А.С.Пушкин) — хорей</div></div>
-</section><div id="q-33"></div>
-<section class="slide" data-i="33">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 4 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Главный герой в произведении «Дубровский» в конце произведения</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>остается благородным разбойником, помогающим обездоленным</li><li>женится на Маше Троекуровой</li><li>получает наследство и становится помещиком</li><li>уезжает за границу</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Главный герой в произведении «Дубровский» в конце произведения Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: уезжает за границу</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">уезжает за границу</div></div>
-</section><div id="q-34"></div>
-<section class="slide" data-i="34">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 5 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кем не был Владимир Дубровский в своей жизни?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>грозным и честным разбойником</li><li>нежным и любящим мужем</li><li>скромным и мужественным Дефоржем</li><li>расточительным и честолюбивым гвардейским офицером</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кем не был Владимир Дубровский в своей жизни? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: нежным и любящим мужем</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">нежным и любящим мужем</div></div>
-</section><div id="q-35"></div>
-<section class="slide" data-i="35">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 6 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В чем была причина ссоры двух помещиков из романа А.С.Пушкина «Дубровский»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>зависть Дубровского Троекурову</li><li>пренебрежительное отношение богатого Троекурова к своему бедному другу-соседу Дубровскому</li><li>хамское поведение крепостного крестьянина Троекурова</li><li>расхождение в политических взглядах Дубровского и Троекурова</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В чем была причина ссоры двух помещиков из романа А.С.Пушкина «Дубровский»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: пренебрежительное отношение богатого Троекурова к своему бедному другу-соседу Дубровскому</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">пренебрежительное отношение богатого Троекурова к своему бедному другу-соседу Дубровскому</div></div>
-</section><div id="q-36"></div>
-<section class="slide" data-i="36">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 7 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Тематика стихотворения М.Ю. Лермонтова «Листок»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>одиночество</li><li>любовь</li><li>свободолюбие</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Тематика стихотворения М.Ю. Лермонтова «Листок»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: одиночество</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">одиночество</div></div>
-</section><div id="q-37"></div>
-<section class="slide" data-i="37">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 8 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назовите основную тему произведения М.Ю. Лермонтова «Утёс»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>красота природы</li><li>безответная любовь</li><li>одиночество человека</li><li>любовь к России</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назовите основную тему произведения М.Ю. Лермонтова «Утёс»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: одиночество человека</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">одиночество человека</div></div>
-</section><div id="q-38"></div>
-<section class="slide" data-i="38">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 9 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">1814-1841 гг. Чьи это даты жизни?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>И.А.Крылова</li><li>М.Ю.Лермонтова</li><li>А.С.Пушкина</li><li>Н.В.Гоголя</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: 1814-1841 гг. Чьи это даты жизни? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: М.Ю.Лермонтова</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">М.Ю.Лермонтова</div></div>
-</section><div id="q-39"></div>
-<section class="slide" data-i="39">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 10 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие образы-герои встречаются в балладе М.Ю. Лермонтова «Три пальмы»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>пустыня</li><li>змея</li><li>караван</li><li>три пальмы</li><li>тигр</li><li>ручей</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие образы-герои встречаются в балладе М.Ю. Лермонтова «Три пальмы»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: пустыня; караван; три пальмы; ручей</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">пустыня</div><div class="ans-line">караван</div><div class="ans-line">три пальмы</div><div class="ans-line">ручей</div></div>
-</section><div id="q-40"></div>
-<section class="slide" data-i="40">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 11 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какой литературный приём помогает сделать картину живой, а все видимые предметы очеловеченными, одухотворёнными?В ответ ввести только название приёма, точку не ставить.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какой литературный приём помогает сделать картину живой, а все видимые предметы очеловеченными, одухотворёнными?В ответ ввести только название приёма, точку не ставить. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: олицетворение</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">олицетворение</div></div>
-</section><div id="q-41"></div>
-<section class="slide" data-i="41">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 12 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В стихотворении М.Ю.Лермонтова "Листок" в образе дубового листка иносказательно воплощены одиночество, изгнанничество, страдание человека.Как называется этот художественный приём?Запишите ответ одним словом в именительном падеже.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В стихотворении М.Ю.Лермонтова "Листок" в образе дубового листка иносказательно воплощены одиночество, изгнанничество, страдание человека.Как называется этот художественный приём?Запишите ответ одним словом в именительно… Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: аллегория</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">аллегория</div></div>
-</section><div id="q-42"></div>
-<section class="slide" data-i="42">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 13 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назовите род литературы, к которому относится стихотворение М.Ю.Лермонтаова "Листок"Ответ запиши одним словом в именительном падеже.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назовите род литературы, к которому относится стихотворение М.Ю.Лермонтаова "Листок"Ответ запиши одним словом в именительном падеже. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: лирика</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">лирика</div></div>
-</section><div id="q-43"></div>
-<section class="slide" data-i="43">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 14 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Определите размер, которым написано стихотворение М.Ю.Лермонтова "Листок"Ответ запишите одним словом в именительном падеже</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Определите размер, которым написано стихотворение М.Ю.Лермонтова "Листок"Ответ запишите одним словом в именительном падеже Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: дактиль</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">дактиль</div></div>
-</section><div id="q-44"></div>
-<section class="slide" data-i="44">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 3 Литература · вопрос 15 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назовите род литературы, к которому относится произведение А.С.Пушкина "Дубровский"Ответ запиши одним словом в именительном падеже.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назовите род литературы, к которому относится произведение А.С.Пушкина "Дубровский"Ответ запиши одним словом в именительном падеже. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: эпос</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">эпос</div></div>
-</section><div id="q-45"></div>
-<section class="slide" data-i="45">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 1 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Расположите цитаты так, как они встречаются в сказе «Левша» Н.С. Лескова.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>«…У нас дома своё не хуже есть»</li><li>«Царедворцы ... его терпеть не могли за храбрость»</li><li>«...Так соображал, что англичанам нет равных в искусстве...»</li><li>восхищение иностранными умельцами</li><li>вера в высокое мастерство русских мастеров</li><li>«...Всегда имел самые междоусобные разговоры с разными людьми...»</li><li>готовность служить Отечеству</li><li>Русским мастерам далеко до иностранных</li></ul><p>Варианты ответов: Александр Павлович, Платов</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Расположите цитаты так, как они встречаются в сказе «Левша» Н.С. Лескова. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: вера в высокое мастерство русских мастеров — «у нас дома своё не хуже есть»; восхищение иностранными умельцами — «англичанам нет равных…»; Платов: «царедворцы его терпеть не могли за храбрость»; междоусобные разговоры — характер Платова</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">вера в высокое мастерство русских мастеров — «у нас дома своё не хуже есть»</div><div class="ans-line">восхищение иностранными умельцами — «англичанам нет равных…»</div><div class="ans-line">Платов: «царедворцы его терпеть не могли за храбрость»</div><div class="ans-line">междоусобные разговоры — характер Платова</div></div>
-</section><div id="q-46"></div>
-<section class="slide" data-i="46">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 2 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие реальные исторические личности стали персонажами сказа Н.С.Лескова «Левша»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Петр I, Александр I, Николай I;</li><li>Александр I, Платов, Левша;</li><li>Александр I, Николай I, Платов.</li><li>Левша, Николай I, Платов;</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие реальные исторические личности стали персонажами сказа Н.С.Лескова «Левша»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Александр I, Николай I, Платов.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Александр I, Николай I, Платов.</div></div>
-</section><div id="q-47"></div>
-<section class="slide" data-i="47">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 3 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Каким размером написано стихотворение Ф.И.Тютчева «Листья»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>амфибрахием</li><li>ямбом</li><li>хореем</li><li>дактилем</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Каким размером написано стихотворение Ф.И.Тютчева «Листья»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: хореем</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">хореем</div></div>
-</section><div id="q-48"></div>
-<section class="slide" data-i="48">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 4 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кого символизирует Левша в произведении Н.С.Лескова?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>русскую интеллигенцию</li><li>русское дворянство</li><li>русский народ</li><li>крепостное крестьянство</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кого символизирует Левша в произведении Н.С.Лескова? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: русский народ</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">русский народ</div></div>
-</section><div id="q-49"></div>
-<section class="slide" data-i="49">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 5 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие средства выразительности представлены в отрывке из стихотворения Ф.И.Тютчева?<br>«Неохотно и несмело Солнце смотрит на поля. Чу, за тучей прогремело, Принахмурилась земля»</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>метафора и эпитет</li><li>олицетворение и гипербола</li><li>олицетворение и эпитеты</li><li>сравнение и эпитеты</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие средства выразительности представлены в отрывке из стихотворения Ф.И.Тютчева? «Неохотно и несмело Солнце смотрит на поля. Чу, за тучей прогремело, Принахмурилась земля» Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: олицетворение и эпитеты</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">олицетворение и эпитеты</div></div>
-</section><div id="q-50"></div>
-<section class="slide" data-i="50">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 6 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какого средства выразительности нет в стихотворении А.А.Фета?«Морская даль во тьме туманной;Там парус тонет, как в дыму,А волны в злобе постояннойБегут к прибрежью моему»</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>эпитета</li><li>олицетворения</li><li>сравнения</li><li>гиперболы</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какого средства выразительности нет в стихотворении А.А.Фета?«Морская даль во тьме туманной;Там парус тонет, как в дыму,А волны в злобе постояннойБегут к прибрежью моему» Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: гиперболы</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">гиперболы</div></div>
-</section><div id="q-51"></div>
-<section class="slide" data-i="51">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 7 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кому принадлежат строки «Учись у них: у дуба, у березы»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>А.С.Пушкину</li><li>М.Ю.Лермонтову</li><li>А.А.Фету</li><li>Н.А.Некрасову</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кому принадлежат строки «Учись у них: у дуба, у березы»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: А.А.Фету</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">А.А.Фету</div></div>
-</section><div id="q-52"></div>
-<section class="slide" data-i="52">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 8 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">По словам писателя М.Е.Салтыкова-Щедрина, сборник рассказов И.С.Тургенева «Записки охотника» «положили начало целой литературе, имеющей объектом…» Продолжите высказывание:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>«внутренний мир совестливого человека»</li><li>«господ и крестьян»</li><li>«русскую природу и крестьянскую душу»</li><li>«народ и его нужды»</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: По словам писателя М.Е.Салтыкова-Щедрина, сборник рассказов И.С.Тургенева «Записки охотника» «положили начало целой литературе, имеющей объектом…» Продолжите высказывание: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: «народ и его нужды»</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">«народ и его нужды»</div></div>
-</section><div id="q-53"></div>
-<section class="slide" data-i="53">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 9 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Где находится местечко под названием Бежин луг?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>в Орловской губернии</li><li>это вымышленное место</li><li>под Москвой</li><li>в Тульской губернии</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Где находится местечко под названием Бежин луг? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: в Орловской губернии</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">в Орловской губернии</div></div>
-</section><div id="q-54"></div>
-<section class="slide" data-i="54">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 10 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Что является основной темой стихотворения в стихотворении А. Кольцова «Косарь»</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>любовь</li><li>природа</li><li>труд и усердие</li><li>приключения</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Что является основной темой стихотворения в стихотворении А. Кольцова «Косарь» Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: труд и усердие</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">труд и усердие</div></div>
-</section><div id="q-55"></div>
-<section class="slide" data-i="55">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 11 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Каких птиц упоминает И.С. Тургенев в рассказе «Бежин луг».</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>воробей</li><li>цапля</li><li>перепелка</li><li>тетерев</li><li>голубок</li><li>орёл</li><li>жаворонок</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Каких птиц упоминает И.С. Тургенев в рассказе «Бежин луг». Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: цапля; перепелка; тетерев; голубок</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">цапля</div><div class="ans-line">перепелка</div><div class="ans-line">тетерев</div><div class="ans-line">голубок</div></div>
-</section><div id="q-56"></div>
-<section class="slide" data-i="56">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 12 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Расположите в правильной последовательности события жизни Левши из произведения Сказ «Левша» Н.С. Лескова.</div>
-  
-  
-  <div class="opts"><b>Элементы для порядка:</b><ul><li>Сделаны подковки для блохи;</li><li>Пребывание в больнице, «где неведомого сословия людей умирать принимают»</li><li>Приём у Государя в Петербурге</li><li>Путешествие в Англию;</li><li>Трудный путь на корабле;</li><li>Задание превзойти «аглицких» мастеров;</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Расположите в правильной последовательности события жизни Левши из произведения Сказ «Левша» Н.С. Лескова. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Александр I в Англии видит блоху → Николай I и Платов в Туле → Левша подковывает блоху → дворец, изумление англичан → Левша в Англии не остаётся → возвращение, болезнь, смерть, совет про ружья</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Александр I в Англии видит блоху → Николай I и Платов в Туле → Левша подковывает блоху → дворец, изумление англичан → Левша в Англии не остаётся → возвращение, болезнь, смерть, совет про ружья</div></div>
-</section><div id="q-57"></div>
-<section class="slide" data-i="57">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 13 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Расположите цитаты так, как они встречаются в рассказе И.С. Тургенева «Бежин луг».</div>
-  
-  
-  <div class="opts"><b>Элементы для порядка:</b><ul><li>«Я проворно встал и подошел к мальчикам. Они все спали как убитые вокруг тлеющего <br>костра; один Павел приподнялся до половины и пристально поглядел на меня. <br>Я кивнул ему головой и пошел восвояси вдоль задымившейся реки.»</li><li>«Детские звонкие голоса раздались вокруг огней; два-три мальчика быстро поднялись с земли. <br>Я откликнулся на их вопросительные крики»</li><li>«Прошло еще немного времени; мальчики с недоумением переглядывались, как <br>бы выжидая, что-то будет... Внезапно раздался топот скачущей лошади; круто <br>остановилась она у самого костра, и, уцепившись за гриву, проворно спрыгнул с нее Павлуша.»</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Расположите цитаты так, как они встречаются в рассказе И.С. Тургенева «Бежин луг». Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: утро, охотник идёт → Бежин луг, костер, мальчики → рассказы про домового, русалку, утопленника → Павлуша и волки → утро, возвращение; цитаты в этом порядке</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">утро, охотник идёт → Бежин луг, костер, мальчики → рассказы про домового, русалку, утопленника → Павлуша и волки → утро, возвращение; цитаты в этом порядке</div></div>
-</section><div id="q-58"></div>
-<section class="slide" data-i="58">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 14 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Образы и настроение первой и второй строфы в стихотворении Ф.И.Тютчева "Листья" противопоставле­ны. Как называется этот художественный приём?Запиши ответ одним словом в именительном падеже.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Образы и настроение первой и второй строфы в стихотворении Ф.И.Тютчева "Листья" противопоставле­ны. Как называется этот художественный приём?Запиши ответ одним словом в именительном падеже. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: антитеза</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">антитеза</div></div>
-</section><div id="q-59"></div>
-<section class="slide" data-i="59">
-  <div class="themebar" style="background:#7a3e6e">📖 Произведения и герои</div>
-  <div class="top">литература · Тест 4 Литература · вопрос 15 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется изображение неживой природы как живого существа?"Вечор, ты помнишь, вьюга злилась..."Ответ запиши одним словом в именительном падеже.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется изображение неживой природы как живого существа?"Вечор, ты помнишь, вьюга злилась..."Ответ запиши одним словом в именительном падеже. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: олицетворение</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">олицетворение</div></div>
-</section>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Рассмотрите репродукцию картины. Дополните текст словами.Одна из самых знаменитых картин, изображающих<br>богатырей, написана Виктором (1) . Эта картина так и называется —<br>«Богатыри», хотя чаще её называют (2) , — так едины они втроём, такие<br>непохожие, но неотделимые друг от друга, — суровый и спокойный (3) ,<br>готовый броситься в бой (4) и (5) , готовый не только воевать,<br>но и спеть.<br>Художник работал над картиной (6) —<br>от момента замысла, когда был сделан первый набросок, до завершения картины.</div>
+      <div class="pics"><img class="qimg" src="../_картинки/5db7a5cd00a21947.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>Билибиным</option><option>Васнецовым</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>Богатырская застава</option><option>Три богатыря</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>Илья Муромец</option><option>Алёша Попович</option><option>Добрыня Никитич</option></select></p><p>(4) <select class="custom-select" disabled><option>Выберите...</option><option>Илья Муромец</option><option>Алёша Попович</option><option>Добрыня Никитич</option></select></p><p>(5) <select class="custom-select" disabled><option>Выберите...</option><option>Илья Муромец</option><option>Алёша Попович</option><option>Добрыня Никитич</option></select></p><p>(6) <select class="custom-select" disabled><option>Выберите...</option><option>месяц</option><option>три года</option><option>двадцать лет</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">(1) Васнецовым</div><div class="ans-line">(2) Три богатыря</div><div class="ans-line">(3) Добрыня Никитич (слева, конь белый)</div><div class="ans-line">(4) Илья Муромец (в центре)</div><div class="ans-line">(5) Алёша Попович (справа)</div><div class="ans-line">(6) двадцать лет (Илья «сидел сиднем»)</div></div>
+      <p class="why">потому что в пропуски ставится: (1) Васнецовым; (2) Три богатыря; (3) Добрыня Никитич (слева, конь белый); (4) Илья Муромец (в центре); (5) Алёша Попович (справа); (6) двадцать лет (Илья «сидел сиднем»).</p>
+    </div>
+  </div>
 </div>
-<script>
-const slides = [...document.querySelectorAll('.slide')];
-let i = 0;
-const show = (n) => {
-  i = Math.max(0, Math.min(slides.length-1, n));
-  slides.forEach((s, k) => s.style.display = k===i ? 'block' : 'none');
-  document.getElementById('pos').textContent = (i+1) + ' / ' + slides.length;
-  slides[i].scrollIntoView({block:'start'});
-};
-document.getElementById('prev').onclick = () => show(i-1);
-document.getElementById('next').onclick = () => show(i+1);
-document.getElementById('all').onclick = () => slides.forEach(s => s.style.display='block');
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight' || e.key === 'PageDown') show(i+1);
-  if (e.key === 'ArrowLeft' || e.key === 'PageUp') show(i-1);
-});
-show(0);
-</script>
-</body></html>
+<div class="que match deferredfeedback" id="q-2">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Соотнесите композицию поэмы «Песнь о Роланде» с действием поэмы.</div>
+      
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text">Завязка</td><td></td></tr><tr class="r1"><td class="text">Кульминация</td><td></td></tr><tr class="r0"><td class="text">Развязка</td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Завязка — предательство Ганелона / арьергард в Ронсевале</div><div class="ans-line">Кульминация — гибель Роланда, бой в ущелье</div><div class="ans-line">Развязка — месть Карла, суд над Ганелоном</div></div>
+      <p class="why">потому что Завязка — это предательство Ганелона / арьергард в Ронсевале; Кульминация — это гибель Роланда, бой в ущелье; Развязка — это месть Карла, суд над Ганелоном.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-3">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Зачем, согласно исторической точке зрения, греки отправились в Малую Азию?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Чтобы захватить местное золото</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Чтобы основать там колонии</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Чтобы принести веру своих богов</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Чтобы пополнить армию рабами</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Чтобы основать там колонии</div></div>
+      <p class="why">потому что Зачем, согласно исторической точке зрения, греки отправились в Малую Азию = Чтобы основать там колонии.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-4">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Когда пелись календарные - обрядовые песни?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>в будние дни в определённое время суток</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>в выходные дни в любое время суток</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>в определённые дни года, по праздникам</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>во время церковных праздников</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">в определённые дни года, по праздникам</div></div>
+      <p class="why">потому что Когда пелись календарные - обрядовые песни = в определённые дни года, по праздникам.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-5">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называются песни, которыми закликали весну?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>колядки</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>троицкие</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>масленичные</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>веснянки</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">веснянки</div></div>
+      <p class="why">потому что Как называются песни, которыми закликали весну = веснянки.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-6">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кто является виновником гибели Роланда из произведения «Песнь о Роланде» неподалеку от опасного ущелья?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Оливье</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Турпен</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Ганелон</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Карл Великий</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Ганелон</div></div>
+      <p class="why">потому что Кто является виновником гибели Роланда из произведения «Песнь о Роланде» неподалеку от опасного ущелья = Ганелон.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-7">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Фольклор – это:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>художественная литература</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>устное народное творчество</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>жанр устного народного творчества</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>жанр литературы</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">устное народное творчество</div></div>
+      <p class="why">потому что Фольклор – это: = устное народное творчество.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-8">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Жанр эпоса, опирающийся на народные предания и легенды; характерны сочетание точных зарисовок быта и нравов со сказочно-фантастическим миром фольклора - это...</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>сказка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>рассказ</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>сказ</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">сказ</div></div>
+      <p class="why">потому что Жанр эпоса, опирающийся на народные предания и легенды; характерны сочетание точных зарисовок быта и нравов со сказочно-фантастическим миром фольклора - это = сказ.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-9">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">К какому виду жанра эпоса принадлежит произведение «Песнь о Роланде»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Сказка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Поэма</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Повесть</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Баллада</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Поэма</div></div>
+      <p class="why">потому что К какому виду жанра эпоса принадлежит произведение «Песнь о Роланде» = Поэма.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-10">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Определите верные утверждения.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>Одиссей – главный герой поэмы «Одиссея», царь<br>острова Итака</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>Аполлон направил стрелу Париса в единственно<br>уязвимое место на теле Ахиллеса – сердце</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>«Эпос» по-гречески означает «повествование»</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>Верная жена Одиссея – Афродита</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Одиссей – главный герой поэмы «Одиссея», царь острова Итака</div><div class="ans-line">«Эпос» по-гречески означает «повествование»</div></div>
+      <p class="why">потому что Одиссей – главный герой поэмы «Одиссея», царь острова Итака; «Эпос» по-гречески означает «повествование».</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-11">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие крылатые выражения пришли к нам из творчества Гомера?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>Сцилла и Харибда</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>Троянский конь</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>Тришкин кафтан</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>Демьянова уха</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Сцилла и Харибда</div><div class="ans-line">Троянский конь</div></div>
+      <p class="why">потому что Сцилла и Харибда; Троянский конь.</p>
+    </div>
+  </div>
+</div>
+<div class="que ordering deferredfeedback" id="q-12">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Восстановите последовательность странствий Одиссея.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Расставьте в правильном порядке:</div><ul class="answer"><li>приют у Алкиноя, царя мореходов</li><li>между Сциллой и Харибдой</li><li>на острове циклопов</li><li>расправа с женихами Пенелопы</li><li>встреча с сиренами в море</li><li>возвращение на Итаку</li></ul></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">киконы → лотофаги → циклоп Полифем → Эол → лестригоны → Цирцея → Аид → сирены → Сцилла и Харибда → остров Гелиоса → Калипсо → феаки → Итака</div></div>
+      <p class="why">потому что порядок такой: киконы → лотофаги → циклоп Полифем → Эол → лестригоны → Цирцея → Аид → сирены → Сцилла и Харибда → остров Гелиоса → Калипсо → феаки → Итака.</p>
+    </div>
+  </div>
+</div>
+<div class="que ordering deferredfeedback" id="q-13">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Восстановите сюжет былины «Садко».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Расставьте в правильном порядке:</div><ul class="answer"><li>Садко не зовут играть на пиры.</li><li>Садко идёт играть на Ильмень-озеро, где ему показывается морской царь.</li><li>Садко бьётся об заклад с новгородскими купцами, что поймает в Ильмень-озере «рыбу-золоты перья».</li><li>Садко грузит тридцать кораблей и едет торговать за море.</li><li>На море разражается буря, корабли останавливаются.</li><li>Садко кидает в море бочки с золотом, серебром, жемчугом, в качестве дани морскому царю.</li><li>Садко является Микола Можайский. Микола Можайский учит Садко, как обхитрить морского царя.</li><li>Садко с гуслями спускают в море на дубовой доске.</li><li>Садко оказывается на морском дне, в палатах морского царя.</li><li>Садко играет на гуслях для морского царя, море волнуется, гибнут корабли.</li><li>Садко просыпается в Новгороде, на берегу реки Чернавы.</li><li>Садко начинает торговать разными товарами, богатеет.</li><li>Садко исполняет обет и строит церковь Миколе Можайскому</li><li>Садко выбирает себе невесту.</li></ul></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Садко не зовут на пир → гусли на берегу Ильменя → царь Морской → богатство, корабли → спор с Волховым → сеть, рыба-золотые перья → пир у Морского царя → Никола Можайский / Чернава → возвращение в Новгород</div></div>
+      <p class="why">потому что порядок такой: Садко не зовут на пир → гусли на берегу Ильменя → царь Морской → богатство, корабли → спор с Волховым → сеть, рыба-золотые перья → пир у Морского царя → Никола Можайский / Чернава → возвращение в Новгород.</p>
+    </div>
+  </div>
+</div>
+<div class="que ordering deferredfeedback" id="q-14">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Восстановите фрагмент былины «Илья Муромец и Соловей-разбойник».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Расставьте в правильном порядке:</div><ul class="answer"><li>Выезжал удаленький дородный добрый молодец.</li><li>Из того села да Карачарова</li><li>Ай к обеденке поспеть хотел он в стольный Киев-град</li><li>Он стоял заутреню во Муроме,</li><li>Из того ли то из города из Мурома,</li></ul></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Илья выезжает из Мурома → под Черниговом помощь → Соловей на дереве → стрела в глаз → везёт в Киев → Соловей свистит у князя → казнь Соловья</div></div>
+      <p class="why">потому что порядок такой: Илья выезжает из Мурома → под Черниговом помощь → Соловей на дереве → стрела в глаз → везёт в Киев → Соловей свистит у князя → казнь Соловья.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 2 Литература</h3>
+<div class="que gapselect deferredfeedback" id="q-15">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назовите героев литературных портретов немецкого эпоса «Песнь о Нибелунгах»?<br><br>Жила в земле<br>бургундов девица юных лет.<br>Знатней ее и краше еще не видел свет.<br>…и так была мила,<br>Что многих красота ее на гибель обрекла.<br>Любить ее всем сердцем охотно б каждый стал.<br>Кто раз ее увидел, тот лишь о ней мечтал.<br>Наделена высокой и чистою душой,<br>Примером быть она могла для женщины любой<br><br>(1) <br><br>Еще юнцом безусым<br>был королевич смелый,<br>А уж везде и всюду хвала ему гремела.<br>Был так высок он духом и так пригож лицом,<br>Что не одной красавице пришлось вздыхать о<br>нем.<br>Отменно воспитали родители его,<br>Хоть был природой щедро он взыскан без того.<br>Поэтому по праву воитель молодой<br>Считался украшением страны своей родной.<br>&lt;…&gt;Себя он сразу выдает и статью, и<br>лицом.<br><br>(2) <br><br>Царила королева на<br>острове морском.<br>Была она прекрасна и телом, и лицом,<br>Но женщины сильнее не видел мир досель.<br>Она могла, метнув копьё, насквозь пробить им<br>цель<br>И, бросив тяжкий камень, прыжком его догнать.<br>В трех состязаниях с нею был верх обязан взять<br>Любой, кто королеве посвататься решался,<br>Но, проиграв хотя б одно, он головы лишался.<br>&lt;…&gt; С осанкой горделивой стоит она одна<br>В одежде белоснежной…<br><br>(3)</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>Брюнхильда</option><option>Кримхильда</option><option>Зигфрид</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>Брюнхильда</option><option>Кримхильда</option><option>Зигфрид</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>Брюнхильда</option><option>Кримхильда</option><option>Зигфрид</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">(1) Кримхильда</div><div class="ans-line">(2) Зигфрид</div><div class="ans-line">(3) Брюнхильда</div></div>
+      <p class="why">потому что в пропуски ставится: (1) Кримхильда; (2) Зигфрид; (3) Брюнхильда.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-16">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Определите характерные черты главных героев баллады Ф. Шиллера «Кубок».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: Паж; Царь</div><table class="answer match"><tr class="r0"><td class="text">отчаянный</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Паж</option><option>Царь</option></select></td></tr><tr class="r1"><td class="text">бесстрашный</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Паж</option><option>Царь</option></select></td></tr><tr class="r0"><td class="text">жестокий</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Паж</option><option>Царь</option></select></td></tr><tr class="r1"><td class="text">своенравный</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Паж</option><option>Царь</option></select></td></tr><tr class="r0"><td class="text">равнодушный</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Паж</option><option>Царь</option></select></td></tr><tr class="r1"><td class="text">молодой</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Паж</option><option>Царь</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">молодой — паж</div><div class="ans-line">бесстрашный / отчаянный — ныряльщик</div><div class="ans-line">жестокий / своенравный — царь</div><div class="ans-line">равнодушный — царевна (после гибели)</div></div>
+      <p class="why">потому что молодой — это паж; бесстрашный / отчаянный — это ныряльщик; жестокий / своенравный — это царь; равнодушный — это царевна (после гибели).</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-17">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Почему баллада Ф. Шиллера называется «Перчатка»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Потому что в средневековье было принято называть<br>литературные произведения неодушевленными предметами</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Потому что Делорж, бросив перчатку красавице в лицо,<br>сказал ей о её жестокости и подлости</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Падение перчатки – это завязка сюжета</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Потому что Делорж, бросив перчатку красавице в лицо, сказал ей о её жестокости и подлости</div></div>
+      <p class="why">потому что Делорж, бросив перчатку красавице в лицо, сказал ей о её жестокости и подлости.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-18">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите фразу, верно описывающую Зигфрида немецкого эпоса «Песнь о Нибелунгах»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Что бы ни делал витязь, был первым он везде</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Что бы ни делал витязь, последним был везде</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Что бы ни делал витязь, все шло не так</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Что бы ни делал витязь, был первым он везде</div></div>
+      <p class="why">потому что фразу, верно описывающую Зигфрида немецкого эпоса «Песнь о Нибелунгах» = Что бы ни делал витязь, был первым он везде.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-19">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Каков жанр произведения Ф. Шиллера «Перчатка»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Поэма</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Баллада</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Песня</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. Стихотворение</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. Баллада</div></div>
+      <p class="why">потому что Каков жанр произведения Ф. Шиллера «Перчатка» = b. Баллада.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-20">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сколько лет длился период древнерусской литературы?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>700 лет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>100 лет</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>500 лет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>300 лет</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">700 лет</div></div>
+      <p class="why">потому что Сколько лет длился период древнерусской литературы = 700 лет.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-21">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назовите основные роды литературы:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>роман, поэма, комедия</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>эпос, повесть, драма</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>эпос, лирика, драма</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>эпос, лирика, трагедия</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">эпос, лирика, драма</div></div>
+      <p class="why">потому что Назовите основные роды литературы: = эпос, лирика, драма.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-22">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как удалось спасти город и его жителей в «Сказании о Белгородском киселе»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>выплатой требуемой дани</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>победой в жестоком сражении</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>подошла подмога</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>смекалкой и хитростью</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">смекалкой и хитростью</div></div>
+      <p class="why">потому что Как удалось спасти город и его жителей в «Сказании о Белгородском киселе» = смекалкой и хитростью.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-23">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите верное утверждение.Заглавие баллады «Вересковый мёд» символично. Почему для своего произведения автор выбрал именно это растение?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>это растение очень неприхотливо: растёт на песчаных пустошах, ему не страшны ни холод, ни снег; это напоминает о духовной стойкости пиктов – народа-хранителя тайны приготовления напитка из вереска</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>это растение обладает приятным вкусом и ароматом</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>автор стремился достоверно воссоздать колорит эпохи, поэтому выбрал это растение, которое растёт в горах Шотландии</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">это растение очень неприхотливо: растёт на песчаных пустошах… духовная стойкость пиктов</div></div>
+      <p class="why">потому что это растение очень неприхотливо: растёт на песчаных пустошах… духовная стойкость пиктов.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-24">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите несколько утверждений, верно характеризующих жанр баллады.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>Наличие присказки</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>Необычный пейзаж, который сопровождает основные<br>события</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>Сочетание реального и фантастического</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>Наличие морали в конце произведения</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label>Присутствует мотив тайны</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Необычный пейзаж, который сопровождает основные события</div><div class="ans-line">Сочетание реального и фантастического</div><div class="ans-line">Присутствует мотив тайны</div></div>
+      <p class="why">потому что Необычный пейзаж, который сопровождает основные события; Сочетание реального и фантастического; Присутствует мотив тайны.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-25">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие изобразительно-выразительные средства языка<br>использует В.<br>А. Жуковский в приведённых ниже строках из баллады "Кубок"?<br>И волны спирались, и пена кипела:<br>Как будто гроза,<br>наступая, ревела.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>сравнение</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>олицетворение</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>эпитет</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>аллегория</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">сравнение</div><div class="ans-line">олицетворение</div></div>
+      <p class="why">потому что сравнение; олицетворение.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-26">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Старик-медовар в балладе «Вересковый мёд» обладает непростым характером. Какие черты ему свойственны?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>презрение к смерти</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>несправедливость</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>общительность</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>трусость</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label>мужественность</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">f. </span><label>хитрость</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">g. </span><label>верность долгу</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">презрение к смерти</div><div class="ans-line">мужественность</div><div class="ans-line">хитрость</div><div class="ans-line">верность долгу</div></div>
+      <p class="why">потому что презрение к смерти; мужественность; хитрость; верность долгу.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-27">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назови стихотворный размер, которым написано стихотворение А.С.Пушкина "Зимняя дорога"Ответ запишите одним словом в именительном падеже.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">хорей</div></div>
+      <p class="why">потому что Назови стихотворный размер, которым написано стихотворение А.С.Пушкина "Зимняя дорога"Ответ запишите одним словом в именительном падеже = хорей.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-28">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется изобразительное средство, основанное на скрытом сравнении?«Разговор мальчиков угасал вместе с<br>огнями…»</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">метафора</div></div>
+      <p class="why">потому что Как называется изобразительное средство, основанное на скрытом сравнении?«Разговор мальчиков угасал вместе с огнями…» = метафора.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-29">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">15</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется обмен репликами героев литературного произведе­ния?"— Вы свободны, — продолжал Дубровский, обращаясь к бледной княгине.— Нет, — отвечала она. — Поздно — я обвенчана, я жена князя Верейского".Ответ запишите одним словом в именительном падеже.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">диалог</div></div>
+      <p class="why">потому что диалог.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 3 Литература</h3>
+<div class="que multichoice deferredfeedback" id="q-30">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Что символизируют собой листок в стихотворении М.Ю. Лермонтова «Листок»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>одинокая, скитальческая жизнь</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>смерть</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>неспособность к состраданию</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">одинокая, скитальческая жизнь</div></div>
+      <p class="why">потому что Что символизируют собой листок в стихотворении М.Ю. Лермонтова «Листок» = одинокая, скитальческая жизнь.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-31">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Найдите ошибку:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>жанр произведения Лермонтова «Три пальмы» - баллада;</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>стихотворение «Тучи» написано Лермонтовым в 1839 году перед первой ссылкой на Кавказ;</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>в стихотворении Лермонтова «Утес» образы-символы – золотая тучка и утес-великан – символизируют человеческие отношения, их непрочность.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>тема стихотворения Лермонтова «Листок» - бесцельное существование, разрыв исторических связей и преждевременного созревания поколения Лермонтова;</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">стихотворение «Тучи» написано Лермонтовым в 1839 году перед первой ссылкой на Кавказ — ошибка: «Тучи» 1840, перед второй ссылкой</div></div>
+      <p class="why">потому что стихотворение «Тучи» написано Лермонтовым в 1839 году перед первой ссылкой на Кавказ — ошибка: «Тучи» 1840, перед второй ссылкой.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-32">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какое стихотворение написано хореем?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Однажды в студеную зимнюю поруЯ из лесу вышел. Был сильный мороз…(Н.А.Некрасов)</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Ветер по морю гуляет И кораблик подгоняет…(А.С.Пушкин)</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Скажи-ка, дядя! Ведь не даром<br>Москва, спаленная пожаром,<br>Французу отдана?<br>(М.Ю.Лермонтов)</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Сижу за решеткой в темнице сырой.Вскормленный в неволе орел молодой…(А.С.Пушкин)</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Ветер по морю гуляет И кораблик подгоняет… (А.С.Пушкин) — хорей</div></div>
+      <p class="why">потому что Какое стихотворение написано хореем = Ветер по морю гуляет И кораблик подгоняет… (А.С.Пушкин) — хорей.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-33">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Главный герой в произведении «Дубровский» в конце произведения</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>остается благородным разбойником, помогающим обездоленным</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>женится на Маше Троекуровой</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>получает наследство и становится помещиком</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>уезжает за границу</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">уезжает за границу</div></div>
+      <p class="why">потому что Главный герой в произведении «Дубровский» в конце произведения = уезжает за границу.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-34">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кем не был Владимир Дубровский в своей жизни?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>грозным и честным разбойником</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>нежным и любящим мужем</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>скромным и мужественным Дефоржем</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>расточительным и честолюбивым гвардейским офицером</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">нежным и любящим мужем</div></div>
+      <p class="why">потому что Кем не был Владимир Дубровский в своей жизни = нежным и любящим мужем.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-35">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В чем была причина ссоры двух помещиков из романа А.С.Пушкина «Дубровский»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>зависть Дубровского Троекурову</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>пренебрежительное отношение богатого Троекурова к своему бедному другу-соседу Дубровскому</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>хамское поведение крепостного крестьянина Троекурова</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>расхождение в политических взглядах Дубровского и Троекурова</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">пренебрежительное отношение богатого Троекурова к своему бедному другу-соседу Дубровскому</div></div>
+      <p class="why">потому что пренебрежительное отношение богатого Троекурова к своему бедному другу-соседу Дубровскому.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-36">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Тематика стихотворения М.Ю. Лермонтова «Листок»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>одиночество</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>любовь</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>свободолюбие</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">одиночество</div></div>
+      <p class="why">потому что Тематика стихотворения М.Ю. Лермонтова «Листок» = одиночество.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-37">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назовите основную тему произведения М.Ю. Лермонтова «Утёс»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>красота природы</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>безответная любовь</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>одиночество человека</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>любовь к России</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">одиночество человека</div></div>
+      <p class="why">потому что Назовите основную тему произведения М.Ю. Лермонтова «Утёс» = одиночество человека.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-38">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">1814-1841 гг. Чьи это даты жизни?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>И.А.Крылова</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>М.Ю.Лермонтова</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>А.С.Пушкина</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Н.В.Гоголя</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">М.Ю.Лермонтова</div></div>
+      <p class="why">потому что 1814-1841 гг. Чьи это даты жизни = М.Ю.Лермонтова.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-39">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие образы-герои встречаются в балладе М.Ю. Лермонтова «Три пальмы»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>пустыня</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>змея</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>караван</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>три пальмы</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label>тигр</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">f. </span><label>ручей</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">пустыня</div><div class="ans-line">караван</div><div class="ans-line">три пальмы</div><div class="ans-line">ручей</div></div>
+      <p class="why">потому что пустыня; караван; три пальмы; ручей.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-40">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какой литературный приём помогает сделать картину живой, а все видимые предметы очеловеченными, одухотворёнными?В ответ ввести только название приёма, точку не ставить.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">олицетворение</div></div>
+      <p class="why">потому что олицетворение.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-41">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В стихотворении М.Ю.Лермонтова "Листок" в образе дубового листка иносказательно воплощены одиночество, изгнанничество, страдание человека.Как называется этот художественный приём?Запишите ответ одним словом в именительном падеже.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">аллегория</div></div>
+      <p class="why">потому что аллегория.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-42">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назовите род литературы, к которому относится стихотворение М.Ю.Лермонтаова "Листок"Ответ запиши одним словом в именительном падеже.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">лирика</div></div>
+      <p class="why">потому что Назовите род литературы, к которому относится стихотворение М.Ю.Лермонтаова "Листок"Ответ запиши одним словом в именительном падеже = лирика.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-43">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Определите размер, которым написано стихотворение М.Ю.Лермонтова "Листок"Ответ запишите одним словом в именительном падеже</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">дактиль</div></div>
+      <p class="why">потому что размер, которым написано стихотворение М.Ю.Лермонтова "Листок"Ответ запишите одним словом в именительном падеже = дактиль.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-44">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">15</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назовите род литературы, к которому относится произведение А.С.Пушкина "Дубровский"Ответ запиши одним словом в именительном падеже.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">эпос</div></div>
+      <p class="why">потому что Назовите род литературы, к которому относится произведение А.С.Пушкина "Дубровский"Ответ запиши одним словом в именительном падеже = эпос.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 4 Литература</h3>
+<div class="que match deferredfeedback" id="q-45">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Расположите цитаты так, как они встречаются в сказе «Левша» Н.С. Лескова.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: Александр Павлович; Платов</div><table class="answer match"><tr class="r0"><td class="text">«…У нас дома своё не хуже есть»</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Александр Павлович</option><option>Платов</option></select></td></tr><tr class="r1"><td class="text">«Царедворцы ... его терпеть не могли за храбрость»</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Александр Павлович</option><option>Платов</option></select></td></tr><tr class="r0"><td class="text">«...Так соображал, что англичанам нет равных в искусстве...»</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Александр Павлович</option><option>Платов</option></select></td></tr><tr class="r1"><td class="text">восхищение иностранными умельцами</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Александр Павлович</option><option>Платов</option></select></td></tr><tr class="r0"><td class="text">вера в высокое мастерство русских мастеров</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Александр Павлович</option><option>Платов</option></select></td></tr><tr class="r1"><td class="text">«...Всегда имел самые междоусобные разговоры с разными людьми...»</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Александр Павлович</option><option>Платов</option></select></td></tr><tr class="r0"><td class="text">готовность служить Отечеству</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Александр Павлович</option><option>Платов</option></select></td></tr><tr class="r1"><td class="text">Русским мастерам далеко до иностранных</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Александр Павлович</option><option>Платов</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">вера в высокое мастерство русских мастеров — «у нас дома своё не хуже есть»</div><div class="ans-line">восхищение иностранными умельцами — «англичанам нет равных…»</div><div class="ans-line">Платов: «царедворцы его терпеть не могли за храбрость»</div><div class="ans-line">междоусобные разговоры — характер Платова</div></div>
+      <p class="why">потому что вера в высокое мастерство русских мастеров — это «у нас дома своё не хуже есть»; восхищение иностранными умельцами — это «англичанам нет равных…»; Платов: «царедворцы его терпеть не могли за храбрость»; междоусобные разговоры — это характер Платова.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-46">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие реальные исторические личности стали персонажами сказа Н.С.Лескова «Левша»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Петр I, Александр I, Николай I;</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Александр I, Платов, Левша;</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Александр I, Николай I, Платов.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Левша, Николай I, Платов;</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Александр I, Николай I, Платов.</div></div>
+      <p class="why">потому что Какие реальные исторические личности стали персонажами сказа Н.С.Лескова «Левша» = Александр I, Николай I, Платов.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-47">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Каким размером написано стихотворение Ф.И.Тютчева «Листья»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>амфибрахием</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>ямбом</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>хореем</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>дактилем</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">хореем</div></div>
+      <p class="why">потому что Каким размером написано стихотворение Ф.И.Тютчева «Листья» = хореем.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-48">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кого символизирует Левша в произведении Н.С.Лескова?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>русскую интеллигенцию</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>русское дворянство</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>русский народ</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>крепостное крестьянство</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">русский народ</div></div>
+      <p class="why">потому что Кого символизирует Левша в произведении Н.С.Лескова = русский народ.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-49">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие средства выразительности представлены в отрывке из стихотворения Ф.И.Тютчева?<br>«Неохотно и несмело Солнце смотрит на поля. Чу, за тучей прогремело, Принахмурилась земля»</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>метафора и эпитет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>олицетворение и гипербола</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>олицетворение и эпитеты</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>сравнение и эпитеты</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">олицетворение и эпитеты</div></div>
+      <p class="why">потому что олицетворение и эпитеты.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-50">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какого средства выразительности нет в стихотворении А.А.Фета?«Морская даль во тьме туманной;Там парус тонет, как в дыму,А волны в злобе постояннойБегут к прибрежью моему»</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>эпитета</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>олицетворения</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>сравнения</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>гиперболы</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">гиперболы</div></div>
+      <p class="why">потому что гиперболы.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-51">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кому принадлежат строки «Учись у них: у дуба, у березы»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>А.С.Пушкину</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>М.Ю.Лермонтову</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>А.А.Фету</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Н.А.Некрасову</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">А.А.Фету</div></div>
+      <p class="why">потому что Кому принадлежат строки «Учись у них: у дуба, у березы» = А.А.Фету.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-52">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">По словам писателя М.Е.Салтыкова-Щедрина, сборник рассказов И.С.Тургенева «Записки охотника» «положили начало целой литературе, имеющей объектом…» Продолжите высказывание:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>«внутренний мир совестливого человека»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>«господ и крестьян»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>«русскую природу и крестьянскую душу»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>«народ и его нужды»</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">«народ и его нужды»</div></div>
+      <p class="why">потому что «народ и его нужды».</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-53">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Где находится местечко под названием Бежин луг?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>в Орловской губернии</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>это вымышленное место</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>под Москвой</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>в Тульской губернии</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">в Орловской губернии</div></div>
+      <p class="why">потому что Где находится местечко под названием Бежин луг = в Орловской губернии.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-54">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Что является основной темой стихотворения в стихотворении А. Кольцова «Косарь»</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>любовь</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>природа</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>труд и усердие</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>приключения</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">труд и усердие</div></div>
+      <p class="why">потому что Что является основной темой стихотворения в стихотворении А. Кольцова «Косарь» = труд и усердие.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-55">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Каких птиц упоминает И.С. Тургенев в рассказе «Бежин луг».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>воробей</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>цапля</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>перепелка</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>тетерев</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label>голубок</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">f. </span><label>орёл</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">g. </span><label>жаворонок</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">цапля</div><div class="ans-line">перепелка</div><div class="ans-line">тетерев</div><div class="ans-line">голубок</div></div>
+      <p class="why">потому что цапля; перепелка; тетерев; голубок.</p>
+    </div>
+  </div>
+</div>
+<div class="que ordering deferredfeedback" id="q-56">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Расположите в правильной последовательности события жизни Левши из произведения Сказ «Левша» Н.С. Лескова.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Расставьте в правильном порядке:</div><ul class="answer"><li>Сделаны подковки для блохи;</li><li>Пребывание в больнице, «где неведомого сословия людей умирать принимают»</li><li>Приём у Государя в Петербурге</li><li>Путешествие в Англию;</li><li>Трудный путь на корабле;</li><li>Задание превзойти «аглицких» мастеров;</li></ul></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Александр I в Англии видит блоху → Николай I и Платов в Туле → Левша подковывает блоху → дворец, изумление англичан → Левша в Англии не остаётся → возвращение, болезнь, смерть, совет про ружья</div></div>
+      <p class="why">потому что порядок такой: Александр I в Англии видит блоху → Николай I и Платов в Туле → Левша подковывает блоху → дворец, изумление англичан → Левша в Англии не остаётся → возвращение, болезнь, смерть, совет про ружья.</p>
+    </div>
+  </div>
+</div>
+<div class="que ordering deferredfeedback" id="q-57">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Расположите цитаты так, как они встречаются в рассказе И.С. Тургенева «Бежин луг».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Расставьте в правильном порядке:</div><ul class="answer"><li>«Я проворно встал и подошел к мальчикам. Они все спали как убитые вокруг тлеющего <br>костра; один Павел приподнялся до половины и пристально поглядел на меня. <br>Я кивнул ему головой и пошел восвояси вдоль задымившейся реки.»</li><li>«Детские звонкие голоса раздались вокруг огней; два-три мальчика быстро поднялись с земли. <br>Я откликнулся на их вопросительные крики»</li><li>«Прошло еще немного времени; мальчики с недоумением переглядывались, как <br>бы выжидая, что-то будет... Внезапно раздался топот скачущей лошади; круто <br>остановилась она у самого костра, и, уцепившись за гриву, проворно спрыгнул с нее Павлуша.»</li></ul></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">утро, охотник идёт → Бежин луг, костер, мальчики → рассказы про домового, русалку, утопленника → Павлуша и волки → утро, возвращение; цитаты в этом порядке</div></div>
+      <p class="why">потому что порядок такой: утро, охотник идёт → Бежин луг, костер, мальчики → рассказы про домового, русалку, утопленника → Павлуша и волки → утро, возвращение; цитаты в этом порядке.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-58">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Образы и настроение первой и второй строфы в стихотворении Ф.И.Тютчева "Листья" противопоставле­ны. Как называется этот художественный приём?Запиши ответ одним словом в именительном падеже.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">антитеза</div></div>
+      <p class="why">потому что антитеза.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-59">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">15</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется изображение неживой природы как живого существа?"Вечор, ты помнишь, вьюга злилась..."Ответ запиши одним словом в именительном падеже.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">олицетворение</div></div>
+      <p class="why">потому что Как называется изображение неживой природы как живого существа?"Вечор, ты помнишь, вьюга злилась..."Ответ запиши одним словом в именительном падеже = олицетворение.</p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</body>
+</html>

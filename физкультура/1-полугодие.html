@@ -1,728 +1,1131 @@
 <!doctype html>
 <html lang="ru">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>6 класс · физкультура · 1 полугодие</title>
+<title>физкультура · Тест</title>
 <style>
-:root { --bg:#0f2744; --card:#fff; --ink:#1a2332; --muted:#5b6573; --acc:#1e6bb8; --ok:#0d7a4f; }
 * { box-sizing: border-box; }
-html, body { margin:0; background:#dfe7f0; color:var(--ink); font-family: "Segoe UI", Arial, sans-serif; }
-.wrap { max-width: 980px; margin: 0 auto; padding: 16px; }
-h1 { font-size: 28px; margin: 12px 0 8px; }
-.sub { color: var(--muted); margin-bottom: 18px; }
-.nav { position: sticky; top: 0; z-index: 5; background: #dfe7f0; padding: 8px 0; display:flex; gap:8px; align-items:center; }
-button { background: var(--acc); color:#fff; border:0; padding:8px 14px; border-radius:8px; cursor:pointer; font-size:15px; }
-.slide { background: var(--card); border-radius: 16px; padding: 28px 32px; margin: 16px 0; box-shadow: 0 8px 24px rgba(15,39,68,.12); min-height: 70vh; }
-.top { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-h2, h3 { margin: 14px 0 8px; }
-.q { font-size: 20px; line-height: 1.45; }
-.opts { margin: 12px 0; background:#f4f7fb; padding:12px 16px; border-radius:10px; }
-.memo { line-height: 1.5; }
-.ans { background:#e8f6ee; border-left: 6px solid var(--ok); padding: 12px 16px; border-radius: 8px; font-size: 18px; }
-.ans-line { margin: 6px 0; }
-.muted { color: var(--muted); background: #fff6e8; border:0; padding:8px; }
-.toc a { display:block; margin: 4px 0; color: var(--acc); }
-.themebar { color:#fff; padding:8px 12px; border-radius:10px; font-size:15px; margin-bottom:10px; }
-.pics { display:flex; flex-wrap:wrap; gap:12px; margin:14px 0; align-items:flex-start; }
-.qimg { max-width:100%; height:auto; border:1px solid #d5dee8; border-radius:10px; background:#fff; }
-.audios { margin: 14px 0; }
-.audio { margin: 10px 0 14px; }
-.alabel { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
-audio { width: 100%; }
-.ans.cant { background:#fff3e0; border-left-color:#c45c26; }
+html, body {
+  margin: 0;
+  background: #fff;
+  color: #1d2125;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+a { color: #0f6cbf; }
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.6rem 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.navbar .brand { color: #0f6cbf; font-weight: 600; text-decoration: none; font-size: 1.1rem; }
+.navbar .crumb { color: #6a737b; font-size: 0.9rem; }
+#page {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+#page-header h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.35rem; }
+#page-header .page-context-header { color: #6a737b; margin: 0 0 1rem; }
+#mod_quiz_navblock {
+  position: sticky;
+  top: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: #fff;
+}
+#mod_quiz_navblock h5 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+.qnbutton {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+  background: #fff;
+  height: 40px;
+  width: 30px;
+  border-radius: 3px;
+  margin: 0 6px 6px 0;
+  border: 1px solid #cad0d7;
+  text-align: center;
+  color: #1d2125;
+  position: relative;
+  vertical-align: top;
+}
+.qnbutton .thispageholder { display: block; height: 20px; padding-top: 2px; }
+.qnbutton .trafficlight {
+  display: block;
+  height: 18px;
+  background: #6a737b;
+  border-radius: 0 0 2px 2px;
+}
+.quizname { margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #dee2e6; font-size: 1.15rem; }
+.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; overflow: hidden; }
+.que .info {
+  float: left;
+  width: 7em;
+  padding: 0.5em;
+  margin-bottom: 1.8em;
+  background-color: #f8f9fa;
+  border: 1px solid #cad0d7;
+  border-radius: 2px;
+}
+.que h3.no { margin: 0; font-size: 0.8em; line-height: 1; }
+.que span.qno { font-size: 1.5em; font-weight: bold; }
+.que .info > div { font-size: 0.8em; margin-top: 0.7em; }
+.que .content { margin: 0 0 0 8.5em; }
+.que .formulation, .que .comment {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 0 solid transparent;
+  border-radius: 0.5rem;
+}
+.que .formulation {
+  color: #001a1e;
+  background-color: #e7f3f5;
+  border-color: #b8dce2;
+}
+.que .comment {
+  color: #1c3f1a;
+  background-color: #d7e4d6;
+  border-color: #c6dac6;
+}
+.que .ablock { margin: 0.7em 0 0.3em 0; }
+.que .qtext { margin-bottom: 1.5em; }
+.que .prompt { font-weight: 600; margin: 0 0 0.4em; }
+.que .answer .r0, .que .answer .r1 { padding: 0.2em 0.15em; }
+.que .answer input { margin-right: 0.35em; vertical-align: middle; }
+.que label { display: inline; }
+.que table.answer { width: 100%; border-collapse: collapse; }
+.que table.answer td { padding: 0.35em 0.5em; vertical-align: middle; }
+.que table.answer tr.r0 { background: rgba(255,255,255,0.45); }
+.custom-select {
+  display: inline-block;
+  padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #8f959e;
+  border-radius: 0.25rem;
+  background: #fff;
+  max-width: 100%;
+}
+.accesshide {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.pics { margin: 0 0 1em; }
+.qimg { max-width: 100%; height: auto; border: 1px solid #cad0d7; background: #fff; }
+.audios { margin: 0 0 1em; }
+.alabel { font-size: 0.85em; color: #6a737b; }
+audio { width: 100%; max-width: 420px; }
+.rightanswer { font-weight: 600; margin: 0 0 0.4em; }
+.ans-line { margin: 0.15em 0; font-weight: 600; }
+.why { margin: 0; font-weight: 400; }
+@media (max-width: 800px) {
+  #page { grid-template-columns: 1fr; }
+  .que .info { float: none; width: auto; margin-bottom: 0.6em; }
+  .que .content { margin: 0; }
+}
 </style>
-<body>
-<div class="wrap">
-  <h1>⚽ 6 класс. физкультура. 1 полугодие</h1>
-  <p class="sub">Вопросы из текущих тестов 1–4. Если в задании была карта, схема или фото — они показаны здесь, как в тесте. Клавиши ← → листают слайды.</p>
-  <div class="nav">
-    <button id="prev">← Назад</button>
-    <button id="next">Вперёд →</button>
-    <button id="all">Показать все</button>
-    <span id="pos"></span>
+</head>
+<body class="path-mod-quiz">
+<nav class="navbar">
+  <a class="brand" href="../index.html">ЦОДИВ</a>
+  <span class="crumb">6 класс / физкультура / 1 полугодие</span>
+</nav>
+<div id="page">
+  <aside id="mod_quiz_navblock">
+    <h5>Навигация по тесту</h5>
+    <div class="allquestionsononepage"><div><strong>Тест 1 Физическая культура</strong></div><a class="qnbutton answersaved" href="#q-1"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-2"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-3"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-4"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-5"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-6"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-7"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-8"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-9"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-10"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-11"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-12"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-13"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-14"><span class="thispageholder">14</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-15"><span class="thispageholder">15</span><span class="trafficlight"></span></a><div><strong>Тест 2 Физическая культура</strong></div><a class="qnbutton answersaved" href="#q-16"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-17"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-18"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-19"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-20"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-21"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-22"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-23"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-24"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-25"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-26"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-27"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-28"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-29"><span class="thispageholder">14</span><span class="trafficlight"></span></a><div><strong>Тест 3 Физическая культура</strong></div><a class="qnbutton answersaved" href="#q-30"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-31"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-32"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-33"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-34"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-35"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-36"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-37"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-38"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-39"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-40"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-41"><span class="thispageholder">12</span><span class="trafficlight"></span></a><div><strong>Тест 4 Физическая культура</strong></div><a class="qnbutton answersaved" href="#q-42"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-43"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-44"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-45"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-46"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-47"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-48"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-49"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-50"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-51"><span class="thispageholder">10</span><span class="trafficlight"></span></a></div>
+  </aside>
+  <div id="region-main">
+    <div id="page-header">
+      <h1>физкультура</h1>
+      <p class="page-context-header">Пройти тест · все вопросы на одной странице</p>
+    </div>
+    <h3 class="quizname">Тест 1 Физическая культура</h3>
+<div class="que gapselect deferredfeedback" id="q-1">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
   </div>
-  <div class="toc"><a href="#q-1">Тест 1 Физическая культура (15)</a><a href="#q-16">Тест 2 Физическая культура (14)</a><a href="#q-30">Тест 3 Физическая культура (12)</a><a href="#q-42">Тест 4 Физическая культура (10)</a></div>
-  <div id="q-1"></div>
-<section class="slide" data-i="1">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 1 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Подберите<br>пропущенное слово. На рисунке изображен главный (1) Олимпийского движения.</div>
-  <div class="pics"><img class="qimg" src="../_картинки/045dc184968f003b.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) талисман / эмблема / символ / замысел / артефакт</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Подберите пропущенное слово. На рисунке изображен главный (1) Олимпийского движения. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: символ</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">символ</div></div>
-</section><div id="q-2"></div>
-<section class="slide" data-i="2">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 2 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите пропущенные<br>слова и запишите их под соответствующей цифрой. <br>Если дистанция проходит поперёк вспаханных <br>борозд, ногу следует <br>ставить (1) , чтобы <br>не споткнуться. Если же <br>дистанция проходит вдоль <br>борозд, то ноги <br>ставятся (2) .</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) в глубине между бороздами / на верхний выступ борозды</li><li>(2) в глубине между бороздами / на верхний выступ борозды</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите пропущенные слова и запишите их под соответствующей цифрой.  Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: на верхний выступ борозды; в глубине между бороздами</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">на верхний выступ борозды</div><div class="ans-line">в глубине между бороздами</div></div>
-</section><div id="q-3"></div>
-<section class="slide" data-i="3">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 3 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите пропущенные<br>слова и запишите их под соответствующей цифрой. <br>При беге по <br>каменистому грунту необходимо <br>укоротить шаг, ноги ставить <br>осторожней (1) .<br>При беге по <br>болотистой местности и <br>высокой траве беговые <br>шаги должны быть <br>короткими и частыми. <br>Ногу надо ставить (2) .</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) на всю ступню / на переднюю часть стопы</li><li>(2) на всю ступню / на переднюю часть стопы</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите пропущенные слова и запишите их под соответствующей цифрой.  Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: (1) на переднюю часть стопы; (2) на всю ступню</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">(1) на переднюю часть стопы</div><div class="ans-line">(2) на всю ступню</div></div>
-</section><div id="q-4"></div>
-<section class="slide" data-i="4">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 4 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите соответствие беговой<br>дисциплины и изображения.</div>
-  <div class="pics"><img class="qimg" src="../_картинки/11a9aab0038896fc.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/f5bfa5436b5f456c.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/bd823e6231d57527.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/8661df89000cfb0e.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li></li><li></li><li></li><li></li></ul><p>Варианты ответов: Гладкий бег, Барьерный бег, Эстафетный бег, Бег с препятствиями</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие беговой дисциплины и изображения. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко:  — Гладкий бег;  — Эстафетный бег;  — Барьерный бег;  — Бег с препятствиями</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line"> — Гладкий бег</div><div class="ans-line"> — Эстафетный бег</div><div class="ans-line"> — Барьерный бег</div><div class="ans-line"> — Бег с препятствиями</div></div>
-</section><div id="q-5"></div>
-<section class="slide" data-i="5">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 5 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите соответствие даты и события.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Римский император Феодосий I запретил проводить Олимпийские игры</li><li>Документ с первыми упоминаниями об античных Олимпийских играх</li><li>Прошёл I Международный олимпийский конгресс, на котором был создан Международный олимпийский комитет</li><li>Состоялись игры I Олимпиады</li></ul><p>Варианты ответов: 394 г, 776 г до н.э, 1896 г, 1894 г</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие даты и события. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Римский император Феодосий I запретил проводить Олимпийские игры — 394 г; Документ с первыми упоминаниями об античных Олимпийских играх — 776 г до н.э; Прошёл I Международный олимпийский конгресс, на котором был создан Международный олимпий…</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Римский император Феодосий I запретил проводить Олимпийские игры — 394 г</div><div class="ans-line">Документ с первыми упоминаниями об античных Олимпийских играх — 776 г до н.э</div><div class="ans-line">Прошёл I Международный олимпийский конгресс, на котором был создан Международный олимпийский комитет — 1894 г</div><div class="ans-line">Состоялись игры I Олимпиады — 1896 г</div></div>
-</section><div id="q-6"></div>
-<section class="slide" data-i="6">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 6 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите<br>соответствие, достижения Российского<br>спортсменов на Олимпийских играх и имя атлета.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>9 место в конном спорте на Играх V Олимпиады</li><li>2 место в стрельбе из пистолета на Играх IV Олимпиады</li><li>2 место в борьбе на Играх IV Олимпиады</li></ul><p>Варианты ответов: Дмитрий Павлович Романов, Николай Панин-Коломенкин, Николай Орлов</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие, достижения Российского Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 9 место в конном спорте на Играх V Олимпиады — Дмитрий Павлович Романов; 2 место в стрельбе из пистолета на Играх IV Олимпиады — Николай Панин-Коломенкин; 2 место в борьбе на Играх IV Олимпиады — Николай Орлов</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">9 место в конном спорте на Играх V Олимпиады — Дмитрий Павлович Романов</div><div class="ans-line">2 место в стрельбе из пистолета на Играх IV Олимпиады — Николай Панин-Коломенкин</div><div class="ans-line">2 место в борьбе на Играх IV Олимпиады — Николай Орлов</div></div>
-</section><div id="q-7"></div>
-<section class="slide" data-i="7">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 7 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите соответствие города и года<br>проведения Олимпийских игр в нем.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Москва</li><li>Афины</li><li>Сочи</li><li>Париж</li><li>Лондон</li><li>Сент-Луис</li><li>Стокгольм</li></ul><p>Варианты ответов: 1912 г., 1904 г., 2014 г., 1980 г., 1896 г., 1908 г., 1900 г.</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие города и года проведения Олимпийских игр в нем. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Москва — 1980 г.; Афины — 1896 г.; Сочи — 2014 г.; Париж — 1900 г.; Лондон — 1908 г.; Сент-Луис — 1904 г.; Стокгольм — 1912 г.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Москва — 1980 г.</div><div class="ans-line">Афины — 1896 г.</div><div class="ans-line">Сочи — 2014 г.</div><div class="ans-line">Париж — 1900 г.</div><div class="ans-line">Лондон — 1908 г.</div><div class="ans-line">Сент-Луис — 1904 г.</div><div class="ans-line">Стокгольм — 1912 г.</div></div>
-</section><div id="q-8"></div>
-<section class="slide" data-i="8">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 8 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Родиной Олимпийских игр является:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Древняя Греция</li><li>Древняя Русь</li><li>Древний Рим</li><li>Древний Египет</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Родиной Олимпийских игр является: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Древняя Греция</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Древняя Греция</div></div>
-</section><div id="q-9"></div>
-<section class="slide" data-i="9">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 9 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В каком городе прошёл<br>I Международный олимпийский <br>конгресс?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>В Москве</li><li>В Париже</li><li>В Афинах</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В каком городе прошёл I Международный олимпийский  Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: В Париже</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">В Париже</div></div>
-</section><div id="q-10"></div>
-<section class="slide" data-i="10">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 10 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Дата создания<br>Международного олимпийского комитета.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>08 сентября 1937 г.</li><li>11 мая 1896 г.</li><li>23 июня 1863 г.</li><li>23 июня 1894 г.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Дата создания Международного олимпийского комитета. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 23 июня 1894 г.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">23 июня 1894 г.</div></div>
-</section><div id="q-11"></div>
-<section class="slide" data-i="11">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 11 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Российскую команду атлетов на Играх V Олимпиады возглавлял:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>царь Николай II</li><li>царь Александр II</li><li>князь Дмитрий Павлович Романов</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Российскую команду атлетов на Играх V Олимпиады возглавлял: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: князь Дмитрий Павлович Романов</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">князь Дмитрий Павлович Романов</div></div>
-</section><div id="q-12"></div>
-<section class="slide" data-i="12">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 12 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В<br>каком году был создан Российский олимпийский комитет?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>1906 г.</li><li>1894 г.</li><li>1911 г.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В каком году был создан Российский олимпийский комитет? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 1911 г.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">1911 г.</div></div>
-</section><div id="q-13"></div>
-<section class="slide" data-i="13">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 13 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Очень важно в дневнике<br>по физической культуре обновлять комплексы утренней зарядки и физкультминуток,<br>упражнений дыхательной гимнастики и на осанку. Обновление содержания этих<br>занятий надо проводить:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Каждый день</li><li>Один раз в две-три недели</li><li>Раз в год</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Очень важно в дневнике по физической культуре обновлять комплексы утренней зарядки и физкультминуток, Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Один раз в две-три недели</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Один раз в две-три недели</div></div>
-</section><div id="q-14"></div>
-<section class="slide" data-i="14">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 14 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Копье, диск, молот, ядро, теннисный мяч<br>и граната это…</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Копье, диск, молот, ядро, теннисный мяч и граната это… Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: снаряды для метания</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">снаряды для метания</div></div>
-</section><div id="q-15"></div>
-<section class="slide" data-i="15">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 1 Физическая культура · вопрос 15 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В начале каждого занятия физическими<br>упражнениями необходимо сделать:</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В начале каждого занятия физическими упражнениями необходимо сделать: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: разминку</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">разминку</div></div>
-</section><div id="q-16"></div>
-<section class="slide" data-i="16">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 1 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите из предложенного списка пропущенные слова<br>Комплекс ГТО состоит из (1) в соответствии с возрастными группами населения (2) и нормативов по (3) трудности.</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) 15 ступеней / 10 ступеней / 11 ступеней</li><li>(2) от 6 до 70 лет и старше / от 10 до 60 лет / от 7 до 25 лет</li><li>(3) 3 уровням / 2 уровням / 5 уровням</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите из предложенного списка пропущенные слова Комплекс ГТО состоит из (1) в соответствии с возрастными группами населения (2) и нормативов по (3) трудности. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: (1) 11 ступеней; (2) от 6 до 70 лет и старше; (3) 3 уровням</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">(1) 11 ступеней</div><div class="ans-line">(2) от 6 до 70 лет и старше</div><div class="ans-line">(3) 3 уровням</div></div>
-</section><div id="q-17"></div>
-<section class="slide" data-i="17">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 2 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите соответствие вид бега и особенности техники.<br>Туловище необходимо несколько <br>отклонить назад, а <br>длину шагов увеличить. (1) <br>Необходимо наклонить туловище вперёд, укоротить шаги <br>и увеличить их <br>частоту. (2)</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) Бег в гору / Спуск с горы</li><li>(2) Бег в гору / Спуск с горы</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие вид бега и особенности техники. Туловище необходимо несколько  Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: (1) Спуск с горы; (2) Бег в гору</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">(1) Спуск с горы</div><div class="ans-line">(2) Бег в гору</div></div>
-</section><div id="q-18"></div>
-<section class="slide" data-i="18">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 3 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите соответствие. Знак ГТО и количество успешно выполненных тестов<br>для получения этого знака.</div>
-  <div class="pics"><img class="qimg" src="../_картинки/86bb896f95fd300a.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/d95ecd27ed5c884f.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/0c5c64724006ef0c.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li></li><li></li><li></li></ul><p>Варианты ответов: 5 обязательных и 4 по выбору, 4 обязательных и 4 по выбору, 4 обязательных и 1 по выбору, 4 обязательных и 2 по выбору, 3 обязательных и 5 по выбору</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие. Знак ГТО и количество успешно выполненных тестов для получения этого знака. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: золотой знак — 4 обязательных и 4 по выбору; серебряный знак — 4 обязательных и 2 по выбору; бронзовый знак — 4 обязательных и 1 по выбору</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">золотой знак — 4 обязательных и 4 по выбору</div><div class="ans-line">серебряный знак — 4 обязательных и 2 по выбору</div><div class="ans-line">бронзовый знак — 4 обязательных и 1 по выбору</div></div>
-</section><div id="q-19"></div>
-<section class="slide" data-i="19">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 4 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите<br>соответствие этап бега на 1000 м. и интенсивность, с которой рекомендуется<br>пробегать этот этап. На дистанции 1000 м первые 250 м пробегают с<br>интенсивностью (1) от максимальной скорости, вторые 250 м — с интенсивностью<br>(2), затем вновь с интенсивностью (3) и последние 250 м — с интенсивностью (4).</div>
-  <div class="pics"><img class="qimg" src="../_картинки/2cabe6ed0233912d.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>1</li><li>4</li><li>3</li><li>2</li></ul><p>Варианты ответов: 30%, 40%</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие этап бега на 1000 м. и интенсивность, с которой рекомендуется Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 1 — 40%; 2 — 30%; 3 — 40%; 4 — 40%</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">1 — 40%</div><div class="ans-line">2 — 30%</div><div class="ans-line">3 — 40%</div><div class="ans-line">4 — 40%</div></div>
-</section><div id="q-20"></div>
-<section class="slide" data-i="20">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 5 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите правильный ответ. Возрастная группа<br>от 12 до 13 лет сдает нормативы ГТО:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>IV Ступени</li><li>V Ступени</li><li>III Ступени</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите правильный ответ. Возрастная группа от 12 до 13 лет сдает нормативы ГТО: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: IV Ступени</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">IV Ступени</div></div>
-</section><div id="q-21"></div>
-<section class="slide" data-i="21">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 6 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Чем отличается бег от ходьбы?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Наличием фазы полета</li><li>Работой рук</li><li>Скоростью передвижения</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Чем отличается бег от ходьбы? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Наличием фазы полета</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Наличием фазы полета</div></div>
-</section><div id="q-22"></div>
-<section class="slide" data-i="22">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 7 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите правильный вариант. Во время бега на короткие дистанции необходимо<br>бежать:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>по ближней к центру стадиона дорожке</li><li>по своей дорожке</li><li>по свободной дорожке</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите правильный вариант. Во время бега на короткие дистанции необходимо бежать: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: по своей дорожке</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">по своей дорожке</div></div>
-</section><div id="q-23"></div>
-<section class="slide" data-i="23">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 8 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите правильный вариант. После бега на длинные дистанции нужно<br>обязательно:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>сесть на скамейки</li><li>лечь на пол (траву)</li><li>походить и восстановить дыхание</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите правильный вариант. После бега на длинные дистанции нужно обязательно: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: походить и восстановить дыхание</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">походить и восстановить дыхание</div></div>
-</section><div id="q-24"></div>
-<section class="slide" data-i="24">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 9 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Для<br>учащихся 6 классов рекомендовано начинать обучаться бегу с равномерной<br>скоростью по учебной дистанции<br>протяженностью:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>1000 м.</li><li>800 м.</li><li>400 м.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Для учащихся 6 классов рекомендовано начинать обучаться бегу с равномерной Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 800 м.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">800 м.</div></div>
-</section><div id="q-25"></div>
-<section class="slide" data-i="25">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 10 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Спринтом<br>считаются дистанции до:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>1000 метров</li><li>400 метров включительно</li><li>60 метров включительно</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Спринтом считаются дистанции до: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 400 метров включительно</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">400 метров включительно</div></div>
-</section><div id="q-26"></div>
-<section class="slide" data-i="26">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 11 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какой старт используют в беге на средние<br>дистанции?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Высокий старт</li><li>Низкий старт</li><li>Старт с опорой на одну руку</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какой старт используют в беге на средние дистанции? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Высокий старт</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Высокий старт</div></div>
-</section><div id="q-27"></div>
-<section class="slide" data-i="27">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 12 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите все верные варианты. Успешная сдача нормативов ГТО подтверждается:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Удостоверением</li><li>Медалью</li><li>Дипломом</li><li>Нагрудным знаком</li><li>Грамотой</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите все верные варианты. Успешная сдача нормативов ГТО подтверждается: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Удостоверением; Нагрудным знаком</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Удостоверением</div><div class="ans-line">Нагрудным знаком</div></div>
-</section><div id="q-28"></div>
-<section class="slide" data-i="28">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 13 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите из списка прыжки, которые<br>относятся к горизонтальным легкоатлетическим прыжкам.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Прыжок с шестом</li><li>Опорные прыжки</li><li>Прыжок в длину</li><li>Прыжок в высоту</li><li>Тройной прыжок</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите из списка прыжки, которые относятся к горизонтальным легкоатлетическим прыжкам. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Прыжок в длину; Тройной прыжок</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Прыжок в длину</div><div class="ans-line">Тройной прыжок</div></div>
-</section><div id="q-29"></div>
-<section class="slide" data-i="29">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 2 Физическая культура · вопрос 14 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите только правильные ответы.<br>Гладкий равномерный бег на <br>длинные дистанции делится на<br>следующие фазы:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Финиширование</li><li>Фальстарт</li><li>Бег по дистанции</li><li>Подготовка к старту</li><li>Ускорение</li><li>Старт</li><li>Поддержание скорости</li><li>Стартовый разбег</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите только правильные ответы. Гладкий равномерный бег на  Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Старт; Стартовый разбег; Бег по дистанции; Финиширование</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Старт</div><div class="ans-line">Стартовый разбег</div><div class="ans-line">Бег по дистанции</div><div class="ans-line">Финиширование</div></div>
-</section><div id="q-30"></div>
-<section class="slide" data-i="30">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 1 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите<br>соответствие. Акробатические связки и изображение.1. Из стойки на лопатках перекат вперёд в упор присев.2. Из положения упор присев два кувырка вперёд в упор присев.3. Из положения упор присев перекат назад в стойку на лопатках.</div>
-  <div class="pics"><img class="qimg" src="../_картинки/f828d53179545393.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/845ea8216d265830.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/f7afd700e3694702.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li></li><li></li><li></li></ul><p>Варианты ответов: 1, 3, 2</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие. Акробатические связки и изображение.1. Из стойки на лопатках перекат вперёд в упор присев.2. Из положения упор присев два кувырка вперёд в упор присев.3. Из положения упор присев перекат назад в … Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: смотри рисунки: подставь номера 1, 2 и 3 из текста к трём картинкам</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">смотри рисунки: подставь номера 1, 2 и 3 из текста к трём картинкам</div></div>
-</section><div id="q-31"></div>
-<section class="slide" data-i="31">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 2 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите<br>соответствие. Акробатические связки и изображение.1. В стойке на лопатках развести и свести ноги.2. Из упора присев сделать кувырок назад в упор присев, о. с.3. Из упора лёжа толчком двумя ногами перейти в упор присев.4. Из стойки на лопатках сгруппироваться и сделать переворот назад через голову в упор присев.5. Из упора присев сделать перекат назад в стойку на лопатках</div>
-  <div class="pics"><img class="qimg" src="../_картинки/f3807181c9f30ed8.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/1b3e86fc5f1405b5.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/cc51345dbfd1212f.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/859fafa5f145acbc.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/fb59b0186ce7d53b.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/57b09bcb1e7eb74e.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/9f93fc486ef7fcab.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/c084b7f184f9e943.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li></li><li></li><li></li><li></li><li></li></ul><p>Варианты ответов: 1, 5, 3, 4, 2</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие. Акробатические связки и изображение.1. В стойке на лопатках развести и свести ноги.2. Из упора присев сделать кувырок назад в упор присев, о. с.3. Из упора лёжа толчком двумя ногами перейти в упо… Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: смотри рисунки: подставь номера 1–5 из текста к картинкам</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">смотри рисунки: подставь номера 1–5 из текста к картинкам</div></div>
-</section><div id="q-32"></div>
-<section class="slide" data-i="32">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 3 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как часто<br>следует заполнять раздел дневника по физической культуре «Физическая<br>подготовленность»? <br>Выберите<br>правильный ответ.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>каждую неделю</li><li>каждую четверть (триместр)</li><li>каждый месяц</li><li>в конце учебного года</li><li>1 раз в полгода</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как часто следует заполнять раздел дневника по физической культуре «Физическая Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: каждую четверть (триместр)</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">каждую четверть (триместр)</div></div>
-</section><div id="q-33"></div>
-<section class="slide" data-i="33">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 4 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите правильный вариант. При выполнении стойки на голове<br>с опорой на руки, голова должна опираться на:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>центральную часть</li><li>затылочную часть</li><li>лобную часть</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите правильный вариант. При выполнении стойки на голове с опорой на руки, голова должна опираться на: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: лобную часть</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">лобную часть</div></div>
-</section><div id="q-34"></div>
-<section class="slide" data-i="34">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 5 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кто подписал указ о возвращении системы ГТО?В ответ введите полностью имя, фамилию через пробел.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кто подписал указ о возвращении системы ГТО?В ответ введите полностью имя, фамилию через пробел. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Владимир Путин</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Владимир Путин</div></div>
-</section><div id="q-35"></div>
-<section class="slide" data-i="35">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 6 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Вид<br>спорта, который включает в себя технически сложные физические упражнения, в том<br>числе и на спортивных снарядах (перекладине, брусьях, кольцах, гимнастическом<br>бревне, гимнастическом коне и др.).</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Вид спорта, который включает в себя технически сложные физические упражнения, в том Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: гимнастика</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">гимнастика</div></div>
-</section><div id="q-36"></div>
-<section class="slide" data-i="36">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 7 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Нельзя самостоятельно выполнять<br>сложные упражнения на гимнастических снарядах без:</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Нельзя самостоятельно выполнять сложные упражнения на гимнастических снарядах без: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: страховки</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">страховки</div></div>
-</section><div id="q-37"></div>
-<section class="slide" data-i="37">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 8 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Запишите термин. Последовательное,<br>связанное выполнение акробатических упражнений это –</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Запишите термин. Последовательное, связанное выполнение акробатических упражнений это – Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: комбинация</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">комбинация</div></div>
-</section><div id="q-38"></div>
-<section class="slide" data-i="38">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 9 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Учащиеся на рисунке<br>выполняют:Ответ дайте во множественном числе, в именительном падеже.</div>
-  <div class="pics"><img class="qimg" src="../_картинки/c68a7337699747b1.png" alt="рисунок из теста"></div>
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Учащиеся на рисунке выполняют:Ответ дайте во множественном числе, в именительном падеже. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: кувырки</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">кувырки</div></div>
-</section><div id="q-39"></div>
-<section class="slide" data-i="39">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 10 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Положение тела, когда плечи спортсмена находятся ниже перекладины.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Положение тела, когда плечи спортсмена находятся ниже перекладины. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: вис</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">вис</div></div>
-</section><div id="q-40"></div>
-<section class="slide" data-i="40">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 11 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Гимнастический снаряд, который используется на уроках физической культуры у девочек?</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Гимнастический снаряд, который используется на уроках физической культуры у девочек? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: бревно</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">бревно</div></div>
-</section><div id="q-41"></div>
-<section class="slide" data-i="41">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 3 Физическая культура · вопрос 12 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Гимнастический снаряд, который используется на уроках физической культуры у мальчиков?</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Гимнастический снаряд, который используется на уроках физической культуры у мальчиков? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: перекладина</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">перекладина</div></div>
-</section><div id="q-42"></div>
-<section class="slide" data-i="42">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 4 Физическая культура · вопрос 1 из 10</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите и запишите пропущенное слово. <br>Координация движений – это качество, позволяющее быстро, без<br>ошибок и лишних (1) напряжений осваивать и выполнять сложные двигательные<br>действия.</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) эмоциональных / психических / нервных / психологических / мышечных</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите и запишите пропущенное слово.  Координация движений – это качество, позволяющее быстро, без Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: мышечных</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">мышечных</div></div>
-</section><div id="q-43"></div>
-<section class="slide" data-i="43">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 4 Физическая культура · вопрос 2 из 10</div>
-  <h2>Вопрос</h2>
-  <div class="q">Заполните пропуски, подобрав пропущенные словаВыявление<br>предельной нагрузки — важное условие правильного (1) физических упражнений.<br>Если доза нагрузки выше (2) , то её выполнить (3) , а если<br>ниже — нагрузка будет (4) .</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) максимальной / малой / дозирования / непредельной / доступной / предельной / длительное / невозможно</li><li>(2) максимальной / малой / дозирования / непредельной / доступной / предельной / длительное / невозможно</li><li>(3) максимальной / малой / дозирования / непредельной / доступной / предельной / длительное / невозможно</li><li>(4) максимальной / малой / дозирования / непредельной / доступной / предельной / длительное / невозможно</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Заполните пропуски, подобрав пропущенные словаВыявление предельной нагрузки — важное условие правильного (1) физических упражнений. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: (1) дозирования; (2) предельной; (3) невозможно; (4) малой</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">(1) дозирования</div><div class="ans-line">(2) предельной</div><div class="ans-line">(3) невозможно</div><div class="ans-line">(4) малой</div></div>
-</section><div id="q-44"></div>
-<section class="slide" data-i="44">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 4 Физическая культура · вопрос 3 из 10</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите правильные слова Люди с разным уровнем (1) подготовленности<br>могут выполнять и различные по величине физические (2) . У каждого человека есть<br>свои (3) нагрузки, которые он может выполнить.</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) умственной / психической / теоретической / физической</li><li>(2) умения / нагрузки / предельные / напряжения / навыки / индивидуальные</li><li>(3) умения / нагрузки / предельные / напряжения / навыки / индивидуальные</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите правильные слова Люди с разным уровнем (1) подготовленности могут выполнять и различные по величине физические (2) . У каждого человека есть Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: (1) физической; (2) нагрузки; (3) индивидуальные</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">(1) физической</div><div class="ans-line">(2) нагрузки</div><div class="ans-line">(3) индивидуальные</div></div>
-</section><div id="q-45"></div>
-<section class="slide" data-i="45">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 4 Физическая культура · вопрос 4 из 10</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите соответствие. Физические<br>качества (прикладные навыки) и тесты, с помощью которых их оценивают.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Сила</li><li>Скоростно-силовые возможности</li><li>Координационные возможности</li><li>Прикладные навыки</li><li>Выносливость</li><li>Гибкость</li><li>Скоростные возможности</li></ul><p>Варианты ответов: Бег на 60м, Плавание 50м, Прыжок в длину с места, Сгибание и разгибание рук в упоре лежа, Челночный бег 3Х10м, Наклон вперед из положения стоя, Бег на лыжах 2км</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите соответствие. Физические качества (прикладные навыки) и тесты, с помощью которых их оценивают. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Сила — Сгибание и разгибание рук в упоре лежа; Скоростно-силовые возможности — Прыжок в длину с места; Координационные возможности — Челночный бег 3Х10м; Прикладные навыки — Плавание 50м; Выносливость — Бег на лыжах 2км; Гибкость — Наклон в…</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Сила — Сгибание и разгибание рук в упоре лежа</div><div class="ans-line">Скоростно-силовые возможности — Прыжок в длину с места</div><div class="ans-line">Координационные возможности — Челночный бег 3Х10м</div><div class="ans-line">Прикладные навыки — Плавание 50м</div><div class="ans-line">Выносливость — Бег на лыжах 2км</div><div class="ans-line">Гибкость — Наклон вперед из положения стоя</div><div class="ans-line">Скоростные возможности — Бег на 60м</div></div>
-</section><div id="q-46"></div>
-<section class="slide" data-i="46">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 4 Физическая культура · вопрос 5 из 10</div>
-  <h2>Вопрос</h2>
-  <div class="q">Виды испытаний<br>(тесты), позволяющие определить уровень развития физических качеств, прикладных<br>двигательных умений и навыков, подразделяются<br>на:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Обязательные и по выбору</li><li>Обязательные и необязательные</li><li>По желанию и обязательные</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Виды испытаний (тесты), позволяющие определить уровень развития физических качеств, прикладных Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Обязательные и по выбору</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Обязательные и по выбору</div></div>
-</section><div id="q-47"></div>
-<section class="slide" data-i="47">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 4 Физическая культура · вопрос 6 из 10</div>
-  <h2>Вопрос</h2>
-  <div class="q">К какому разделу<br>дневника по физической культуре относится представленный образец оформления?</div>
-  <div class="pics"><img class="qimg" src="../_картинки/ec6e5a8655d179c4.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Наблюдение за состоянием здоровья</li><li>Наблюдение за физическим развитием.</li><li>Наблюдение за физической подготовленностью</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: К какому разделу дневника по физической культуре относится представленный образец оформления? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Наблюдение за физическим развитием.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Наблюдение за физическим развитием.</div></div>
-</section><div id="q-48"></div>
-<section class="slide" data-i="48">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 4 Физическая культура · вопрос 7 из 10</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите правильный<br>вариант. Перед тем как начать осваивать эту технику лазанья, необходимо хорошо<br>освоить технику захвата каната:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>руками</li><li>бедрами</li><li>коленями</li><li>стопами</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите правильный вариант. Перед тем как начать осваивать эту технику лазанья, необходимо хорошо Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: руками</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">руками</div></div>
-</section><div id="q-49"></div>
-<section class="slide" data-i="49">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 4 Физическая культура · вопрос 8 из 10</div>
-  <h2>Вопрос</h2>
-  <div class="q">Установите порядок действий для выполнения техники лазанья <br>по канату в три приёма</div>
-  
-  
-  <div class="opts"><b>Элементы для порядка:</b><ul><li>И. п. — вис стоя.</li><li>Сгибая ноги, подтянуть колени к груди и захватить канат подъёмами ног и коленями скрестно.</li><li>Удерживаясь на канате захватом ног и левой прямой рукой, перехватить канат правой рукой возле левой руки.</li><li>Удерживаясь на канате захватом ног и правой прямой рукой, перехватить канат левой рукой как можно выше.</li><li>Разгибая ноги, подтянуться на руках.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Установите порядок действий для выполнения техники лазанья  по канату в три приёма Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 1. И. п. — вис стоя.; 2. Сгибая ноги, подтянуть колени к груди и захватить канат подъёмами ног и коленями скрестно.; 3. Разгибая ноги, подтянуться на руках.; 4. Удерживаясь на канате захватом ног и правой прямой рукой, перехватить канат лев…</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">1. И. п. — вис стоя.</div><div class="ans-line">2. Сгибая ноги, подтянуть колени к груди и захватить канат подъёмами ног и коленями скрестно.</div><div class="ans-line">3. Разгибая ноги, подтянуться на руках.</div><div class="ans-line">4. Удерживаясь на канате захватом ног и правой прямой рукой, перехватить канат левой рукой как можно выше.</div><div class="ans-line">5. Удерживаясь на канате захватом ног и левой прямой рукой, перехватить канат правой рукой возле левой руки.</div></div>
-</section><div id="q-50"></div>
-<section class="slide" data-i="50">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 4 Физическая культура · вопрос 9 из 10</div>
-  <h2>Вопрос</h2>
-  <div class="q">Перед<br>выполнением сложных гимнастических упражнений необходимо сделать:</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Перед выполнением сложных гимнастических упражнений необходимо сделать: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: разминку</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">разминку</div></div>
-</section><div id="q-51"></div>
-<section class="slide" data-i="51">
-  <div class="themebar" style="background:#1f8a4c">⚽ Спорт и здоровье</div>
-  <div class="top">физкультура · Тест 4 Физическая культура · вопрос 10 из 10</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какое гимнастическое упражнение выполняет ученик на рисунке?</div>
-  <div class="pics"><img class="qimg" src="../_картинки/c28242c601717f52.png" alt="рисунок из теста"></div>
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какое гимнастическое упражнение выполняет ученик на рисунке? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: стойка на лопатках</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">стойка на лопатках</div></div>
-</section>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Подберите<br>пропущенное слово. На рисунке изображен главный (1) Олимпийского движения.</div>
+      <div class="pics"><img class="qimg" src="../_картинки/045dc184968f003b.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>талисман</option><option>эмблема</option><option>символ</option><option>замысел</option><option>артефакт</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">символ</div></div>
+      <p class="why">потому что в пропуски ставится: символ.</p>
+    </div>
+  </div>
 </div>
-<script>
-const slides = [...document.querySelectorAll('.slide')];
-let i = 0;
-const show = (n) => {
-  i = Math.max(0, Math.min(slides.length-1, n));
-  slides.forEach((s, k) => s.style.display = k===i ? 'block' : 'none');
-  document.getElementById('pos').textContent = (i+1) + ' / ' + slides.length;
-  slides[i].scrollIntoView({block:'start'});
-};
-document.getElementById('prev').onclick = () => show(i-1);
-document.getElementById('next').onclick = () => show(i+1);
-document.getElementById('all').onclick = () => slides.forEach(s => s.style.display='block');
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight' || e.key === 'PageDown') show(i+1);
-  if (e.key === 'ArrowLeft' || e.key === 'PageUp') show(i-1);
-});
-show(0);
-</script>
-</body></html>
+<div class="que gapselect deferredfeedback" id="q-2">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите пропущенные<br>слова и запишите их под соответствующей цифрой. <br>Если дистанция проходит поперёк вспаханных <br>борозд, ногу следует <br>ставить (1) , чтобы <br>не споткнуться. Если же <br>дистанция проходит вдоль <br>борозд, то ноги <br>ставятся (2) .</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>в глубине между бороздами</option><option>на верхний выступ борозды</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>в глубине между бороздами</option><option>на верхний выступ борозды</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">на верхний выступ борозды</div><div class="ans-line">в глубине между бороздами</div></div>
+      <p class="why">потому что в пропуски ставится: на верхний выступ борозды; в глубине между бороздами.</p>
+    </div>
+  </div>
+</div>
+<div class="que gapselect deferredfeedback" id="q-3">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите пропущенные<br>слова и запишите их под соответствующей цифрой. <br>При беге по <br>каменистому грунту необходимо <br>укоротить шаг, ноги ставить <br>осторожней (1) .<br>При беге по <br>болотистой местности и <br>высокой траве беговые <br>шаги должны быть <br>короткими и частыми. <br>Ногу надо ставить (2) .</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>на всю ступню</option><option>на переднюю часть стопы</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>на всю ступню</option><option>на переднюю часть стопы</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">(1) на переднюю часть стопы</div><div class="ans-line">(2) на всю ступню</div></div>
+      <p class="why">потому что в пропуски ставится: (1) на переднюю часть стопы; (2) на всю ступню.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-4">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите соответствие беговой<br>дисциплины и изображения.</div>
+      <div class="pics"><img class="qimg" src="../_картинки/11a9aab0038896fc.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/f5bfa5436b5f456c.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/bd823e6231d57527.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/8661df89000cfb0e.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: Гладкий бег; Барьерный бег; Эстафетный бег; Бег с препятствиями</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гладкий бег</option><option>Барьерный бег</option><option>Эстафетный бег</option><option>Бег с препятствиями</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line"> — Гладкий бег</div><div class="ans-line"> — Эстафетный бег</div><div class="ans-line"> — Барьерный бег</div><div class="ans-line"> — Бег с препятствиями</div></div>
+      <p class="why">потому что — это Гладкий бег; — это Эстафетный бег; — это Барьерный бег; — это Бег с препятствиями.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-5">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите соответствие даты и события.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: 394 г; 776 г до н.э; 1896 г; 1894 г</div><table class="answer match"><tr class="r0"><td class="text">Римский император Феодосий I запретил проводить Олимпийские игры</td><td><select class="custom-select" disabled><option>Выберите...</option><option>394 г</option><option>776 г до н.э</option><option>1896 г</option><option>1894 г</option></select></td></tr><tr class="r1"><td class="text">Документ с первыми упоминаниями об античных Олимпийских играх</td><td><select class="custom-select" disabled><option>Выберите...</option><option>394 г</option><option>776 г до н.э</option><option>1896 г</option><option>1894 г</option></select></td></tr><tr class="r0"><td class="text">Прошёл I Международный олимпийский конгресс, на котором был создан Международный олимпийский комитет</td><td><select class="custom-select" disabled><option>Выберите...</option><option>394 г</option><option>776 г до н.э</option><option>1896 г</option><option>1894 г</option></select></td></tr><tr class="r1"><td class="text">Состоялись игры I Олимпиады</td><td><select class="custom-select" disabled><option>Выберите...</option><option>394 г</option><option>776 г до н.э</option><option>1896 г</option><option>1894 г</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Римский император Феодосий I запретил проводить Олимпийские игры — 394 г</div><div class="ans-line">Документ с первыми упоминаниями об античных Олимпийских играх — 776 г до н.э</div><div class="ans-line">Прошёл I Международный олимпийский конгресс, на котором был создан Международный олимпийский комитет — 1894 г</div><div class="ans-line">Состоялись игры I Олимпиады — 1896 г</div></div>
+      <p class="why">потому что Римский император Феодосий I запретил проводить Олимпийские игры — это 394 г; Документ с первыми упоминаниями об античных Олимпийских играх — это 776 г до н.э; Прошёл I Международный олимпийский конгресс, на котором был создан Международный олимпийский комитет — это 1894 г; Состоялись игры I Олимпиады — это 1896 г.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-6">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите<br>соответствие, достижения Российского<br>спортсменов на Олимпийских играх и имя атлета.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: Дмитрий Павлович Романов; Николай Панин-Коломенкин; Николай Орлов</div><table class="answer match"><tr class="r0"><td class="text">9 место в конном спорте на Играх V Олимпиады</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Дмитрий Павлович Романов</option><option>Николай Панин-Коломенкин</option><option>Николай Орлов</option></select></td></tr><tr class="r1"><td class="text">2 место в стрельбе из пистолета на Играх IV Олимпиады</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Дмитрий Павлович Романов</option><option>Николай Панин-Коломенкин</option><option>Николай Орлов</option></select></td></tr><tr class="r0"><td class="text">2 место в борьбе на Играх IV Олимпиады</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Дмитрий Павлович Романов</option><option>Николай Панин-Коломенкин</option><option>Николай Орлов</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">9 место в конном спорте на Играх V Олимпиады — Дмитрий Павлович Романов</div><div class="ans-line">2 место в стрельбе из пистолета на Играх IV Олимпиады — Николай Панин-Коломенкин</div><div class="ans-line">2 место в борьбе на Играх IV Олимпиады — Николай Орлов</div></div>
+      <p class="why">потому что 9 место в конном спорте на Играх V Олимпиады — это Дмитрий Павлович Романов; 2 место в стрельбе из пистолета на Играх IV Олимпиады — это Николай Панин-Коломенкин; 2 место в борьбе на Играх IV Олимпиады — это Николай Орлов.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-7">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите соответствие города и года<br>проведения Олимпийских игр в нем.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: 1912 г.; 1904 г.; 2014 г.; 1980 г.; 1896 г.; 1908 г.; 1900 г.</div><table class="answer match"><tr class="r0"><td class="text">Москва</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1912 г.</option><option>1904 г.</option><option>2014 г.</option><option>1980 г.</option><option>1896 г.</option><option>1908 г.</option><option>1900 г.</option></select></td></tr><tr class="r1"><td class="text">Афины</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1912 г.</option><option>1904 г.</option><option>2014 г.</option><option>1980 г.</option><option>1896 г.</option><option>1908 г.</option><option>1900 г.</option></select></td></tr><tr class="r0"><td class="text">Сочи</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1912 г.</option><option>1904 г.</option><option>2014 г.</option><option>1980 г.</option><option>1896 г.</option><option>1908 г.</option><option>1900 г.</option></select></td></tr><tr class="r1"><td class="text">Париж</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1912 г.</option><option>1904 г.</option><option>2014 г.</option><option>1980 г.</option><option>1896 г.</option><option>1908 г.</option><option>1900 г.</option></select></td></tr><tr class="r0"><td class="text">Лондон</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1912 г.</option><option>1904 г.</option><option>2014 г.</option><option>1980 г.</option><option>1896 г.</option><option>1908 г.</option><option>1900 г.</option></select></td></tr><tr class="r1"><td class="text">Сент-Луис</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1912 г.</option><option>1904 г.</option><option>2014 г.</option><option>1980 г.</option><option>1896 г.</option><option>1908 г.</option><option>1900 г.</option></select></td></tr><tr class="r0"><td class="text">Стокгольм</td><td><select class="custom-select" disabled><option>Выберите...</option><option>1912 г.</option><option>1904 г.</option><option>2014 г.</option><option>1980 г.</option><option>1896 г.</option><option>1908 г.</option><option>1900 г.</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Москва — 1980 г.</div><div class="ans-line">Афины — 1896 г.</div><div class="ans-line">Сочи — 2014 г.</div><div class="ans-line">Париж — 1900 г.</div><div class="ans-line">Лондон — 1908 г.</div><div class="ans-line">Сент-Луис — 1904 г.</div><div class="ans-line">Стокгольм — 1912 г.</div></div>
+      <p class="why">потому что Москва — это 1980 г.; Афины — это 1896 г.; Сочи — это 2014 г.; Париж — это 1900 г.; Лондон — это 1908 г.; Сент-Луис — это 1904 г.; Стокгольм — это 1912 г.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-8">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Родиной Олимпийских игр является:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Древняя Греция</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Древняя Русь</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Древний Рим</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Древний Египет</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Древняя Греция</div></div>
+      <p class="why">потому что Родиной Олимпийских игр является: = Древняя Греция.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-9">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В каком городе прошёл<br>I Международный олимпийский <br>конгресс?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>В Москве</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>В Париже</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>В Афинах</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">В Париже</div></div>
+      <p class="why">потому что В каком городе прошёл I Международный олимпийский конгресс = В Париже.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-10">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Дата создания<br>Международного олимпийского комитета.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>08 сентября 1937 г.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>11 мая 1896 г.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>23 июня 1863 г.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>23 июня 1894 г.</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">23 июня 1894 г.</div></div>
+      <p class="why">потому что Дата создания Международного олимпийского комитета = 23 июня 1894 г.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-11">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Российскую команду атлетов на Играх V Олимпиады возглавлял:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>царь Николай II</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>царь Александр II</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>князь Дмитрий Павлович Романов</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">князь Дмитрий Павлович Романов</div></div>
+      <p class="why">потому что Российскую команду атлетов на Играх V Олимпиады возглавлял: = князь Дмитрий Павлович Романов.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-12">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В<br>каком году был создан Российский олимпийский комитет?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>1906 г.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>1894 г.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>1911 г.</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">1911 г.</div></div>
+      <p class="why">потому что В каком году был создан Российский олимпийский комитет = 1911 г.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-13">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Очень важно в дневнике<br>по физической культуре обновлять комплексы утренней зарядки и физкультминуток,<br>упражнений дыхательной гимнастики и на осанку. Обновление содержания этих<br>занятий надо проводить:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Каждый день</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Один раз в две-три недели</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Раз в год</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Один раз в две-три недели</div></div>
+      <p class="why">потому что Один раз в две-три недели.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-14">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Копье, диск, молот, ядро, теннисный мяч<br>и граната это…</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">снаряды для метания</div></div>
+      <p class="why">потому что Копье, диск, молот, ядро, теннисный мяч и граната это… = снаряды для метания.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-15">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">15</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В начале каждого занятия физическими<br>упражнениями необходимо сделать:</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">разминку</div></div>
+      <p class="why">потому что В начале каждого занятия физическими упражнениями необходимо сделать: = разминку.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 2 Физическая культура</h3>
+<div class="que gapselect deferredfeedback" id="q-16">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите из предложенного списка пропущенные слова<br>Комплекс ГТО состоит из (1) в соответствии с возрастными группами населения (2) и нормативов по (3) трудности.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>15 ступеней</option><option>10 ступеней</option><option>11 ступеней</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>от 6 до 70 лет и старше</option><option>от 10 до 60 лет</option><option>от 7 до 25 лет</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>3 уровням</option><option>2 уровням</option><option>5 уровням</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">(1) 11 ступеней</div><div class="ans-line">(2) от 6 до 70 лет и старше</div><div class="ans-line">(3) 3 уровням</div></div>
+      <p class="why">потому что в пропуски ставится: (1) 11 ступеней; (2) от 6 до 70 лет и старше; (3) 3 уровням.</p>
+    </div>
+  </div>
+</div>
+<div class="que gapselect deferredfeedback" id="q-17">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите соответствие вид бега и особенности техники.<br>Туловище необходимо несколько <br>отклонить назад, а <br>длину шагов увеличить. (1) <br>Необходимо наклонить туловище вперёд, укоротить шаги <br>и увеличить их <br>частоту. (2)</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>Бег в гору</option><option>Спуск с горы</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>Бег в гору</option><option>Спуск с горы</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">(1) Спуск с горы</div><div class="ans-line">(2) Бег в гору</div></div>
+      <p class="why">потому что в пропуски ставится: (1) Спуск с горы; (2) Бег в гору.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-18">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите соответствие. Знак ГТО и количество успешно выполненных тестов<br>для получения этого знака.</div>
+      <div class="pics"><img class="qimg" src="../_картинки/86bb896f95fd300a.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/d95ecd27ed5c884f.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/0c5c64724006ef0c.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: 5 обязательных и 4 по выбору; 4 обязательных и 4 по выбору; 4 обязательных и 1 по выбору; 4 обязательных и 2 по выбору; 3 обязательных и 5 по выбору</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>5 обязательных и 4 по выбору</option><option>4 обязательных и 4 по выбору</option><option>4 обязательных и 1 по выбору</option><option>4 обязательных и 2 по выбору</option><option>3 обязательных и 5 по выбору</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>5 обязательных и 4 по выбору</option><option>4 обязательных и 4 по выбору</option><option>4 обязательных и 1 по выбору</option><option>4 обязательных и 2 по выбору</option><option>3 обязательных и 5 по выбору</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>5 обязательных и 4 по выбору</option><option>4 обязательных и 4 по выбору</option><option>4 обязательных и 1 по выбору</option><option>4 обязательных и 2 по выбору</option><option>3 обязательных и 5 по выбору</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">золотой знак — 4 обязательных и 4 по выбору</div><div class="ans-line">серебряный знак — 4 обязательных и 2 по выбору</div><div class="ans-line">бронзовый знак — 4 обязательных и 1 по выбору</div></div>
+      <p class="why">потому что золотой знак — это 4 обязательных и 4 по выбору; серебряный знак — это 4 обязательных и 2 по выбору; бронзовый знак — это 4 обязательных и 1 по выбору.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-19">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите<br>соответствие этап бега на 1000 м. и интенсивность, с которой рекомендуется<br>пробегать этот этап. На дистанции 1000 м первые 250 м пробегают с<br>интенсивностью (1) от максимальной скорости, вторые 250 м — с интенсивностью<br>(2), затем вновь с интенсивностью (3) и последние 250 м — с интенсивностью (4).</div>
+      <div class="pics"><img class="qimg" src="../_картинки/2cabe6ed0233912d.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: 30%; 40%</div><table class="answer match"><tr class="r0"><td class="text">1</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr><tr class="r1"><td class="text">4</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr><tr class="r0"><td class="text">3</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr><tr class="r1"><td class="text">2</td><td><select class="custom-select" disabled><option>Выберите...</option><option>30%</option><option>40%</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">1 — 40%</div><div class="ans-line">2 — 30%</div><div class="ans-line">3 — 40%</div><div class="ans-line">4 — 40%</div></div>
+      <p class="why">потому что 1 — это 40%; 2 — это 30%; 3 — это 40%; 4 — это 40%.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-20">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите правильный ответ. Возрастная группа<br>от 12 до 13 лет сдает нормативы ГТО:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>IV Ступени</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>V Ступени</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>III Ступени</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">IV Ступени</div></div>
+      <p class="why">потому что правильный ответ. Возрастная группа от 12 до 13 лет сдает нормативы ГТО: = IV Ступени.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-21">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Чем отличается бег от ходьбы?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Наличием фазы полета</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Работой рук</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Скоростью передвижения</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Наличием фазы полета</div></div>
+      <p class="why">потому что Чем отличается бег от ходьбы = Наличием фазы полета.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-22">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите правильный вариант. Во время бега на короткие дистанции необходимо<br>бежать:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>по ближней к центру стадиона дорожке</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>по своей дорожке</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>по свободной дорожке</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">по своей дорожке</div></div>
+      <p class="why">потому что правильный вариант. Во время бега на короткие дистанции необходимо бежать: = по своей дорожке.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-23">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите правильный вариант. После бега на длинные дистанции нужно<br>обязательно:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>сесть на скамейки</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>лечь на пол (траву)</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>походить и восстановить дыхание</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">походить и восстановить дыхание</div></div>
+      <p class="why">потому что правильный вариант. После бега на длинные дистанции нужно обязательно: = походить и восстановить дыхание.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-24">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Для<br>учащихся 6 классов рекомендовано начинать обучаться бегу с равномерной<br>скоростью по учебной дистанции<br>протяженностью:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>1000 м.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>800 м.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>400 м.</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">800 м.</div></div>
+      <p class="why">потому что Для учащихся 6 классов рекомендовано начинать обучаться бегу с равномерной скоростью по учебной дистанции протяженностью: = 800 м.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-25">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Спринтом<br>считаются дистанции до:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>1000 метров</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>400 метров включительно</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>60 метров включительно</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">400 метров включительно</div></div>
+      <p class="why">потому что Спринтом считаются дистанции до: = 400 метров включительно.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-26">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какой старт используют в беге на средние<br>дистанции?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Высокий старт</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Низкий старт</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Старт с опорой на одну руку</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Высокий старт</div></div>
+      <p class="why">потому что Какой старт используют в беге на средние дистанции = Высокий старт.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-27">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите все верные варианты. Успешная сдача нормативов ГТО подтверждается:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>Удостоверением</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>Медалью</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>Дипломом</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>Нагрудным знаком</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label>Грамотой</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Удостоверением</div><div class="ans-line">Нагрудным знаком</div></div>
+      <p class="why">потому что Удостоверением; Нагрудным знаком.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-28">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите из списка прыжки, которые<br>относятся к горизонтальным легкоатлетическим прыжкам.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>Прыжок с шестом</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>Опорные прыжки</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>Прыжок в длину</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>Прыжок в высоту</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label>Тройной прыжок</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Прыжок в длину</div><div class="ans-line">Тройной прыжок</div></div>
+      <p class="why">потому что Прыжок в длину; Тройной прыжок.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-29">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите только правильные ответы.<br>Гладкий равномерный бег на <br>длинные дистанции делится на<br>следующие фазы:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>Финиширование</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>Фальстарт</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>Бег по дистанции</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>Подготовка к старту</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label>Ускорение</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">f. </span><label>Старт</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">g. </span><label>Поддержание скорости</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">h. </span><label>Стартовый разбег</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Старт</div><div class="ans-line">Стартовый разбег</div><div class="ans-line">Бег по дистанции</div><div class="ans-line">Финиширование</div></div>
+      <p class="why">потому что Старт; Стартовый разбег; Бег по дистанции; Финиширование.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 3 Физическая культура</h3>
+<div class="que match deferredfeedback" id="q-30">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите<br>соответствие. Акробатические связки и изображение.1. Из стойки на лопатках перекат вперёд в упор присев.2. Из положения упор присев два кувырка вперёд в упор присев.3. Из положения упор присев перекат назад в стойку на лопатках.</div>
+      <div class="pics"><img class="qimg" src="../_картинки/f828d53179545393.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/845ea8216d265830.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/f7afd700e3694702.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: 1; 3; 2</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>3</option><option>2</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>3</option><option>2</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>3</option><option>2</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">ключа в открытой попытке нет.</div></div>
+      <p class="why">потому что смотри рисунки: подставь номера 1, 2 и 3 из текста к трём картинкам.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-31">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите<br>соответствие. Акробатические связки и изображение.1. В стойке на лопатках развести и свести ноги.2. Из упора присев сделать кувырок назад в упор присев, о. с.3. Из упора лёжа толчком двумя ногами перейти в упор присев.4. Из стойки на лопатках сгруппироваться и сделать переворот назад через голову в упор присев.5. Из упора присев сделать перекат назад в стойку на лопатках</div>
+      <div class="pics"><img class="qimg" src="../_картинки/f3807181c9f30ed8.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/1b3e86fc5f1405b5.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/cc51345dbfd1212f.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/859fafa5f145acbc.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/fb59b0186ce7d53b.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/57b09bcb1e7eb74e.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/9f93fc486ef7fcab.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/c084b7f184f9e943.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: 1; 5; 3; 4; 2</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>1</option><option>5</option><option>3</option><option>4</option><option>2</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">ключа в открытой попытке нет.</div></div>
+      <p class="why">потому что смотри рисунки: подставь номера 1–5 из текста к картинкам.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-32">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как часто<br>следует заполнять раздел дневника по физической культуре «Физическая<br>подготовленность»? <br>Выберите<br>правильный ответ.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>каждую неделю</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>каждую четверть (триместр)</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>каждый месяц</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>в конце учебного года</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>1 раз в полгода</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">каждую четверть (триместр)</div></div>
+      <p class="why">потому что Как часто следует заполнять раздел дневника по физической культуре «Физическая подготовленность»? Выберите правильный ответ = каждую четверть (триместр).</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-33">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите правильный вариант. При выполнении стойки на голове<br>с опорой на руки, голова должна опираться на:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>центральную часть</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>затылочную часть</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>лобную часть</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">лобную часть</div></div>
+      <p class="why">потому что правильный вариант. При выполнении стойки на голове с опорой на руки, голова должна опираться на: = лобную часть.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-34">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кто подписал указ о возвращении системы ГТО?В ответ введите полностью имя, фамилию через пробел.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Владимир Путин</div></div>
+      <p class="why">потому что Кто подписал указ о возвращении системы ГТО?В ответ введите полностью имя, фамилию через пробел = Владимир Путин.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-35">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Вид<br>спорта, который включает в себя технически сложные физические упражнения, в том<br>числе и на спортивных снарядах (перекладине, брусьях, кольцах, гимнастическом<br>бревне, гимнастическом коне и др.).</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">гимнастика</div></div>
+      <p class="why">потому что гимнастика.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-36">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Нельзя самостоятельно выполнять<br>сложные упражнения на гимнастических снарядах без:</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">страховки</div></div>
+      <p class="why">потому что Нельзя самостоятельно выполнять сложные упражнения на гимнастических снарядах без: = страховки.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-37">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Запишите термин. Последовательное,<br>связанное выполнение акробатических упражнений это –</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">комбинация</div></div>
+      <p class="why">потому что термин. Последовательное, связанное выполнение акробатических упражнений это – = комбинация.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-38">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Учащиеся на рисунке<br>выполняют:Ответ дайте во множественном числе, в именительном падеже.</div>
+      <div class="pics"><img class="qimg" src="../_картинки/c68a7337699747b1.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">кувырки</div></div>
+      <p class="why">потому что Учащиеся на рисунке выполняют:Ответ дайте во множественном числе, в именительном падеже = кувырки.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-39">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Положение тела, когда плечи спортсмена находятся ниже перекладины.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">вис</div></div>
+      <p class="why">потому что Положение тела, когда плечи спортсмена находятся ниже перекладины = вис.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-40">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Гимнастический снаряд, который используется на уроках физической культуры у девочек?</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">бревно</div></div>
+      <p class="why">потому что Гимнастический снаряд, который используется на уроках физической культуры у девочек = бревно.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-41">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Гимнастический снаряд, который используется на уроках физической культуры у мальчиков?</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">перекладина</div></div>
+      <p class="why">потому что Гимнастический снаряд, который используется на уроках физической культуры у мальчиков = перекладина.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 4 Физическая культура</h3>
+<div class="que gapselect deferredfeedback" id="q-42">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите и запишите пропущенное слово. <br>Координация движений – это качество, позволяющее быстро, без<br>ошибок и лишних (1) напряжений осваивать и выполнять сложные двигательные<br>действия.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>эмоциональных</option><option>психических</option><option>нервных</option><option>психологических</option><option>мышечных</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">мышечных</div></div>
+      <p class="why">потому что в пропуски ставится: мышечных.</p>
+    </div>
+  </div>
+</div>
+<div class="que gapselect deferredfeedback" id="q-43">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Заполните пропуски, подобрав пропущенные словаВыявление<br>предельной нагрузки — важное условие правильного (1) физических упражнений.<br>Если доза нагрузки выше (2) , то её выполнить (3) , а если<br>ниже — нагрузка будет (4) .</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>максимальной</option><option>малой</option><option>дозирования</option><option>непредельной</option><option>доступной</option><option>предельной</option><option>длительное</option><option>невозможно</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>максимальной</option><option>малой</option><option>дозирования</option><option>непредельной</option><option>доступной</option><option>предельной</option><option>длительное</option><option>невозможно</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>максимальной</option><option>малой</option><option>дозирования</option><option>непредельной</option><option>доступной</option><option>предельной</option><option>длительное</option><option>невозможно</option></select></p><p>(4) <select class="custom-select" disabled><option>Выберите...</option><option>максимальной</option><option>малой</option><option>дозирования</option><option>непредельной</option><option>доступной</option><option>предельной</option><option>длительное</option><option>невозможно</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">(1) дозирования</div><div class="ans-line">(2) предельной</div><div class="ans-line">(3) невозможно</div><div class="ans-line">(4) малой</div></div>
+      <p class="why">потому что в пропуски ставится: (1) дозирования; (2) предельной; (3) невозможно; (4) малой.</p>
+    </div>
+  </div>
+</div>
+<div class="que gapselect deferredfeedback" id="q-44">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите правильные слова Люди с разным уровнем (1) подготовленности<br>могут выполнять и различные по величине физические (2) . У каждого человека есть<br>свои (3) нагрузки, которые он может выполнить.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>умственной</option><option>психической</option><option>теоретической</option><option>физической</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>умения</option><option>нагрузки</option><option>предельные</option><option>напряжения</option><option>навыки</option><option>индивидуальные</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>умения</option><option>нагрузки</option><option>предельные</option><option>напряжения</option><option>навыки</option><option>индивидуальные</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">(1) физической</div><div class="ans-line">(2) нагрузки</div><div class="ans-line">(3) индивидуальные</div></div>
+      <p class="why">потому что в пропуски ставится: (1) физической; (2) нагрузки; (3) индивидуальные.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-45">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите соответствие. Физические<br>качества (прикладные навыки) и тесты, с помощью которых их оценивают.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: Бег на 60м; Плавание 50м; Прыжок в длину с места; Сгибание и разгибание рук в упоре лежа; Челночный бег 3Х10м; Наклон вперед из положения стоя; Бег на лыжах 2км</div><table class="answer match"><tr class="r0"><td class="text">Сила</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Бег на 60м</option><option>Плавание 50м</option><option>Прыжок в длину с места</option><option>Сгибание и разгибание рук в упоре лежа</option><option>Челночный бег 3Х10м</option><option>Наклон вперед из положения стоя</option><option>Бег на лыжах 2км</option></select></td></tr><tr class="r1"><td class="text">Скоростно-силовые возможности</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Бег на 60м</option><option>Плавание 50м</option><option>Прыжок в длину с места</option><option>Сгибание и разгибание рук в упоре лежа</option><option>Челночный бег 3Х10м</option><option>Наклон вперед из положения стоя</option><option>Бег на лыжах 2км</option></select></td></tr><tr class="r0"><td class="text">Координационные возможности</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Бег на 60м</option><option>Плавание 50м</option><option>Прыжок в длину с места</option><option>Сгибание и разгибание рук в упоре лежа</option><option>Челночный бег 3Х10м</option><option>Наклон вперед из положения стоя</option><option>Бег на лыжах 2км</option></select></td></tr><tr class="r1"><td class="text">Прикладные навыки</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Бег на 60м</option><option>Плавание 50м</option><option>Прыжок в длину с места</option><option>Сгибание и разгибание рук в упоре лежа</option><option>Челночный бег 3Х10м</option><option>Наклон вперед из положения стоя</option><option>Бег на лыжах 2км</option></select></td></tr><tr class="r0"><td class="text">Выносливость</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Бег на 60м</option><option>Плавание 50м</option><option>Прыжок в длину с места</option><option>Сгибание и разгибание рук в упоре лежа</option><option>Челночный бег 3Х10м</option><option>Наклон вперед из положения стоя</option><option>Бег на лыжах 2км</option></select></td></tr><tr class="r1"><td class="text">Гибкость</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Бег на 60м</option><option>Плавание 50м</option><option>Прыжок в длину с места</option><option>Сгибание и разгибание рук в упоре лежа</option><option>Челночный бег 3Х10м</option><option>Наклон вперед из положения стоя</option><option>Бег на лыжах 2км</option></select></td></tr><tr class="r0"><td class="text">Скоростные возможности</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Бег на 60м</option><option>Плавание 50м</option><option>Прыжок в длину с места</option><option>Сгибание и разгибание рук в упоре лежа</option><option>Челночный бег 3Х10м</option><option>Наклон вперед из положения стоя</option><option>Бег на лыжах 2км</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Сила — Сгибание и разгибание рук в упоре лежа</div><div class="ans-line">Скоростно-силовые возможности — Прыжок в длину с места</div><div class="ans-line">Координационные возможности — Челночный бег 3Х10м</div><div class="ans-line">Прикладные навыки — Плавание 50м</div><div class="ans-line">Выносливость — Бег на лыжах 2км</div><div class="ans-line">Гибкость — Наклон вперед из положения стоя</div><div class="ans-line">Скоростные возможности — Бег на 60м</div></div>
+      <p class="why">потому что Сила — это Сгибание и разгибание рук в упоре лежа; Скоростно-силовые возможности — это Прыжок в длину с места; Координационные возможности — это Челночный бег 3Х10м; Прикладные навыки — это Плавание 50м; Выносливость — это Бег на лыжах 2км; Гибкость — это Наклон вперед из положения стоя; Скоростные возможности — это Бег на 60м.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-46">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Виды испытаний<br>(тесты), позволяющие определить уровень развития физических качеств, прикладных<br>двигательных умений и навыков, подразделяются<br>на:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Обязательные и по выбору</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Обязательные и необязательные</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>По желанию и обязательные</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Обязательные и по выбору</div></div>
+      <p class="why">потому что Виды испытаний (тесты), позволяющие определить уровень развития физических качеств, прикладных двигательных умений и навыков, подразделяются на: = Обязательные и по выбору.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-47">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">К какому разделу<br>дневника по физической культуре относится представленный образец оформления?</div>
+      <div class="pics"><img class="qimg" src="../_картинки/ec6e5a8655d179c4.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Наблюдение за состоянием здоровья</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Наблюдение за физическим развитием.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Наблюдение за физической подготовленностью</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Наблюдение за физическим развитием.</div></div>
+      <p class="why">потому что К какому разделу дневника по физической культуре относится представленный образец оформления = Наблюдение за физическим развитием.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-48">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите правильный<br>вариант. Перед тем как начать осваивать эту технику лазанья, необходимо хорошо<br>освоить технику захвата каната:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>руками</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>бедрами</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>коленями</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>стопами</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">руками</div></div>
+      <p class="why">потому что правильный вариант. Перед тем как начать осваивать эту технику лазанья, необходимо хорошо освоить технику захвата каната: = руками.</p>
+    </div>
+  </div>
+</div>
+<div class="que ordering deferredfeedback" id="q-49">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Установите порядок действий для выполнения техники лазанья <br>по канату в три приёма</div>
+      
+      
+      <div class="ablock"><div class="prompt">Расставьте в правильном порядке:</div><ul class="answer"><li>И. п. — вис стоя.</li><li>Сгибая ноги, подтянуть колени к груди и захватить канат подъёмами ног и коленями скрестно.</li><li>Удерживаясь на канате захватом ног и левой прямой рукой, перехватить канат правой рукой возле левой руки.</li><li>Удерживаясь на канате захватом ног и правой прямой рукой, перехватить канат левой рукой как можно выше.</li><li>Разгибая ноги, подтянуться на руках.</li></ul></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">1. И. п. — вис стоя.</div><div class="ans-line">2. Сгибая ноги, подтянуть колени к груди и захватить канат подъёмами ног и коленями скрестно.</div><div class="ans-line">3. Разгибая ноги, подтянуться на руках.</div><div class="ans-line">4. Удерживаясь на канате захватом ног и правой прямой рукой, перехватить канат левой рукой как можно выше.</div><div class="ans-line">5. Удерживаясь на канате захватом ног и левой прямой рукой, перехватить канат правой рукой возле левой руки.</div></div>
+      <p class="why">потому что порядок такой: 1. И. п. — вис стоя.; 2. Сгибая ноги, подтянуть колени к груди и захватить канат подъёмами ног и коленями скрестно.; 3. Разгибая ноги, подтянуться на руках.; 4. Удерживаясь на канате захватом ног и правой прямой рукой, перехватить канат левой рукой как можно выше.; 5. Удерживаясь на канате захватом ног и левой прямой рукой, перехватить канат правой рукой возле левой руки.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-50">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Перед<br>выполнением сложных гимнастических упражнений необходимо сделать:</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">разминку</div></div>
+      <p class="why">потому что Перед выполнением сложных гимнастических упражнений необходимо сделать: = разминку.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-51">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какое гимнастическое упражнение выполняет ученик на рисунке?</div>
+      <div class="pics"><img class="qimg" src="../_картинки/c28242c601717f52.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">стойка на лопатках</div></div>
+      <p class="why">потому что Какое гимнастическое упражнение выполняет ученик на рисунке = стойка на лопатках.</p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</body>
+</html>

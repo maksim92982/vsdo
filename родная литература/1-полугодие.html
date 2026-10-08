@@ -1,728 +1,1131 @@
 <!doctype html>
 <html lang="ru">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>6 класс · родная литература · 1 полугодие</title>
+<title>родная литература · Тест</title>
 <style>
-:root { --bg:#0f2744; --card:#fff; --ink:#1a2332; --muted:#5b6573; --acc:#1e6bb8; --ok:#0d7a4f; }
 * { box-sizing: border-box; }
-html, body { margin:0; background:#dfe7f0; color:var(--ink); font-family: "Segoe UI", Arial, sans-serif; }
-.wrap { max-width: 980px; margin: 0 auto; padding: 16px; }
-h1 { font-size: 28px; margin: 12px 0 8px; }
-.sub { color: var(--muted); margin-bottom: 18px; }
-.nav { position: sticky; top: 0; z-index: 5; background: #dfe7f0; padding: 8px 0; display:flex; gap:8px; align-items:center; }
-button { background: var(--acc); color:#fff; border:0; padding:8px 14px; border-radius:8px; cursor:pointer; font-size:15px; }
-.slide { background: var(--card); border-radius: 16px; padding: 28px 32px; margin: 16px 0; box-shadow: 0 8px 24px rgba(15,39,68,.12); min-height: 70vh; }
-.top { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-h2, h3 { margin: 14px 0 8px; }
-.q { font-size: 20px; line-height: 1.45; }
-.opts { margin: 12px 0; background:#f4f7fb; padding:12px 16px; border-radius:10px; }
-.memo { line-height: 1.5; }
-.ans { background:#e8f6ee; border-left: 6px solid var(--ok); padding: 12px 16px; border-radius: 8px; font-size: 18px; }
-.ans-line { margin: 6px 0; }
-.muted { color: var(--muted); background: #fff6e8; border:0; padding:8px; }
-.toc a { display:block; margin: 4px 0; color: var(--acc); }
-.themebar { color:#fff; padding:8px 12px; border-radius:10px; font-size:15px; margin-bottom:10px; }
-.pics { display:flex; flex-wrap:wrap; gap:12px; margin:14px 0; align-items:flex-start; }
-.qimg { max-width:100%; height:auto; border:1px solid #d5dee8; border-radius:10px; background:#fff; }
-.audios { margin: 14px 0; }
-.audio { margin: 10px 0 14px; }
-.alabel { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
-audio { width: 100%; }
-.ans.cant { background:#fff3e0; border-left-color:#c45c26; }
+html, body {
+  margin: 0;
+  background: #fff;
+  color: #1d2125;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+a { color: #0f6cbf; }
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.6rem 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.navbar .brand { color: #0f6cbf; font-weight: 600; text-decoration: none; font-size: 1.1rem; }
+.navbar .crumb { color: #6a737b; font-size: 0.9rem; }
+#page {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+#page-header h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.35rem; }
+#page-header .page-context-header { color: #6a737b; margin: 0 0 1rem; }
+#mod_quiz_navblock {
+  position: sticky;
+  top: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: #fff;
+}
+#mod_quiz_navblock h5 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+.qnbutton {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+  background: #fff;
+  height: 40px;
+  width: 30px;
+  border-radius: 3px;
+  margin: 0 6px 6px 0;
+  border: 1px solid #cad0d7;
+  text-align: center;
+  color: #1d2125;
+  position: relative;
+  vertical-align: top;
+}
+.qnbutton .thispageholder { display: block; height: 20px; padding-top: 2px; }
+.qnbutton .trafficlight {
+  display: block;
+  height: 18px;
+  background: #6a737b;
+  border-radius: 0 0 2px 2px;
+}
+.quizname { margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #dee2e6; font-size: 1.15rem; }
+.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; overflow: hidden; }
+.que .info {
+  float: left;
+  width: 7em;
+  padding: 0.5em;
+  margin-bottom: 1.8em;
+  background-color: #f8f9fa;
+  border: 1px solid #cad0d7;
+  border-radius: 2px;
+}
+.que h3.no { margin: 0; font-size: 0.8em; line-height: 1; }
+.que span.qno { font-size: 1.5em; font-weight: bold; }
+.que .info > div { font-size: 0.8em; margin-top: 0.7em; }
+.que .content { margin: 0 0 0 8.5em; }
+.que .formulation, .que .comment {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 0 solid transparent;
+  border-radius: 0.5rem;
+}
+.que .formulation {
+  color: #001a1e;
+  background-color: #e7f3f5;
+  border-color: #b8dce2;
+}
+.que .comment {
+  color: #1c3f1a;
+  background-color: #d7e4d6;
+  border-color: #c6dac6;
+}
+.que .ablock { margin: 0.7em 0 0.3em 0; }
+.que .qtext { margin-bottom: 1.5em; }
+.que .prompt { font-weight: 600; margin: 0 0 0.4em; }
+.que .answer .r0, .que .answer .r1 { padding: 0.2em 0.15em; }
+.que .answer input { margin-right: 0.35em; vertical-align: middle; }
+.que label { display: inline; }
+.que table.answer { width: 100%; border-collapse: collapse; }
+.que table.answer td { padding: 0.35em 0.5em; vertical-align: middle; }
+.que table.answer tr.r0 { background: rgba(255,255,255,0.45); }
+.custom-select {
+  display: inline-block;
+  padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #8f959e;
+  border-radius: 0.25rem;
+  background: #fff;
+  max-width: 100%;
+}
+.accesshide {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.pics { margin: 0 0 1em; }
+.qimg { max-width: 100%; height: auto; border: 1px solid #cad0d7; background: #fff; }
+.audios { margin: 0 0 1em; }
+.alabel { font-size: 0.85em; color: #6a737b; }
+audio { width: 100%; max-width: 420px; }
+.rightanswer { font-weight: 600; margin: 0 0 0.4em; }
+.ans-line { margin: 0.15em 0; font-weight: 600; }
+.why { margin: 0; font-weight: 400; }
+@media (max-width: 800px) {
+  #page { grid-template-columns: 1fr; }
+  .que .info { float: none; width: auto; margin-bottom: 0.6em; }
+  .que .content { margin: 0; }
+}
 </style>
-<body>
-<div class="wrap">
-  <h1>📚 6 класс. родная литература. 1 полугодие</h1>
-  <p class="sub">Вопросы из текущих тестов 1–4. Если в задании была карта, схема или фото — они показаны здесь, как в тесте. Клавиши ← → листают слайды.</p>
-  <div class="nav">
-    <button id="prev">← Назад</button>
-    <button id="next">Вперёд →</button>
-    <button id="all">Показать все</button>
-    <span id="pos"></span>
+</head>
+<body class="path-mod-quiz">
+<nav class="navbar">
+  <a class="brand" href="../index.html">ЦОДИВ</a>
+  <span class="crumb">6 класс / родная литература / 1 полугодие</span>
+</nav>
+<div id="page">
+  <aside id="mod_quiz_navblock">
+    <h5>Навигация по тесту</h5>
+    <div class="allquestionsononepage"><div><strong>Тест 1 Родная литература (русская)</strong></div><a class="qnbutton answersaved" href="#q-1"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-2"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-3"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-4"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-5"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-6"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-7"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-8"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-9"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-10"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-11"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-12"><span class="thispageholder">12</span><span class="trafficlight"></span></a><div><strong>Тест 2 Родная литература (русская)</strong></div><a class="qnbutton answersaved" href="#q-13"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-14"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-15"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-16"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-17"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-18"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-19"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-20"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-21"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-22"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-23"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-24"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-25"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-26"><span class="thispageholder">14</span><span class="trafficlight"></span></a><div><strong>Тест 3 Родная литература (русская)</strong></div><a class="qnbutton answersaved" href="#q-27"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-28"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-29"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-30"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-31"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-32"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-33"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-34"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-35"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-36"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-37"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-38"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-39"><span class="thispageholder">13</span><span class="trafficlight"></span></a><div><strong>Тест 4 Родная литература (русская)</strong></div><a class="qnbutton answersaved" href="#q-40"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-41"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-42"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-43"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-44"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-45"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-46"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-47"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-48"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-49"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-50"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-51"><span class="thispageholder">12</span><span class="trafficlight"></span></a></div>
+  </aside>
+  <div id="region-main">
+    <div id="page-header">
+      <h1>родная литература</h1>
+      <p class="page-context-header">Пройти тест · все вопросы на одной странице</p>
+    </div>
+    <h3 class="quizname">Тест 1 Родная литература (русская)</h3>
+<div class="que multichoice deferredfeedback" id="q-1">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
   </div>
-  <div class="toc"><a href="#q-1">Тест 1 Родная литература (русская) (12)</a><a href="#q-13">Тест 2 Родная литература (русская) (14)</a><a href="#q-27">Тест 3 Родная литература (русская) (13)</a><a href="#q-40">Тест 4 Родная литература (русская) (12)</a></div>
-  <div id="q-1"></div>
-<section class="slide" data-i="1">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 1 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Слова какого русского богатыря перед вами?<br>«Моё<br>богатство – сила богатырская, моё дело – родине служить да от врагов её<br>оборонять».</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Илья Муромец</li><li>Алёша<br>Попович</li><li>Святогор</li><li>Добрыня<br>Никитич</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Слова какого русского богатыря перед вами? «Моё Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Илья Муромец</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Илья Муромец</div></div>
-</section><div id="q-2"></div>
-<section class="slide" data-i="2">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 2 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Описание какого русского богатыря перед вами?<br>«А богатырь сидел да во косу сажень.<br>Он<br>едет в поле, спотешается,<br>Он<br>бросает палицу булатную<br>Выше<br>лесушку стоячего,<br>Ниже<br>облака да ходячего, улетает эта палица<br>Высоко<br>да по поднебесью».</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Святогор</li><li>Илья<br>Муромец</li><li>Добрыня<br>Никитич</li><li>Алёша<br>Попович</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Описание какого русского богатыря перед вами? «А богатырь сидел да во косу сажень. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Святогор</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Святогор</div></div>
-</section><div id="q-3"></div>
-<section class="slide" data-i="3">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 3 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Из предложенного списка выберите черты,<br>характерные для былины.<br>Выберите один или несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>В былине рифма отсутствует</li><li>Основная<br>задача былины – высмеивание пороков общества</li><li>Былина близка к песне</li><li>В<br>былине есть рифма</li><li>Былина характерна разговорными интонациями</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Из предложенного списка выберите черты, характерные для былины. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: В былине рифма отсутствует; Былина близка к песне</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">В былине рифма отсутствует</div><div class="ans-line">Былина близка к песне</div></div>
-</section><div id="q-4"></div>
-<section class="slide" data-i="4">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 4 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Игрой<br>на каком музыкальном инструменте в древности сопровождалось пение былин?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Дудка</li><li>Балалайка</li><li>Скрипка</li><li>Гусли</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Игрой на каком музыкальном инструменте в древности сопровождалось пение былин? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Гусли</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Гусли</div></div>
-</section><div id="q-5"></div>
-<section class="slide" data-i="5">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 5 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какому русскому писателю принадлежат эти строки<br>о богатырях Илье Муромце и Святогоре?<br>«Кинул<br>биться Илья – божья воля.<br>Едет<br>прочь вдоль широкого поля,<br>Утирает<br>слезу… Отняла<br>Русской<br>силы Земля половину:<br>Выезжай<br>на иную путину, <br>На<br>иные дела!»</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>А.Пушкин</li><li>А.Блок</li><li>И.Бунин</li><li>Б.Пастернак</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какому русскому писателю принадлежат эти строки о богатырях Илье Муромце и Святогоре? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: А.Блок</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">А.Блок</div></div>
-</section><div id="q-6"></div>
-<section class="slide" data-i="6">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 6 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Чем<br>обычно занимался Григорий Андрианов, певец былин из одноименного очерка<br>М. Пришвина?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Разводил<br>пчёл</li><li>Лепил<br>горшки</li><li>Пас<br>коров</li><li>Плёл неводы</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Чем обычно занимался Григорий Андрианов, певец былин из одноименного очерка Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Плёл неводы</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Плёл неводы</div></div>
-</section><div id="q-7"></div>
-<section class="slide" data-i="7">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 7 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кто из<br>былинных героев в очерке «Певец былин» окаменел?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Святогор</li><li>Добрыня<br>Никитич</li><li>Алёша<br>Попович</li><li>Илья Муромец</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кто из былинных героев в очерке «Певец былин» окаменел? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Святогор</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Святогор</div></div>
-</section><div id="q-8"></div>
-<section class="slide" data-i="8">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 8 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кто из<br>былинных героев в очерке «Певец былин» зацепился скобой за камень?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Алёша<br>Попович</li><li>Илья<br>Муромец</li><li>Святогор</li><li>Добрыня Никитич</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кто из былинных героев в очерке «Певец былин» зацепился скобой за камень? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Илья Муромец</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Илья Муромец</div></div>
-</section><div id="q-9"></div>
-<section class="slide" data-i="9">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 9 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Из предложенного списка выберите верные<br>высказывания о былинах.<br>Выберите один или несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Былины<br>сразу после создания записывались</li><li>В былинах описываются фантастические события</li><li>Персонажи<br>былин целиком вымышленные</li><li>В<br>былинах описываются только реальные события</li><li>У персонажей былин существовали реальные прототипы</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Из предложенного списка выберите верные высказывания о былинах. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: В былинах описываются фантастические события; У персонажей былин существовали реальные прототипы</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">В былинах описываются фантастические события</div><div class="ans-line">У персонажей былин существовали реальные прототипы</div></div>
-</section><div id="q-10"></div>
-<section class="slide" data-i="10">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 10 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">О каком русском писателе идёт речь в этих<br>строках?<br>«Как<br>архангельский мужик,<br>По<br>своей и Божьей воле,<br>Стал<br>разумен и велик».</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>В.К.Тредиаковский</li><li>Г.Р.Державин</li><li>М.В.Ломоносов</li><li>Н.М.Карамзин</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: О каком русском писателе идёт речь в этих строках? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: М.В.Ломоносов</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">М.В.Ломоносов</div></div>
-</section><div id="q-11"></div>
-<section class="slide" data-i="11">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 11 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">В приведенном высказывании Д.С. Лихачёва<br>пропущено название русского фольклорного жанра. Укажите его (в единственном<br>числе, именительном падеже).<br>«События<br>Ответ Вопрос 11, в отличие от событий сказок, воспринимаются как события русской<br>истории, они отнесены к условной русской старине».</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В приведенном высказывании Д.С. Лихачёва пропущено название русского фольклорного жанра. Укажите его (в единственном Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: былина</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">былина</div></div>
-</section><div id="q-12"></div>
-<section class="slide" data-i="12">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 1 Родная литература (русская) · вопрос 12 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">О каком городе идет речь в высказывании<br>Ю.П. Казакова? (запишите название города в именительном падеже)<br>«Именно<br>в Ответ Вопрос 12 проходила та вещая черта, которая отделяла всё знакомое,<br>испытанное от необычайного, известного нам, людям средней России, только по<br>былинам, по сказам».</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: О каком городе идет речь в высказывании Ю.П. Казакова? (запишите название города в именительном падеже) Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Архангельск</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Архангельск</div></div>
-</section><div id="q-13"></div>
-<section class="slide" data-i="13">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 1 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сопоставьте<br>фрагменты из стихотворений о зиме разных писателей и имена этих писателей.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Прочь от дома на снежный просторНа салазках они покатили.<br>Оглашается криками двор –Великана из снега слепили!</li><li>В деревне празднуют дожинки<br>И на гармонь летят снежинки.<br>И весь в светящемся снегу,<br>Лось замирает на бегу<br>На отдаленном берегу.</li><li>Чародейкою Зимою <br>Околдован лес стоит – <br>И под снежной бахромою,<br>Неподвижною, немою,<br>Чудной жизнью он блестит.</li></ul><p>Варианты ответов: Ф.Тютчев, Н.Рубцов, А.Блок</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сопоставьте фрагменты из стихотворений о зиме разных писателей и имена этих писателей. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Прочь от дома на снежный простор… — С.Маршак / З.Александрова (лепка снеговика); В деревне празднуют дожинки… — Н.Рубцов; Чародейкою Зимою… — Ф.Тютчев</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Прочь от дома на снежный простор… — С.Маршак / З.Александрова (лепка снеговика)</div><div class="ans-line">В деревне празднуют дожинки… — Н.Рубцов</div><div class="ans-line">Чародейкою Зимою… — Ф.Тютчев</div></div>
-</section><div id="q-14"></div>
-<section class="slide" data-i="14">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 2 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сопоставьте<br>фрагменты из стихотворений о зиме разных писателей и имена этих писателей.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Снег да снег. Всю избу занесло.<br>Снег белеет кругом по колено.<br>Так морозно, светло и бело!<br>Только чёрные, чёрные стены…</li><li>Волшебницей зимой весь мир преобразован;<br>Цепями льдистыми покорный пруд окован<br>И синим зеркалом сравнялся в берегах</li><li>Веял холод в лицо<br>От угрюмых небес,<br>И, Бог знает о чём,<br>Плакал сумрачный лес.</li></ul><p>Варианты ответов: А.Блок, П.Вяземский, И.Никитин</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сопоставьте фрагменты из стихотворений о зиме разных писателей и имена этих писателей. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Снег да снег. Всю избу занесло… — И.Бунин / И.Никитин; Волшебницей зимой… — П.Вяземский; Веял холод в лицо… — И.Никитин</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Снег да снег. Всю избу занесло… — И.Бунин / И.Никитин</div><div class="ans-line">Волшебницей зимой… — П.Вяземский</div><div class="ans-line">Веял холод в лицо… — И.Никитин</div></div>
-</section><div id="q-15"></div>
-<section class="slide" data-i="15">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 3 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сопоставьте<br>фрагменты из стихотворений о зиме разных писателей и имена этих писателей.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Мы живём в глубинке,<br>Далеко от города,<br>Где зимой снежинки<br>Ёжатся от холода.</li><li>Здесь тёплое поле наполнено рожью,<br>Здесь плещутся зори в ладонях лугов.<br>Сюда златокрылые ангелы Божьи<br>По лучикам света сошли с облаков.</li><li>Когда порою изменяли силы<br>И обжигала сердце горечь слёз,<br>Со мною, как сестра, ты говорила<br>Неторопливым шелестом берёз.</li></ul><p>Варианты ответов: Вс.Рождественский, П.Синявский, А.Журавлёв</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сопоставьте фрагменты из стихотворений о зиме разных писателей и имена этих писателей. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Мы живём в глубинке… — современный поэт о деревне (часто Н.Рубцов круг / Ю.Кузнецов — сверь авторов в вариантах); Здесь тёплое поле… — Н.Рубцов / Н.Тряпкин; Когда порою изменяли силы… — тема родины, часто Н.Рубцов</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Мы живём в глубинке… — современный поэт о деревне (часто Н.Рубцов круг / Ю.Кузнецов — сверь авторов в вариантах)</div><div class="ans-line">Здесь тёплое поле… — Н.Рубцов / Н.Тряпкин</div><div class="ans-line">Когда порою изменяли силы… — тема родины, часто Н.Рубцов</div></div>
-</section><div id="q-16"></div>
-<section class="slide" data-i="16">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 4 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сопоставьте<br>фрагменты из стихотворений о зиме разных писателей и имена этих писателей.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Сколько помню себя я – всегда – <br>И весною, и в дни листопада,<br>Пусть мороз, пусть жара – не беда – <br>Ты со мной, драгоценный мой, рядом.</li><li>В тебе величье моего народа,<br>Его души бескрайние поля,<br>Задумчивая русская природа,<br>Достойная красавица моя.</li><li>Там, где иней колкий,<br>Где гуляй-метелица,<br>Где зимою долгой<br>Снеговик не лепится.</li></ul><p>Варианты ответов: А.Журавлёв, А.Ванеев, Вс.Рождественский</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сопоставьте фрагменты из стихотворений о зиме разных писателей и имена этих писателей. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: соотнеси по авторам из списка задания: Рубцов, Тютчев, Есенин, Блок, Никитин — по узнаваемой строке</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">соотнеси по авторам из списка задания: Рубцов, Тютчев, Есенин, Блок, Никитин — по узнаваемой строке</div></div>
-</section><div id="q-17"></div>
-<section class="slide" data-i="17">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 5 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сопоставьте<br>фрагменты из стихотворений о зиме разных писателей и имена этих писателей.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Когда мать в колыбель<br>На ночь сына кладёт,<br>Под окном для него<br>Песни вьюга поёт.</li><li>Ах, кто не любит первый снег<br>В замёрзших руслах тихих рек,<br>В полях, в селеньях и в бору,<br>Слегка гудящем на ветру!</li><li>Палку в нос, провертели глаза<br>И надели лохматую шапку.<br>И стоит он, ребячья гроза, - <br>Вот возьмёт, вот ухватит в охапку!</li></ul><p>Варианты ответов: И.Никитин, А.Блок, Н.Рубцов</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сопоставьте фрагменты из стихотворений о зиме разных писателей и имена этих писателей. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Когда мать в колыбель… — Н.Некрасов / колыбельная вьюги; Ах, кто не любит первый снег… — И.Бунин; Палку в нос… снеговик — С.Маршак</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Когда мать в колыбель… — Н.Некрасов / колыбельная вьюги</div><div class="ans-line">Ах, кто не любит первый снег… — И.Бунин</div><div class="ans-line">Палку в нос… снеговик — С.Маршак</div></div>
-</section><div id="q-18"></div>
-<section class="slide" data-i="18">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 6 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Почему<br>свои сказки Степан Писахов вёл от имени Сени Малины?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Прототипом<br>писателя был дед Писахова, Леонтий</li><li>Это<br>вымышленный автором персонаж</li><li>Писахов<br>назвал персонажа так в честь своего друга детства</li><li>Прототипом писателя был сказитель с этим именем</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Почему свои сказки Степан Писахов вёл от имени Сени Малины? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Прототипом писателя был сказитель с этим именем</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Прототипом писателя был сказитель с этим именем</div></div>
-</section><div id="q-19"></div>
-<section class="slide" data-i="19">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 7 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">О каком писателе идёт речь в высказывании<br>В.А. Тонкова:<br>«Поэзия ________ развивалась под непосредственным и<br>сильным воздействием устно-поэтического творчества. В народном творчестве поэт<br>увидел богатейший источник для познания желаний и чаяний народа…»</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>А.Блок</li><li>И.Никитин</li><li>Н.Рубцов</li><li>Ф.Тютчев</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: О каком писателе идёт речь в высказывании В.А. Тонкова: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: И.Никитин</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">И.Никитин</div></div>
-</section><div id="q-20"></div>
-<section class="slide" data-i="20">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 8 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Перед<br>вами высказывание А. Блока о своём творчестве. Какое слово пропущено в нём?«В<br>таком виде стоит передо мной моя тема, тема о __________ … Этой теме я сознательно и бесповоротно<br>посвящаю жизнь. Всё ярче сознаю, что это – первейший вопрос, самый жизненный,<br>самый реальный».</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Поэзии</li><li>России</li><li>Природе</li><li>Любви</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Перед вами высказывание А. Блока о своём творчестве. Какое слово пропущено в нём?«В Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: России</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">России</div></div>
-</section><div id="q-21"></div>
-<section class="slide" data-i="21">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 9 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Из предложенного списка выберите пьесы,<br>созданные Е.Л. Шварцем.<br>Выберите один или несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>«Русалочка»</li><li>«Дракон»</li><li>«Новые приключения кота в сапогах»</li><li>«Тень»</li><li>«Двенадцать<br>месяцев»</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Из предложенного списка выберите пьесы, созданные Е.Л. Шварцем. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: «Дракон»; «Тень»; «Двенадцать месяцев»</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">«Дракон»</div><div class="ans-line">«Тень»</div><div class="ans-line">«Двенадцать месяцев»</div></div>
-</section><div id="q-22"></div>
-<section class="slide" data-i="22">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 10 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сюжеты каких сказок легли в основу произведения<br>Е. Шварца «Два брата»? <br>Выберите один или несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>«Морозко»</li><li>«Проказы<br>старухи-зимы»</li><li>«Снежная королева»</li><li>«Двенадцать<br>месяцев»</li><li>«Мороз<br>Иванович»</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сюжеты каких сказок легли в основу произведения Е. Шварца «Два брата»?  Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: «Снежная королева»; «Мороз Иванович»</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">«Снежная королева»</div><div class="ans-line">«Мороз Иванович»</div></div>
-</section><div id="q-23"></div>
-<section class="slide" data-i="23">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 11 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кем<br>работал отец двух братьев из одноименной сказки Е. Шварца?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Столяр</li><li>Плотник</li><li>Лесничий</li><li>Лесоруб</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кем работал отец двух братьев из одноименной сказки Е. Шварца? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Лесничий</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Лесничий</div></div>
-</section><div id="q-24"></div>
-<section class="slide" data-i="24">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 12 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">В высказывании писателя С.Г. Писахова пропущено<br>название жанра, в котором он много работал. Запишите название этого жанра (в<br>единственном числе, именительном падеже).<br>«Ответ Вопрос 12<br>не то, что писать о чём-то знаемом. Там только надо обсказать. В _______ часто<br>не знаю, как повернется узор. Сколько соблазнов!»</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В высказывании писателя С.Г. Писахова пропущено название жанра, в котором он много работал. Запишите название этого жанра (в Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: сказка</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">сказка</div></div>
-</section><div id="q-25"></div>
-<section class="slide" data-i="25">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 13 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Перед вами высказывание Н.Л. Акимова о русском<br>писателе. Укажите только фамилию этого писателя.<br>«Секрет<br>успеха сказок Ответ Вопрос 13 заключён в том, что, рассказывая о волшебниках,<br>принцессах, говорящих котах, о юноше, превращённом в медведя, он выражает наши<br>мысли о справедливости, наше представление о счастье, наши взгляды на добро и<br>зло».</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Перед вами высказывание Н.Л. Акимова о русском писателе. Укажите только фамилию этого писателя. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Шварц</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Шварц</div></div>
-</section><div id="q-26"></div>
-<section class="slide" data-i="26">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 2 Родная литература (русская) · вопрос 14 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Отрицательный<br>персонаж держал Младшего из сказки «Два брата» в ледяном зале с номером.<br>Укажите этот номер.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Отрицательный персонаж держал Младшего из сказки «Два брата» в ледяном зале с номером. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 13</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">13</div></div>
-</section><div id="q-27"></div>
-<section class="slide" data-i="27">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 1 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сопоставьте<br>названия масленичных дней и названия дней недели.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Заигрыши</li><li>Тёщины<br>вечорки</li><li>Разгуляй</li><li>Лакомка</li></ul><p>Варианты ответов: Пятница, Среда, Вторник, Четверг</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сопоставьте названия масленичных дней и названия дней недели. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Заигрыши — вторник; Лакомка — среда; Разгуляй — четверг; Тёщины вечорки — пятница</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Заигрыши — вторник</div><div class="ans-line">Лакомка — среда</div><div class="ans-line">Разгуляй — четверг</div><div class="ans-line">Тёщины вечорки — пятница</div></div>
-</section><div id="q-28"></div>
-<section class="slide" data-i="28">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 2 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сопоставьте<br>фрагменты стихотворений о Севастополе и имена их авторов.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Счастливцы!<br>Высшею пылали вы любовью:<br>Тут<br>что ни мавзолей, ни надпись – всё боец,<br>И рядом<br>улеглись, своей залиты кровью,<br>И дед<br>со внуком, и отец.</li><li>Я спою<br>вам о том, как от южных полей<br>Поднималося<br>облако пыли,<br>Как<br>сходили враги без числа с корбалей<br>И<br>пришли к нам, и нас победили.</li><li>Я был<br>убит, как адмирал Нахимов,<br>Я<br>разрывался на куски стократ<br>И был<br>зарыт в бесчисленных могилах<br>Как<br>тысячи матросов и солдат.</li></ul><p>Варианты ответов: Р.Ивнев, А.Апухтин, А.Фет</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сопоставьте фрагменты стихотворений о Севастополе и имена их авторов. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Счастливцы! Высшею пылали вы любовью… — А.Майков / Ф.Тютчев (Севастополь); Я спою вам о том, как от южных полей… — А.Ахматова / советский поэт о Крымской войне — сверь авторов в вариантах</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Счастливцы! Высшею пылали вы любовью… — А.Майков / Ф.Тютчев (Севастополь)</div><div class="ans-line">Я спою вам о том, как от южных полей… — А.Ахматова / советский поэт о Крымской войне — сверь авторов в вариантах</div></div>
-</section><div id="q-29"></div>
-<section class="slide" data-i="29">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 3 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Укажите<br>православный синоним праздника Масленицы.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Блинная<br>седмица</li><li>Прощёная<br>седмица</li><li>Сырная седмица</li><li>Весенняя<br>седмица</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Укажите православный синоним праздника Масленицы. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Сырная седмица</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Сырная седмица</div></div>
-</section><div id="q-30"></div>
-<section class="slide" data-i="30">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 4 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие дни масленичной недели носят название<br>широкой Масленицы?<br>Выберите один или несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Среда</li><li>Пятница</li><li>Суббота</li><li>Понедельник</li><li>Вторник</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие дни масленичной недели носят название широкой Масленицы? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Пятница; Суббота</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Пятница</div><div class="ans-line">Суббота</div></div>
-</section><div id="q-31"></div>
-<section class="slide" data-i="31">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 5 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какой<br>русский писатель сочинил эти строки о Ф.И. Тютчеве?<br>Он покинул Россию,<br>Казалось, на двадцать два года.<br>Но глаза понапрасну<br>по родине не моросили,<br>и ещё существует у русских такая порода: власть для них чужестранка,<br>а там, где они –там<br>Россия.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Р.Рождественский</li><li>Б.Окуджава</li><li>Е. Евтушенко</li><li>А.Вознесенский</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какой русский писатель сочинил эти строки о Ф.И. Тютчеве? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Е. Евтушенко</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Е. Евтушенко</div></div>
-</section><div id="q-32"></div>
-<section class="slide" data-i="32">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 6 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кому из героев рассказа Паустовского «Заботливый<br>цветок» принадлежат эти слова?<br>«Нет у<br>нас лучше друзей, чем растения. Да если<br>бы я умел рассказывать сказки, я бы о каждой травинке, о каждом каком-нибудь незаметном<br>маленьком лютике или колоске порассказал бы такое, что все старые добрые<br>сказочники мне бы позавидовали».</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Рассказчику</li><li>Пете</li><li>Анне<br>Петровне</li><li>Михаилу Михайловичу</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кому из героев рассказа Паустовского «Заботливый цветок» принадлежат эти слова? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Михаилу Михайловичу</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Михаилу Михайловичу</div></div>
-</section><div id="q-33"></div>
-<section class="slide" data-i="33">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 7 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какое<br>растение является главным героем рассказа К. Паустовского «Заботливый цветок»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Водокрас</li><li>Мать-и-мачеха</li><li>Лютик</li><li>Кипрей</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какое растение является главным героем рассказа К. Паустовского «Заботливый цветок»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Водокрас</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Водокрас</div></div>
-</section><div id="q-34"></div>
-<section class="slide" data-i="34">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 8 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие темы затрагиваются в рассказе Ю. Бондарева<br>«Поздним вечером»?<br>Выберите один или несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Предательство</li><li>Дружба</li><li>Зимняя непогода</li><li>Послевоенное детство</li><li>Каникулы</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие темы затрагиваются в рассказе Ю. Бондарева «Поздним вечером»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Дружба; Послевоенное детство</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Дружба</div><div class="ans-line">Послевоенное детство</div></div>
-</section><div id="q-35"></div>
-<section class="slide" data-i="35">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 9 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">В<br>память о какой войне в Севастополе установлен Памятник затопленным кораблям<br>(Памятник обороны Севастополя)?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Великая<br>Отечественная</li><li>Отечественная<br>война 1812 года</li><li>Крымская</li><li>Первая<br>Мировая</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В память о какой войне в Севастополе установлен Памятник затопленным кораблям Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Крымская</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Крымская</div></div>
-</section><div id="q-36"></div>
-<section class="slide" data-i="36">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 10 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кто из<br>русских писателей является автором знаменитого сборника «Севастопольские<br>рассказы»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Н.В.Гоголь</li><li>Л.Н.Толстой</li><li>А.С.Пушкин</li><li>И.С.Тургенев</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кто из русских писателей является автором знаменитого сборника «Севастопольские Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Л.Н.Толстой</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Л.Н.Толстой</div></div>
-</section><div id="q-37"></div>
-<section class="slide" data-i="37">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 11 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Перед вами строки стихотворения П.А. Вяземского.<br>В них пропущено название русского праздника. Укажите это название (в<br>именительном падеже).<br>Разгулялись<br>город, сёла,<br>Загулялись<br>стар и млад, - <br>Всем<br>зима родная гостья, <br>Каждый<br>масленице рад.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Перед вами строки стихотворения П.А. Вяземского. В них пропущено название русского праздника. Укажите это название (в Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Масленица</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Масленица</div></div>
-</section><div id="q-38"></div>
-<section class="slide" data-i="38">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 12 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Перед вами высказывание писателя о собственном<br>творчестве. Укажите только фамилию этого писателя.<br>«Бог<br>прислал меня на землю с даром красок. Поэтому – я художник. Я остро чувствую<br>краски и настроения дней, хотя близорук. И в людях я чувствую краски их души.<br>Пишу, и слова ложатся мазками, как краска на холст, и вся моя мысль – в этих<br>тонах, то блёклых, то густо-алых, но больше всего золотых, золотеющих,<br>насыщенных внутренней теплотой».</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Перед вами высказывание писателя о собственном творчестве. Укажите только фамилию этого писателя. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Паустовский</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Паустовский</div></div>
-</section><div id="q-39"></div>
-<section class="slide" data-i="39">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 3 Родная литература (русская) · вопрос 13 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">О каком русском писателе так говорил М.И. Чайковский<br>(брат П.И. Чайковского)? Укажите только фамилию писателя.<br>«Русская<br>природа, русские люди, русское искусство и русская история составляли для него основной,<br>можно сказать, исключительный интерес существования».</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: О каком русском писателе так говорил М.И. Чайковский (брат П.И. Чайковского)? Укажите только фамилию писателя. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Толстой</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Толстой</div></div>
-</section><div id="q-40"></div>
-<section class="slide" data-i="40">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 1 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Сопоставьте<br>названия животных, встреченных вами в рассказе Р.П. Погодина «Кирпичные острова»<br>и их описания.</div>
-  
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>Поморник</li><li>Финвал</li><li>Альбатрос</li><li>Нарвал</li></ul><p>Варианты ответов: крупная морская птица, обитающая в тропиках и субтропиках Южного полушария, редкое морское млекопитающее с длинным бивнем в верхней челюсти, хищная птица, обитающая в Арктике, кит, второе по величине животное планеты</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Сопоставьте названия животных, встреченных вами в рассказе Р.П. Погодина «Кирпичные острова» Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Поморник — птица, отнимает добычу; Финвал — кит; Альбатрос — большая морская птица; Нарвал — единорог моря, бивень</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Поморник — птица, отнимает добычу</div><div class="ans-line">Финвал — кит</div><div class="ans-line">Альбатрос — большая морская птица</div><div class="ans-line">Нарвал — единорог моря, бивень</div></div>
-</section><div id="q-41"></div>
-<section class="slide" data-i="41">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 2 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Из<br>приведенных ниже пословиц и поговорок про «русский авось» выберите те, которые<br>подчёркивают надежду русского человека на это явление.<br>Выберите один или несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Понадейся<br>на авось, и дело сорвалось.</li><li>Русский человек на трёх сваях крепок: авось, небось да как-нибудь.</li><li>На авось мужик хлеб и сеет.</li><li>Авось кривая вывезет.</li><li>От<br>авося добра не жди.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Из приведенных ниже пословиц и поговорок про «русский авось» выберите те, которые Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Русский человек на трёх сваях…; На авось мужик хлеб и сеет; Авось кривая вывезет</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Русский человек на трёх сваях…</div><div class="ans-line">На авось мужик хлеб и сеет</div><div class="ans-line">Авось кривая вывезет</div></div>
-</section><div id="q-42"></div>
-<section class="slide" data-i="42">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 3 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Из<br>приведенных ниже поговорок про «русский авось» выберите те, которые описывают<br>негативное отношение к этому явлению.<br>Выберите один или несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>На<br>авось мужик хлеб и сеет.</li><li>Понадейся на авось, и дело сорвалось.</li><li>Авось<br>кривая вывезет.</li><li>От авося добра не жди.</li><li>Русский<br>человек на трёх сваях крепок: авось, небось да как-нибудь.</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Из приведенных ниже поговорок про «русский авось» выберите те, которые описывают Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Понадейся на авось, и дело сорвалось; От авося добра не жди</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Понадейся на авось, и дело сорвалось</div><div class="ans-line">От авося добра не жди</div></div>
-</section><div id="q-43"></div>
-<section class="slide" data-i="43">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 4 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие<br>утверждения справедливы о стихотворении Ф.И. Тютчева «Чему бы жизнь нас ни<br>учила», приведенном ниже?<br>Чему бы<br>жизнь нас ни учила,<br>Но сердце верит в чудеса:<br>Есть нескудеющая сила,<br>Есть и нетленная краса.<br>И увядание<br>земное<br>Цветов не тронет неземных,<br>И от полуденного зноя<br>Роса не высохнет на них.<br>И эта<br>вера не обманет<br>Того, кто ею лишь живет,<br>Не всё, что здесь цвело, увянет,<br>Не всё, что было здесь, пройдет!<br>Но этой<br>веры для немногих<br>Лишь тем доступна благодать,<br>Кто в искушеньях жизни строгих,<br>Как вы, умел, любя, страдать.<br>Чужие врачевать недуги<br>Своим страданием умел,<br>Кто душу положил за други<br>И до конца всё претерпел.<br>Выберите один или<br>несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Есть вечные явления</li><li>В чудеса верит тот, кто много страдал</li><li>В чудеса верит тот, кто помогал другим</li><li>Всё когда-нибудь исчезнет</li><li>Каждый верит в чудеса</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие утверждения справедливы о стихотворении Ф.И. Тютчева «Чему бы жизнь нас ни Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Есть вечные явления</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Есть вечные явления</div></div>
-</section><div id="q-44"></div>
-<section class="slide" data-i="44">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 5 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">За<br>продажу какого животного можно, по поверью, получить неразменный рубль (в<br>одноименном рассказе Н.С. Лескова)?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Черной<br>лошади</li><li>Черной кошки</li><li>Черной<br>собаки</li><li>Черного<br>петуха</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: За продажу какого животного можно, по поверью, получить неразменный рубль (в Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Черной кошки</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Черной кошки</div></div>
-</section><div id="q-45"></div>
-<section class="slide" data-i="45">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 6 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">На<br>что потратил деньги в своём сне главный герой рассказа Н.С. Лескова «Неразменный<br>рубль».<br>Выберите один или несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>На<br>пряники для бедных детей</li><li>На<br>балалайку для башмачника</li><li>На Псалтырь для скотницы</li><li>На свистульки для бедных детей</li><li>На запонки для ключницыной дочери</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: На что потратил деньги в своём сне главный герой рассказа Н.С. Лескова «Неразменный Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: На пряники для бедных детей; На Псалтырь для скотницы; На запонки для ключницыной дочери</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">На пряники для бедных детей</div><div class="ans-line">На Псалтырь для скотницы</div><div class="ans-line">На запонки для ключницыной дочери</div></div>
-</section><div id="q-46"></div>
-<section class="slide" data-i="46">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 7 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Что,<br>по мнению бабушки рассказчика, является неразменным рублём в одноименном<br>рассказе Н.С. Лескова?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Ловкость<br>рук</li><li>Особая<br>волшебная монета</li><li>Дела для счастья ближних</li><li>Дела<br>для собственного счастья</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Что, по мнению бабушки рассказчика, является неразменным рублём в одноименном Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Дела для счастья ближних</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Дела для счастья ближних</div></div>
-</section><div id="q-47"></div>
-<section class="slide" data-i="47">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 8 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие<br>темы затрагиваются в рассказе В. Астафьева «Бабушка с малиной»?<br>Выберите один или несколько ответов.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Тема<br>красоты природы</li><li>Тема человеческой доброты</li><li>Тема<br>семейной взаимопомощи</li><li>Тема человеческой изобретательности</li><li>Тема одинокой старости</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие темы затрагиваются в рассказе В. Астафьева «Бабушка с малиной»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Тема человеческой доброты; Тема одинокой старости; Тема красоты природы</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Тема человеческой доброты</div><div class="ans-line">Тема одинокой старости</div><div class="ans-line">Тема красоты природы</div></div>
-</section><div id="q-48"></div>
-<section class="slide" data-i="48">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 9 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кем<br>был по профессии старик, встреченный Симой и Кешкой на Кирпичных островах в<br>одноименном произведении Р.П. Погодина?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Инженер</li><li>Учитель</li><li>Моряк</li><li>Военный</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кем был по профессии старик, встреченный Симой и Кешкой на Кирпичных островах в Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Моряк</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Моряк</div></div>
-</section><div id="q-49"></div>
-<section class="slide" data-i="49">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 10 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Перед<br>вами высказывание Д.С. Лихачева о знаменитом русском писателе XIX века.<br>Фамилия писателя пропущена. Укажите её.<br>«Ответ Вопрос 10<br>удивительно русский писатель, так как он связан своим мастерством с русским<br>бытом и писал он о том, что русские люди действительно любили».</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Перед вами высказывание Д.С. Лихачева о знаменитом русском писателе XIX века. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Лесков</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Лесков</div></div>
-</section><div id="q-50"></div>
-<section class="slide" data-i="50">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 11 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">В<br>стихотворении «Чему бы жизнь нас ни учила» Ф.И. Тютчев использует прием,<br>характеризующийся повторением слова или группы слов в начале нескольких фраз<br>или строф. Укажите название этого приёма.</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В стихотворении «Чему бы жизнь нас ни учила» Ф.И. Тютчев использует прием, Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: анафора</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">анафора</div></div>
-</section><div id="q-51"></div>
-<section class="slide" data-i="51">
-  <div class="themebar" style="background:#6b4c9a">📚 Родная литература</div>
-  <div class="top">родная литература · Тест 4 Родная литература (русская) · вопрос 12 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Перед<br>вами фрагмент стихотворения «Русский язык» знаменитого русского писателя конца XIX –<br>начала XX вв. Укажите только фамилию этого писателя.<br>Подснежник наш всегда прорвёт свой снег. <br>В размах грозы сцепляются зарницы.<br>К Царь-Граду не ходил ли наш Олег?<br>Не<br>звал ли в полночь нас полёт Жар-птицы?</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Перед вами фрагмент стихотворения «Русский язык» знаменитого русского писателя конца XIX – Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Блок</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Блок</div></div>
-</section>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Слова какого русского богатыря перед вами?<br>«Моё<br>богатство – сила богатырская, моё дело – родине служить да от врагов её<br>оборонять».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Илья Муромец</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Алёша<br>Попович</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Святогор</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Добрыня<br>Никитич</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Илья Муромец</div></div>
+      <p class="why">потому что Слова какого русского богатыря перед вами? «Моё богатство – сила богатырская, моё дело – родине служить да от врагов её оборонять» = Илья Муромец.</p>
+    </div>
+  </div>
 </div>
-<script>
-const slides = [...document.querySelectorAll('.slide')];
-let i = 0;
-const show = (n) => {
-  i = Math.max(0, Math.min(slides.length-1, n));
-  slides.forEach((s, k) => s.style.display = k===i ? 'block' : 'none');
-  document.getElementById('pos').textContent = (i+1) + ' / ' + slides.length;
-  slides[i].scrollIntoView({block:'start'});
-};
-document.getElementById('prev').onclick = () => show(i-1);
-document.getElementById('next').onclick = () => show(i+1);
-document.getElementById('all').onclick = () => slides.forEach(s => s.style.display='block');
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight' || e.key === 'PageDown') show(i+1);
-  if (e.key === 'ArrowLeft' || e.key === 'PageUp') show(i-1);
-});
-show(0);
-</script>
-</body></html>
+<div class="que multichoice deferredfeedback" id="q-2">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Описание какого русского богатыря перед вами?<br>«А богатырь сидел да во косу сажень.<br>Он<br>едет в поле, спотешается,<br>Он<br>бросает палицу булатную<br>Выше<br>лесушку стоячего,<br>Ниже<br>облака да ходячего, улетает эта палица<br>Высоко<br>да по поднебесью».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Святогор</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Илья<br>Муромец</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Добрыня<br>Никитич</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Алёша<br>Попович</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Святогор</div></div>
+      <p class="why">потому что Святогор.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-3">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Из предложенного списка выберите черты,<br>характерные для былины.<br>Выберите один или несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>В былине рифма отсутствует</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Основная<br>задача былины – высмеивание пороков общества</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Былина близка к песне</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>В<br>былине есть рифма</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Былина характерна разговорными интонациями</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">В былине рифма отсутствует</div><div class="ans-line">Былина близка к песне</div></div>
+      <p class="why">потому что В былине рифма отсутствует; Былина близка к песне.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-4">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Игрой<br>на каком музыкальном инструменте в древности сопровождалось пение былин?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Дудка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Балалайка</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Скрипка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Гусли</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Гусли</div></div>
+      <p class="why">потому что Игрой на каком музыкальном инструменте в древности сопровождалось пение былин = Гусли.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-5">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какому русскому писателю принадлежат эти строки<br>о богатырях Илье Муромце и Святогоре?<br>«Кинул<br>биться Илья – божья воля.<br>Едет<br>прочь вдоль широкого поля,<br>Утирает<br>слезу… Отняла<br>Русской<br>силы Земля половину:<br>Выезжай<br>на иную путину, <br>На<br>иные дела!»</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>А.Пушкин</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>А.Блок</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>И.Бунин</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Б.Пастернак</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">А.Блок</div></div>
+      <p class="why">потому что А.Блок.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-6">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Чем<br>обычно занимался Григорий Андрианов, певец былин из одноименного очерка<br>М. Пришвина?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Разводил<br>пчёл</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Лепил<br>горшки</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Пас<br>коров</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Плёл неводы</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Плёл неводы</div></div>
+      <p class="why">потому что Чем обычно занимался Григорий Андрианов, певец былин из одноименного очерка М. Пришвина = Плёл неводы.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-7">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кто из<br>былинных героев в очерке «Певец былин» окаменел?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Святогор</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Добрыня<br>Никитич</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Алёша<br>Попович</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Илья Муромец</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Святогор</div></div>
+      <p class="why">потому что Кто из былинных героев в очерке «Певец былин» окаменел = Святогор.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-8">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кто из<br>былинных героев в очерке «Певец былин» зацепился скобой за камень?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Алёша<br>Попович</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Илья<br>Муромец</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Святогор</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Добрыня Никитич</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Илья Муромец</div></div>
+      <p class="why">потому что Кто из былинных героев в очерке «Певец былин» зацепился скобой за камень = Илья Муромец.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-9">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Из предложенного списка выберите верные<br>высказывания о былинах.<br>Выберите один или несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Былины<br>сразу после создания записывались</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>В былинах описываются фантастические события</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Персонажи<br>былин целиком вымышленные</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>В<br>былинах описываются только реальные события</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>У персонажей былин существовали реальные прототипы</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">В былинах описываются фантастические события</div><div class="ans-line">У персонажей былин существовали реальные прототипы</div></div>
+      <p class="why">потому что В былинах описываются фантастические события; У персонажей былин существовали реальные прототипы.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-10">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">О каком русском писателе идёт речь в этих<br>строках?<br>«Как<br>архангельский мужик,<br>По<br>своей и Божьей воле,<br>Стал<br>разумен и велик».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>В.К.Тредиаковский</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Г.Р.Державин</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>М.В.Ломоносов</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Н.М.Карамзин</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">М.В.Ломоносов</div></div>
+      <p class="why">потому что О каком русском писателе идёт речь в этих строках? «Как архангельский мужик, По своей и Божьей воле, Стал разумен и велик» = М.В.Ломоносов.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-11">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В приведенном высказывании Д.С. Лихачёва<br>пропущено название русского фольклорного жанра. Укажите его (в единственном<br>числе, именительном падеже).<br>«События<br>Ответ Вопрос 11, в отличие от событий сказок, воспринимаются как события русской<br>истории, они отнесены к условной русской старине».</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">былина</div></div>
+      <p class="why">потому что былина.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-12">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">О каком городе идет речь в высказывании<br>Ю.П. Казакова? (запишите название города в именительном падеже)<br>«Именно<br>в Ответ Вопрос 12 проходила та вещая черта, которая отделяла всё знакомое,<br>испытанное от необычайного, известного нам, людям средней России, только по<br>былинам, по сказам».</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Архангельск</div></div>
+      <p class="why">потому что Архангельск.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 2 Родная литература (русская)</h3>
+<div class="que match deferredfeedback" id="q-13">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сопоставьте<br>фрагменты из стихотворений о зиме разных писателей и имена этих писателей.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: Ф.Тютчев; Н.Рубцов; А.Блок</div><table class="answer match"><tr class="r0"><td class="text">Прочь от дома на снежный просторНа салазках они покатили.<br>Оглашается криками двор –Великана из снега слепили!</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Ф.Тютчев</option><option>Н.Рубцов</option><option>А.Блок</option></select></td></tr><tr class="r1"><td class="text">В деревне празднуют дожинки<br>И на гармонь летят снежинки.<br>И весь в светящемся снегу,<br>Лось замирает на бегу<br>На отдаленном берегу.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Ф.Тютчев</option><option>Н.Рубцов</option><option>А.Блок</option></select></td></tr><tr class="r0"><td class="text">Чародейкою Зимою <br>Околдован лес стоит – <br>И под снежной бахромою,<br>Неподвижною, немою,<br>Чудной жизнью он блестит.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Ф.Тютчев</option><option>Н.Рубцов</option><option>А.Блок</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Прочь от дома на снежный простор… — С.Маршак / З.Александрова (лепка снеговика)</div><div class="ans-line">В деревне празднуют дожинки… — Н.Рубцов</div><div class="ans-line">Чародейкою Зимою… — Ф.Тютчев</div></div>
+      <p class="why">потому что Прочь от дома на снежный простор… — это С.Маршак / З.Александрова (лепка снеговика); В деревне празднуют дожинки… — это Н.Рубцов; Чародейкою Зимою… — это Ф.Тютчев.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-14">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сопоставьте<br>фрагменты из стихотворений о зиме разных писателей и имена этих писателей.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: А.Блок; П.Вяземский; И.Никитин</div><table class="answer match"><tr class="r0"><td class="text">Снег да снег. Всю избу занесло.<br>Снег белеет кругом по колено.<br>Так морозно, светло и бело!<br>Только чёрные, чёрные стены…</td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Блок</option><option>П.Вяземский</option><option>И.Никитин</option></select></td></tr><tr class="r1"><td class="text">Волшебницей зимой весь мир преобразован;<br>Цепями льдистыми покорный пруд окован<br>И синим зеркалом сравнялся в берегах</td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Блок</option><option>П.Вяземский</option><option>И.Никитин</option></select></td></tr><tr class="r0"><td class="text">Веял холод в лицо<br>От угрюмых небес,<br>И, Бог знает о чём,<br>Плакал сумрачный лес.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Блок</option><option>П.Вяземский</option><option>И.Никитин</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Снег да снег. Всю избу занесло… — И.Бунин / И.Никитин</div><div class="ans-line">Волшебницей зимой… — П.Вяземский</div><div class="ans-line">Веял холод в лицо… — И.Никитин</div></div>
+      <p class="why">потому что Снег да снег. Всю избу занесло… — это И.Бунин / И.Никитин; Волшебницей зимой… — это П.Вяземский; Веял холод в лицо… — это И.Никитин.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-15">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сопоставьте<br>фрагменты из стихотворений о зиме разных писателей и имена этих писателей.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: Вс.Рождественский; П.Синявский; А.Журавлёв</div><table class="answer match"><tr class="r0"><td class="text">Мы живём в глубинке,<br>Далеко от города,<br>Где зимой снежинки<br>Ёжатся от холода.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Вс.Рождественский</option><option>П.Синявский</option><option>А.Журавлёв</option></select></td></tr><tr class="r1"><td class="text">Здесь тёплое поле наполнено рожью,<br>Здесь плещутся зори в ладонях лугов.<br>Сюда златокрылые ангелы Божьи<br>По лучикам света сошли с облаков.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Вс.Рождественский</option><option>П.Синявский</option><option>А.Журавлёв</option></select></td></tr><tr class="r0"><td class="text">Когда порою изменяли силы<br>И обжигала сердце горечь слёз,<br>Со мною, как сестра, ты говорила<br>Неторопливым шелестом берёз.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Вс.Рождественский</option><option>П.Синявский</option><option>А.Журавлёв</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Мы живём в глубинке… — современный поэт о деревне (часто Н.Рубцов круг / Ю.Кузнецов — сверь авторов в вариантах)</div><div class="ans-line">Здесь тёплое поле… — Н.Рубцов / Н.Тряпкин</div><div class="ans-line">Когда порою изменяли силы… — тема родины, часто Н.Рубцов</div></div>
+      <p class="why">потому что Мы живём в глубинке… — это современный поэт о деревне (часто Н.Рубцов круг / Ю.Кузнецов — сверь авторов в вариантах); Здесь тёплое поле… — это Н.Рубцов / Н.Тряпкин; Когда порою изменяли силы… — это тема родины, часто Н.Рубцов.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-16">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сопоставьте<br>фрагменты из стихотворений о зиме разных писателей и имена этих писателей.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: А.Журавлёв; А.Ванеев; Вс.Рождественский</div><table class="answer match"><tr class="r0"><td class="text">Сколько помню себя я – всегда – <br>И весною, и в дни листопада,<br>Пусть мороз, пусть жара – не беда – <br>Ты со мной, драгоценный мой, рядом.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Журавлёв</option><option>А.Ванеев</option><option>Вс.Рождественский</option></select></td></tr><tr class="r1"><td class="text">В тебе величье моего народа,<br>Его души бескрайние поля,<br>Задумчивая русская природа,<br>Достойная красавица моя.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Журавлёв</option><option>А.Ванеев</option><option>Вс.Рождественский</option></select></td></tr><tr class="r0"><td class="text">Там, где иней колкий,<br>Где гуляй-метелица,<br>Где зимою долгой<br>Снеговик не лепится.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Журавлёв</option><option>А.Ванеев</option><option>Вс.Рождественский</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">соотнеси по авторам из списка задания: Рубцов, Тютчев, Есенин, Блок, Никитин — по узнаваемой строке</div></div>
+      <p class="why">потому что соотнеси по авторам из списка задания: Рубцов, Тютчев, Есенин, Блок, Никитин — это по узнаваемой строке.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-17">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сопоставьте<br>фрагменты из стихотворений о зиме разных писателей и имена этих писателей.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: И.Никитин; А.Блок; Н.Рубцов</div><table class="answer match"><tr class="r0"><td class="text">Когда мать в колыбель<br>На ночь сына кладёт,<br>Под окном для него<br>Песни вьюга поёт.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>И.Никитин</option><option>А.Блок</option><option>Н.Рубцов</option></select></td></tr><tr class="r1"><td class="text">Ах, кто не любит первый снег<br>В замёрзших руслах тихих рек,<br>В полях, в селеньях и в бору,<br>Слегка гудящем на ветру!</td><td><select class="custom-select" disabled><option>Выберите...</option><option>И.Никитин</option><option>А.Блок</option><option>Н.Рубцов</option></select></td></tr><tr class="r0"><td class="text">Палку в нос, провертели глаза<br>И надели лохматую шапку.<br>И стоит он, ребячья гроза, - <br>Вот возьмёт, вот ухватит в охапку!</td><td><select class="custom-select" disabled><option>Выберите...</option><option>И.Никитин</option><option>А.Блок</option><option>Н.Рубцов</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Когда мать в колыбель… — Н.Некрасов / колыбельная вьюги</div><div class="ans-line">Ах, кто не любит первый снег… — И.Бунин</div><div class="ans-line">Палку в нос… снеговик — С.Маршак</div></div>
+      <p class="why">потому что Когда мать в колыбель… — это Н.Некрасов / колыбельная вьюги; Ах, кто не любит первый снег… — это И.Бунин; Палку в нос… снеговик — это С.Маршак.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-18">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Почему<br>свои сказки Степан Писахов вёл от имени Сени Малины?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Прототипом<br>писателя был дед Писахова, Леонтий</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Это<br>вымышленный автором персонаж</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Писахов<br>назвал персонажа так в честь своего друга детства</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Прототипом писателя был сказитель с этим именем</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Прототипом писателя был сказитель с этим именем</div></div>
+      <p class="why">потому что Почему свои сказки Степан Писахов вёл от имени Сени Малины = Прототипом писателя был сказитель с этим именем.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-19">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">О каком писателе идёт речь в высказывании<br>В.А. Тонкова:<br>«Поэзия ________ развивалась под непосредственным и<br>сильным воздействием устно-поэтического творчества. В народном творчестве поэт<br>увидел богатейший источник для познания желаний и чаяний народа…»</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>А.Блок</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>И.Никитин</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Н.Рубцов</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Ф.Тютчев</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">И.Никитин</div></div>
+      <p class="why">потому что И.Никитин.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-20">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Перед<br>вами высказывание А. Блока о своём творчестве. Какое слово пропущено в нём?«В<br>таком виде стоит передо мной моя тема, тема о __________ … Этой теме я сознательно и бесповоротно<br>посвящаю жизнь. Всё ярче сознаю, что это – первейший вопрос, самый жизненный,<br>самый реальный».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Поэзии</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>России</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Природе</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Любви</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">России</div></div>
+      <p class="why">потому что России.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-21">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Из предложенного списка выберите пьесы,<br>созданные Е.Л. Шварцем.<br>Выберите один или несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>«Русалочка»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>«Дракон»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>«Новые приключения кота в сапогах»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>«Тень»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>«Двенадцать<br>месяцев»</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">«Дракон»</div><div class="ans-line">«Тень»</div><div class="ans-line">«Двенадцать месяцев»</div></div>
+      <p class="why">потому что «Дракон»; «Тень»; «Двенадцать месяцев».</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-22">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сюжеты каких сказок легли в основу произведения<br>Е. Шварца «Два брата»? <br>Выберите один или несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>«Морозко»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>«Проказы<br>старухи-зимы»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>«Снежная королева»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>«Двенадцать<br>месяцев»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>«Мороз<br>Иванович»</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">«Снежная королева»</div><div class="ans-line">«Мороз Иванович»</div></div>
+      <p class="why">потому что «Снежная королева»; «Мороз Иванович».</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-23">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кем<br>работал отец двух братьев из одноименной сказки Е. Шварца?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Столяр</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Плотник</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Лесничий</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Лесоруб</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Лесничий</div></div>
+      <p class="why">потому что Кем работал отец двух братьев из одноименной сказки Е. Шварца = Лесничий.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-24">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В высказывании писателя С.Г. Писахова пропущено<br>название жанра, в котором он много работал. Запишите название этого жанра (в<br>единственном числе, именительном падеже).<br>«Ответ Вопрос 12<br>не то, что писать о чём-то знаемом. Там только надо обсказать. В _______ часто<br>не знаю, как повернется узор. Сколько соблазнов!»</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">сказка</div></div>
+      <p class="why">потому что сказка.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-25">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Перед вами высказывание Н.Л. Акимова о русском<br>писателе. Укажите только фамилию этого писателя.<br>«Секрет<br>успеха сказок Ответ Вопрос 13 заключён в том, что, рассказывая о волшебниках,<br>принцессах, говорящих котах, о юноше, превращённом в медведя, он выражает наши<br>мысли о справедливости, наше представление о счастье, наши взгляды на добро и<br>зло».</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Шварц</div></div>
+      <p class="why">потому что Шварц.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-26">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Отрицательный<br>персонаж держал Младшего из сказки «Два брата» в ледяном зале с номером.<br>Укажите этот номер.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">13</div></div>
+      <p class="why">потому что Отрицательный персонаж держал Младшего из сказки «Два брата» в ледяном зале с номером. Укажите этот номер = 13.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 3 Родная литература (русская)</h3>
+<div class="que match deferredfeedback" id="q-27">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сопоставьте<br>названия масленичных дней и названия дней недели.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: Пятница; Среда; Вторник; Четверг</div><table class="answer match"><tr class="r0"><td class="text">Заигрыши</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Пятница</option><option>Среда</option><option>Вторник</option><option>Четверг</option></select></td></tr><tr class="r1"><td class="text">Тёщины<br>вечорки</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Пятница</option><option>Среда</option><option>Вторник</option><option>Четверг</option></select></td></tr><tr class="r0"><td class="text">Разгуляй</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Пятница</option><option>Среда</option><option>Вторник</option><option>Четверг</option></select></td></tr><tr class="r1"><td class="text">Лакомка</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Пятница</option><option>Среда</option><option>Вторник</option><option>Четверг</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Заигрыши — вторник</div><div class="ans-line">Лакомка — среда</div><div class="ans-line">Разгуляй — четверг</div><div class="ans-line">Тёщины вечорки — пятница</div></div>
+      <p class="why">потому что Заигрыши — это вторник; Лакомка — это среда; Разгуляй — это четверг; Тёщины вечорки — это пятница.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-28">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сопоставьте<br>фрагменты стихотворений о Севастополе и имена их авторов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: Р.Ивнев; А.Апухтин; А.Фет</div><table class="answer match"><tr class="r0"><td class="text">Счастливцы!<br>Высшею пылали вы любовью:<br>Тут<br>что ни мавзолей, ни надпись – всё боец,<br>И рядом<br>улеглись, своей залиты кровью,<br>И дед<br>со внуком, и отец.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Р.Ивнев</option><option>А.Апухтин</option><option>А.Фет</option></select></td></tr><tr class="r1"><td class="text">Я спою<br>вам о том, как от южных полей<br>Поднималося<br>облако пыли,<br>Как<br>сходили враги без числа с корбалей<br>И<br>пришли к нам, и нас победили.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Р.Ивнев</option><option>А.Апухтин</option><option>А.Фет</option></select></td></tr><tr class="r0"><td class="text">Я был<br>убит, как адмирал Нахимов,<br>Я<br>разрывался на куски стократ<br>И был<br>зарыт в бесчисленных могилах<br>Как<br>тысячи матросов и солдат.</td><td><select class="custom-select" disabled><option>Выберите...</option><option>Р.Ивнев</option><option>А.Апухтин</option><option>А.Фет</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Счастливцы! Высшею пылали вы любовью… — А.Майков / Ф.Тютчев (Севастополь)</div><div class="ans-line">Я спою вам о том, как от южных полей… — А.Ахматова / советский поэт о Крымской войне — сверь авторов в вариантах</div></div>
+      <p class="why">потому что Счастливцы! Высшею пылали вы любовью… — это А.Майков / Ф.Тютчев (Севастополь); Я спою вам о том, как от южных полей… — это А.Ахматова / советский поэт о Крымской войне — сверь авторов в вариантах.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-29">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Укажите<br>православный синоним праздника Масленицы.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Блинная<br>седмица</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Прощёная<br>седмица</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Сырная седмица</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Весенняя<br>седмица</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Сырная седмица</div></div>
+      <p class="why">потому что православный синоним праздника Масленицы = Сырная седмица.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-30">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие дни масленичной недели носят название<br>широкой Масленицы?<br>Выберите один или несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Среда</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Пятница</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Суббота</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Понедельник</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Вторник</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Пятница</div><div class="ans-line">Суббота</div></div>
+      <p class="why">потому что Пятница; Суббота.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-31">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какой<br>русский писатель сочинил эти строки о Ф.И. Тютчеве?<br>Он покинул Россию,<br>Казалось, на двадцать два года.<br>Но глаза понапрасну<br>по родине не моросили,<br>и ещё существует у русских такая порода: власть для них чужестранка,<br>а там, где они –там<br>Россия.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Р.Рождественский</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Б.Окуджава</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>Е. Евтушенко</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>А.Вознесенский</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Е. Евтушенко</div></div>
+      <p class="why">потому что Е. Евтушенко.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-32">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кому из героев рассказа Паустовского «Заботливый<br>цветок» принадлежат эти слова?<br>«Нет у<br>нас лучше друзей, чем растения. Да если<br>бы я умел рассказывать сказки, я бы о каждой травинке, о каждом каком-нибудь незаметном<br>маленьком лютике или колоске порассказал бы такое, что все старые добрые<br>сказочники мне бы позавидовали».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Рассказчику</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Пете</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Анне<br>Петровне</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Михаилу Михайловичу</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Михаилу Михайловичу</div></div>
+      <p class="why">потому что Михаилу Михайловичу.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-33">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какое<br>растение является главным героем рассказа К. Паустовского «Заботливый цветок»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Водокрас</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Мать-и-мачеха</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Лютик</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Кипрей</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Водокрас</div></div>
+      <p class="why">потому что Какое растение является главным героем рассказа К. Паустовского «Заботливый цветок» = Водокрас.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-34">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие темы затрагиваются в рассказе Ю. Бондарева<br>«Поздним вечером»?<br>Выберите один или несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Предательство</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Дружба</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Зимняя непогода</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Послевоенное детство</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Каникулы</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Дружба</div><div class="ans-line">Послевоенное детство</div></div>
+      <p class="why">потому что Дружба; Послевоенное детство.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-35">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В<br>память о какой войне в Севастополе установлен Памятник затопленным кораблям<br>(Памятник обороны Севастополя)?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Великая<br>Отечественная</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Отечественная<br>война 1812 года</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Крымская</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Первая<br>Мировая</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Крымская</div></div>
+      <p class="why">потому что В память о какой войне в Севастополе установлен Памятник затопленным кораблям (Памятник обороны Севастополя) = Крымская.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-36">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кто из<br>русских писателей является автором знаменитого сборника «Севастопольские<br>рассказы»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Н.В.Гоголь</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Л.Н.Толстой</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>А.С.Пушкин</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>И.С.Тургенев</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Л.Н.Толстой</div></div>
+      <p class="why">потому что Кто из русских писателей является автором знаменитого сборника «Севастопольские рассказы» = Л.Н.Толстой.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-37">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Перед вами строки стихотворения П.А. Вяземского.<br>В них пропущено название русского праздника. Укажите это название (в<br>именительном падеже).<br>Разгулялись<br>город, сёла,<br>Загулялись<br>стар и млад, - <br>Всем<br>зима родная гостья, <br>Каждый<br>масленице рад.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Масленица</div></div>
+      <p class="why">потому что Масленица.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-38">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Перед вами высказывание писателя о собственном<br>творчестве. Укажите только фамилию этого писателя.<br>«Бог<br>прислал меня на землю с даром красок. Поэтому – я художник. Я остро чувствую<br>краски и настроения дней, хотя близорук. И в людях я чувствую краски их души.<br>Пишу, и слова ложатся мазками, как краска на холст, и вся моя мысль – в этих<br>тонах, то блёклых, то густо-алых, но больше всего золотых, золотеющих,<br>насыщенных внутренней теплотой».</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Паустовский</div></div>
+      <p class="why">потому что Паустовский.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-39">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">О каком русском писателе так говорил М.И. Чайковский<br>(брат П.И. Чайковского)? Укажите только фамилию писателя.<br>«Русская<br>природа, русские люди, русское искусство и русская история составляли для него основной,<br>можно сказать, исключительный интерес существования».</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Толстой</div></div>
+      <p class="why">потому что Толстой.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 4 Родная литература (русская)</h3>
+<div class="que match deferredfeedback" id="q-40">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Сопоставьте<br>названия животных, встреченных вами в рассказе Р.П. Погодина «Кирпичные острова»<br>и их описания.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Варианты: крупная морская птица, обитающая в тропиках и субтропиках Южного полушария; редкое морское млекопитающее с длинным бивнем в верхней челюсти; хищная птица, обитающая в Арктике; кит, второе по величине животное планеты</div><table class="answer match"><tr class="r0"><td class="text">Поморник</td><td><select class="custom-select" disabled><option>Выберите...</option><option>крупная морская птица, обитающая в тропиках и субтропиках Южного полушария</option><option>редкое морское млекопитающее с длинным бивнем в верхней челюсти</option><option>хищная птица, обитающая в Арктике</option><option>кит, второе по величине животное планеты</option></select></td></tr><tr class="r1"><td class="text">Финвал</td><td><select class="custom-select" disabled><option>Выберите...</option><option>крупная морская птица, обитающая в тропиках и субтропиках Южного полушария</option><option>редкое морское млекопитающее с длинным бивнем в верхней челюсти</option><option>хищная птица, обитающая в Арктике</option><option>кит, второе по величине животное планеты</option></select></td></tr><tr class="r0"><td class="text">Альбатрос</td><td><select class="custom-select" disabled><option>Выберите...</option><option>крупная морская птица, обитающая в тропиках и субтропиках Южного полушария</option><option>редкое морское млекопитающее с длинным бивнем в верхней челюсти</option><option>хищная птица, обитающая в Арктике</option><option>кит, второе по величине животное планеты</option></select></td></tr><tr class="r1"><td class="text">Нарвал</td><td><select class="custom-select" disabled><option>Выберите...</option><option>крупная морская птица, обитающая в тропиках и субтропиках Южного полушария</option><option>редкое морское млекопитающее с длинным бивнем в верхней челюсти</option><option>хищная птица, обитающая в Арктике</option><option>кит, второе по величине животное планеты</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Поморник — птица, отнимает добычу</div><div class="ans-line">Финвал — кит</div><div class="ans-line">Альбатрос — большая морская птица</div><div class="ans-line">Нарвал — единорог моря, бивень</div></div>
+      <p class="why">потому что Поморник — это птица, отнимает добычу; Финвал — это кит; Альбатрос — это большая морская птица; Нарвал — это единорог моря, бивень.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-41">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Из<br>приведенных ниже пословиц и поговорок про «русский авось» выберите те, которые<br>подчёркивают надежду русского человека на это явление.<br>Выберите один или несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Понадейся<br>на авось, и дело сорвалось.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Русский человек на трёх сваях крепок: авось, небось да как-нибудь.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>На авось мужик хлеб и сеет.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Авось кривая вывезет.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>От<br>авося добра не жди.</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Русский человек на трёх сваях…</div><div class="ans-line">На авось мужик хлеб и сеет</div><div class="ans-line">Авось кривая вывезет</div></div>
+      <p class="why">потому что Русский человек на трёх сваях…; На авось мужик хлеб и сеет; Авось кривая вывезет.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-42">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Из<br>приведенных ниже поговорок про «русский авось» выберите те, которые описывают<br>негативное отношение к этому явлению.<br>Выберите один или несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>На<br>авось мужик хлеб и сеет.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Понадейся на авось, и дело сорвалось.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Авось<br>кривая вывезет.</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>От авося добра не жди.</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Русский<br>человек на трёх сваях крепок: авось, небось да как-нибудь.</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Понадейся на авось, и дело сорвалось</div><div class="ans-line">От авося добра не жди</div></div>
+      <p class="why">потому что Понадейся на авось, и дело сорвалось; От авося добра не жди.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-43">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие<br>утверждения справедливы о стихотворении Ф.И. Тютчева «Чему бы жизнь нас ни<br>учила», приведенном ниже?<br>Чему бы<br>жизнь нас ни учила,<br>Но сердце верит в чудеса:<br>Есть нескудеющая сила,<br>Есть и нетленная краса.<br>И увядание<br>земное<br>Цветов не тронет неземных,<br>И от полуденного зноя<br>Роса не высохнет на них.<br>И эта<br>вера не обманет<br>Того, кто ею лишь живет,<br>Не всё, что здесь цвело, увянет,<br>Не всё, что было здесь, пройдет!<br>Но этой<br>веры для немногих<br>Лишь тем доступна благодать,<br>Кто в искушеньях жизни строгих,<br>Как вы, умел, любя, страдать.<br>Чужие врачевать недуги<br>Своим страданием умел,<br>Кто душу положил за други<br>И до конца всё претерпел.<br>Выберите один или<br>несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Есть вечные явления</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>В чудеса верит тот, кто много страдал</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>В чудеса верит тот, кто помогал другим</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Всё когда-нибудь исчезнет</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Каждый верит в чудеса</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Есть вечные явления</div></div>
+      <p class="why">потому что Есть вечные явления.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-44">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">За<br>продажу какого животного можно, по поверью, получить неразменный рубль (в<br>одноименном рассказе Н.С. Лескова)?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Черной<br>лошади</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Черной кошки</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Черной<br>собаки</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Черного<br>петуха</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Черной кошки</div></div>
+      <p class="why">потому что За продажу какого животного можно, по поверью, получить неразменный рубль (в одноименном рассказе Н.С. Лескова) = Черной кошки.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-45">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">На<br>что потратил деньги в своём сне главный герой рассказа Н.С. Лескова «Неразменный<br>рубль».<br>Выберите один или несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>На<br>пряники для бедных детей</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>На<br>балалайку для башмачника</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>На Псалтырь для скотницы</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>На свистульки для бедных детей</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>На запонки для ключницыной дочери</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">На пряники для бедных детей</div><div class="ans-line">На Псалтырь для скотницы</div><div class="ans-line">На запонки для ключницыной дочери</div></div>
+      <p class="why">потому что На пряники для бедных детей; На Псалтырь для скотницы; На запонки для ключницыной дочери.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-46">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Что,<br>по мнению бабушки рассказчика, является неразменным рублём в одноименном<br>рассказе Н.С. Лескова?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Ловкость<br>рук</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Особая<br>волшебная монета</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Дела для счастья ближних</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Дела<br>для собственного счастья</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Дела для счастья ближних</div></div>
+      <p class="why">потому что Что, по мнению бабушки рассказчика, является неразменным рублём в одноименном рассказе Н.С. Лескова = Дела для счастья ближних.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-47">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие<br>темы затрагиваются в рассказе В. Астафьева «Бабушка с малиной»?<br>Выберите один или несколько ответов.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Тема<br>красоты природы</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Тема человеческой доброты</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Тема<br>семейной взаимопомощи</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Тема человеческой изобретательности</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>Тема одинокой старости</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Тема человеческой доброты</div><div class="ans-line">Тема одинокой старости</div><div class="ans-line">Тема красоты природы</div></div>
+      <p class="why">потому что Тема человеческой доброты; Тема одинокой старости; Тема красоты природы.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-48">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кем<br>был по профессии старик, встреченный Симой и Кешкой на Кирпичных островах в<br>одноименном произведении Р.П. Погодина?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Инженер</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Учитель</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Моряк</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Военный</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Моряк</div></div>
+      <p class="why">потому что Кем был по профессии старик, встреченный Симой и Кешкой на Кирпичных островах в одноименном произведении Р.П. Погодина = Моряк.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-49">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Перед<br>вами высказывание Д.С. Лихачева о знаменитом русском писателе XIX века.<br>Фамилия писателя пропущена. Укажите её.<br>«Ответ Вопрос 10<br>удивительно русский писатель, так как он связан своим мастерством с русским<br>бытом и писал он о том, что русские люди действительно любили».</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Лесков</div></div>
+      <p class="why">потому что Лесков.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-50">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В<br>стихотворении «Чему бы жизнь нас ни учила» Ф.И. Тютчев использует прием,<br>характеризующийся повторением слова или группы слов в начале нескольких фраз<br>или строф. Укажите название этого приёма.</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">анафора</div></div>
+      <p class="why">потому что анафора.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-51">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Перед<br>вами фрагмент стихотворения «Русский язык» знаменитого русского писателя конца XIX –<br>начала XX вв. Укажите только фамилию этого писателя.<br>Подснежник наш всегда прорвёт свой снег. <br>В размах грозы сцепляются зарницы.<br>К Царь-Граду не ходил ли наш Олег?<br>Не<br>звал ли в полночь нас полёт Жар-птицы?</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Блок</div></div>
+      <p class="why">потому что Блок.</p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</body>
+</html>

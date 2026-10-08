@@ -1,871 +1,1340 @@
 <!doctype html>
 <html lang="ru">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>6 класс · музыка · 1 полугодие</title>
+<title>музыка · Тест</title>
 <style>
-:root { --bg:#0f2744; --card:#fff; --ink:#1a2332; --muted:#5b6573; --acc:#1e6bb8; --ok:#0d7a4f; }
 * { box-sizing: border-box; }
-html, body { margin:0; background:#dfe7f0; color:var(--ink); font-family: "Segoe UI", Arial, sans-serif; }
-.wrap { max-width: 980px; margin: 0 auto; padding: 16px; }
-h1 { font-size: 28px; margin: 12px 0 8px; }
-.sub { color: var(--muted); margin-bottom: 18px; }
-.nav { position: sticky; top: 0; z-index: 5; background: #dfe7f0; padding: 8px 0; display:flex; gap:8px; align-items:center; }
-button { background: var(--acc); color:#fff; border:0; padding:8px 14px; border-radius:8px; cursor:pointer; font-size:15px; }
-.slide { background: var(--card); border-radius: 16px; padding: 28px 32px; margin: 16px 0; box-shadow: 0 8px 24px rgba(15,39,68,.12); min-height: 70vh; }
-.top { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-h2, h3 { margin: 14px 0 8px; }
-.q { font-size: 20px; line-height: 1.45; }
-.opts { margin: 12px 0; background:#f4f7fb; padding:12px 16px; border-radius:10px; }
-.memo { line-height: 1.5; }
-.ans { background:#e8f6ee; border-left: 6px solid var(--ok); padding: 12px 16px; border-radius: 8px; font-size: 18px; }
-.ans-line { margin: 6px 0; }
-.muted { color: var(--muted); background: #fff6e8; border:0; padding:8px; }
-.toc a { display:block; margin: 4px 0; color: var(--acc); }
-.themebar { color:#fff; padding:8px 12px; border-radius:10px; font-size:15px; margin-bottom:10px; }
-.pics { display:flex; flex-wrap:wrap; gap:12px; margin:14px 0; align-items:flex-start; }
-.qimg { max-width:100%; height:auto; border:1px solid #d5dee8; border-radius:10px; background:#fff; }
-.audios { margin: 14px 0; }
-.audio { margin: 10px 0 14px; }
-.alabel { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
-audio { width: 100%; }
-.ans.cant { background:#fff3e0; border-left-color:#c45c26; }
+html, body {
+  margin: 0;
+  background: #fff;
+  color: #1d2125;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+a { color: #0f6cbf; }
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.6rem 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.navbar .brand { color: #0f6cbf; font-weight: 600; text-decoration: none; font-size: 1.1rem; }
+.navbar .crumb { color: #6a737b; font-size: 0.9rem; }
+#page {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+#page-header h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.35rem; }
+#page-header .page-context-header { color: #6a737b; margin: 0 0 1rem; }
+#mod_quiz_navblock {
+  position: sticky;
+  top: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: #fff;
+}
+#mod_quiz_navblock h5 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+.qnbutton {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+  background: #fff;
+  height: 40px;
+  width: 30px;
+  border-radius: 3px;
+  margin: 0 6px 6px 0;
+  border: 1px solid #cad0d7;
+  text-align: center;
+  color: #1d2125;
+  position: relative;
+  vertical-align: top;
+}
+.qnbutton .thispageholder { display: block; height: 20px; padding-top: 2px; }
+.qnbutton .trafficlight {
+  display: block;
+  height: 18px;
+  background: #6a737b;
+  border-radius: 0 0 2px 2px;
+}
+.quizname { margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #dee2e6; font-size: 1.15rem; }
+.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; overflow: hidden; }
+.que .info {
+  float: left;
+  width: 7em;
+  padding: 0.5em;
+  margin-bottom: 1.8em;
+  background-color: #f8f9fa;
+  border: 1px solid #cad0d7;
+  border-radius: 2px;
+}
+.que h3.no { margin: 0; font-size: 0.8em; line-height: 1; }
+.que span.qno { font-size: 1.5em; font-weight: bold; }
+.que .info > div { font-size: 0.8em; margin-top: 0.7em; }
+.que .content { margin: 0 0 0 8.5em; }
+.que .formulation, .que .comment {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 0 solid transparent;
+  border-radius: 0.5rem;
+}
+.que .formulation {
+  color: #001a1e;
+  background-color: #e7f3f5;
+  border-color: #b8dce2;
+}
+.que .comment {
+  color: #1c3f1a;
+  background-color: #d7e4d6;
+  border-color: #c6dac6;
+}
+.que .ablock { margin: 0.7em 0 0.3em 0; }
+.que .qtext { margin-bottom: 1.5em; }
+.que .prompt { font-weight: 600; margin: 0 0 0.4em; }
+.que .answer .r0, .que .answer .r1 { padding: 0.2em 0.15em; }
+.que .answer input { margin-right: 0.35em; vertical-align: middle; }
+.que label { display: inline; }
+.que table.answer { width: 100%; border-collapse: collapse; }
+.que table.answer td { padding: 0.35em 0.5em; vertical-align: middle; }
+.que table.answer tr.r0 { background: rgba(255,255,255,0.45); }
+.custom-select {
+  display: inline-block;
+  padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #8f959e;
+  border-radius: 0.25rem;
+  background: #fff;
+  max-width: 100%;
+}
+.accesshide {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.pics { margin: 0 0 1em; }
+.qimg { max-width: 100%; height: auto; border: 1px solid #cad0d7; background: #fff; }
+.audios { margin: 0 0 1em; }
+.alabel { font-size: 0.85em; color: #6a737b; }
+audio { width: 100%; max-width: 420px; }
+.rightanswer { font-weight: 600; margin: 0 0 0.4em; }
+.ans-line { margin: 0.15em 0; font-weight: 600; }
+.why { margin: 0; font-weight: 400; }
+@media (max-width: 800px) {
+  #page { grid-template-columns: 1fr; }
+  .que .info { float: none; width: auto; margin-bottom: 0.6em; }
+  .que .content { margin: 0; }
+}
 </style>
-<body>
-<div class="wrap">
-  <h1>🎵 6 класс. музыка. 1 полугодие</h1>
-  <p class="sub">Вопросы из текущих тестов 1–4. Если в задании была карта, схема или фото — они показаны здесь, как в тесте. Клавиши ← → листают слайды.</p>
-  <div class="nav">
-    <button id="prev">← Назад</button>
-    <button id="next">Вперёд →</button>
-    <button id="all">Показать все</button>
-    <span id="pos"></span>
+</head>
+<body class="path-mod-quiz">
+<nav class="navbar">
+  <a class="brand" href="../index.html">ЦОДИВ</a>
+  <span class="crumb">6 класс / музыка / 1 полугодие</span>
+</nav>
+<div id="page">
+  <aside id="mod_quiz_navblock">
+    <h5>Навигация по тесту</h5>
+    <div class="allquestionsononepage"><div><strong>Тест 1 Музыка</strong></div><a class="qnbutton answersaved" href="#q-1"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-2"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-3"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-4"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-5"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-6"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-7"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-8"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-9"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-10"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-11"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-12"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-13"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-14"><span class="thispageholder">14</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-15"><span class="thispageholder">15</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-16"><span class="thispageholder">16</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-17"><span class="thispageholder">17</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-18"><span class="thispageholder">18</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-19"><span class="thispageholder">19</span><span class="trafficlight"></span></a><div><strong>Тест 2 Музыка</strong></div><a class="qnbutton answersaved" href="#q-20"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-21"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-22"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-23"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-24"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-25"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-26"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-27"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-28"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-29"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-30"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-31"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-32"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-33"><span class="thispageholder">14</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-34"><span class="thispageholder">15</span><span class="trafficlight"></span></a><div><strong>Тест 3 Музыка</strong></div><a class="qnbutton answersaved" href="#q-35"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-36"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-37"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-38"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-39"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-40"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-41"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-42"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-43"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-44"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-45"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-46"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-47"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-48"><span class="thispageholder">14</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-49"><span class="thispageholder">15</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-50"><span class="thispageholder">16</span><span class="trafficlight"></span></a><div><strong>Тест 4 Музыка</strong></div><a class="qnbutton answersaved" href="#q-51"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-52"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-53"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-54"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-55"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-56"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-57"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-58"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-59"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-60"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-61"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-62"><span class="thispageholder">12</span><span class="trafficlight"></span></a></div>
+  </aside>
+  <div id="region-main">
+    <div id="page-header">
+      <h1>музыка</h1>
+      <p class="page-context-header">Пройти тест · все вопросы на одной странице</p>
+    </div>
+    <h3 class="quizname">Тест 1 Музыка</h3>
+<div class="que match deferredfeedback" id="q-1">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
   </div>
-  <div class="toc"><a href="#q-1">Тест 1 Музыка (19)</a><a href="#q-20">Тест 2 Музыка (15)</a><a href="#q-35">Тест 3 Музыка (16)</a><a href="#q-51">Тест 4 Музыка (12)</a></div>
-  <div id="q-1"></div>
-<section class="slide" data-i="1">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 1 из 19 · нужно слушать самому</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальные фрагменты. Определи на каких народных инструментах играют исполнители?1. 2. 3. 4.</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_63_1.mp3</div><audio controls preload="none" src="../_аудио/6_63_1.mp3"></audio></div><div class="audio"><div class="alabel">запись 2: 6_63_2.mp3</div><audio controls preload="none" src="../_аудио/6_63_2.mp3"></audio></div><div class="audio"><div class="alabel">запись 3: 6_63_3.mp3</div><audio controls preload="none" src="../_аудио/6_63_3.mp3"></audio></div><div class="audio"><div class="alabel">запись 4: 6_63_4.mp3</div><audio controls preload="none" src="../_аудио/6_63_4.mp3"></audio></div></div>
-  <div class="opts"><b>Соотнеси:</b><ul><li>4</li><li>3</li><li>2</li><li>1</li></ul><p>Варианты ответов: барабан, гусли, свирель, рожок, флейта, труба</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Это задание только на слух. Ответ из записи здесь не ставится. Послушай фрагмент в плеере.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans cant"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
-</section><div id="q-2"></div>
-<section class="slide" data-i="2">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 2 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальное произведение.Определи жанр и название этого музыкального произведения.</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: gimn-rosii.mp3</div><audio controls preload="none" src="../_аудио/gimn-rosii.mp3"></audio></div></div>
-  <div class="opts"><b>Варианты:</b><ul><li>a. Гимн города Москва</li><li>b. Хор из оперы "Иван Сусанин"</li><li>c. Гимн Российской Федерации</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Ответ взят из имени аудиофайла в тесте, не из прослушивания. Внимательно прослушай музыкальное произведение.Определи жанр и название этого музыкального произведения.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. Гимн Российской Федерации</div><div class="ans-line">по имени файла: gimn-rosii.mp3</div></div>
-</section><div id="q-3"></div>
-<section class="slide" data-i="3">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 3 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назови авторов слов и музыки гимна Российской Федерации.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. музыка - С.Михалков, стихи - Г. Эль-Регистан</li><li>b. музыка - А.Афанасьев, стихи - С.Маршак</li><li>c. музыка - А.Александров, стихи - С.Михалков и Г. Эль-Регистан</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назови авторов слов и музыки гимна Российской Федерации. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. музыка - А.Александров, стихи - С.Михалков и Г. Эль-Регистан</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. музыка - А.Александров, стихи - С.Михалков и Г. Эль-Регистан</div></div>
-</section><div id="q-4"></div>
-<section class="slide" data-i="4">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 4 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальное произведение.выбери название города, гимн которого ты услышал.</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: gimn-sankt-peterburga-oficial-nyy.mp3</div><audio controls preload="none" src="../_аудио/gimn-sankt-peterburga-oficial-nyy.mp3"></audio></div></div>
-  <div class="opts"><b>Варианты:</b><ul><li>a. Москва</li><li>b. Красноярск</li><li>c. Санкт-Петербург</li><li>d. Свердловск</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Ответ взят из имени аудиофайла в тесте, не из прослушивания. Внимательно прослушай музыкальное произведение.выбери название города, гимн которого ты услышал.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. Санкт-Петербург</div><div class="ans-line">по имени файла: gimn-sankt-peterburga-oficial-nyy.mp3</div></div>
-</section><div id="q-5"></div>
-<section class="slide" data-i="5">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 5 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Свадебный обряд на Руси проходила как театрализованное действо и подразделялась на части. Сколько основный частей было в русском свадебном обряде? Выбери правильный ответ.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. три</li><li>b. два</li><li>c. четыре</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Свадебный обряд на Руси проходила как театрализованное действо и подразделялась на части. Сколько основный частей было в русском свадебном обряде? Выбери правильный ответ. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. два</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. два</div></div>
-</section><div id="q-6"></div>
-<section class="slide" data-i="6">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 6 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Живое обобщенное представление о действительности, выраженное в музыкальных интонациях, называется....</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>музыкальное изображение</li><li>содержание музыки</li><li>музыкальный образ</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Живое обобщенное представление о действительности, выраженное в музыкальных интонациях, называется.... Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: музыкальный образ</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">музыкальный образ</div></div>
-</section><div id="q-7"></div>
-<section class="slide" data-i="7">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 7 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Отметь жанры вокальной музыки.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>опера</li><li>романс</li><li>балет</li><li>хоровая кантата</li><li>баллада</li><li>вальс</li><li>песня</li><li>мазурка</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Отметь жанры вокальной музыки. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: опера; романс; хоровая кантата; баллада; песня</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">опера</div><div class="ans-line">романс</div><div class="ans-line">хоровая кантата</div><div class="ans-line">баллада</div><div class="ans-line">песня</div></div>
-</section><div id="q-8"></div>
-<section class="slide" data-i="8">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 8 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Образы в музыке могут быть: Найди лишнее слово</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>классические</li><li>героические</li><li>эпические</li><li>лирические</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Образы в музыке могут быть: Найди лишнее слово Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: классические</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">классические</div></div>
-</section><div id="q-9"></div>
-<section class="slide" data-i="9">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 9 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальное произведение.Как ты думаешь, к какой части свадебного русского обряда имеет отношение эта песня?</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: hor-matushka-chto-vo-pole-pyl-no.mp3</div><audio controls preload="none" src="../_аудио/hor-matushka-chto-vo-pole-pyl-no.mp3"></audio></div></div>
-  <div class="opts"><b>Варианты:</b><ul><li>a. к первой части (прощание невесты с родной семьей)</li><li>b. ко второй части (праздничный свадебный пир)</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Ответ взят из имени аудиофайла в тесте, не из прослушивания. Внимательно прослушай музыкальное произведение.Как ты думаешь, к какой части свадебного русского обряда имеет отношение эта песня?</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">a. к первой части (прощание невесты с родной семьей)</div><div class="ans-line">по имени файла: hor-matushka-chto-vo-pole-pyl-no.mp3 — песня «Матушка, что во поле пыльно»</div></div>
-</section><div id="q-10"></div>
-<section class="slide" data-i="10">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 10 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Песни невесты в первой части свадебного русского обряда были драматичными и назывались...</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. причитаниями</li><li>b. жалобами</li><li>c. рыданиями</li><li>d. плачами</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Песни невесты в первой части свадебного русского обряда были драматичными и назывались... Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: a. причитаниями</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">a. причитаниями</div></div>
-</section><div id="q-11"></div>
-<section class="slide" data-i="11">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 11 из 19 · нужно слушать самому</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальное произведение, вспомни, кто композитор этой песни-романса, и как она называется.</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_50_1.mp3</div><audio controls preload="none" src="../_аудио/6_50_1.mp3"></audio></div></div>
-  <div class="opts"><b>Варианты:</b><ul><li>Н.Обухов "Не шей ты мне матушка..."</li><li>С.Рахманинов "Девичья песня"</li><li>А.Е.Варламов, "Красный сарафан"</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Это задание только на слух. Ответ из записи здесь не ставится. Послушай фрагмент в плеере.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans cant"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
-</section><div id="q-12"></div>
-<section class="slide" data-i="12">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 12 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Романс «Я помню чудное мгновенье» Глинка посвятил:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. А.С. Пушкину</li><li>b. Е.Е. Керн</li><li>c. П.И. Чайковскому</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Романс «Я помню чудное мгновенье» Глинка посвятил: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. Е.Е. Керн</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. Е.Е. Керн</div></div>
-</section><div id="q-13"></div>
-<section class="slide" data-i="13">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 13 из 19 · нужно слушать самому</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальную запись, вспомни, кто композитор этого романса.</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_47_1.mp3</div><audio controls preload="none" src="../_аудио/6_47_1.mp3"></audio></div></div>
-  <div class="opts"><b>Варианты:</b><ul><li>С.Рахманинов</li><li>П. Булахов</li><li>П.Чайковский</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Это задание только на слух. Ответ из записи здесь не ставится. Послушай фрагмент в плеере.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans cant"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
-</section><div id="q-14"></div>
-<section class="slide" data-i="14">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 14 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Своеобразный городской фольклор это:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Баллада</li><li>b. Романс</li><li>c. Авторская песня</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Своеобразный городской фольклор это: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. Романс</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. Романс</div></div>
-</section><div id="q-15"></div>
-<section class="slide" data-i="15">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 15 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выбери перечень, в котором указаны жанры, относящиеся к вокальной музыке.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>соната, романс, концерт, стих</li><li>песня, серенада, вокализ, романс</li><li>прелюдия, полонез, вариация, сказка</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выбери перечень, в котором указаны жанры, относящиеся к вокальной музыке. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: песня, серенада, вокализ, романс</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">песня, серенада, вокализ, романс</div></div>
-</section><div id="q-16"></div>
-<section class="slide" data-i="16">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 16 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кому посвящен романс М.И.Глинки «Я помню чудное мгновенье»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>незнакомке</li><li>Татьяне Лариной</li><li>Екатерине Керн</li><li>Анне Керн</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кому посвящен романс М.И.Глинки «Я помню чудное мгновенье»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Екатерине Керн</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Екатерине Керн</div></div>
-</section><div id="q-17"></div>
-<section class="slide" data-i="17">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 17 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Верно ли утверждение: "Один из самых красивых обрядов — старинная русская свадьба — представляет собой сложную цепь торжественных церемоний".</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Верно</li><li>Неверно</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Верно ли утверждение: "Один из самых красивых обрядов — старинная русская свадьба — представляет собой сложную цепь торжественных церемоний". Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Верно</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Верно</div></div>
-</section><div id="q-18"></div>
-<section class="slide" data-i="18">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 18 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Верно ли утверждение: "Первая часть древнего русского свадебного обряда посвящалась вхождению девушки в дом и семью жениха, сопровождалась традиционным пиром"</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Верно</li><li>Неверно</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Верно ли утверждение: "Первая часть древнего русского свадебного обряда посвящалась вхождению девушки в дом и семью жениха, сопровождалась традиционным пиром" Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Неверно</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Неверно</div></div>
-</section><div id="q-19"></div>
-<section class="slide" data-i="19">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 1 Музыка · вопрос 19 из 19</div>
-  <h2>Вопрос</h2>
-  <div class="q">Композиторы часто обращались в своих операх к песням красочного народного свадебного обряда. Например, М. Мусоргский ввёл в партитуру оперы «Хованщина» подлинную народную мелодию праздничной песни.Верно ли высказывание: "Хор из оперы «Хованщна» «Плывет лебедушка» можно отнести ко второй части народного свадебного обряда"?</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: haykin-1946-11_2-hovanschina-4-deystvie-plyvet-plyvet-lebedu_1_.mp3</div><audio controls preload="none" src="../_аудио/haykin-1946-11_2-hovanschina-4-deystvie-plyvet-plyvet-lebedu_1_.mp3"></audio></div></div>
-  <div class="opts"><b>Варианты:</b><ul><li>Верно</li><li>Неверно</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Ответ взят из имени аудиофайла в тесте, не из прослушивания. Композиторы часто обращались в своих операх к песням красочного народного свадебного обряда. Например, М. Мусоргский ввёл в партитуру оперы «Хованщина» подлинну</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Верно</div><div class="ans-line">по имени файла и тексту вопроса: Хованщина, хор «Плывёт лебёдушка» — вторая часть обряда (пир)</div></div>
-</section><div id="q-20"></div>
-<section class="slide" data-i="20">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 1 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Вас приветствуют великие русские композиторы. Определите их фамилии.</div>
-  <div class="pics"><img class="qimg" src="../_картинки/5d9c5e3b0a88e0de.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/b9e74f7708cb96af.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/379943e9aefbbea5.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/5621d581f294f24c.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/bb0f6547a3aba8ee.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/240de0daf3ddbe58.jpg" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li></li><li></li><li></li><li></li><li></li><li></li></ul><p>Варианты ответов: С.Рахманинов, М.Мусоргский, П.И.Чайковский, А.Е.Варламов, М.И.Глинка, Н.А.Римский - Корсаков</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Вас приветствуют великие русские композиторы. Определите их фамилии. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: портрет 1 (в шапочке) — М.И.Глинка; портрет 2 (очки, седая борода) — Н.А.Римский - Корсаков; портрет 3 — П.И.Чайковский; портрет 4 (молодой, тёмный галстук) — А.Е.Варламов; портрет 5 (фото, рука у подбородка) — С.Рахманинов; портрет 6 — М.М…</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">портрет 1 (в шапочке) — М.И.Глинка</div><div class="ans-line">портрет 2 (очки, седая борода) — Н.А.Римский - Корсаков</div><div class="ans-line">портрет 3 — П.И.Чайковский</div><div class="ans-line">портрет 4 (молодой, тёмный галстук) — А.Е.Варламов</div><div class="ans-line">портрет 5 (фото, рука у подбородка) — С.Рахманинов</div><div class="ans-line">портрет 6 — М.Мусоргский</div></div>
-</section><div id="q-21"></div>
-<section class="slide" data-i="21">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 2 из 15 · нужно слушать самому</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальные произведения, определи их композиторов.</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_57_2.mp3</div><audio controls preload="none" src="../_аудио/6_57_2.mp3"></audio></div><div class="audio"><div class="alabel">запись 2: 6_57_3.mp3</div><audio controls preload="none" src="../_аудио/6_57_3.mp3"></audio></div><div class="audio"><div class="alabel">запись 3: 6_57_1.mp3</div><audio controls preload="none" src="../_аудио/6_57_1.mp3"></audio></div></div>
-  <div class="opts"><b>Соотнеси:</b><ul><li>запись 1</li><li>запись 2</li><li>запись 3</li></ul><p>Варианты ответов: М.Глинка, С. Прокофьев, П.И.Чайковский</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Это задание только на слух. Ответ из записи здесь не ставится. Послушай фрагмент в плеере.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans cant"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
-</section><div id="q-22"></div>
-<section class="slide" data-i="22">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 3 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Современный музыкальный инструмент, «заменитель» фортепиано:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Клавесин</li><li>b. Синтезатор</li><li>c. Челеста</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Современный музыкальный инструмент, «заменитель» фортепиано: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. Синтезатор</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. Синтезатор</div></div>
-</section><div id="q-23"></div>
-<section class="slide" data-i="23">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 4 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется музыкальное сопровождение песен?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>аккомпанемент</li><li>этюд</li><li>фантазия</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется музыкальное сопровождение песен? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: аккомпанемент</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">аккомпанемент</div></div>
-</section><div id="q-24"></div>
-<section class="slide" data-i="24">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 5 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кто из композиторов создал первую русскую национальную оперу?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>С. В. Рахманинов</li><li>М. И. Глинка</li><li>М. П. Мусоргский</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кто из композиторов создал первую русскую национальную оперу? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: М. И. Глинка</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">М. И. Глинка</div></div>
-</section><div id="q-25"></div>
-<section class="slide" data-i="25">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 6 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В «Метели» Свиридова нет сюжета под названием:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Пастораль</li><li>b. Ночь</li><li>c. Вальс</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В «Метели» Свиридова нет сюжета под названием: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. Ночь</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. Ночь</div></div>
-</section><div id="q-26"></div>
-<section class="slide" data-i="26">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 7 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Найди лишнее в приведенном перечне:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>М.И.Глинка</li><li>П.И.Чайковский</li><li>Н.А.Римский-Корсаков</li><li>Ф.Шопен</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Найди лишнее в приведенном перечне: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Ф.Шопен</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Ф.Шопен</div></div>
-</section><div id="q-27"></div>
-<section class="slide" data-i="27">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 8 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какой великий русский композитор был известным учёным химиком?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>П. И. Чайковский</li><li>А. П. Бородин</li><li>Н. А. Римский-Корсаков</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какой великий русский композитор был известным учёным химиком? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: А. П. Бородин</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">А. П. Бородин</div></div>
-</section><div id="q-28"></div>
-<section class="slide" data-i="28">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 9 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назовите композитора вокальной баллады «Лесной царь».</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Ф.Шуберт</li><li>Ф.Лист</li><li>Ф. Шопен</li><li>А.П.Бородин</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назовите композитора вокальной баллады «Лесной царь». Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Ф.Шуберт</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Ф.Шуберт</div></div>
-</section><div id="q-29"></div>
-<section class="slide" data-i="29">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 10 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выбери девиз, характеризующий творчество П. Чайковского</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>«…чтобы в моей музыке люди находили подпору и утешение»</li><li>«Через борьбу к победе!»</li><li>«Жизнь прекрасна»</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выбери девиз, характеризующий творчество П. Чайковского Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: «…чтобы в моей музыке люди находили подпору и утешение»</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">«…чтобы в моей музыке люди находили подпору и утешение»</div></div>
-</section><div id="q-30"></div>
-<section class="slide" data-i="30">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 11 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Г. Свиридов написал эти музыкальные иллюстрации к повести А. С. Пушкина:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. «Метель»</li><li>b. «Зима»</li><li>c. «Снегопад»</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Г. Свиридов написал эти музыкальные иллюстрации к повести А. С. Пушкина: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: a. «Метель»</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">a. «Метель»</div></div>
-</section><div id="q-31"></div>
-<section class="slide" data-i="31">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 12 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Рок-опера А. Журбина</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. «Времена года»</li><li>b. «Ромео и Джульета»</li><li>c. «Орфей и Эвридика»</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Рок-опера А. Журбина Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. «Орфей и Эвридика»</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. «Орфей и Эвридика»</div></div>
-</section><div id="q-32"></div>
-<section class="slide" data-i="32">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 13 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Композитор советских кинофильмов</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. С. Рахманинов</li><li>b. П. Чайковский</li><li>c. И. Дунаевский</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Композитор советских кинофильмов Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. И. Дунаевский</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. И. Дунаевский</div></div>
-</section><div id="q-33"></div>
-<section class="slide" data-i="33">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 14 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">В XX веке у нас в стране зародился новый жанр песни, которые сначала называли студенческими или туристическими:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Частушка</li><li>b. Романс</li><li>c. Авторская песня</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В XX веке у нас в стране зародился новый жанр песни, которые сначала называли студенческими или туристическими: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. Авторская песня</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. Авторская песня</div></div>
-</section><div id="q-34"></div>
-<section class="slide" data-i="34">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 2 Музыка · вопрос 15 из 15</div>
-  <h2>Вопрос</h2>
-  <div class="q">Первый российский бард:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. М. Глинка</li><li>b. В. Цой</li><li>c. Б. Окуджава</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Первый российский бард: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. Б. Окуджава</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. Б. Окуджава</div></div>
-</section><div id="q-35"></div>
-<section class="slide" data-i="35">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 1 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">Вас приветствую зарубежные композиторы . Определи их фамилии.</div>
-  <div class="pics"><img class="qimg" src="../_картинки/dfbf24e9ed951855.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/e18679ddd1d902eb.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/098351792acbcebb.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/fdd9a5757495631b.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/2dae21834d1c8950.jpg" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li></li><li></li><li></li><li></li><li></li></ul><p>Варианты ответов: А.Вивальди, Ф.Шуберт, Л.В.Бетховен, Н.Паганини, И.С.Бах, Ф.Шопен, В.А.Моцарт</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Вас приветствую зарубежные композиторы . Определи их фамилии. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: портрет 1 (красный камзол) — В.А.Моцарт; портрет 2 (парик, ноты в руках) — И.С.Бах; портрет 3 — Ф.Шопен; портрет 4 (очки, кудри) — Ф.Шуберт; портрет 5 (скрипка) — А.Вивальди</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">портрет 1 (красный камзол) — В.А.Моцарт</div><div class="ans-line">портрет 2 (парик, ноты в руках) — И.С.Бах</div><div class="ans-line">портрет 3 — Ф.Шопен</div><div class="ans-line">портрет 4 (очки, кудри) — Ф.Шуберт</div><div class="ans-line">портрет 5 (скрипка) — А.Вивальди</div></div>
-</section><div id="q-36"></div>
-<section class="slide" data-i="36">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 2 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">Прелюдия – это…:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Жанр инструментальной музыки</li><li>b. Небольшое музыкальное произведение, раскрывающие один образ</li><li>c. Вступление к опере</li><li>d. Содержание оперы</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Прелюдия – это…: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. Небольшое музыкальное произведение, раскрывающие один образ</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. Небольшое музыкальное произведение, раскрывающие один образ</div></div>
-</section><div id="q-37"></div>
-<section class="slide" data-i="37">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 3 из 16 · нужно слушать самому</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальное произведение, вспомни, кто его композитор и как оно называется?</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_34_1.mp3</div><audio controls preload="none" src="../_аудио/6_34_1.mp3"></audio></div></div>
-  <div class="opts"><b>Варианты:</b><ul><li>Ф.Шопен «Революционный этюд»</li><li>А.Вивальди, «Лето»</li><li>Л.В.Бетховен "Патетическая соната"</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Это задание только на слух. Ответ из записи здесь не ставится. Послушай фрагмент в плеере.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans cant"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
-</section><div id="q-38"></div>
-<section class="slide" data-i="38">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 4 из 16 · нужно слушать самому</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальное произведение, вспомни кто его автор и как оно называется.</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_32_1.mp3</div><audio controls preload="none" src="../_аудио/6_32_1.mp3"></audio></div></div>
-  <div class="opts"><b>Варианты:</b><ul><li>А.П. Бородин "Стрелецкое восстание"</li><li>Ф.Шопен «Революционный этюд»</li><li>Л.Бетховен Увертюра «Эгмонт»</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Это задание только на слух. Ответ из записи здесь не ставится. Послушай фрагмент в плеере.</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans cant"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
-</section><div id="q-39"></div>
-<section class="slide" data-i="39">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 5 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">Композитор, писавший вальсы, мазурки, прелюдии. Известен созданием нового жанра – инструментальная баллада:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Ф. Шопен</li><li>b. Р. Шуман</li><li>c. Ф. Шуберт</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Композитор, писавший вальсы, мазурки, прелюдии. Известен созданием нового жанра – инструментальная баллада: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: a. Ф. Шопен</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">a. Ф. Шопен</div></div>
-</section><div id="q-40"></div>
-<section class="slide" data-i="40">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 6 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">Музыка, написанная на какой-нибудь сюжет, называется:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Не программной</li><li>b. Симфонической</li><li>c. Программной</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Музыка, написанная на какой-нибудь сюжет, называется: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. Программной</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. Программной</div></div>
-</section><div id="q-41"></div>
-<section class="slide" data-i="41">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 7 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">«Реквием» - это последнее произведение:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. П.И. Чайковского</li><li>b. В.А. Моцарта</li><li>c. И.С. Баха</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: «Реквием» - это последнее произведение: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. В.А. Моцарта</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. В.А. Моцарта</div></div>
-</section><div id="q-42"></div>
-<section class="slide" data-i="42">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 8 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">«Вся симфония – словно образ самого Моцарта..» Эти слова Шуберт сказал о:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Неоконченной симфонии</li><li>b. Симфонии №41</li><li>c. Симфонии №40</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: «Вся симфония – словно образ самого Моцарта..» Эти слова Шуберт сказал о: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. Симфонии №40</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. Симфонии №40</div></div>
-</section><div id="q-43"></div>
-<section class="slide" data-i="43">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 9 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">«Реквием» написал:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Д. Перголези</li><li>b. А. Моцарт</li><li>c. Л. Бетховен</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: «Реквием» написал: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. А. Моцарт</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. А. Моцарт</div></div>
-</section><div id="q-44"></div>
-<section class="slide" data-i="44">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 10 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">Создатель жанра инструментальный концерт. Был отличным скрипачом, дирижером, композитором:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. П. Чайковский</li><li>b. И. Бах</li><li>c. А. Вивальди</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Создатель жанра инструментальный концерт. Был отличным скрипачом, дирижером, композитором: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. А. Вивальди</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. А. Вивальди</div></div>
-</section><div id="q-45"></div>
-<section class="slide" data-i="45">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 11 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">Жанр «программная увертюра» создал:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Л. Бетховен</li><li>b. А. Моцарт</li><li>c. К. Дебюсси</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Жанр «программная увертюра» создал: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: a. Л. Бетховен</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">a. Л. Бетховен</div></div>
-</section><div id="q-46"></div>
-<section class="slide" data-i="46">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 12 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какой великий композитор продолжал сочинять музыку после потери слуха?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Ф. Шуберт</li><li>Л. Бетховен</li><li>В. Моцарт</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какой великий композитор продолжал сочинять музыку после потери слуха? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Л. Бетховен</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Л. Бетховен</div></div>
-</section><div id="q-47"></div>
-<section class="slide" data-i="47">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 13 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кого из композиторов считали «королем» вальса?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>И. Штраус</li><li>Ф. Шопен</li><li>В. Моцарт</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кого из композиторов считали «королем» вальса? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: И. Штраус</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">И. Штраус</div></div>
-</section><div id="q-48"></div>
-<section class="slide" data-i="48">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 14 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">Кого называли «отцом симфонии»?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Л.Бетховен</li><li>И.Гайдн</li><li>В.Моцарт</li><li>Ф.Шуберт</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Кого называли «отцом симфонии»? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: И.Гайдн</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">И.Гайдн</div></div>
-</section><div id="q-49"></div>
-<section class="slide" data-i="49">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 15 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">В каком музыкальном стиле сочинял свою музыку И.С.Бах?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>полифония</li><li>додекофония</li><li>полистилистика</li><li>гомофония</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В каком музыкальном стиле сочинял свою музыку И.С.Бах? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: полифония</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">полифония</div></div>
-</section><div id="q-50"></div>
-<section class="slide" data-i="50">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 3 Музыка · вопрос 16 из 16</div>
-  <h2>Вопрос</h2>
-  <div class="q">Творчество какого композитора отражает девиз: «Через борьбу – к победе!»</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Бетховен</li><li>Шопен</li><li>Чайковский</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Творчество какого композитора отражает девиз: «Через борьбу – к победе!» Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Бетховен</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Бетховен</div></div>
-</section><div id="q-51"></div>
-<section class="slide" data-i="51">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 1 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как можно назвать одним словом образ жизни, обряды и обычаи, язык, культура, искусство, которые передаются народом из поколения в поколение?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. мировоззрение</li><li>b. традиция</li><li>c. норма</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как можно назвать одним словом образ жизни, обряды и обычаи, язык, культура, искусство, которые передаются народом из поколения в поколение? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. традиция</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. традиция</div></div>
-</section><div id="q-52"></div>
-<section class="slide" data-i="52">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 2 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как можно одним словом назвать народные песни и танцы, сказания и музыкальные наигрыши, которые живут в устной традиции каждого народа?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. историческое наследие</li><li>b. народное достояние</li><li>c. народное творчество</li><li>d. фольклор</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как можно одним словом назвать народные песни и танцы, сказания и музыкальные наигрыши, которые живут в устной традиции каждого народа? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: d. фольклор</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">d. фольклор</div></div>
-</section><div id="q-53"></div>
-<section class="slide" data-i="53">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 3 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">выбери из списка отличительные особенности этнической музыки.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. сохранилась в первоначальном звучании</li><li>b. исполняется в современной обработке</li><li>c. исполняется на народных инструментах</li><li>d. не подверглась влиянию других культур</li><li>e. объединяет людей всего мира</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: выбери из списка отличительные особенности этнической музыки. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: a. сохранилась в первоначальном звучании; c. исполняется на народных инструментах; d. не подверглась влиянию других культур</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">a. сохранилась в первоначальном звучании</div><div class="ans-line">c. исполняется на народных инструментах</div><div class="ans-line">d. не подверглась влиянию других культур</div></div>
-</section><div id="q-54"></div>
-<section class="slide" data-i="54">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 4 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Определи жанры музыкального фольклора.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. событийный</li><li>b. житейский</li><li>c. лирический</li><li>d. календарный</li><li>e. исторический</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Определи жанры музыкального фольклора. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. лирический; d. календарный; e. исторический</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. лирический</div><div class="ans-line">d. календарный</div><div class="ans-line">e. исторический</div></div>
-</section><div id="q-55"></div>
-<section class="slide" data-i="55">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 5 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальное произведение, определи ее этническую принадлежность (выбери из перечисленного)</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: kel-tskaya-narodnaya-muzyka-shotlandskaya.mp3</div><audio controls preload="none" src="../_аудио/kel-tskaya-narodnaya-muzyka-shotlandskaya.mp3"></audio></div></div>
-  <div class="opts"><b>Варианты:</b><ul><li>a. китайская народная музыка</li><li>b. африканская народная музыка</li><li>c. русская народная музыка</li><li>d. кельтская народная музыка</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Ответ взят из имени аудиофайла в тесте, не из прослушивания. Внимательно прослушай музыкальное произведение, определи ее этническую принадлежность (выбери из перечисленного)</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">d. кельтская народная музыка</div><div class="ans-line">по имени файла: kel-tskaya-narodnaya-muzyka-shotlandskaya.mp3</div></div>
-</section><div id="q-56"></div>
-<section class="slide" data-i="56">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 6 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальный фрагмент, определи его этническую принадлежность (выбери из предложенного)</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: francuzskaya-narodnaya-muzyka-bez-nazvaniya.mp3</div><audio controls preload="none" src="../_аудио/francuzskaya-narodnaya-muzyka-bez-nazvaniya.mp3"></audio></div></div>
-  <div class="opts"><b>Варианты:</b><ul><li>a. русская народная музыка</li><li>b. китайская народная музыка</li><li>c. африканская народная музыка</li><li>d. французская народная музыка</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Ответ взят из имени аудиофайла в тесте, не из прослушивания. Внимательно прослушай музыкальный фрагмент, определи его этническую принадлежность (выбери из предложенного)</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">d. французская народная музыка</div><div class="ans-line">по имени файла: francuzskaya-narodnaya-muzyka-bez-nazvaniya.mp3</div></div>
-</section><div id="q-57"></div>
-<section class="slide" data-i="57">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 7 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Жанр музыки, пришедший к нам из Африки, отличителен свободным исполнением и ритмическими «раскачками»:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Фингерстайл</li><li>b. Джаз</li><li>c. Рок</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Жанр музыки, пришедший к нам из Африки, отличителен свободным исполнением и ритмическими «раскачками»: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. Джаз</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. Джаз</div></div>
-</section><div id="q-58"></div>
-<section class="slide" data-i="58">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 8 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Спиричуэл – это…:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Жанр вокальной музыки</li><li>b. Жанр инструментальной музыки</li><li>c. Жанр религиозного пения и танца</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Спиричуэл – это…: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: c. Жанр религиозного пения и танца</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">c. Жанр религиозного пения и танца</div></div>
-</section><div id="q-59"></div>
-<section class="slide" data-i="59">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 9 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Ваганты – это…</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>средневековые сельские жители</li><li>средневековые музыканты, певцы и актёры</li><li>средневековые правители</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Ваганты – это… Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: средневековые музыканты, певцы и актёры</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">средневековые музыканты, певцы и актёры</div></div>
-</section><div id="q-60"></div>
-<section class="slide" data-i="60">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 10 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Выберите известных зарубежных джазовых исполнителей.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Луи Армстронг</li><li>Дюк Эллингтон</li><li>Игорь Бутман</li><li>Рэй Чарльз</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Выберите известных зарубежных джазовых исполнителей. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Луи Армстронг; Дюк Эллингтон; Рэй Чарльз</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Луи Армстронг</div><div class="ans-line">Дюк Эллингтон</div><div class="ans-line">Рэй Чарльз</div></div>
-</section><div id="q-61"></div>
-<section class="slide" data-i="61">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 11 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называли бродячих студентов в Европе во времена Средневековья, которые подарили нам гимн «Гаудеамус»:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>a. Скоморохи</li><li>b. Ваганты</li><li>c. Уличные музыканты</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называли бродячих студентов в Европе во времена Средневековья, которые подарили нам гимн «Гаудеамус»: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: b. Ваганты</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">b. Ваганты</div></div>
-</section><div id="q-62"></div>
-<section class="slide" data-i="62">
-  <div class="themebar" style="background:#5a3d8a">🎵 Нотный стан и композиторы</div>
-  <div class="top">музыка · Тест 4 Музыка · вопрос 12 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно прослушай музыкальный фрагмент, запиши, как называется основной музыкальный инструмент в этом произведении.Ответ запиши одним словом в именительном падеже единственного числа.</div>
-  
-  <div class="audios"><div class="audio"><div class="alabel">запись 1: shotlandskaya-volynka-boevaya-volynka.mp3</div><audio controls preload="none" src="../_аудио/shotlandskaya-volynka-boevaya-volynka.mp3"></audio></div></div>
-  
-  <h3>Запомни</h3>
-  <p class="memo">Ответ взят из имени аудиофайла в тесте, не из прослушивания. Внимательно прослушай музыкальный фрагмент, запиши, как называется основной музыкальный инструмент в этом произведении.Ответ запиши одним словом в именительном </p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">волынка</div><div class="ans-line">по имени файла: shotlandskaya-volynka-boevaya-volynka.mp3</div></div>
-</section>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальные фрагменты. Определи на каких народных инструментах играют исполнители?1. 2. 3. 4.</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_63_1.mp3</div><audio controls preload="none" src="../_аудио/6_63_1.mp3"></audio></div><div class="audio"><div class="alabel">запись 2: 6_63_2.mp3</div><audio controls preload="none" src="../_аудио/6_63_2.mp3"></audio></div><div class="audio"><div class="alabel">запись 3: 6_63_3.mp3</div><audio controls preload="none" src="../_аудио/6_63_3.mp3"></audio></div><div class="audio"><div class="alabel">запись 4: 6_63_4.mp3</div><audio controls preload="none" src="../_аудио/6_63_4.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Варианты: барабан; гусли; свирель; рожок; флейта; труба</div><table class="answer match"><tr class="r0"><td class="text">4</td><td><select class="custom-select" disabled><option>Выберите...</option><option>барабан</option><option>гусли</option><option>свирель</option><option>рожок</option><option>флейта</option><option>труба</option></select></td></tr><tr class="r1"><td class="text">3</td><td><select class="custom-select" disabled><option>Выберите...</option><option>барабан</option><option>гусли</option><option>свирель</option><option>рожок</option><option>флейта</option><option>труба</option></select></td></tr><tr class="r0"><td class="text">2</td><td><select class="custom-select" disabled><option>Выберите...</option><option>барабан</option><option>гусли</option><option>свирель</option><option>рожок</option><option>флейта</option><option>труба</option></select></td></tr><tr class="r1"><td class="text">1</td><td><select class="custom-select" disabled><option>Выберите...</option><option>барабан</option><option>гусли</option><option>свирель</option><option>рожок</option><option>флейта</option><option>труба</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
+      <p class="why">запись нужно прослушать самому.</p>
+    </div>
+  </div>
 </div>
-<script>
-const slides = [...document.querySelectorAll('.slide')];
-let i = 0;
-const show = (n) => {
-  i = Math.max(0, Math.min(slides.length-1, n));
-  slides.forEach((s, k) => s.style.display = k===i ? 'block' : 'none');
-  document.getElementById('pos').textContent = (i+1) + ' / ' + slides.length;
-  slides[i].scrollIntoView({block:'start'});
-};
-document.getElementById('prev').onclick = () => show(i-1);
-document.getElementById('next').onclick = () => show(i+1);
-document.getElementById('all').onclick = () => slides.forEach(s => s.style.display='block');
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight' || e.key === 'PageDown') show(i+1);
-  if (e.key === 'ArrowLeft' || e.key === 'PageUp') show(i-1);
-});
-show(0);
-</script>
-</body></html>
+<div class="que multichoice deferredfeedback" id="q-2">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальное произведение.Определи жанр и название этого музыкального произведения.</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: gimn-rosii.mp3</div><audio controls preload="none" src="../_аудио/gimn-rosii.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Гимн города Москва</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Хор из оперы "Иван Сусанин"</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Гимн Российской Федерации</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. Гимн Российской Федерации</div></div>
+      <p class="why">потому что так называется файл записи: gimn-rosii.mp3.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-3">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назови авторов слов и музыки гимна Российской Федерации.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. музыка - С.Михалков, стихи - Г. Эль-Регистан</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. музыка - А.Афанасьев, стихи - С.Маршак</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. музыка - А.Александров, стихи - С.Михалков и Г. Эль-Регистан</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. музыка - А.Александров, стихи - С.Михалков и Г. Эль-Регистан</div></div>
+      <p class="why">потому что Назови авторов слов и музыки гимна Российской Федерации = c. музыка - А.Александров, стихи - С.Михалков и Г. Эль-Регистан.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-4">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальное произведение.выбери название города, гимн которого ты услышал.</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: gimn-sankt-peterburga-oficial-nyy.mp3</div><audio controls preload="none" src="../_аудио/gimn-sankt-peterburga-oficial-nyy.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Москва</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Красноярск</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Санкт-Петербург</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. Свердловск</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. Санкт-Петербург</div></div>
+      <p class="why">потому что так называется файл записи: gimn-sankt-peterburga-oficial-nyy.mp3.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-5">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Свадебный обряд на Руси проходила как театрализованное действо и подразделялась на части. Сколько основный частей было в русском свадебном обряде? Выбери правильный ответ.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. три</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. два</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. четыре</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. два</div></div>
+      <p class="why">потому что b. два.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-6">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Живое обобщенное представление о действительности, выраженное в музыкальных интонациях, называется....</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>музыкальное изображение</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>содержание музыки</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>музыкальный образ</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">музыкальный образ</div></div>
+      <p class="why">потому что Живое обобщенное представление о действительности, выраженное в музыкальных интонациях, называется = музыкальный образ.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-7">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Отметь жанры вокальной музыки.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>опера</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>романс</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>балет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>хоровая кантата</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>баллада</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">f. </span><label>вальс</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">g. </span><label>песня</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">h. </span><label>мазурка</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">опера</div><div class="ans-line">романс</div><div class="ans-line">хоровая кантата</div><div class="ans-line">баллада</div><div class="ans-line">песня</div></div>
+      <p class="why">потому что опера; романс; хоровая кантата; баллада; песня.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-8">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Образы в музыке могут быть: Найди лишнее слово</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>классические</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>героические</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>эпические</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>лирические</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">классические</div></div>
+      <p class="why">потому что Образы в музыке могут быть: Найди лишнее слово = классические.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-9">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальное произведение.Как ты думаешь, к какой части свадебного русского обряда имеет отношение эта песня?</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: hor-matushka-chto-vo-pole-pyl-no.mp3</div><audio controls preload="none" src="../_аудио/hor-matushka-chto-vo-pole-pyl-no.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. к первой части (прощание невесты с родной семьей)</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. ко второй части (праздничный свадебный пир)</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">a. к первой части (прощание невесты с родной семьей)</div></div>
+      <p class="why">потому что так называется файл записи: hor-matushka-chto-vo-pole-pyl-no.mp3 — песня «Матушка, что во поле пыльно».</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-10">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Песни невесты в первой части свадебного русского обряда были драматичными и назывались...</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. причитаниями</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. жалобами</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. рыданиями</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. плачами</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">a. причитаниями</div></div>
+      <p class="why">потому что Песни невесты в первой части свадебного русского обряда были драматичными и назывались = a. причитаниями.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-11">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальное произведение, вспомни, кто композитор этой песни-романса, и как она называется.</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_50_1.mp3</div><audio controls preload="none" src="../_аудио/6_50_1.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Н.Обухов "Не шей ты мне матушка..."</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>С.Рахманинов "Девичья песня"</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>А.Е.Варламов, "Красный сарафан"</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
+      <p class="why">запись нужно прослушать самому.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-12">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Романс «Я помню чудное мгновенье» Глинка посвятил:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. А.С. Пушкину</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Е.Е. Керн</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. П.И. Чайковскому</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. Е.Е. Керн</div></div>
+      <p class="why">потому что Романс «Я помню чудное мгновенье» Глинка посвятил: = b. Е.Е. Керн.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-13">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальную запись, вспомни, кто композитор этого романса.</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_47_1.mp3</div><audio controls preload="none" src="../_аудио/6_47_1.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>С.Рахманинов</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>П. Булахов</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>П.Чайковский</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
+      <p class="why">запись нужно прослушать самому.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-14">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Своеобразный городской фольклор это:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Баллада</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Романс</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Авторская песня</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. Романс</div></div>
+      <p class="why">потому что Своеобразный городской фольклор это: = b. Романс.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-15">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">15</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выбери перечень, в котором указаны жанры, относящиеся к вокальной музыке.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>соната, романс, концерт, стих</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>песня, серенада, вокализ, романс</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>прелюдия, полонез, вариация, сказка</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">песня, серенада, вокализ, романс</div></div>
+      <p class="why">потому что Выбери перечень, в котором указаны жанры, относящиеся к вокальной музыке = песня, серенада, вокализ, романс.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-16">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">16</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кому посвящен романс М.И.Глинки «Я помню чудное мгновенье»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>незнакомке</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Татьяне Лариной</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Екатерине Керн</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Анне Керн</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Екатерине Керн</div></div>
+      <p class="why">потому что Кому посвящен романс М.И.Глинки «Я помню чудное мгновенье» = Екатерине Керн.</p>
+    </div>
+  </div>
+</div>
+<div class="que truefalse deferredfeedback" id="q-17">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">17</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Верно ли утверждение: "Один из самых красивых обрядов — старинная русская свадьба — представляет собой сложную цепь торжественных церемоний".</div>
+      
+      
+      <div class="ablock"><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>Верно</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>Неверно</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Верно</div></div>
+      <p class="why">потому что Верно ли утверждение: "Один из самых красивых обрядов — старинная русская свадьба — представляет собой сложную цепь торжественных церемоний" = Верно.</p>
+    </div>
+  </div>
+</div>
+<div class="que truefalse deferredfeedback" id="q-18">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">18</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Верно ли утверждение: "Первая часть древнего русского свадебного обряда посвящалась вхождению девушки в дом и семью жениха, сопровождалась традиционным пиром"</div>
+      
+      
+      <div class="ablock"><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>Верно</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>Неверно</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Неверно</div></div>
+      <p class="why">потому что Верно ли утверждение: "Первая часть древнего русского свадебного обряда посвящалась вхождению девушки в дом и семью жениха, сопровождалась традиционным пиром" = Неверно.</p>
+    </div>
+  </div>
+</div>
+<div class="que truefalse deferredfeedback" id="q-19">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">19</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Композиторы часто обращались в своих операх к песням красочного народного свадебного обряда. Например, М. Мусоргский ввёл в партитуру оперы «Хованщина» подлинную народную мелодию праздничной песни.Верно ли высказывание: "Хор из оперы «Хованщна» «Плывет лебедушка» можно отнести ко второй части народного свадебного обряда"?</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: haykin-1946-11_2-hovanschina-4-deystvie-plyvet-plyvet-lebedu_1_.mp3</div><audio controls preload="none" src="../_аудио/haykin-1946-11_2-hovanschina-4-deystvie-plyvet-plyvet-lebedu_1_.mp3"></audio></div></div>
+      <div class="ablock"><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>Верно</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>Неверно</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Верно</div></div>
+      <p class="why">потому что так называется файл записи: по имени файла и тексту вопроса: Хованщина, хор «Плывёт лебёдушка» — вторая часть обряда (пир).</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 2 Музыка</h3>
+<div class="que match deferredfeedback" id="q-20">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Вас приветствуют великие русские композиторы. Определите их фамилии.</div>
+      <div class="pics"><img class="qimg" src="../_картинки/5d9c5e3b0a88e0de.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/b9e74f7708cb96af.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/379943e9aefbbea5.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/5621d581f294f24c.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/bb0f6547a3aba8ee.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/240de0daf3ddbe58.jpg" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: С.Рахманинов; М.Мусоргский; П.И.Чайковский; А.Е.Варламов; М.И.Глинка; Н.А.Римский - Корсаков</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>С.Рахманинов</option><option>М.Мусоргский</option><option>П.И.Чайковский</option><option>А.Е.Варламов</option><option>М.И.Глинка</option><option>Н.А.Римский - Корсаков</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">портрет 1 (в шапочке) — М.И.Глинка</div><div class="ans-line">портрет 2 (очки, седая борода) — Н.А.Римский - Корсаков</div><div class="ans-line">портрет 3 — П.И.Чайковский</div><div class="ans-line">портрет 4 (молодой, тёмный галстук) — А.Е.Варламов</div><div class="ans-line">портрет 5 (фото, рука у подбородка) — С.Рахманинов</div><div class="ans-line">портрет 6 — М.Мусоргский</div></div>
+      <p class="why">потому что портрет 1 (в шапочке) — это М.И.Глинка; портрет 2 (очки, седая борода) — это Н.А.Римский - Корсаков; портрет 3 — это П.И.Чайковский; портрет 4 (молодой, тёмный галстук) — это А.Е.Варламов; портрет 5 (фото, рука у подбородка) — это С.Рахманинов; портрет 6 — это М.Мусоргский.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-21">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальные произведения, определи их композиторов.</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_57_2.mp3</div><audio controls preload="none" src="../_аудио/6_57_2.mp3"></audio></div><div class="audio"><div class="alabel">запись 2: 6_57_3.mp3</div><audio controls preload="none" src="../_аудио/6_57_3.mp3"></audio></div><div class="audio"><div class="alabel">запись 3: 6_57_1.mp3</div><audio controls preload="none" src="../_аудио/6_57_1.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Варианты: М.Глинка; С. Прокофьев; П.И.Чайковский</div><table class="answer match"><tr class="r0"><td class="text">запись 1</td><td><select class="custom-select" disabled><option>Выберите...</option><option>М.Глинка</option><option>С. Прокофьев</option><option>П.И.Чайковский</option></select></td></tr><tr class="r1"><td class="text">запись 2</td><td><select class="custom-select" disabled><option>Выберите...</option><option>М.Глинка</option><option>С. Прокофьев</option><option>П.И.Чайковский</option></select></td></tr><tr class="r0"><td class="text">запись 3</td><td><select class="custom-select" disabled><option>Выберите...</option><option>М.Глинка</option><option>С. Прокофьев</option><option>П.И.Чайковский</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
+      <p class="why">запись нужно прослушать самому.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-22">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Современный музыкальный инструмент, «заменитель» фортепиано:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Клавесин</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Синтезатор</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Челеста</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. Синтезатор</div></div>
+      <p class="why">потому что Современный музыкальный инструмент, «заменитель» фортепиано: = b. Синтезатор.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-23">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется музыкальное сопровождение песен?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>аккомпанемент</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>этюд</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>фантазия</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">аккомпанемент</div></div>
+      <p class="why">потому что Как называется музыкальное сопровождение песен = аккомпанемент.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-24">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кто из композиторов создал первую русскую национальную оперу?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>С. В. Рахманинов</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>М. И. Глинка</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>М. П. Мусоргский</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">М. И. Глинка</div></div>
+      <p class="why">потому что Кто из композиторов создал первую русскую национальную оперу = М. И. Глинка.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-25">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В «Метели» Свиридова нет сюжета под названием:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Пастораль</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Ночь</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Вальс</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. Ночь</div></div>
+      <p class="why">потому что В «Метели» Свиридова нет сюжета под названием: = b. Ночь.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-26">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Найди лишнее в приведенном перечне:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>М.И.Глинка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>П.И.Чайковский</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Н.А.Римский-Корсаков</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Ф.Шопен</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Ф.Шопен</div></div>
+      <p class="why">потому что Найди лишнее в приведенном перечне: = Ф.Шопен.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-27">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какой великий русский композитор был известным учёным химиком?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>П. И. Чайковский</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>А. П. Бородин</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>Н. А. Римский-Корсаков</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">А. П. Бородин</div></div>
+      <p class="why">потому что Какой великий русский композитор был известным учёным химиком = А. П. Бородин.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-28">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назовите композитора вокальной баллады «Лесной царь».</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Ф.Шуберт</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Ф.Лист</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>Ф. Шопен</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>А.П.Бородин</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Ф.Шуберт</div></div>
+      <p class="why">потому что Назовите композитора вокальной баллады «Лесной царь» = Ф.Шуберт.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-29">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выбери девиз, характеризующий творчество П. Чайковского</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>«…чтобы в моей музыке люди находили подпору и утешение»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>«Через борьбу к победе!»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>«Жизнь прекрасна»</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">«…чтобы в моей музыке люди находили подпору и утешение»</div></div>
+      <p class="why">потому что Выбери девиз, характеризующий творчество П. Чайковского = «…чтобы в моей музыке люди находили подпору и утешение».</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-30">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Г. Свиридов написал эти музыкальные иллюстрации к повести А. С. Пушкина:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. «Метель»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. «Зима»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. «Снегопад»</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">a. «Метель»</div></div>
+      <p class="why">потому что Г. Свиридов написал эти музыкальные иллюстрации к повести А. С. Пушкина: = a. «Метель».</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-31">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Рок-опера А. Журбина</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. «Времена года»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. «Ромео и Джульета»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. «Орфей и Эвридика»</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. «Орфей и Эвридика»</div></div>
+      <p class="why">потому что Рок-опера А. Журбина = c. «Орфей и Эвридика».</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-32">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Композитор советских кинофильмов</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. С. Рахманинов</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. П. Чайковский</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. И. Дунаевский</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. И. Дунаевский</div></div>
+      <p class="why">потому что Композитор советских кинофильмов = c. И. Дунаевский.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-33">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В XX веке у нас в стране зародился новый жанр песни, которые сначала называли студенческими или туристическими:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Частушка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Романс</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Авторская песня</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. Авторская песня</div></div>
+      <p class="why">потому что В XX веке у нас в стране зародился новый жанр песни, которые сначала называли студенческими или туристическими: = c. Авторская песня.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-34">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">15</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Первый российский бард:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. М. Глинка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. В. Цой</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Б. Окуджава</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. Б. Окуджава</div></div>
+      <p class="why">потому что Первый российский бард: = c. Б. Окуджава.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 3 Музыка</h3>
+<div class="que match deferredfeedback" id="q-35">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Вас приветствую зарубежные композиторы . Определи их фамилии.</div>
+      <div class="pics"><img class="qimg" src="../_картинки/dfbf24e9ed951855.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/e18679ddd1d902eb.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/098351792acbcebb.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/fdd9a5757495631b.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/2dae21834d1c8950.jpg" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: А.Вивальди; Ф.Шуберт; Л.В.Бетховен; Н.Паганини; И.С.Бах; Ф.Шопен; В.А.Моцарт</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Вивальди</option><option>Ф.Шуберт</option><option>Л.В.Бетховен</option><option>Н.Паганини</option><option>И.С.Бах</option><option>Ф.Шопен</option><option>В.А.Моцарт</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Вивальди</option><option>Ф.Шуберт</option><option>Л.В.Бетховен</option><option>Н.Паганини</option><option>И.С.Бах</option><option>Ф.Шопен</option><option>В.А.Моцарт</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Вивальди</option><option>Ф.Шуберт</option><option>Л.В.Бетховен</option><option>Н.Паганини</option><option>И.С.Бах</option><option>Ф.Шопен</option><option>В.А.Моцарт</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Вивальди</option><option>Ф.Шуберт</option><option>Л.В.Бетховен</option><option>Н.Паганини</option><option>И.С.Бах</option><option>Ф.Шопен</option><option>В.А.Моцарт</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>А.Вивальди</option><option>Ф.Шуберт</option><option>Л.В.Бетховен</option><option>Н.Паганини</option><option>И.С.Бах</option><option>Ф.Шопен</option><option>В.А.Моцарт</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">портрет 1 (красный камзол) — В.А.Моцарт</div><div class="ans-line">портрет 2 (парик, ноты в руках) — И.С.Бах</div><div class="ans-line">портрет 3 — Ф.Шопен</div><div class="ans-line">портрет 4 (очки, кудри) — Ф.Шуберт</div><div class="ans-line">портрет 5 (скрипка) — А.Вивальди</div></div>
+      <p class="why">потому что портрет 1 (красный камзол) — это В.А.Моцарт; портрет 2 (парик, ноты в руках) — это И.С.Бах; портрет 3 — это Ф.Шопен; портрет 4 (очки, кудри) — это Ф.Шуберт; портрет 5 (скрипка) — это А.Вивальди.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-36">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Прелюдия – это…:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Жанр инструментальной музыки</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Небольшое музыкальное произведение, раскрывающие один образ</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Вступление к опере</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. Содержание оперы</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. Небольшое музыкальное произведение, раскрывающие один образ</div></div>
+      <p class="why">потому что Прелюдия – это…: = b. Небольшое музыкальное произведение, раскрывающие один образ.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-37">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальное произведение, вспомни, кто его композитор и как оно называется?</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_34_1.mp3</div><audio controls preload="none" src="../_аудио/6_34_1.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Ф.Шопен «Революционный этюд»</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>А.Вивальди, «Лето»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Л.В.Бетховен "Патетическая соната"</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
+      <p class="why">запись нужно прослушать самому.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-38">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальное произведение, вспомни кто его автор и как оно называется.</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: 6_32_1.mp3</div><audio controls preload="none" src="../_аудио/6_32_1.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>А.П. Бородин "Стрелецкое восстание"</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Ф.Шопен «Революционный этюд»</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Л.Бетховен Увертюра «Эгмонт»</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Правильный ответ из записи дать не могу: я не умею слушать музыку. Включи плеер выше, послушай сам и выбери из вариантов.</div></div>
+      <p class="why">запись нужно прослушать самому.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-39">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Композитор, писавший вальсы, мазурки, прелюдии. Известен созданием нового жанра – инструментальная баллада:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Ф. Шопен</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Р. Шуман</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Ф. Шуберт</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">a. Ф. Шопен</div></div>
+      <p class="why">потому что Композитор, писавший вальсы, мазурки, прелюдии. Известен созданием нового жанра – инструментальная баллада: = a. Ф. Шопен.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-40">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Музыка, написанная на какой-нибудь сюжет, называется:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Не программной</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Симфонической</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Программной</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. Программной</div></div>
+      <p class="why">потому что Музыка, написанная на какой-нибудь сюжет, называется: = c. Программной.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-41">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">«Реквием» - это последнее произведение:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. П.И. Чайковского</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. В.А. Моцарта</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. И.С. Баха</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. В.А. Моцарта</div></div>
+      <p class="why">потому что «Реквием» - это последнее произведение: = b. В.А. Моцарта.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-42">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">«Вся симфония – словно образ самого Моцарта..» Эти слова Шуберт сказал о:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Неоконченной симфонии</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Симфонии №41</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Симфонии №40</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. Симфонии №40</div></div>
+      <p class="why">потому что «Вся симфония – словно образ самого Моцарта..» Эти слова Шуберт сказал о: = c. Симфонии №40.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-43">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">«Реквием» написал:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Д. Перголези</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. А. Моцарт</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Л. Бетховен</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. А. Моцарт</div></div>
+      <p class="why">потому что «Реквием» написал: = b. А. Моцарт.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-44">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Создатель жанра инструментальный концерт. Был отличным скрипачом, дирижером, композитором:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. П. Чайковский</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. И. Бах</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. А. Вивальди</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. А. Вивальди</div></div>
+      <p class="why">потому что Создатель жанра инструментальный концерт. Был отличным скрипачом, дирижером, композитором: = c. А. Вивальди.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-45">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Жанр «программная увертюра» создал:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Л. Бетховен</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. А. Моцарт</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. К. Дебюсси</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">a. Л. Бетховен</div></div>
+      <p class="why">потому что Жанр «программная увертюра» создал: = a. Л. Бетховен.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-46">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какой великий композитор продолжал сочинять музыку после потери слуха?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>Ф. Шуберт</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>Л. Бетховен</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>В. Моцарт</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Л. Бетховен</div></div>
+      <p class="why">потому что Какой великий композитор продолжал сочинять музыку после потери слуха = Л. Бетховен.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-47">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кого из композиторов считали «королем» вальса?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>И. Штраус</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>Ф. Шопен</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>В. Моцарт</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">И. Штраус</div></div>
+      <p class="why">потому что Кого из композиторов считали «королем» вальса = И. Штраус.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-48">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Кого называли «отцом симфонии»?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Л.Бетховен</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>И.Гайдн</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>В.Моцарт</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Ф.Шуберт</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">И.Гайдн</div></div>
+      <p class="why">потому что Кого называли «отцом симфонии» = И.Гайдн.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-49">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">15</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В каком музыкальном стиле сочинял свою музыку И.С.Бах?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>полифония</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>додекофония</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>полистилистика</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>гомофония</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">полифония</div></div>
+      <p class="why">потому что В каком музыкальном стиле сочинял свою музыку И.С.Бах = полифония.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-50">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">16</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Творчество какого композитора отражает девиз: «Через борьбу – к победе!»</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Бетховен</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Шопен</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Чайковский</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Бетховен</div></div>
+      <p class="why">потому что Творчество какого композитора отражает девиз: «Через борьбу – к победе!» = Бетховен.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 4 Музыка</h3>
+<div class="que multichoice deferredfeedback" id="q-51">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как можно назвать одним словом образ жизни, обряды и обычаи, язык, культура, искусство, которые передаются народом из поколения в поколение?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. мировоззрение</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. традиция</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. норма</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. традиция</div></div>
+      <p class="why">потому что Как можно назвать одним словом образ жизни, обряды и обычаи, язык, культура, искусство, которые передаются народом из поколения в поколение = b. традиция.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-52">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как можно одним словом назвать народные песни и танцы, сказания и музыкальные наигрыши, которые живут в устной традиции каждого народа?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. историческое наследие</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. народное достояние</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. народное творчество</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. фольклор</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">d. фольклор</div></div>
+      <p class="why">потому что Как можно одним словом назвать народные песни и танцы, сказания и музыкальные наигрыши, которые живут в устной традиции каждого народа = d. фольклор.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-53">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">выбери из списка отличительные особенности этнической музыки.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. сохранилась в первоначальном звучании</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. исполняется в современной обработке</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. исполняется на народных инструментах</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. не подверглась влиянию других культур</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>e. объединяет людей всего мира</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">a. сохранилась в первоначальном звучании</div><div class="ans-line">c. исполняется на народных инструментах</div><div class="ans-line">d. не подверглась влиянию других культур</div></div>
+      <p class="why">потому что a. сохранилась в первоначальном звучании; c. исполняется на народных инструментах; d. не подверглась влиянию других культур.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-54">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Определи жанры музыкального фольклора.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. событийный</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. житейский</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. лирический</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. календарный</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>e. исторический</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. лирический</div><div class="ans-line">d. календарный</div><div class="ans-line">e. исторический</div></div>
+      <p class="why">потому что c. лирический; d. календарный; e. исторический.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-55">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальное произведение, определи ее этническую принадлежность (выбери из перечисленного)</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: kel-tskaya-narodnaya-muzyka-shotlandskaya.mp3</div><audio controls preload="none" src="../_аудио/kel-tskaya-narodnaya-muzyka-shotlandskaya.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. китайская народная музыка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. африканская народная музыка</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. русская народная музыка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. кельтская народная музыка</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">d. кельтская народная музыка</div></div>
+      <p class="why">потому что так называется файл записи: kel-tskaya-narodnaya-muzyka-shotlandskaya.mp3.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-56">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальный фрагмент, определи его этническую принадлежность (выбери из предложенного)</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: francuzskaya-narodnaya-muzyka-bez-nazvaniya.mp3</div><audio controls preload="none" src="../_аудио/francuzskaya-narodnaya-muzyka-bez-nazvaniya.mp3"></audio></div></div>
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. русская народная музыка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. китайская народная музыка</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. африканская народная музыка</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>d. французская народная музыка</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">d. французская народная музыка</div></div>
+      <p class="why">потому что так называется файл записи: francuzskaya-narodnaya-muzyka-bez-nazvaniya.mp3.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-57">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Жанр музыки, пришедший к нам из Африки, отличителен свободным исполнением и ритмическими «раскачками»:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Фингерстайл</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Джаз</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Рок</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. Джаз</div></div>
+      <p class="why">потому что Жанр музыки, пришедший к нам из Африки, отличителен свободным исполнением и ритмическими «раскачками»: = b. Джаз.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-58">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Спиричуэл – это…:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Жанр вокальной музыки</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Жанр инструментальной музыки</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Жанр религиозного пения и танца</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">c. Жанр религиозного пения и танца</div></div>
+      <p class="why">потому что Спиричуэл – это…: = c. Жанр религиозного пения и танца.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-59">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Ваганты – это…</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>средневековые сельские жители</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>средневековые музыканты, певцы и актёры</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>средневековые правители</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">средневековые музыканты, певцы и актёры</div></div>
+      <p class="why">потому что Ваганты – это… = средневековые музыканты, певцы и актёры.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-60">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Выберите известных зарубежных джазовых исполнителей.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Луи Армстронг</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Дюк Эллингтон</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Игорь Бутман</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Рэй Чарльз</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Луи Армстронг</div><div class="ans-line">Дюк Эллингтон</div><div class="ans-line">Рэй Чарльз</div></div>
+      <p class="why">потому что Луи Армстронг; Дюк Эллингтон; Рэй Чарльз.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-61">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называли бродячих студентов в Европе во времена Средневековья, которые подарили нам гимн «Гаудеамус»:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>a. Скоморохи</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>b. Ваганты</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>c. Уличные музыканты</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">b. Ваганты</div></div>
+      <p class="why">потому что Как называли бродячих студентов в Европе во времена Средневековья, которые подарили нам гимн «Гаудеамус»: = b. Ваганты.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-62">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно прослушай музыкальный фрагмент, запиши, как называется основной музыкальный инструмент в этом произведении.Ответ запиши одним словом в именительном падеже единственного числа.</div>
+      
+      <div class="audios"><div class="audio"><div class="alabel">запись 1: shotlandskaya-volynka-boevaya-volynka.mp3</div><audio controls preload="none" src="../_аудио/shotlandskaya-volynka-boevaya-volynka.mp3"></audio></div></div>
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">волынка</div></div>
+      <p class="why">потому что так называется файл записи: shotlandskaya-volynka-boevaya-volynka.mp3.</p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</body>
+</html>

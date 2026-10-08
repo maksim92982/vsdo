@@ -1,728 +1,1131 @@
 <!doctype html>
 <html lang="ru">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>6 класс · изо · 1 полугодие</title>
+<title>изо · Тест</title>
 <style>
-:root { --bg:#0f2744; --card:#fff; --ink:#1a2332; --muted:#5b6573; --acc:#1e6bb8; --ok:#0d7a4f; }
 * { box-sizing: border-box; }
-html, body { margin:0; background:#dfe7f0; color:var(--ink); font-family: "Segoe UI", Arial, sans-serif; }
-.wrap { max-width: 980px; margin: 0 auto; padding: 16px; }
-h1 { font-size: 28px; margin: 12px 0 8px; }
-.sub { color: var(--muted); margin-bottom: 18px; }
-.nav { position: sticky; top: 0; z-index: 5; background: #dfe7f0; padding: 8px 0; display:flex; gap:8px; align-items:center; }
-button { background: var(--acc); color:#fff; border:0; padding:8px 14px; border-radius:8px; cursor:pointer; font-size:15px; }
-.slide { background: var(--card); border-radius: 16px; padding: 28px 32px; margin: 16px 0; box-shadow: 0 8px 24px rgba(15,39,68,.12); min-height: 70vh; }
-.top { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-h2, h3 { margin: 14px 0 8px; }
-.q { font-size: 20px; line-height: 1.45; }
-.opts { margin: 12px 0; background:#f4f7fb; padding:12px 16px; border-radius:10px; }
-.memo { line-height: 1.5; }
-.ans { background:#e8f6ee; border-left: 6px solid var(--ok); padding: 12px 16px; border-radius: 8px; font-size: 18px; }
-.ans-line { margin: 6px 0; }
-.muted { color: var(--muted); background: #fff6e8; border:0; padding:8px; }
-.toc a { display:block; margin: 4px 0; color: var(--acc); }
-.themebar { color:#fff; padding:8px 12px; border-radius:10px; font-size:15px; margin-bottom:10px; }
-.pics { display:flex; flex-wrap:wrap; gap:12px; margin:14px 0; align-items:flex-start; }
-.qimg { max-width:100%; height:auto; border:1px solid #d5dee8; border-radius:10px; background:#fff; }
-.audios { margin: 14px 0; }
-.audio { margin: 10px 0 14px; }
-.alabel { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
-audio { width: 100%; }
-.ans.cant { background:#fff3e0; border-left-color:#c45c26; }
+html, body {
+  margin: 0;
+  background: #fff;
+  color: #1d2125;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+a { color: #0f6cbf; }
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.6rem 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.navbar .brand { color: #0f6cbf; font-weight: 600; text-decoration: none; font-size: 1.1rem; }
+.navbar .crumb { color: #6a737b; font-size: 0.9rem; }
+#page {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+#page-header h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.35rem; }
+#page-header .page-context-header { color: #6a737b; margin: 0 0 1rem; }
+#mod_quiz_navblock {
+  position: sticky;
+  top: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: #fff;
+}
+#mod_quiz_navblock h5 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+.qnbutton {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+  background: #fff;
+  height: 40px;
+  width: 30px;
+  border-radius: 3px;
+  margin: 0 6px 6px 0;
+  border: 1px solid #cad0d7;
+  text-align: center;
+  color: #1d2125;
+  position: relative;
+  vertical-align: top;
+}
+.qnbutton .thispageholder { display: block; height: 20px; padding-top: 2px; }
+.qnbutton .trafficlight {
+  display: block;
+  height: 18px;
+  background: #6a737b;
+  border-radius: 0 0 2px 2px;
+}
+.quizname { margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #dee2e6; font-size: 1.15rem; }
+.que { clear: left; text-align: left; margin: 0 auto 1.8em auto; overflow: hidden; }
+.que .info {
+  float: left;
+  width: 7em;
+  padding: 0.5em;
+  margin-bottom: 1.8em;
+  background-color: #f8f9fa;
+  border: 1px solid #cad0d7;
+  border-radius: 2px;
+}
+.que h3.no { margin: 0; font-size: 0.8em; line-height: 1; }
+.que span.qno { font-size: 1.5em; font-weight: bold; }
+.que .info > div { font-size: 0.8em; margin-top: 0.7em; }
+.que .content { margin: 0 0 0 8.5em; }
+.que .formulation, .que .comment {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 0 solid transparent;
+  border-radius: 0.5rem;
+}
+.que .formulation {
+  color: #001a1e;
+  background-color: #e7f3f5;
+  border-color: #b8dce2;
+}
+.que .comment {
+  color: #1c3f1a;
+  background-color: #d7e4d6;
+  border-color: #c6dac6;
+}
+.que .ablock { margin: 0.7em 0 0.3em 0; }
+.que .qtext { margin-bottom: 1.5em; }
+.que .prompt { font-weight: 600; margin: 0 0 0.4em; }
+.que .answer .r0, .que .answer .r1 { padding: 0.2em 0.15em; }
+.que .answer input { margin-right: 0.35em; vertical-align: middle; }
+.que label { display: inline; }
+.que table.answer { width: 100%; border-collapse: collapse; }
+.que table.answer td { padding: 0.35em 0.5em; vertical-align: middle; }
+.que table.answer tr.r0 { background: rgba(255,255,255,0.45); }
+.custom-select {
+  display: inline-block;
+  padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #8f959e;
+  border-radius: 0.25rem;
+  background: #fff;
+  max-width: 100%;
+}
+.accesshide {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.pics { margin: 0 0 1em; }
+.qimg { max-width: 100%; height: auto; border: 1px solid #cad0d7; background: #fff; }
+.audios { margin: 0 0 1em; }
+.alabel { font-size: 0.85em; color: #6a737b; }
+audio { width: 100%; max-width: 420px; }
+.rightanswer { font-weight: 600; margin: 0 0 0.4em; }
+.ans-line { margin: 0.15em 0; font-weight: 600; }
+.why { margin: 0; font-weight: 400; }
+@media (max-width: 800px) {
+  #page { grid-template-columns: 1fr; }
+  .que .info { float: none; width: auto; margin-bottom: 0.6em; }
+  .que .content { margin: 0; }
+}
 </style>
-<body>
-<div class="wrap">
-  <h1>🎨 6 класс. изо. 1 полугодие</h1>
-  <p class="sub">Вопросы из текущих тестов 1–4. Если в задании была карта, схема или фото — они показаны здесь, как в тесте. Клавиши ← → листают слайды.</p>
-  <div class="nav">
-    <button id="prev">← Назад</button>
-    <button id="next">Вперёд →</button>
-    <button id="all">Показать все</button>
-    <span id="pos"></span>
+</head>
+<body class="path-mod-quiz">
+<nav class="navbar">
+  <a class="brand" href="../index.html">ЦОДИВ</a>
+  <span class="crumb">6 класс / изо / 1 полугодие</span>
+</nav>
+<div id="page">
+  <aside id="mod_quiz_navblock">
+    <h5>Навигация по тесту</h5>
+    <div class="allquestionsononepage"><div><strong>Тест 1 Изобразительное Искусство</strong></div><a class="qnbutton answersaved" href="#q-1"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-2"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-3"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-4"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-5"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-6"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-7"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-8"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-9"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-10"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-11"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-12"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-13"><span class="thispageholder">13</span><span class="trafficlight"></span></a><div><strong>Тест 2 Изобразительное Искусство</strong></div><a class="qnbutton answersaved" href="#q-14"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-15"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-16"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-17"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-18"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-19"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-20"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-21"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-22"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-23"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-24"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-25"><span class="thispageholder">12</span><span class="trafficlight"></span></a><div><strong>Тест 3 Изобразительное Искусство</strong></div><a class="qnbutton answersaved" href="#q-26"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-27"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-28"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-29"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-30"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-31"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-32"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-33"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-34"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-35"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-36"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-37"><span class="thispageholder">12</span><span class="trafficlight"></span></a><div><strong>Тест 4 Изобразительное Искусство</strong></div><a class="qnbutton answersaved" href="#q-38"><span class="thispageholder">1</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-39"><span class="thispageholder">2</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-40"><span class="thispageholder">3</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-41"><span class="thispageholder">4</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-42"><span class="thispageholder">5</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-43"><span class="thispageholder">6</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-44"><span class="thispageholder">7</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-45"><span class="thispageholder">8</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-46"><span class="thispageholder">9</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-47"><span class="thispageholder">10</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-48"><span class="thispageholder">11</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-49"><span class="thispageholder">12</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-50"><span class="thispageholder">13</span><span class="trafficlight"></span></a><a class="qnbutton answersaved" href="#q-51"><span class="thispageholder">14</span><span class="trafficlight"></span></a></div>
+  </aside>
+  <div id="region-main">
+    <div id="page-header">
+      <h1>изо</h1>
+      <p class="page-context-header">Пройти тест · все вопросы на одной странице</p>
+    </div>
+    <h3 class="quizname">Тест 1 Изобразительное Искусство</h3>
+<div class="que gapselect deferredfeedback" id="q-1">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
   </div>
-  <div class="toc"><a href="#q-1">Тест 1 Изобразительное Искусство (13)</a><a href="#q-14">Тест 2 Изобразительное Искусство (12)</a><a href="#q-26">Тест 3 Изобразительное Искусство (12)</a><a href="#q-38">Тест 4 Изобразительное Искусство (14)</a></div>
-  <div id="q-1"></div>
-<section class="slide" data-i="1">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 1 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Соотнесите картину с видом изобразительного искусства:1. (1) 2. (2) 3. (3)</div>
-  <div class="pics"><img class="qimg" src="../_картинки/06c708649a109ae5.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/21f96aa6b1023104.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/4636409ee2624d8a.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) Графика / Живопись / Гравюра</li><li>(2) Графика / Живопись / Гравюра</li><li>(3) Графика / Живопись / Гравюра</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Соотнесите картину с видом изобразительного искусства:1. (1) 2. (2) 3. (3) Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Живопись; Графика; Гравюра</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Живопись</div><div class="ans-line">Графика</div><div class="ans-line">Гравюра</div></div>
-</section><div id="q-2"></div>
-<section class="slide" data-i="2">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 2 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назови основные виды изобразительного искусства.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>рисунок</li><li>скульптура</li><li>графика</li><li>живопись</li><li>мозайка</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назови основные виды изобразительного искусства. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: скульптура; графика; живопись</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">скульптура</div><div class="ans-line">графика</div><div class="ans-line">живопись</div></div>
-</section><div id="q-3"></div>
-<section class="slide" data-i="3">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 3 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какой из представленных жанров не относится к изобразительному искусству:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Лиричный</li><li>Бытовой</li><li>Мифологический</li><li>Батальный</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какой из представленных жанров не относится к изобразительному искусству: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Лиричный</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Лиричный</div></div>
-</section><div id="q-4"></div>
-<section class="slide" data-i="4">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 4 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Один из видов изобразительного искусства, главным языком которого является линия, а роль цвета ограничена.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>живопись</li><li>графика</li><li>скульптура</li><li>ДПИ</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Один из видов изобразительного искусства, главным языком которого является линия, а роль цвета ограничена. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: графика</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">графика</div></div>
-</section><div id="q-5"></div>
-<section class="slide" data-i="5">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 5 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется самое светлое место на предмете, куда падает наиболее короткий и прямой луч света</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Тон</li><li>Отражение</li><li>Рефлекс</li><li>Блик</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется самое светлое место на предмете, куда падает наиболее короткий и прямой луч света Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Блик</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Блик</div></div>
-</section><div id="q-6"></div>
-<section class="slide" data-i="6">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 6 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Живопись одним цветом, чаще всего серым.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Гризайль</li><li>силуэт</li><li>монотипия</li><li>акварель</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Живопись одним цветом, чаще всего серым. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Гризайль</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Гризайль</div></div>
-</section><div id="q-7"></div>
-<section class="slide" data-i="7">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 7 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Что не является графическим материалом?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>карандаш</li><li>тушь</li><li>гуашь</li><li>пастель</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Что не является графическим материалом? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: гуашь</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">гуашь</div></div>
-</section><div id="q-8"></div>
-<section class="slide" data-i="8">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 8 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называются цвета, получаемые при смешивании основных цветов попарно в равных долях (получаются оранжевый, зелёный и фиолетовый)</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Дополнительные</li><li>Колористика</li><li>Оттенки</li><li>Составные</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называются цвета, получаемые при смешивании основных цветов попарно в равных долях (получаются оранжевый, зелёный и фиолетовый) Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Составные</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Составные</div></div>
-</section><div id="q-9"></div>
-<section class="slide" data-i="9">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 9 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Что относится к выразительным средствам живописи:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>штрих</li><li>цвет</li><li>линия</li><li>тектоника</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Что относится к выразительным средствам живописи: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: цвет</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">цвет</div></div>
-</section><div id="q-10"></div>
-<section class="slide" data-i="10">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 10 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие материалы не относятся к графическим?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>сангина</li><li>цветные карандаши</li><li>уголь</li><li>масло</li><li>тушь</li><li>пастель</li><li>темпера</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие материалы не относятся к графическим? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: масло; темпера</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">масло</div><div class="ans-line">темпера</div></div>
-</section><div id="q-11"></div>
-<section class="slide" data-i="11">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 11 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какой художественный материал легко стереть тряпкой, поэтому необходимо закреплять на поверхности бумаги специальным лакомЗапишите ответ словом, соблюдая орфографию, например, акварель</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какой художественный материал легко стереть тряпкой, поэтому необходимо закреплять на поверхности бумаги специальным лакомЗапишите ответ словом, соблюдая орфографию, например, акварель Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: уголь</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">уголь</div></div>
-</section><div id="q-12"></div>
-<section class="slide" data-i="12">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 12 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется в изобразительном искусстве способ передачи объёма предмета с помощью теней и света и важнейшее средство выразительности?Запишите ответ словом строчными буквами, например, цвет</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется в изобразительном искусстве способ передачи объёма предмета с помощью теней и света и важнейшее средство выразительности?Запишите ответ словом строчными буквами, например, цвет Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: светотень</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">светотень</div></div>
-</section><div id="q-13"></div>
-<section class="slide" data-i="13">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 1 Изобразительное Искусство · вопрос 13 из 13</div>
-  <h2>Вопрос</h2>
-  <div class="q">Рассмотри картинку и, на основе изображения, скажи, верно ли утверждение:"Тон - это характеристика света в изображении, тон показывает нам степень освещенности".</div>
-  <div class="pics"><img class="qimg" src="../_картинки/a20c7c9e96ba556b.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Верно</li><li>Неверно</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Рассмотри картинку и, на основе изображения, скажи, верно ли утверждение:"Тон - это характеристика света в изображении, тон показывает нам степень освещенности". Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Верно</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Верно</div></div>
-</section><div id="q-14"></div>
-<section class="slide" data-i="14">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 1 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Соотнесите материал с видом изобразительного искусства:(1) -акварель, гуашь, темпера, масло(2) -карандаш, мелки, фломастеры, ручки, тушь, перо(3) -глина, гипс, дерево, металл, камень</div>
-  
-  
-  <div class="opts"><b>Что вставить в пропуски (1), (2)…:</b><ul><li>(1) Графика / Живопись / Скульптура</li><li>(2) Графика / Живопись / Скульптура</li><li>(3) Графика / Живопись / Скульптура</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Соотнесите материал с видом изобразительного искусства:(1) -акварель, гуашь, темпера, масло(2) -карандаш, мелки, фломастеры, ручки, тушь, перо(3) -глина, гипс, дерево, металл, камень Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Живопись; Графика; Скульптура</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Живопись</div><div class="ans-line">Графика</div><div class="ans-line">Скульптура</div></div>
-</section><div id="q-15"></div>
-<section class="slide" data-i="15">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 2 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Соотнесите изображение с видом скульптуры:</div>
-  <div class="pics"><img class="qimg" src="../_картинки/c114086ffa2b25e7.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/0a7755b83e132f25.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/741f36ef2dcf4ec6.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li></li><li></li><li></li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Соотнесите изображение с видом скульптуры: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко:  — Станковая скульптура;  — Декоративная скульптура;  — Монументальная скульптура</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line"> — Станковая скульптура</div><div class="ans-line"> — Декоративная скульптура</div><div class="ans-line"> — Монументальная скульптура</div></div>
-</section><div id="q-16"></div>
-<section class="slide" data-i="16">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 3 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие цвета называют ахроматическими?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Цветные</li><li>Черный и белый</li><li>Яркие</li><li>Основные</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие цвета называют ахроматическими? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Черный и белый</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Черный и белый</div></div>
-</section><div id="q-17"></div>
-<section class="slide" data-i="17">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 4 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Основы выразительности скульптуры:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>блик</li><li>цвет</li><li>колорит</li><li>пластика</li><li>штрих</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Основы выразительности скульптуры: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: пластика</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">пластика</div></div>
-</section><div id="q-18"></div>
-<section class="slide" data-i="18">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 5 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Произведения, какого вида искусства имеют объём</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>графика</li><li>скульптура</li><li>иллюстрация</li><li>живопись</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Произведения, какого вида искусства имеют объём Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: скульптура</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">скульптура</div></div>
-</section><div id="q-19"></div>
-<section class="slide" data-i="19">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 6 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какие материалы использует скульптор в своей работе:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>темпера, металл, лед</li><li>камень, дерево, металл</li><li>дерево, ткань, стекло</li><li>акрил, камень, лен</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какие материалы использует скульптор в своей работе: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: камень, дерево, металл</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">камень, дерево, металл</div></div>
-</section><div id="q-20"></div>
-<section class="slide" data-i="20">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 7 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Художественное произведение, повторяющее другое.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>репродукция</li><li>оригинал</li><li>подлинник</li><li>Копия</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Художественное произведение, повторяющее другое. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Копия</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Копия</div></div>
-</section><div id="q-21"></div>
-<section class="slide" data-i="21">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 8 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">В каком виде искусства НЕ встречается жанр натюрморта?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Графика</li><li>Скульптура</li><li>Архитектура</li><li>Живопись</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В каком виде искусства НЕ встречается жанр натюрморта? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Архитектура</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Архитектура</div></div>
-</section><div id="q-22"></div>
-<section class="slide" data-i="22">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 9 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется жанр изобразительного искусства, в котором изображают неодушевлённые предметы, организованные в группу?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Живопись</li><li>Натюрморт</li><li>Пейзаж</li><li>Портрет</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется жанр изобразительного искусства, в котором изображают неодушевлённые предметы, организованные в группу? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Натюрморт</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Натюрморт</div></div>
-</section><div id="q-23"></div>
-<section class="slide" data-i="23">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 10 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Этот рисунок стал «Символом мира», принадлежит знаменитому художнику:</div>
-  <div class="pics"><img class="qimg" src="../_картинки/a5f5879b5c466e05.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Варианты:</b><ul><li>И. Репин</li><li>А. Матис</li><li>Караваджо</li><li>П. Пикассо</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Этот рисунок стал «Символом мира», принадлежит знаменитому художнику: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: П. Пикассо</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">П. Пикассо</div></div>
-</section><div id="q-24"></div>
-<section class="slide" data-i="24">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 11 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назовите фамилию художника, создателя первого натюрморта в истории изобразительного искусства? Запишите ответ словом, соблюдая орфографию, например, Иванов</div>
-  <div class="pics"><img class="qimg" src="../_картинки/8f60d72887a8610c.png" alt="рисунок из теста"></div>
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назовите фамилию художника, создателя первого натюрморта в истории изобразительного искусства? Запишите ответ словом, соблюдая орфографию, например, Иванов Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Караваджо</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Караваджо</div></div>
-</section><div id="q-25"></div>
-<section class="slide" data-i="25">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 2 Изобразительное Искусство · вопрос 12 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Верно ли утверждение:"Пространственные виды искусства обладают видимой формой и связаны с материальной средой, обликом людей и предметов"</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Верно</li><li>Неверно</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Верно ли утверждение:"Пространственные виды искусства обладают видимой формой и связаны с материальной средой, обликом людей и предметов" Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Верно</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Верно</div></div>
-</section><div id="q-26"></div>
-<section class="slide" data-i="26">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 1 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно рассмотри рисунок. Надпиши название терминов, которые на рисунке обозначены цифрами. Эти термины имеют отношение "Свет и тень".</div>
-  <div class="pics"><img class="qimg" src="../_картинки/4e0f75d0a1ac3bae.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li>5</li><li>6</li><li>7</li><li>3</li><li>2</li><li>4</li><li>1</li></ul><p>Варианты ответов: полутень, рефлекс, свет, собственная тень, блик, падающая тень, фон</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Внимательно рассмотри рисунок. Надпиши название терминов, которые на рисунке обозначены цифрами. Эти термины имеют отношение "Свет и тень". Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 1 — блик; 2 — свет; 3 — полутень (полутон); 4 — собственная тень; 5 — рефлекс; 6 — падающая тень; 7 — фон / граница света и тени — смотри цифры на схеме мяча/кувшина</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">1 — блик</div><div class="ans-line">2 — свет</div><div class="ans-line">3 — полутень (полутон)</div><div class="ans-line">4 — собственная тень</div><div class="ans-line">5 — рефлекс</div><div class="ans-line">6 — падающая тень</div><div class="ans-line">7 — фон / граница света и тени — смотри цифры на схеме мяча/кувшина</div></div>
-</section><div id="q-27"></div>
-<section class="slide" data-i="27">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 2 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Соотнесите натюрморт с техникой изображения:</div>
-  <div class="pics"><img class="qimg" src="../_картинки/f1b563e6c3ccb5a2.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/f7100490f3c60c9c.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/63cb150787c9278f.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/72017ac4c9698787.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li></li><li></li><li></li><li></li></ul><p>Варианты ответов: Гризайль, Тушь, Акварель, Гравюра</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Соотнесите натюрморт с техникой изображения: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: акварель — прозрачные заливки; гуашь / темпера — плотные кроющие пятна; графика (карандаш/уголь) — штрих; масло — пастозный мазок</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">акварель — прозрачные заливки</div><div class="ans-line">гуашь / темпера — плотные кроющие пятна</div><div class="ans-line">графика (карандаш/уголь) — штрих</div><div class="ans-line">масло — пастозный мазок</div></div>
-</section><div id="q-28"></div>
-<section class="slide" data-i="28">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 3 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Назови конструктивные виды искусства.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>живопись</li><li>архитектура</li><li>дизайн</li><li>графика</li><li>народные промыслы</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Назови конструктивные виды искусства. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: архитектура; дизайн</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">архитектура</div><div class="ans-line">дизайн</div></div>
-</section><div id="q-29"></div>
-<section class="slide" data-i="29">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 4 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">При сравнении окружающих предметов с геометрическими фигурами, художник получает информацию об их:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>колорите</li><li>цвете</li><li>форме</li><li>размере</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: При сравнении окружающих предметов с геометрическими фигурами, художник получает информацию об их: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: форме</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">форме</div></div>
-</section><div id="q-30"></div>
-<section class="slide" data-i="30">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 5 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как переводится слово конструкция?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Взаимное расположение частей предмета, их соотношение</li><li>Композиция</li><li>Геометрическое тело</li><li>Геометрические<br>фигуры разной величины</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как переводится слово конструкция? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Взаимное расположение частей предмета, их соотношение</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Взаимное расположение частей предмета, их соотношение</div></div>
-</section><div id="q-31"></div>
-<section class="slide" data-i="31">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 6 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Под светотенью следует понимать?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Тень, уходящая в глубину</li><li>Способ передачи объёма предмета с помощью теней и света</li><li>Световое отражение предметов</li><li>Отражение света от поверхности одного предмета в затенённой части другого</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Под светотенью следует понимать? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Способ передачи объёма предмета с помощью теней и света</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Способ передачи объёма предмета с помощью теней и света</div></div>
-</section><div id="q-32"></div>
-<section class="slide" data-i="32">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 7 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">К какому виду искусства относятся картины, созданные карандашом, тушью, углём и пастелью?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Живопись</li><li>Графика</li><li>Эскиз</li><li>Гравюра</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: К какому виду искусства относятся картины, созданные карандашом, тушью, углём и пастелью? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Графика</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Графика</div></div>
-</section><div id="q-33"></div>
-<section class="slide" data-i="33">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 8 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Основной цвет какого-либо предмета носит название:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>теплый</li><li>составной</li><li>основной</li><li>локальный</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Основной цвет какого-либо предмета носит название: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: локальный</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">локальный</div></div>
-</section><div id="q-34"></div>
-<section class="slide" data-i="34">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 9 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Перечисли основные (первичные) цвета.</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>красный</li><li>белый</li><li>синий</li><li>желтый</li><li>зеленый</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Перечисли основные (первичные) цвета. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: красный; синий; желтый</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">красный</div><div class="ans-line">синий</div><div class="ans-line">желтый</div></div>
-</section><div id="q-35"></div>
-<section class="slide" data-i="35">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 10 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Многие художники повторяют произведения «Великих мастеров», как называется такое произведение?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Тираж</li><li>Подделка</li><li>Копия</li><li>Список</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Многие художники повторяют произведения «Великих мастеров», как называется такое произведение? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Копия</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Копия</div></div>
-</section><div id="q-36"></div>
-<section class="slide" data-i="36">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 11 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">При создании портрета, главной задачей художника является:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Передача внутреннего мира портретируемого</li><li>Приукрашивание натурщика</li><li>Обыкновенное копирование внешности портретируемого - одежда, прическа,украшения</li><li>Отражение внутреннего и внешнего мира портретируемого</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: При создании портрета, главной задачей художника является: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Отражение внутреннего и внешнего мира портретируемого</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Отражение внутреннего и внешнего мира портретируемого</div></div>
-</section><div id="q-37"></div>
-<section class="slide" data-i="37">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 3 Изобразительное Искусство · вопрос 12 из 12</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется вид рисунка, главной целью которого является обучение изобразительной грамоте, освоению формы предмета и правилам ее построения? Запишите ответ словом, соблюдая орфографию, например, Творческий</div>
-  <div class="pics"><img class="qimg" src="../_картинки/d7bbda828fdb9612.png" alt="рисунок из теста"></div>
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется вид рисунка, главной целью которого является обучение изобразительной грамоте, освоению формы предмета и правилам ее построения? Запишите ответ словом, соблюдая орфографию, например, Творческий Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Учебный</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Учебный</div></div>
-</section><div id="q-38"></div>
-<section class="slide" data-i="38">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 1 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Внимательно рассмотри репродукции, вспомни кто написал эти портреты.</div>
-  <div class="pics"><img class="qimg" src="../_картинки/580e2c51f24bf5e1.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/267811fcc8330392.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/c2c761b0d7c75df1.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/b1b05b2a607a3540.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/6504ff2391b8e526.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/59a96062721a1f97.jpg" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li></li><li></li><li></li><li></li><li></li><li></li></ul><p>Варианты ответов: О. Ренуар, В.А.Серов, И.Е.Репин, Рембрандт, А.Архипов, Л.да Винчи</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Внимательно рассмотри репродукции, вспомни кто написал эти портреты. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Типично: Леонардо «Мона Лиза», Рафаэль «Автопортрет»/«Дама с единорогом», Рембрандт, Ван Дейк, Рокотов/Левицкий, Серов — соотнеси с репродукциями на слайде</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Типично: Леонардо «Мона Лиза», Рафаэль «Автопортрет»/«Дама с единорогом», Рембрандт, Ван Дейк, Рокотов/Левицкий, Серов — соотнеси с репродукциями на слайде</div></div>
-</section><div id="q-39"></div>
-<section class="slide" data-i="39">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 2 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Соотнесите вид портрета с изображением:</div>
-  <div class="pics"><img class="qimg" src="../_картинки/b77885a19161063b.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/434415d69897085a.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/642b4013281391e8.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/c378499160149d69.png" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Соотнеси:</b><ul><li></li><li></li><li></li><li></li></ul><p>Варианты ответов: Парадный, Парсуна, Автопортрет, Камерный</p></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Соотнесите вид портрета с изображением: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: парадный — в рост, на фоне дворца; камерный — погрудный, домашний; групповой — несколько фигур; автопортрет — художник сам</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">парадный — в рост, на фоне дворца</div><div class="ans-line">камерный — погрудный, домашний</div><div class="ans-line">групповой — несколько фигур</div><div class="ans-line">автопортрет — художник сам</div></div>
-</section><div id="q-40"></div>
-<section class="slide" data-i="40">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 3 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">В изобразительном искусстве Византии огромное место занимает искусство мозаики. Средневековая мозаика украшает стены церковных и светских зданий. Сделанные из разноцветных кусочков смальты изображения мерцают, вспыхивают и переливаются. Что же такое смальта?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>камерный портрет</li><li>портрет из керамики</li><li>цветное стекло</li><li>портрет из камня</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: В изобразительном искусстве Византии огромное место занимает искусство мозаики. Средневековая мозаика украшает стены церковных и светских зданий. Сделанные из разноцветных кусочков смальты изображения мерцают, вспыхивают… Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: цветное стекло</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">цветное стекло</div></div>
-</section><div id="q-41"></div>
-<section class="slide" data-i="41">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 4 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как можно перевести слово портрет?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Лицо</li><li>Человек</li><li>Извлечение сущности</li><li>Идеал эпохи</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как можно перевести слово портрет? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Извлечение сущности</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Извлечение сущности</div></div>
-</section><div id="q-42"></div>
-<section class="slide" data-i="42">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 5 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Портрет художника или скульптора, выполненный им самим?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>портрет настроение</li><li>парадный портрет</li><li>автопортрет</li><li>камерный портрет</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Портрет художника или скульптора, выполненный им самим? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: автопортрет</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">автопортрет</div></div>
-</section><div id="q-43"></div>
-<section class="slide" data-i="43">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 6 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Жанр изобразительного искусства, который показывает общественное положение (как правило, в полный рост, фигура обычно даётся на архитектурном или пейзажном фоне)</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Парадный<br>портрет</li><li>Камерный портрет</li><li>Архитектурный<br>портрет</li><li>Городской<br>пейзаж</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Жанр изобразительного искусства, который показывает общественное положение (как правило, в полный рост, фигура обычно даётся на архитектурном или пейзажном фоне) Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Парадный портрет</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Парадный портрет</div></div>
-</section><div id="q-44"></div>
-<section class="slide" data-i="44">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 7 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется портрет, на котором художник изображает несколько главных персонажей?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>камерный портрет</li><li>портрет настроение</li><li>парадный портрет</li><li>групповой портрет</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется портрет, на котором художник изображает несколько главных персонажей? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: групповой портрет</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">групповой портрет</div></div>
-</section><div id="q-45"></div>
-<section class="slide" data-i="45">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 8 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Индивидуальный и внутренний мир натурщика более всего отражается в каком жанре портрета?</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>Камерный портрет</li><li>Исторический портрет</li><li>Парадный портрет</li><li>Скульптурный портрет</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Индивидуальный и внутренний мир натурщика более всего отражается в каком жанре портрета? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Камерный портрет</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Камерный портрет</div></div>
-</section><div id="q-46"></div>
-<section class="slide" data-i="46">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 9 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Разворот головы персонажа в «профиль» - это:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>вид пол оборота</li><li>вид три четверти</li><li>вид спереди</li><li>вид сбоку</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Разворот головы персонажа в «профиль» - это: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: вид сбоку</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">вид сбоку</div></div>
-</section><div id="q-47"></div>
-<section class="slide" data-i="47">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 10 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Разворот головы персонажа в «фас» - это:</div>
-  
-  
-  <div class="opts"><b>Варианты:</b><ul><li>вид спереди</li><li>вид пол оборота</li><li>вид сбоку</li><li>вид три четверти</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Разворот головы персонажа в «фас» - это: Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: вид спереди</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">вид спереди</div></div>
-</section><div id="q-48"></div>
-<section class="slide" data-i="48">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 11 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">С использованием каких графических материалов нарисован этот портрет?</div>
-  <div class="pics"><img class="qimg" src="../_картинки/27811be4ee905930.jpg" alt="рисунок из теста"></div>
-  
-  <div class="opts"><b>Варианты:</b><ul><li>акварель, карандаш</li><li>масло</li><li>сангина, уголь</li></ul></div>
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: С использованием каких графических материалов нарисован этот портрет? Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: сангина, уголь</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">сангина, уголь</div></div>
-</section><div id="q-49"></div>
-<section class="slide" data-i="49">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 12 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется вид портрета в египетском погребальном искусстве? Запишите ответ словом, соблюдая орфографию, например, Александрийский</div>
-  <div class="pics"><img class="qimg" src="../_картинки/f21fccc7aed77012.png" alt="рисунок из теста"></div>
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется вид портрета в египетском погребальном искусстве? Запишите ответ словом, соблюдая орфографию, например, Александрийский Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: Фаюмский</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">Фаюмский</div></div>
-</section><div id="q-50"></div>
-<section class="slide" data-i="50">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 13 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Как называется соотношение величин частей, составляющих одно целое? Например, соотношение частей головы натуры на портрете.Запиши ответ одним словом в именительном падеже и в единственном числе.</div>
-  <div class="pics"><img class="qimg" src="../_картинки/6b87be813fa4c3b1.png" alt="рисунок из теста"></div>
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Как называется соотношение величин частей, составляющих одно целое? Например, соотношение частей головы натуры на портрете.Запиши ответ одним словом в именительном падеже и в единственном числе. Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: пропорция</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">пропорция</div></div>
-</section><div id="q-51"></div>
-<section class="slide" data-i="51">
-  <div class="themebar" style="background:#c23b6e">🎨 Картины и жанры</div>
-  <div class="top">изо · Тест 4 Изобразительное Искусство · вопрос 14 из 14</div>
-  <h2>Вопрос</h2>
-  <div class="q">Какими могут быть источники света в изобразительном искусстве?:(Запишите ответ цифрами без пробелов и запятых в порядке возрастания, например - 1234)1 - яркий, 2 - искусственный, 3 - ночной, 4 – утренний, 5 - ясный, 6 - темный, 7 - естественный</div>
-  
-  
-  
-  <h3>Запомни</h3>
-  <p class="memo">Запомни суть: Какими могут быть источники света в изобразительном искусстве?:(Запишите ответ цифрами без пробелов и запятых в порядке возрастания, например - 1234)1 - яркий, 2 - искусственный, 3 - ночной, 4 – утренний, 5 - ясный, 6 - … Правильный ответ в тесте нужно выбирать в том же виде, как ниже. Коротко: 27</p>
-  <h3>Ответ в формате теста</h3>
-  <div class="ans"><div class="ans-line">27</div></div>
-</section>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Соотнесите картину с видом изобразительного искусства:1. (1) 2. (2) 3. (3)</div>
+      <div class="pics"><img class="qimg" src="../_картинки/06c708649a109ae5.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/21f96aa6b1023104.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/4636409ee2624d8a.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>Графика</option><option>Живопись</option><option>Гравюра</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>Графика</option><option>Живопись</option><option>Гравюра</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>Графика</option><option>Живопись</option><option>Гравюра</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Живопись</div><div class="ans-line">Графика</div><div class="ans-line">Гравюра</div></div>
+      <p class="why">потому что в пропуски ставится: Живопись; Графика; Гравюра.</p>
+    </div>
+  </div>
 </div>
-<script>
-const slides = [...document.querySelectorAll('.slide')];
-let i = 0;
-const show = (n) => {
-  i = Math.max(0, Math.min(slides.length-1, n));
-  slides.forEach((s, k) => s.style.display = k===i ? 'block' : 'none');
-  document.getElementById('pos').textContent = (i+1) + ' / ' + slides.length;
-  slides[i].scrollIntoView({block:'start'});
-};
-document.getElementById('prev').onclick = () => show(i-1);
-document.getElementById('next').onclick = () => show(i+1);
-document.getElementById('all').onclick = () => slides.forEach(s => s.style.display='block');
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight' || e.key === 'PageDown') show(i+1);
-  if (e.key === 'ArrowLeft' || e.key === 'PageUp') show(i-1);
-});
-show(0);
-</script>
-</body></html>
+<div class="que multichoice deferredfeedback" id="q-2">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назови основные виды изобразительного искусства.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>рисунок</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>скульптура</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>графика</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>живопись</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>мозайка</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">скульптура</div><div class="ans-line">графика</div><div class="ans-line">живопись</div></div>
+      <p class="why">потому что скульптура; графика; живопись.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-3">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какой из представленных жанров не относится к изобразительному искусству:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Лиричный</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Бытовой</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Мифологический</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Батальный</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Лиричный</div></div>
+      <p class="why">потому что Какой из представленных жанров не относится к изобразительному искусству: = Лиричный.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-4">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Один из видов изобразительного искусства, главным языком которого является линия, а роль цвета ограничена.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>живопись</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>графика</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>скульптура</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>ДПИ</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">графика</div></div>
+      <p class="why">потому что Один из видов изобразительного искусства, главным языком которого является линия, а роль цвета ограничена = графика.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-5">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется самое светлое место на предмете, куда падает наиболее короткий и прямой луч света</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Тон</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Отражение</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Рефлекс</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Блик</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Блик</div></div>
+      <p class="why">потому что Как называется самое светлое место на предмете, куда падает наиболее короткий и прямой луч света = Блик.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-6">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Живопись одним цветом, чаще всего серым.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Гризайль</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>силуэт</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>монотипия</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>акварель</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Гризайль</div></div>
+      <p class="why">потому что Живопись одним цветом, чаще всего серым = Гризайль.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-7">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Что не является графическим материалом?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>карандаш</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>тушь</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>гуашь</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>пастель</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">гуашь</div></div>
+      <p class="why">потому что Что не является графическим материалом = гуашь.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-8">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называются цвета, получаемые при смешивании основных цветов попарно в равных долях (получаются оранжевый, зелёный и фиолетовый)</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Дополнительные</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Колористика</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Оттенки</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Составные</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Составные</div></div>
+      <p class="why">потому что Как называются цвета, получаемые при смешивании основных цветов попарно в равных долях (получаются оранжевый, зелёный и фиолетовый) = Составные.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-9">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Что относится к выразительным средствам живописи:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>штрих</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>цвет</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>линия</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>тектоника</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">цвет</div></div>
+      <p class="why">потому что Что относится к выразительным средствам живописи: = цвет.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoiceset deferredfeedback" id="q-10">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие материалы не относятся к графическим?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один или несколько ответов:</div><div class="answer"><div class="r0"><input type="checkbox" disabled> <span class="answernumber">a. </span><label>сангина</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">b. </span><label>цветные карандаши</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">c. </span><label>уголь</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">d. </span><label>масло</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">e. </span><label>тушь</label></div><div class="r1"><input type="checkbox" disabled> <span class="answernumber">f. </span><label>пастель</label></div><div class="r0"><input type="checkbox" disabled> <span class="answernumber">g. </span><label>темпера</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">масло</div><div class="ans-line">темпера</div></div>
+      <p class="why">потому что масло; темпера.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-11">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какой художественный материал легко стереть тряпкой, поэтому необходимо закреплять на поверхности бумаги специальным лакомЗапишите ответ словом, соблюдая орфографию, например, акварель</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">уголь</div></div>
+      <p class="why">потому что уголь.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-12">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется в изобразительном искусстве способ передачи объёма предмета с помощью теней и света и важнейшее средство выразительности?Запишите ответ словом строчными буквами, например, цвет</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">светотень</div></div>
+      <p class="why">потому что светотень.</p>
+    </div>
+  </div>
+</div>
+<div class="que truefalse deferredfeedback" id="q-13">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Рассмотри картинку и, на основе изображения, скажи, верно ли утверждение:"Тон - это характеристика света в изображении, тон показывает нам степень освещенности".</div>
+      <div class="pics"><img class="qimg" src="../_картинки/a20c7c9e96ba556b.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>Верно</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>Неверно</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Верно</div></div>
+      <p class="why">потому что Верно.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 2 Изобразительное Искусство</h3>
+<div class="que gapselect deferredfeedback" id="q-14">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Соотнесите материал с видом изобразительного искусства:(1) -акварель, гуашь, темпера, масло(2) -карандаш, мелки, фломастеры, ручки, тушь, перо(3) -глина, гипс, дерево, металл, камень</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите правильный ответ:</div><p>(1) <select class="custom-select" disabled><option>Выберите...</option><option>Графика</option><option>Живопись</option><option>Скульптура</option></select></p><p>(2) <select class="custom-select" disabled><option>Выберите...</option><option>Графика</option><option>Живопись</option><option>Скульптура</option></select></p><p>(3) <select class="custom-select" disabled><option>Выберите...</option><option>Графика</option><option>Живопись</option><option>Скульптура</option></select></p></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Живопись</div><div class="ans-line">Графика</div><div class="ans-line">Скульптура</div></div>
+      <p class="why">потому что в пропуски ставится: Живопись; Графика; Скульптура.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-15">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Соотнесите изображение с видом скульптуры:</div>
+      <div class="pics"><img class="qimg" src="../_картинки/c114086ffa2b25e7.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/0a7755b83e132f25.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/741f36ef2dcf4ec6.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><table class="answer match"><tr class="r0"><td class="text"></td><td></td></tr><tr class="r1"><td class="text"></td><td></td></tr><tr class="r0"><td class="text"></td><td></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line"> — Станковая скульптура</div><div class="ans-line"> — Декоративная скульптура</div><div class="ans-line"> — Монументальная скульптура</div></div>
+      <p class="why">потому что — это Станковая скульптура; — это Декоративная скульптура; — это Монументальная скульптура.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-16">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие цвета называют ахроматическими?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Цветные</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Черный и белый</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Яркие</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Основные</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Черный и белый</div></div>
+      <p class="why">потому что Какие цвета называют ахроматическими = Черный и белый.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-17">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Основы выразительности скульптуры:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>блик</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>цвет</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>колорит</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>пластика</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>штрих</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">пластика</div></div>
+      <p class="why">потому что Основы выразительности скульптуры: = пластика.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-18">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Произведения, какого вида искусства имеют объём</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>графика</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>скульптура</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>иллюстрация</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>живопись</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">скульптура</div></div>
+      <p class="why">потому что Произведения, какого вида искусства имеют объём = скульптура.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-19">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какие материалы использует скульптор в своей работе:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>темпера, металл, лед</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>камень, дерево, металл</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>дерево, ткань, стекло</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>акрил, камень, лен</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">камень, дерево, металл</div></div>
+      <p class="why">потому что Какие материалы использует скульптор в своей работе: = камень, дерево, металл.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-20">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Художественное произведение, повторяющее другое.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>репродукция</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>оригинал</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>подлинник</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Копия</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Копия</div></div>
+      <p class="why">потому что Художественное произведение, повторяющее другое = Копия.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-21">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В каком виде искусства НЕ встречается жанр натюрморта?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Графика</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Скульптура</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Архитектура</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Живопись</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Архитектура</div></div>
+      <p class="why">потому что В каком виде искусства НЕ встречается жанр натюрморта = Архитектура.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-22">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется жанр изобразительного искусства, в котором изображают неодушевлённые предметы, организованные в группу?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Живопись</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Натюрморт</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Пейзаж</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Портрет</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Натюрморт</div></div>
+      <p class="why">потому что Как называется жанр изобразительного искусства, в котором изображают неодушевлённые предметы, организованные в группу = Натюрморт.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-23">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Этот рисунок стал «Символом мира», принадлежит знаменитому художнику:</div>
+      <div class="pics"><img class="qimg" src="../_картинки/a5f5879b5c466e05.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>И. Репин</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>А. Матис</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Караваджо</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>П. Пикассо</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">П. Пикассо</div></div>
+      <p class="why">потому что Этот рисунок стал «Символом мира», принадлежит знаменитому художнику: = П. Пикассо.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-24">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назовите фамилию художника, создателя первого натюрморта в истории изобразительного искусства? Запишите ответ словом, соблюдая орфографию, например, Иванов</div>
+      <div class="pics"><img class="qimg" src="../_картинки/8f60d72887a8610c.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Караваджо</div></div>
+      <p class="why">потому что Назовите фамилию художника, создателя первого натюрморта в истории изобразительного искусства? Запишите ответ словом, соблюдая орфографию, например, Иванов = Караваджо.</p>
+    </div>
+  </div>
+</div>
+<div class="que truefalse deferredfeedback" id="q-25">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Верно ли утверждение:"Пространственные виды искусства обладают видимой формой и связаны с материальной средой, обликом людей и предметов"</div>
+      
+      
+      <div class="ablock"><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber"></span><label>Верно</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber"></span><label>Неверно</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Верно</div></div>
+      <p class="why">потому что Верно ли утверждение:"Пространственные виды искусства обладают видимой формой и связаны с материальной средой, обликом людей и предметов" = Верно.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 3 Изобразительное Искусство</h3>
+<div class="que match deferredfeedback" id="q-26">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно рассмотри рисунок. Надпиши название терминов, которые на рисунке обозначены цифрами. Эти термины имеют отношение "Свет и тень".</div>
+      <div class="pics"><img class="qimg" src="../_картинки/4e0f75d0a1ac3bae.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: полутень; рефлекс; свет; собственная тень; блик; падающая тень; фон</div><table class="answer match"><tr class="r0"><td class="text">5</td><td><select class="custom-select" disabled><option>Выберите...</option><option>полутень</option><option>рефлекс</option><option>свет</option><option>собственная тень</option><option>блик</option><option>падающая тень</option><option>фон</option></select></td></tr><tr class="r1"><td class="text">6</td><td><select class="custom-select" disabled><option>Выберите...</option><option>полутень</option><option>рефлекс</option><option>свет</option><option>собственная тень</option><option>блик</option><option>падающая тень</option><option>фон</option></select></td></tr><tr class="r0"><td class="text">7</td><td><select class="custom-select" disabled><option>Выберите...</option><option>полутень</option><option>рефлекс</option><option>свет</option><option>собственная тень</option><option>блик</option><option>падающая тень</option><option>фон</option></select></td></tr><tr class="r1"><td class="text">3</td><td><select class="custom-select" disabled><option>Выберите...</option><option>полутень</option><option>рефлекс</option><option>свет</option><option>собственная тень</option><option>блик</option><option>падающая тень</option><option>фон</option></select></td></tr><tr class="r0"><td class="text">2</td><td><select class="custom-select" disabled><option>Выберите...</option><option>полутень</option><option>рефлекс</option><option>свет</option><option>собственная тень</option><option>блик</option><option>падающая тень</option><option>фон</option></select></td></tr><tr class="r1"><td class="text">4</td><td><select class="custom-select" disabled><option>Выберите...</option><option>полутень</option><option>рефлекс</option><option>свет</option><option>собственная тень</option><option>блик</option><option>падающая тень</option><option>фон</option></select></td></tr><tr class="r0"><td class="text">1</td><td><select class="custom-select" disabled><option>Выберите...</option><option>полутень</option><option>рефлекс</option><option>свет</option><option>собственная тень</option><option>блик</option><option>падающая тень</option><option>фон</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">1 — блик</div><div class="ans-line">2 — свет</div><div class="ans-line">3 — полутень (полутон)</div><div class="ans-line">4 — собственная тень</div><div class="ans-line">5 — рефлекс</div><div class="ans-line">6 — падающая тень</div><div class="ans-line">7 — фон / граница света и тени — смотри цифры на схеме мяча/кувшина</div></div>
+      <p class="why">потому что 1 — это блик; 2 — это свет; 3 — это полутень (полутон); 4 — это собственная тень; 5 — это рефлекс; 6 — это падающая тень; 7 — это фон / граница света и тени — смотри цифры на схеме мяча/кувшина.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-27">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Соотнесите натюрморт с техникой изображения:</div>
+      <div class="pics"><img class="qimg" src="../_картинки/f1b563e6c3ccb5a2.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/f7100490f3c60c9c.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/63cb150787c9278f.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/72017ac4c9698787.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: Гризайль; Тушь; Акварель; Гравюра</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гризайль</option><option>Тушь</option><option>Акварель</option><option>Гравюра</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гризайль</option><option>Тушь</option><option>Акварель</option><option>Гравюра</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гризайль</option><option>Тушь</option><option>Акварель</option><option>Гравюра</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Гризайль</option><option>Тушь</option><option>Акварель</option><option>Гравюра</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">акварель — прозрачные заливки</div><div class="ans-line">гуашь / темпера — плотные кроющие пятна</div><div class="ans-line">графика (карандаш/уголь) — штрих</div><div class="ans-line">масло — пастозный мазок</div></div>
+      <p class="why">потому что акварель — это прозрачные заливки; гуашь / темпера — это плотные кроющие пятна; графика (карандаш/уголь) — это штрих; масло — это пастозный мазок.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-28">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Назови конструктивные виды искусства.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>живопись</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>архитектура</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>дизайн</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>графика</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>народные промыслы</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">архитектура</div><div class="ans-line">дизайн</div></div>
+      <p class="why">потому что архитектура; дизайн.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-29">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">При сравнении окружающих предметов с геометрическими фигурами, художник получает информацию об их:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>колорите</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>цвете</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>форме</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>размере</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">форме</div></div>
+      <p class="why">потому что При сравнении окружающих предметов с геометрическими фигурами, художник получает информацию об их: = форме.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-30">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как переводится слово конструкция?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Взаимное расположение частей предмета, их соотношение</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Композиция</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Геометрическое тело</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Геометрические<br>фигуры разной величины</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Взаимное расположение частей предмета, их соотношение</div></div>
+      <p class="why">потому что Как переводится слово конструкция = Взаимное расположение частей предмета, их соотношение.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-31">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Под светотенью следует понимать?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Тень, уходящая в глубину</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Способ передачи объёма предмета с помощью теней и света</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Световое отражение предметов</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Отражение света от поверхности одного предмета в затенённой части другого</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Способ передачи объёма предмета с помощью теней и света</div></div>
+      <p class="why">потому что Под светотенью следует понимать = Способ передачи объёма предмета с помощью теней и света.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-32">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">К какому виду искусства относятся картины, созданные карандашом, тушью, углём и пастелью?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Живопись</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Графика</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Эскиз</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Гравюра</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Графика</div></div>
+      <p class="why">потому что К какому виду искусства относятся картины, созданные карандашом, тушью, углём и пастелью = Графика.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-33">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Основной цвет какого-либо предмета носит название:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>теплый</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>составной</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>основной</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>локальный</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">локальный</div></div>
+      <p class="why">потому что Основной цвет какого-либо предмета носит название: = локальный.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-34">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Перечисли основные (первичные) цвета.</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>красный</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>белый</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>синий</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>желтый</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">e. </span><label>зеленый</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">красный</div><div class="ans-line">синий</div><div class="ans-line">желтый</div></div>
+      <p class="why">потому что красный; синий; желтый.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-35">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Многие художники повторяют произведения «Великих мастеров», как называется такое произведение?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Тираж</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Подделка</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Копия</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Список</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Копия</div></div>
+      <p class="why">потому что Многие художники повторяют произведения «Великих мастеров», как называется такое произведение = Копия.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-36">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">При создании портрета, главной задачей художника является:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Передача внутреннего мира портретируемого</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Приукрашивание натурщика</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Обыкновенное копирование внешности портретируемого - одежда, прическа,украшения</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Отражение внутреннего и внешнего мира портретируемого</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Отражение внутреннего и внешнего мира портретируемого</div></div>
+      <p class="why">потому что При создании портрета, главной задачей художника является: = Отражение внутреннего и внешнего мира портретируемого.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-37">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется вид рисунка, главной целью которого является обучение изобразительной грамоте, освоению формы предмета и правилам ее построения? Запишите ответ словом, соблюдая орфографию, например, Творческий</div>
+      <div class="pics"><img class="qimg" src="../_картинки/d7bbda828fdb9612.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Учебный</div></div>
+      <p class="why">потому что Учебный.</p>
+    </div>
+  </div>
+</div><h3 class="quizname">Тест 4 Изобразительное Искусство</h3>
+<div class="que match deferredfeedback" id="q-38">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">1</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Внимательно рассмотри репродукции, вспомни кто написал эти портреты.</div>
+      <div class="pics"><img class="qimg" src="../_картинки/580e2c51f24bf5e1.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/267811fcc8330392.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/c2c761b0d7c75df1.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/b1b05b2a607a3540.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/6504ff2391b8e526.jpg" alt="рисунок из теста"><img class="qimg" src="../_картинки/59a96062721a1f97.jpg" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: О. Ренуар; В.А.Серов; И.Е.Репин; Рембрандт; А.Архипов; Л.да Винчи</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>О. Ренуар</option><option>В.А.Серов</option><option>И.Е.Репин</option><option>Рембрандт</option><option>А.Архипов</option><option>Л.да Винчи</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>О. Ренуар</option><option>В.А.Серов</option><option>И.Е.Репин</option><option>Рембрандт</option><option>А.Архипов</option><option>Л.да Винчи</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>О. Ренуар</option><option>В.А.Серов</option><option>И.Е.Репин</option><option>Рембрандт</option><option>А.Архипов</option><option>Л.да Винчи</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>О. Ренуар</option><option>В.А.Серов</option><option>И.Е.Репин</option><option>Рембрандт</option><option>А.Архипов</option><option>Л.да Винчи</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>О. Ренуар</option><option>В.А.Серов</option><option>И.Е.Репин</option><option>Рембрандт</option><option>А.Архипов</option><option>Л.да Винчи</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>О. Ренуар</option><option>В.А.Серов</option><option>И.Е.Репин</option><option>Рембрандт</option><option>А.Архипов</option><option>Л.да Винчи</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Типично: Леонардо «Мона Лиза», Рафаэль «Автопортрет»/«Дама с единорогом», Рембрандт, Ван Дейк, Рокотов/Левицкий, Серов — соотнеси с репродукциями на слайде</div></div>
+      <p class="why">потому что Типично: Леонардо «Мона Лиза», Рафаэль «Автопортрет»/«Дама с единорогом», Рембрандт, Ван Дейк, Рокотов/Левицкий, Серов — это соотнеси с репродукциями на слайде.</p>
+    </div>
+  </div>
+</div>
+<div class="que match deferredfeedback" id="q-39">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">2</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Соотнесите вид портрета с изображением:</div>
+      <div class="pics"><img class="qimg" src="../_картинки/b77885a19161063b.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/434415d69897085a.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/642b4013281391e8.png" alt="рисунок из теста"><img class="qimg" src="../_картинки/c378499160149d69.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Варианты: Парадный; Парсуна; Автопортрет; Камерный</div><table class="answer match"><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Парадный</option><option>Парсуна</option><option>Автопортрет</option><option>Камерный</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Парадный</option><option>Парсуна</option><option>Автопортрет</option><option>Камерный</option></select></td></tr><tr class="r0"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Парадный</option><option>Парсуна</option><option>Автопортрет</option><option>Камерный</option></select></td></tr><tr class="r1"><td class="text"></td><td><select class="custom-select" disabled><option>Выберите...</option><option>Парадный</option><option>Парсуна</option><option>Автопортрет</option><option>Камерный</option></select></td></tr></table></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">парадный — в рост, на фоне дворца</div><div class="ans-line">камерный — погрудный, домашний</div><div class="ans-line">групповой — несколько фигур</div><div class="ans-line">автопортрет — художник сам</div></div>
+      <p class="why">потому что парадный — это в рост, на фоне дворца; камерный — это погрудный, домашний; групповой — это несколько фигур; автопортрет — это художник сам.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-40">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">3</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">В изобразительном искусстве Византии огромное место занимает искусство мозаики. Средневековая мозаика украшает стены церковных и светских зданий. Сделанные из разноцветных кусочков смальты изображения мерцают, вспыхивают и переливаются. Что же такое смальта?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>камерный портрет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>портрет из керамики</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>цветное стекло</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>портрет из камня</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">цветное стекло</div></div>
+      <p class="why">потому что цветное стекло.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-41">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">4</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как можно перевести слово портрет?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Лицо</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Человек</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Извлечение сущности</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Идеал эпохи</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Извлечение сущности</div></div>
+      <p class="why">потому что Как можно перевести слово портрет = Извлечение сущности.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-42">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">5</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Портрет художника или скульптора, выполненный им самим?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>портрет настроение</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>парадный портрет</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>автопортрет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>камерный портрет</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">автопортрет</div></div>
+      <p class="why">потому что Портрет художника или скульптора, выполненный им самим = автопортрет.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-43">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">6</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Жанр изобразительного искусства, который показывает общественное положение (как правило, в полный рост, фигура обычно даётся на архитектурном или пейзажном фоне)</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Парадный<br>портрет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Камерный портрет</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Архитектурный<br>портрет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Городской<br>пейзаж</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Парадный портрет</div></div>
+      <p class="why">потому что Парадный портрет.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-44">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">7</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется портрет, на котором художник изображает несколько главных персонажей?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>камерный портрет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>портрет настроение</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>парадный портрет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>групповой портрет</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">групповой портрет</div></div>
+      <p class="why">потому что Как называется портрет, на котором художник изображает несколько главных персонажей = групповой портрет.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-45">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">8</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Индивидуальный и внутренний мир натурщика более всего отражается в каком жанре портрета?</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>Камерный портрет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>Исторический портрет</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>Парадный портрет</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>Скульптурный портрет</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Камерный портрет</div></div>
+      <p class="why">потому что Индивидуальный и внутренний мир натурщика более всего отражается в каком жанре портрета = Камерный портрет.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-46">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">9</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Разворот головы персонажа в «профиль» - это:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>вид пол оборота</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>вид три четверти</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>вид спереди</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>вид сбоку</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">вид сбоку</div></div>
+      <p class="why">потому что Разворот головы персонажа в «профиль» - это: = вид сбоку.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-47">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">10</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Разворот головы персонажа в «фас» - это:</div>
+      
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>вид спереди</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>вид пол оборота</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>вид сбоку</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">d. </span><label>вид три четверти</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">вид спереди</div></div>
+      <p class="why">потому что Разворот головы персонажа в «фас» - это: = вид спереди.</p>
+    </div>
+  </div>
+</div>
+<div class="que multichoice deferredfeedback" id="q-48">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">11</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">С использованием каких графических материалов нарисован этот портрет?</div>
+      <div class="pics"><img class="qimg" src="../_картинки/27811be4ee905930.jpg" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><div class="prompt">Выберите один ответ:</div><div class="answer"><div class="r0"><input type="radio" disabled> <span class="answernumber">a. </span><label>акварель, карандаш</label></div><div class="r1"><input type="radio" disabled> <span class="answernumber">b. </span><label>масло</label></div><div class="r0"><input type="radio" disabled> <span class="answernumber">c. </span><label>сангина, уголь</label></div></div></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">сангина, уголь</div></div>
+      <p class="why">потому что С использованием каких графических материалов нарисован этот портрет = сангина, уголь.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-49">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">12</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется вид портрета в египетском погребальном искусстве? Запишите ответ словом, соблюдая орфографию, например, Александрийский</div>
+      <div class="pics"><img class="qimg" src="../_картинки/f21fccc7aed77012.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">Фаюмский</div></div>
+      <p class="why">потому что Как называется вид портрета в египетском погребальном искусстве? Запишите ответ словом, соблюдая орфографию, например, Александрийский = Фаюмский.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-50">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">13</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Как называется соотношение величин частей, составляющих одно целое? Например, соотношение частей головы натуры на портрете.Запиши ответ одним словом в именительном падеже и в единственном числе.</div>
+      <div class="pics"><img class="qimg" src="../_картинки/6b87be813fa4c3b1.png" alt="рисунок из теста"></div>
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">пропорция</div></div>
+      <p class="why">потому что пропорция.</p>
+    </div>
+  </div>
+</div>
+<div class="que shortanswer deferredfeedback" id="q-51">
+  <div class="info">
+    <h3 class="no"><span class="accesshide">Вопрос </span><span class="qno">14</span></h3>
+    <div class="state">Не завершено</div>
+    <div class="grade">Баллов: 1,00</div>
+  </div>
+  <div class="content">
+    <div class="formulation">
+      <div class="qtext">Какими могут быть источники света в изобразительном искусстве?:(Запишите ответ цифрами без пробелов и запятых в порядке возрастания, например - 1234)1 - яркий, 2 - искусственный, 3 - ночной, 4 – утренний, 5 - ясный, 6 - темный, 7 - естественный</div>
+      
+      
+      <div class="ablock"><label>Ответ: </label><input type="text" disabled size="18"></div>
+    </div>
+    <div class="comment">
+      <div class="rightanswer"><div class="ans-line">27</div></div>
+      <p class="why">потому что 27.</p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</body>
+</html>
